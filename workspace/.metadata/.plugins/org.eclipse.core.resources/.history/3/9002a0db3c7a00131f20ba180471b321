@@ -1,0 +1,64 @@
+
+
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
+
+
+@SuppressWarnings("serial")
+public class ml extends JPanel implements MouseListener {
+
+	Main m;
+	SurfacePanel s;
+	Point p;
+	Point p2;
+	
+    public ml(Main mm, SurfacePanel ss) {
+    	m=mm;
+    	s=ss;
+    	
+        m.addMouseListener(this);
+        addMouseListener(this);
+    }
+    
+    void eventOutput(String eventDescription, MouseEvent e) {
+        System.out.println(eventDescription + " detected on "
+                + e.getComponent().getClass().getName()
+                + ".");
+    }
+    
+    public void mousePressed(MouseEvent e) {
+    	
+    	if(e.getButton() == MouseEvent.BUTTON3) { //Right Click - Pause
+    		if(s.paused ) { s.paused = false; } else { s.paused = true; }
+    	}
+    	
+    	if(e.getButton() == MouseEvent.BUTTON1) { //Left Click - Place
+    		p = MouseInfo.getPointerInfo().getLocation();
+    		p2 = m.getLocation();
+    		int mx =p.x-p2.x-2;
+    		int my =p.y-p2.y-30;
+    		//s.a.seed(mx, my, 0, 1);
+    		s.a.placeLine(mx-8, my, 0, 1, 64, false, true, 1);
+    	}
+    	
+    }
+    
+    public void mouseReleased(MouseEvent e) {
+    	
+    }
+    
+    public void mouseEntered(MouseEvent e) {
+
+    }
+    
+    public void mouseExited(MouseEvent e) {
+
+    }
+    
+    public void mouseClicked(MouseEvent e) {
+
+    }
+}

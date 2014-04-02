@@ -1,0 +1,102 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.Random;
+
+import javax.swing.JPanel;
+
+
+@SuppressWarnings("serial")
+public class SurfacePanel extends JPanel {
+
+	int xx;
+	int yy;
+	int zz;
+	
+    int col1 = 0;
+    int col2 = 0;
+    int col3 = 0; //RGB colour ints
+    
+    Random r = new Random(); //for testing, never use rand here
+    Universe u; //main logic container
+    
+    float[] floats = new float[3]; //holds rgb -> hsb conversion vals  
+
+    
+    private void doDrawing(Graphics g) { //main display output
+    	
+    	updateUniverse();
+    	
+        Graphics2D g2d = (Graphics2D) g; //some sort of magic
+
+        for (int i = 0; i < xx; i++) {
+            for (int j = 0; j < yy; j++) {
+				for (int k = 0; k < zz; k++) {
+					
+					if(u.universe[i][j][k] == 0) {col1 = 255;}
+					if(u.universe[i][j][k] > 0) {col1 = 255-(255*(u.universe[i][j][k]/u.maxVal));} // rgbmax - ( rgbmax * (val/maxval) )
+					
+					col2 = col1;
+					col3 = col1;
+					
+					if(u.universe[i][j][k] < 0) {col2 = 0; col3 = 0;}
+					
+	                floats = Color.RGBtoHSB(col1, col2, col3, floats);
+	                g2d.setColor(Color.getHSBColor(floats[0],floats[1],floats[2]));//(Color.blue);
+	                
+	                g2d.drawLine(i,j,i,j);
+	                
+				}
+            }
+        }
+
+        repaint();
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        doDrawing(g);
+    }
+    
+    
+    
+    public SurfacePanel(int myX, int myY, int myZ) { //constructor
+    	
+    	xx=myX;
+    	yy=myY;
+    	zz=myZ;
+    	
+    	u = new Universe(xx, yy, zz);
+    	
+    	u.resetAr(xx, yy, zz, 0);
+    	
+    	runOnce();
+    	
+    }
+    
+    
+    private void runOnce() {
+    	pissRandomly(8);
+    }
+    	
+    
+    private void updateUniverse() { //handles universal calculations
+    	
+    	
+    	
+    }
+    
+    
+    private void pissRandomly(int halfRand){ //reset each square to something random
+    	for(int i = 0; i < xx; i++) {
+			for (int j = 0; j < yy; j++) {
+				for (int k = 0; k < zz; k++) {
+					u.universe[i][j][k] = r.nextInt(halfRand*2)-(halfRand);
+					if(u.universe[i][j][k] > u.maxVal) {u.maxVal = u.universe[i][j][k];}
+				}
+			}
+		}
+    }
+    
+}

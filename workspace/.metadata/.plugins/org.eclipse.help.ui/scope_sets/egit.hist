@@ -1,0 +1,5 @@
+#Tue Apr 01 19:22:56 NZDT 2014
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=egit

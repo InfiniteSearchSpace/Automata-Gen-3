@@ -1,0 +1,20 @@
+
+public class dataSources {
+	
+	public int[] sourceOne;
+	
+	public dataSources() {
+		sourceOne = new int[] {0, 0, 1, 0 ,1 , 1, 0, 1, 1, 1,};
+	}
+	
+	public int readNext(int[] ds, int rh) {
+		int rVal = 0;
+		
+		if(readHead < ds.length) {
+			rVal = ds[rh];
+		}
+		
+		return rVal;
+	}
+	
+}

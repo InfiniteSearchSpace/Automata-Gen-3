@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.126+/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/.metadata/.plugins/org.eclipse.jdt.core
 392775124.index
 2426646370.index
@@ -13,3 +14,20 @@ INDEX VERSION 1.126+/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/.met
 2307328643.index
 2259717368.index
 1513993030.index
+=======
+INDEX VERSION 1.126+/home/pseudonym/Desktop/Omniscience-v1.6.2a/workspace/.metadata/.plugins/org.eclipse.jdt.core
+1259291233.index
+1513993030.index
+989528713.index
+2422600702.index
+3542660237.index
+2259717368.index
+392775124.index
+2307328643.index
+3900037835.index
+460152253.index
+3938652823.index
+2426646370.index
+3517443967.index
+2598035366.index
+>>>>>>> aabe90ec18af5c8528ab39ae955d8889ef25c811

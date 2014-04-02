@@ -1,5 +1,6 @@
 Automata-Gen-3
 ==============
+<<<<<<< HEAD
 'Main' can be used to call different automata functions from 'automataLib'
 
 Basic Use:
@@ -55,3 +56,7 @@ Category 4 is utility:
   3 = toggle automata calculations only
 
 Good luck, ha.
+=======
+
+The third revision of my cellular automata generator.
+>>>>>>> aabe90ec18af5c8528ab39ae955d8889ef25c811

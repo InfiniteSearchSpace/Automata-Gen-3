@@ -50,6 +50,8 @@ And the .11111111 means:
 
 For a Menu with 111100 only Universe 2 (the third surface) of 0-2 is updating graphics and automata calculations.
 
+==============
+
 Controls: Everything is controlled by the mouse.
 
 Left Click: Perform Current Subfunction from selected Category
@@ -59,18 +61,17 @@ Scroll Wheel: Cycle through current Subunctions from selected Function Category
 Special Left-Click Cases:
 
 In all Function Categories:
-  When Current Subfunction == 0, cycle through Z-axis for Current Universe
-  When Current Subfunction == 4, cycle through Function Category
+	When Current Subfunction == 0, cycle through Z-axis for Current Universe
+	When Current Subfunction == 4, cycle through Function Category
 
 Category 4, subfunction 1 will cycle through active surfaces.
 
-Category 0 - placing solid blocks
-Category 1 - placing random blocks
-Category 2 - setting blocks to 0 / "deleting"
-Category 3 - placing blocks with value 30 (this was for early testing, some functions cannot act on value 30 cells) 
-Category 4 is utility: 
-  1 = cycle active universe, 
-  2 = clear all, 
-  3 = toggle automata calculations only
+- Category 0 - placing solid blocks
+- Category 1 - placing random blocks
+- Category 2 - setting blocks to 0 / "deleting"
+- Category 3 - placing blocks with value 30 (this was for early testing, some functions cannot act on value 30 cells) 
 
-Good luck.
+- Category 4 is utility: 
+	1 = cycle active universe, 
+	2 = clear all, 
+	3 = toggle automata calculations only

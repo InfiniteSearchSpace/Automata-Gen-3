@@ -8,10 +8,6 @@ public class mwl implements MouseWheelListener{
 
 	//create containers for reference objects
 	Main m;
-	Surf[] s;
-	JLabel l;
-	Point p;
-	Point p2;
 	ml hisMouseListener;
 	
 	//constructor
@@ -22,11 +18,10 @@ public class mwl implements MouseWheelListener{
     	
         m.addMouseWheelListener(this);
     }
-
+    
+    //call function from ml class that changes the subfunction
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
-		// TODO Auto-generated method stub
-		//System.out.println(e);
 		hisMouseListener.mouseWheelScrolled(e.getWheelRotation());
 	}
     

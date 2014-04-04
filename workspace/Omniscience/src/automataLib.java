@@ -12,25 +12,20 @@ public class automataLib {
 	
 	int[][] instructions; //holds the actions to perform
 	
+	//constructor
 	public automataLib(Main mm) {
-		System.out.println("automataLib");
+		//System.out.println("automataLib");
 		m = mm;
-
-		
 	}
 	
+	//takes a universe and the dataSources object for writing
 	public void setTargetUni(Universe uu, dataSources dd) {
 		u=uu;
 		d=dd;
-		//System.out.println("Target Set: " + u + " " + d);
-	}
-	
-	public Universe getUni() {
-		return u;
 	}
 	
 	////////////////////////////////////////////
-	public void test(int xx, int yy, int zz){
+	public void warts2(int xx, int yy, int zz){
 		n = new neighbours(3);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH(1, -1, 0, 1);
@@ -323,23 +318,24 @@ public void goop(int xx, int yy, int zz){					//TEST
 	
 	public void Brownian(int xx, int yy, int zz, int rand){
 
-		n = new neighbours(6);
-		n.setNBH(-1, 0, 0, 0);
-		n.setNBH(0, -1, 0, 1);
-		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);
-		n.setNBH(0, 0, -1, 4);
-		n.setNBH(0, 0, 1, 5);
-		
-		int proc = r.nextInt(n.NBH.length);
-		
-		for(int i = 0; i < n.NBH.length; i++) {
-			if(proc == i) {
-				u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=u.snapshotUniverse[xx][yy][zz];
-				u.universe[xx][yy][zz]-=u.snapshotUniverse[xx][yy][zz];
+		if( r.nextInt(rand) == 0) {
+			n = new neighbours(6);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(0, 0, -1, 4);
+			n.setNBH(0, 0, 1, 5);
+			
+			int proc = r.nextInt(n.NBH.length);
+			
+			for(int i = 0; i < n.NBH.length; i++) {
+				if(proc == i) {
+					u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=u.snapshotUniverse[xx][yy][zz];
+					u.universe[xx][yy][zz]-=u.snapshotUniverse[xx][yy][zz];
+				}
 			}
 		}
-		
     }
 
 

@@ -21,11 +21,11 @@ public class ml extends JPanel implements MouseListener {
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
-	int myFunction = 4;  	//reference for current mouse function on click
-	int functionType = 5;	//Determines subclass of functions to execute, like a menu.
+	int myFunction = 1;  	//reference for current mouse function on click
+	int functionType = 0;	//Determines subclass of functions to execute, like a menu.
 	
-	int fcnt = myFunction;			//total number of mouse functions to iterate through
-	int fnctype = functionType;		//
+	int fcnt = 4;			//total number of mouse functions to iterate through
+	int fnctype = 5;		//tot number of function catagorys
 	
 	//constructor
     public ml(Main mm, Surf[] ss, JLabel ll) {
@@ -55,150 +55,144 @@ public class ml extends JPanel implements MouseListener {
     	int mx =(p.x - p2.x - 2 - s[sfcnum].getX());
     	int my =(p.y - p2.y - 24 - s[sfcnum].getY());
     	
-    	//When subfunction 0 is active, always scroll through z/depth of this surface
-    	if (myFunction == 0 && e.getButton() == MouseEvent.BUTTON1) {  
-			s[sfcnum].zdraw++;
-			s[sfcnum].zdraw = s[sfcnum].zdraw % s[sfcnum].zz;
-		}
+    	//Left Click
+    	 if(e.getButton() == MouseEvent.BUTTON1) {
     	
-    	
-    	//Function type/catagory 0's options
-    	if(functionType == 0) {
-    		if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //Place One
-        		s[sfcnum].u.a.seed(mx, my, s[sfcnum].zdraw, 1, 1);
-        	}
-    		
-    		if (myFunction ==  2 && e.getButton() == MouseEvent.BUTTON1) { //Place Block Small
-    	    	int num = 4;
-    			for(int i = 0; i < num*2; i++){
-    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
-    			}
-        	}
-    		
-    		if (myFunction ==  3 && e.getButton() == MouseEvent.BUTTON1) { //Place Block Big
-    	    	int num = 12;
-    			for(int i = 0; i < num*2; i++){
-    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
-    			}
-        	}
-    	}
-
-    	//Function type/catagory 1's options
-    	if(functionType == 1) {
-    		if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //chance block Light			
-    			int num = 16;
-    			for(int i = 0; i < num*2; i++){
-    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 64, mx+num, false, true, 1, 1);
-    	    	}
-    		}
-    		
-    		if (myFunction ==  2 && e.getButton() == MouseEvent.BUTTON1) { //chance block Heavy
-    			int num = 16;
-    			for(int i = 0; i < num*2; i++){
-    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 1);
-    	    	}
-    		}
-    		
-    		if (myFunction ==  3 && e.getButton() == MouseEvent.BUTTON1) { //Place Block Big
-    	    	int num = 24;
-    			for(int i = 0; i < num*2; i+=3){
-    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
-    			}
-        	}
-    	}
-    	
-    	//Function type/catagory 2's options
-    	if(functionType == 2) {
-    		if (myFunction == 1 && e.getButton() == MouseEvent.BUTTON1) { //delete one
-    			s[sfcnum].u.a.placeO(mx, my, s[sfcnum].zdraw);
-    		}
-    		
-    		if (myFunction ==  2 && e.getButton() == MouseEvent.BUTTON1) { //chance delete
-    			int num = 12;
-    			for(int i = 0; i < num*2; i++){
-    		    	s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 4, mx+num, false, true, 1);
-    		    }
-    		}
-    		
-    		if (myFunction ==  3 && e.getButton() == MouseEvent.BUTTON1) { //hard delete
-    			int num = 6;
-    			for(int i = 0; i < num*2; i++){
-    	    		s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1);
-    	    	}
-    		}
-    	}
-
-    	//Function type/catagory 3's options
-		if(functionType == 3) {
-			if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //chance block	
-				int num = 16;
-				for(int i = 0; i < num*2; i++){
-					s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 30);
-				}
+	    	//When subfunction 0 is active, always scroll through z/depth of this surface
+	    	if (myFunction == 0) {  
+				s[sfcnum].zdraw++;
+				s[sfcnum].zdraw = s[sfcnum].zdraw % s[sfcnum].zz;
 			}
-			
-			if (myFunction ==  2 && e.getButton() == MouseEvent.BUTTON1) { //chance block	
-				int num = 3;
-				for(int i = 0; i < num*2; i++){
-					s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 30);
-				}
-			}
-		}
+	    	
+	    	
+	    	//Function type/catagory 0's options
+	    	if(functionType == 0) {
+	    		if (myFunction ==  1) { //Place One
+	        		s[sfcnum].u.a.seed(mx, my, s[sfcnum].zdraw, 1, 1);
+	        	}
+	    		
+	    		if (myFunction ==  2) { //Place Block Small
+	    	    	int num = 4;
+	    			for(int i = 0; i < num*2; i++){
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
+	    			}
+	        	}
+	    		
+	    		if (myFunction ==  3) { //Place Block Big
+	    	    	int num = 12;
+	    			for(int i = 0; i < num*2; i++){
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
+	    			}
+	        	}
+	    	}
 	
-		//Function type/catagory 4's options
-		if(functionType == 4) {
-			if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //clear
-				sfcnum++;
-				sfcnum = sfcnum % sfcmax;
-			}
-			
-			if (myFunction ==  2 && e.getButton() == MouseEvent.BUTTON1) { //clear
-				s[sfcnum].u.resetArZ(0,s[sfcnum].zdraw);
-			}
-			
-			if (myFunction ==  3 && e.getButton() == MouseEvent.BUTTON1) { //clear
-				if(s[sfcnum].upaused == true) {
-					s[sfcnum].upaused = false;
-				}else{
-					s[sfcnum].upaused = true;
+	    	//Function type/catagory 1's options
+	    	if(functionType == 1) {
+	    		if (myFunction ==  1) { //chance block random Light			
+	    			int num = 16;
+	    			for(int i = 0; i < num*2; i++){
+	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 64, mx+num, false, true, 1, 1);
+	    	    	}
+	    		}
+	    		
+	    		if (myFunction ==  2) { //chance block random Heavy
+	    			int num = 16;
+	    			for(int i = 0; i < num*2; i++){
+	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 1);
+	    	    	}
+	    		}
+	    		
+	    		if (myFunction ==  3) { //Place Block Horizontal Stripes
+	    	    	int num = 24;
+	    			for(int i = 0; i < num*2; i+=3){
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
+	    			}
+	        	}
+	    	}
+	    	
+	    	//Function type/catagory 2's options
+	    	if(functionType == 2) {
+	    		if (myFunction == 1) { //Set to 0, one
+	    			s[sfcnum].u.a.placeO(mx, my, s[sfcnum].zdraw);
+	    		}
+	    		
+	    		if (myFunction ==  2) { //chance Set to 0, large
+	    			int num = 12;
+	    			for(int i = 0; i < num*2; i++){
+	    		    	s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 4, mx+num, false, true, 1);
+	    		    }
+	    		}
+	    		
+	    		if (myFunction ==  3) { //Set to 0, medium
+	    			int num = 6;
+	    			for(int i = 0; i < num*2; i++){
+	    	    		s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1);
+	    	    	}
+	    		}
+	    	}
+	
+	    	//Function type/catagory 3's options
+			if(functionType == 3) {
+				if (myFunction ==  1) { //big block, value 100
+					int num = 16;
+					for(int i = 0; i < num*2; i++){
+						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 100);
+					}
+				}
+				
+				if (myFunction ==  2) { //small block, value 100	
+					int num = 3;
+					for(int i = 0; i < num*2; i++){
+						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 100);
+					}
 				}
 			}
-		}
 		
-		
-		
-		
-		
-		
-		//This is the last option from any option's subFunction list. 
-		//ScrollS through function type/catagory
-		if (myFunction == fcnt && e.getButton() == MouseEvent.BUTTON1) {
-			functionType++;
-    		functionType=functionType%fnctype;
-    		myFunction=fcnt;
-		}
-    	
+			//Function type/catagory 4's options
+			if(functionType == 4) {
+				if (myFunction ==  1) { //Scroll through surfaces
+					sfcnum++;
+					sfcnum = sfcnum % sfcmax;
+				}
+				
+				if (myFunction ==  2) { //Reset current z-layer
+					s[sfcnum].u.resetArZ(0,s[sfcnum].zdraw);
+				}
+				
+				if (myFunction ==  3) { //toggle automata calculation independent of the display
+					if(s[sfcnum].upaused == true) {
+						s[sfcnum].upaused = false;
+					}else{
+						s[sfcnum].upaused = true;
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			
+			//This is the last option from any option's subFunction list. 
+			//ScrollS through function type/catagory
+			/*if (myFunction == fcnt) {
+				functionType++;
+	    		functionType=functionType%fnctype;
+	    		myFunction=fcnt;
+			}*/
+			
+    	 }
+    	 
+    	//Middle Click - Pause controller
+     	if(e.getButton() == MouseEvent.BUTTON2) { 
+     		functionType++;
+     		functionType=functionType%fnctype;
+     	}
+    	 
     	//Right Click - Pause controller
     	if(e.getButton() == MouseEvent.BUTTON3) { 
     		if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
     		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
-    		//System.out.println("S Pause Toggled");
-    		//updateListing();
-    		//s[sfcnum].repaint();
-    	}
-    	
-    	//Middle Click - Scroll through Functions
-    	if(e.getButton() == MouseEvent.BUTTON2) { 
-    		
-    		if(myFunction == fcnt-1){
-    			myFunction = fcnt;
-        	} else if(myFunction < fcnt) { 
-    			myFunction++;
-    			myFunction=myFunction%fcnt; 
-    		} else {myFunction = 0;}
-    		
-	    	
-    		
     	}
     	
     	updateListing();
@@ -207,17 +201,8 @@ public class ml extends JPanel implements MouseListener {
     	if(s[sfcnum].upaused) {
     		if(s[sfcnum].paused) { 
     			s[sfcnum].paused = false; 
-	    		//s[sfcnum].repaint();
-	    		//if(!s[sfcnum].paused) { 
-	    		//	s[sfcnum].paused = true; 
-	    		//}
     		} 
-    	} /*else {
-    		if(s[sfcnum].paused = false) { 
-    			s[sfcnum].paused = true; 
-    		}
-    	}     /**/
-    	//if(s[0].u.a.getUni() != null) {System.out.println(s[0].u.a.getUni().toString().substring(12,15));}
+    	}
     	 
     }
     
@@ -225,39 +210,23 @@ public class ml extends JPanel implements MouseListener {
     public void updateListing(){
     	String tmps = "";
     	
+    	//convert pause state to string
     	for(int i = 0; i < s.length; i++) {
     		if(s[i].paused == true) {tmps+="1";} else {tmps+="0";}
     		if(s[i].upaused == true) {tmps+="1";} else {tmps+="0";}
     	}
     	
-    	//if(s[0].u.a.getUni() != null) {l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps + " " + s[0].u.a.getUni().toString().substring(12,15));} else {
-    		l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps);
-    	//}
+    	//output as string the current menu state
+    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps);
     	
-    }
-    
-    //implicit function storage
-    ////////////////////////////////////////////
-    public void mouseReleased(MouseEvent e) {
-    	
-    }
-    
-    public void mouseEntered(MouseEvent e) {
-
-    }
-    
-    public void mouseExited(MouseEvent e) {
-
-    }
-    
-    public void mouseClicked(MouseEvent e) {
-
     }
     
     public void toggleStart() {
     	if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
 		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
+		
     	updateListing();
+    	
     	s[sfcnum].repaint();
     	
     	if(s[sfcnum].upaused) {
@@ -274,18 +243,26 @@ public class ml extends JPanel implements MouseListener {
     
     //called from class mwl, scrolls subfunction on mousewheel event
     public void mouseWheelScrolled(int mw_rotation) {
-	    if(myFunction == fcnt-1){
-			myFunction = fcnt;
-		} else if(myFunction < fcnt) { 
-			myFunction-=mw_rotation;
-			
-			if(myFunction < 0){
-				myFunction=0;
-			}
-			
+
+    	if(mw_rotation == -1) { 
+			myFunction++;
 			myFunction=myFunction%fcnt; 
-		} else {myFunction = 0;}
+		}
+    	
+    	if(mw_rotation == 1) { 
+			myFunction+=(fcnt-1);
+			myFunction=myFunction%fcnt; 
+		}
+
 	    updateListing();
     }
+    
+    //implicit function storage
+    ////////////////////////////////////////////
+    public void mouseReleased(MouseEvent e) {    }
+    public void mouseEntered(MouseEvent e) {    }
+    public void mouseExited(MouseEvent e) {    }
+    public void mouseClicked(MouseEvent e) {    }
+    ////////////////////////////////////////////
 
 }

@@ -10,12 +10,13 @@ Basic Use:
 
 - Right click to start and stop the automata
 
-- Scroll up to change the function (unlabeled numbers currently)
+- Scroll up or down to change the subfunction (unlabeled numbers currently)
+
+- Click scrollwheel to change the function catagory
 
 - Left click to execute a function
-	or
+	
 - Left click option 0 to scroll z-axis/depth where applicable
-- Left click option 4 to change the function catagory
 
 ==============
 
@@ -57,14 +58,13 @@ Controls: Everything is controlled by the mouse.
 Left Click: Perform Current Subfunction from selected Category
 Right Click: Pause/Unpause the currently selected Surface
 Scroll Wheel: Cycle through current Subunctions from selected Function Category
+Click scrollwheel: Cycle through function catagory
 
-Special Left-Click Cases:
+Special Left-Click Case:
 
-In all Function Categories:
-	When Current Subfunction == 0, cycle through Z-axis for Current Universe
-	When Current Subfunction == 4, cycle through Function Category
+In all function categories, when Current Subfunction == 0, cycle through Z-axis for Current Universe
 
-Category 4, subfunction 1 will cycle through active surfaces.
+Category 4, subfunction 1 will cycle through active universes.
 
 - Category 0 - placing solid blocks
 - Category 1 - placing random blocks
@@ -72,6 +72,7 @@ Category 4, subfunction 1 will cycle through active surfaces.
 - Category 3 - placing blocks with value 30 (this was for early testing, some functions cannot act on value 30 cells) 
 
 - Category 4 is utility: 
+
 	1 = cycle active universe, 
 	2 = clear all, 
 	3 = toggle automata calculations only

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="308" key="DIALOG_WIDTH"/>
-		<item value="514" key="DIALOG_Y_ORIGIN"/>
-		<item value="1307" key="DIALOG_X_ORIGIN"/>
-		<item value="411" key="DIALOG_HEIGHT"/>
+		<item value="316" key="DIALOG_WIDTH"/>
+		<item value="540" key="DIALOG_Y_ORIGIN"/>
+		<item value="1440" key="DIALOG_X_ORIGIN"/>
+		<item value="415" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,18 +13,19 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Respect" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value=" &amp;&amp; e.getButton() == MouseEvent.BUTTON1"/>
+			<item value="GetUni"/>
+			<item value="&amp;&amp; (ins[1] == zz || ins[1] == -1)) {"/>
+			<item value="if(ins[0] == "/>
 			<item value="respect"/>
 			<item value="quan"/>
 			<item value="seed"/>
 			<item value="128"/>
-			<item value="runOnce"/>
-			<item value="s[0]"/>
-			<item value="s[0].a."/>
-			<item value="SurfaceP"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 			<item value="s[sfcnum]"/>
 			<item value="s[0].u.a."/>
 			<item value="a."/>

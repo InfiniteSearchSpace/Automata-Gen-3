@@ -55,6 +55,7 @@ public class Universe {
 		
 	}
 	
+	//resets the z-layer only, to this value
 	public void resetArZ(int val, int zz) { 
 
 		
@@ -82,24 +83,26 @@ public class Universe {
 	}
 	
 	//Takes the Z frame and resets it to the maxval for just that frame
-	public void maxValAudit(int k) {
+	public /*int*/void maxValAudit(int k) {
 		maxVal = 1;
+		//int total = 0;
 		for(int i = 0; i < universe.length; i++) {
 			for (int j = 0; j < universe[0].length; j++) {
 				if(universe[i][j][k] > maxVal) { maxVal = universe[i][j][k]; }
+				//total+=universe[i][j][k];
 			}
 		}
+		//return total;
 	}
 	
-	//////////////////////////////////////////////
-	//            UNIVERSAL CONTROL             //
-	//////////////////////////////////////////////
+	/////////////////////////////////////////////
+	//            UNIVERSE CONTROL             //
+	/////////////////////////////////////////////
 	
     //Garden of Eden, absolute seed for t=0
-    public void runOnce() {
+    public void runOnce(int rand, int val) {
     	a.setTargetUni(this, d);
-    	//a.seedAll(256,-1);
-    	a.seedAll(2,1);
+    	a.seedAll(rand,val);
     }
     	
     //handles the universal calculations 
@@ -118,13 +121,11 @@ public class Universe {
 							 a.readInstructions(instructions[ii], i, j, k);
 							 
 						 }
-					
-						
-						//IN A DYNAMIC UNIVERSE, THIS SEQUENCE CANNOT BE HARD-CODED TO THIS OBJECT
-						//Each universe must have it's own ruleset/seed that determines which automataLib functions are executed, with which parameters
-						
-						//There's no point trying to explain this, it's arbatrary code.
-						/*if(k==0) {a.dozIfVal(i, j, k, 4, 6, 1, 1); a.dozDelMeIfNotLVal(i, j, k, 0, 5, 1); a.quantum(i,j,k,16);}
+
+						 	//There's no point trying to explain this CA below, it's arbatrary code combinations. 
+							//If you want to test it, it runs on 8 z-layers
+						 	//Kept here as an example of how to hard-code a function for a big speed boost
+					/*	if(k==0) {a.dozIfVal(i, j, k, 4, 6, 1, 1); a.dozDelMeIfNotLVal(i, j, k, 0, 5, 1); a.quantum(i,j,k,16);}
 						if(k==1) {a.quantum(i,j,k,512); a.explorer(i, j, k); a.dozDelIfVal(i, j, k, 1, 0); a.dozDelIfNotVal(i, j, k, 1, 0); a.dozIfVal(i, j, k, 1, 0, 1, 10000);}
 						if(k==2) {a.doz021(i, j, k, 1);}
 						if(k==3) {a.dozIfVal(i, j, k, 1, 0, 1, 1024); a.dozIfVal(i, j, k, 2, 2, 1, 1);  a.dozDelMeIfVal(i, j, k, 1, 0); a.dozDelMeIfVal(i, j, k, 7, 2); a.conway(i, j, k, 1, 1);}
@@ -132,13 +133,13 @@ public class Universe {
 						if(k==5) {a.dozIncrementIfVal(i, j, k, 1, 4, 1, 1); a.dozDelMeIfNotVal(i, j, k, 1, 4, 16);}
 						if(k==6) {a.dozDelMeIfVal(i, j, k, 1, 3);a.dozIncrementIfVal(i, j, k, 4, 5, 1, 1); a.dozIncrementIfVal(i, j, k, 8, 5, 1, 1); a.quantumWeight(i,j,k,4);}
 						if(k==7) {a.dozIfVal(i, j, k, 1, 0, 1, 1); a.quantum(i,j,k,512); a.explorer(i, j, k); a.dozDelIfVal(i, j, k, 1, 0); a.dozDelIfNotVal(i, j, k, 1, 0); a.dozIfVal(i, j, k, 1, 0, 1, 10000);}
-						/**/
+					/**/
+						 
 					}
 				}
 	    	}
 	    	
-	    	//System.out.println("Universe Progressed");
-    	} //else {System.out.println("Universe PAUSED");}
+    	}
     	
     	
     }

@@ -35,17 +35,18 @@
 <part id="4"/>
 <part id="6"/>
 <part id="5"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/Main.java" title="Main.java" tooltip="Omniscience/src/Main.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/Main.java" title="Main.java" tooltip="Omniscience/src/Main.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/Main.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8232" selectionTopPixel="2061"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4060" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="automataLib.java" partName="automataLib.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/automataLib.java" title="automataLib.java" tooltip="Omniscience/src/automataLib.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/automataLib.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="39180" selectionTopPixel="21613"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10315" selectionTopPixel="3939"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="neighbours.java" partName="neighbours.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/neighbours.java" title="neighbours.java" tooltip="Omniscience/src/neighbours.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/neighbours.java"/>
@@ -53,19 +54,23 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Universe.java" partName="Universe.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/Universe.java" title="Universe.java" tooltip="Omniscience/src/Universe.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/Universe.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1726" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1487" selectionTopPixel="628"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ml.java" partName="ml.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/ml.java" title="ml.java" tooltip="Omniscience/src/ml.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ml.java" partName="ml.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/ml.java" title="ml.java" tooltip="Omniscience/src/ml.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/ml.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8552" selectionTopPixel="4212"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7221" selectionTopPixel="3762"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Surf.java" partName="Surf.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/Surf.java" title="Surf.java" tooltip="Omniscience/src/Surf.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/Surf.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1774" selectionTopPixel="684"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="225" selectionTopPixel="51"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="mwl.java" partName="mwl.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/mwl.java" title="mwl.java" tooltip="Omniscience/src/mwl.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/mwl.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="423" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="499" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="dataSources.java" partName="dataSources.java" path="/home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/dataSources.java" title="dataSources.java" tooltip="Omniscience/src/dataSources.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/dataSources.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1137" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -148,7 +153,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25988144" ratioLeft="263" ratioRight="749" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.73147154" ratioLeft="681" ratioRight="250" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomRight" ratio="0.79484427" ratioLeft="740" ratioRight="191" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
@@ -175,163 +180,164 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/automataLib.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/ml.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/mwl.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/Main.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/automataLib.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/neighbours.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/Universe.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/ml.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/mwl.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/Surf.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Omniscience/src/dataSources.java"/>
 </editors>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="neighbours.java" index="2">
+<position info="not_deleted" x="535" y="0"/>
 </item>
-<item historyLabel="Universe.java" index="5">
-<position info="not_deleted" x="2686" y="0"/>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
 </item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="Universe.java" index="3">
+<position info="not_deleted" x="2206" y="0"/>
+</item>
+<item historyLabel="dataSources.java" index="7">
+<position info="not_deleted" x="1137" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="577" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
+</item>
+<item historyLabel="neighbours.java" index="2">
+<position info="not_deleted" x="535" y="0"/>
+</item>
+<item historyLabel="Universe.java" index="3">
+<position info="not_deleted" x="2206" y="0"/>
+</item>
+<item historyLabel="dataSources.java" index="7">
+<position info="not_deleted" x="1137" y="0"/>
 </item>
 <item historyLabel="Surf.java" index="6">
-<position info="not_deleted" x="1774" y="0"/>
+<position info="not_deleted" x="1409" y="0"/>
 </item>
-<item historyLabel="mwl.java" index="2">
-<position info="not_deleted" x="423" y="0"/>
+<item historyLabel="Universe.java" index="3">
+<position info="not_deleted" x="3638" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="6482" y="0"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="1762" y="0"/>
 </item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="ml.java" index="4">
+<position/>
 </item>
-<item historyLabel="mwl.java" index="2">
-<position info="not_deleted" x="423" y="0"/>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
 </item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="Universe.java" index="3">
+<position info="not_deleted" x="3638" y="0"/>
 </item>
-<item historyLabel="mwl.java" index="2">
-<position info="not_deleted" x="423" y="0"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="3984" y="0"/>
 </item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
 </item>
-<item historyLabel="mwl.java" index="2">
-<position info="not_deleted" x="423" y="0"/>
+<item historyLabel="Universe.java" index="3">
+<position info="not_deleted" x="1487" y="0"/>
 </item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8418" y="0"/>
+<item historyLabel="ml.java" index="4">
+<position/>
 </item>
-<item historyLabel="mwl.java" index="2">
-<position info="not_deleted" x="423" y="0"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6550" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6547" y="0"/>
+</item>
+<item historyLabel="neighbours.java" index="2">
+<position info="not_deleted" x="535" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="40635" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="10315" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="3641" y="0"/>
+</item>
+<item historyLabel="mwl.java" index="5">
+<position info="not_deleted" x="380" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="3641" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6550" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="10315" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6294" y="0"/>
 </item>
 <item historyLabel="Surf.java" index="6">
-<position info="not_deleted" x="1774" y="0"/>
+<position info="not_deleted" x="225" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="6482" y="0"/>
+<item historyLabel="dataSources.java" index="7">
+<position info="not_deleted" x="1137" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="31576" y="0"/>
+<item historyLabel="Surf.java" index="6">
+<position info="not_deleted" x="225" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="8250" y="0"/>
+<item historyLabel="mwl.java" index="5">
+<position info="not_deleted" x="499" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="31576" y="0"/>
+<item historyLabel="ml.java" index="4">
+<position info="not_deleted" x="5495" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="7918" y="0"/>
+<item historyLabel="mwl.java" index="5">
+<position info="not_deleted" x="499" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="31576" y="0"/>
-</item>
-<item historyLabel="neighbours.java" index="4">
-<position info="not_deleted" x="535" y="0"/>
-</item>
-<item historyLabel="Universe.java" index="5">
-<position info="not_deleted" x="2686" y="0"/>
-</item>
-<item historyLabel="neighbours.java" index="4">
-<position info="not_deleted" x="535" y="0"/>
-</item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="31576" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="7918" y="0"/>
-</item>
-<item historyLabel="neighbours.java" index="4">
-<position info="not_deleted" x="535" y="0"/>
-</item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="1522" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="7918" y="0"/>
-</item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="31576" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="5191" y="0"/>
-</item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="10217" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="5191" y="0"/>
-</item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="40409" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="5346" y="0"/>
-</item>
-<item historyLabel="Universe.java" index="5">
-<position info="not_deleted" x="1726" y="0"/>
-</item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="1522" y="0"/>
-</item>
-<item historyLabel="Universe.java" index="5">
-<position info="not_deleted" x="1726" y="0"/>
-</item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="37467" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="5346" y="0"/>
-</item>
-<item historyLabel="ml.java" index="1">
-<position info="not_deleted" x="8552" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
+<item historyLabel="ml.java" index="4">
 <position/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="38150" y="2460"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6294" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position/>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="10315" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="38237" y="2373"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6331" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="3986" y="0"/>
+<item historyLabel="mwl.java" index="5">
+<position info="not_deleted" x="499" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="38237" y="2373"/>
+<item historyLabel="ml.java" index="4">
+<position info="not_deleted" x="6863" y="0"/>
 </item>
-<item historyLabel="Main.java" index="3">
-<position info="not_deleted" x="4998" y="0"/>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="6331" y="0"/>
 </item>
-<item historyLabel="automataLib.java" index="0">
-<position info="not_deleted" x="39180" y="0"/>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="10315" y="0"/>
 </item>
-<item active="true" historyLabel="Main.java" index="3">
-<position info="not_deleted" x="4998" y="0"/>
+<item historyLabel="neighbours.java" index="2">
+<position info="not_deleted" x="535" y="0"/>
+</item>
+<item historyLabel="automataLib.java" index="1">
+<position info="not_deleted" x="10315" y="0"/>
+</item>
+<item historyLabel="Main.java" index="0">
+<position info="not_deleted" x="4060" y="0"/>
+</item>
+<item active="true" historyLabel="ml.java" index="4">
+<position info="not_deleted" x="6863" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -350,6 +356,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="dataSources.java" tooltip="Omniscience/src/dataSources.java">
+<persistable path="/Omniscience/src/dataSources.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="mwl.java" tooltip="Omniscience/src/mwl.java">
 <persistable path="/Omniscience/src/mwl.java"/>
 </file>

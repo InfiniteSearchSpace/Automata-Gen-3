@@ -9,9 +9,7 @@ public class Main extends JFrame {
 
 	
 	public Main(){
-		//System.out.println("Main");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
 	
 	public static void main(String[] args) {
@@ -43,10 +41,10 @@ public class Main extends JFrame {
             	//Instanciate Universes
             	//This can be used to run different simulations in different surfaces.
             	//still only runs one once cpu core per Main instance. 
+            	//number of z layers is determined here
             	//					Xsize	Ysize	Zsize	automataLib
             	u[0] = new Universe(xSize, 	ySize,  1, 	a[0]);			
             	//u[1] = new Universe(xSize, 	ySize, 	2, 	a[1]);
-            	//u[2] = new Universe(xSize, 	ySize, 	2, 	a[2]);
             	
             	
             	/*This is a list of functions as they appear in automatalib.
@@ -91,33 +89,27 @@ public class Main extends JFrame {
             	u[0].instructions = new int[][] {
             			//Fill out Integer instruction arrays here.
             			//{InstructionNumber, Z-layer, args[]...} 
-            			{28,0,(150)},
-            			{29,0,128}
+            			
+            			{28,-1,64},
+            			{29,-1,1}
             			
                 };
             	
             	/*
-            	
-            	u[1].instructions = new int[][] {
-            			
-            	};
-            	
-            	u[2].instructions = new int[][] {
-            	
+
+				//Copy-past reference for additional universes
+	            u[1].instructions = new int[][] {
+	            };
+            	*/
+            	//Example of a instruction set that is an entirely random combination of rulesets and values
+            	//Some will fail, some will run, and some will combine in a spectacular manner
+            	/*Random r = new Random();
+            	u[0].instructions = new int[][] {
+            			{r.nextInt(30), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
+            			{r.nextInt(30), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)}
             	};
             	
             	/**/
-            	
-            	/*
-            	//Example of a instruction set that is an entirely random combination of rulesets and thresholds
-            	u[0].instructions = new int[][] {
-            			{r.nextInt(14), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
-            			{r.nextInt(14), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
-            			{r.nextInt(14), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
-            			{r.nextInt(14), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
-            			{r.nextInt(14), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)}
-            	};
-            	*/
             	
             	
             	//dataSources d = new dataSources();					//used for seeding/creating predefined patterns
@@ -154,14 +146,14 @@ public class Main extends JFrame {
             	m.add(l);
             	for(int i = 0; i < surfaces; i++) { m.add(s[i]); }
             	
-            	System.out.println("Assembled");
+            	//Configure initial state
             	
             	myml.updateListing(); 	//show menu on start
             	
             	myml.toggleStart(); //Plays a fram so the universe is visible, unpauses
-            	myml.toggleStart(); //second toggle pauses
+            	//myml.toggleStart(); //second toggle pauses
             	
-            	u[0].runOnce();			//Kickstart u[0] with the action in class Universe. Usually a seeding.
+            	u[0].runOnce(8,1);	//Kickstart u[0] with the action in class Universe. Usually a seeding. Takes int: rand, val
             	
             }
         });

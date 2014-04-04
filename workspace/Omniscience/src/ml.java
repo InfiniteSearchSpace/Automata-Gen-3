@@ -49,20 +49,20 @@ public class ml extends JPanel implements MouseListener {
     
     public void mousePressed(MouseEvent e) {
     	
-    	//get locational information from mouse & jframes
+    	//get location information from mouse & jframes
     	p = MouseInfo.getPointerInfo().getLocation();
     	p2 = m.getLocation();
     	int mx =(p.x - p2.x - 2 - s[sfcnum].getX());
     	int my =(p.y - p2.y - 24 - s[sfcnum].getY());
     	
-    	
-    	if (myFunction == 0 && e.getButton() == MouseEvent.BUTTON1) { 
+    	//When subfunction 0 is active, always scroll through z/depth of this surface
+    	if (myFunction == 0 && e.getButton() == MouseEvent.BUTTON1) {  
 			s[sfcnum].zdraw++;
 			s[sfcnum].zdraw = s[sfcnum].zdraw % s[sfcnum].zz;
 		}
     	
     	
-    	
+    	//Function type/catagory 0's options
     	if(functionType == 0) {
     		if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //Place One
         		s[sfcnum].u.a.seed(mx, my, s[sfcnum].zdraw, 1, 1);
@@ -83,6 +83,7 @@ public class ml extends JPanel implements MouseListener {
         	}
     	}
 
+    	//Function type/catagory 1's options
     	if(functionType == 1) {
     		if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //chance block Light			
     			int num = 16;
@@ -106,6 +107,7 @@ public class ml extends JPanel implements MouseListener {
         	}
     	}
     	
+    	//Function type/catagory 2's options
     	if(functionType == 2) {
     		if (myFunction == 1 && e.getButton() == MouseEvent.BUTTON1) { //delete one
     			s[sfcnum].u.a.placeO(mx, my, s[sfcnum].zdraw);
@@ -126,6 +128,7 @@ public class ml extends JPanel implements MouseListener {
     		}
     	}
 
+    	//Function type/catagory 3's options
 		if(functionType == 3) {
 			if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //chance block	
 				int num = 16;
@@ -142,6 +145,7 @@ public class ml extends JPanel implements MouseListener {
 			}
 		}
 	
+		//Function type/catagory 4's options
 		if(functionType == 4) {
 			if (myFunction ==  1 && e.getButton() == MouseEvent.BUTTON1) { //clear
 				sfcnum++;
@@ -166,19 +170,13 @@ public class ml extends JPanel implements MouseListener {
 		
 		
 		
-		
-		if (myFunction == fcnt && e.getButton() == MouseEvent.BUTTON1) { //MENU
+		//This is the last option from any option's subFunction list. 
+		//ScrollS through function type/catagory
+		if (myFunction == fcnt && e.getButton() == MouseEvent.BUTTON1) {
 			functionType++;
     		functionType=functionType%fnctype;
     		myFunction=fcnt;
 		}
-		
-		if (myFunction ==  99 && e.getButton() == MouseEvent.BUTTON1) {
-			//print a square out as an integer array
-			//Read an integer array onto board
-			//additional menus
-		}
-
     	
     	//Right Click - Pause controller
     	if(e.getButton() == MouseEvent.BUTTON3) { 
@@ -256,5 +254,38 @@ public class ml extends JPanel implements MouseListener {
 
     }
     
+    public void toggleStart() {
+    	if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
+		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
+    	updateListing();
+    	s[sfcnum].repaint();
+    	
+    	if(s[sfcnum].upaused) {
+    		if(s[sfcnum].paused) { 
+    			s[sfcnum].paused = false; 
+    		} 
+    	}
+    }
     
+    public void autoZ() {
+        s[sfcnum].zdraw++;
+    	s[sfcnum].zdraw = s[sfcnum].zdraw % s[sfcnum].zz;
+    }
+    
+    //called from class mwl, scrolls subfunction on mousewheel event
+    public void mouseWheelScrolled(int mw_rotation) {
+	    if(myFunction == fcnt-1){
+			myFunction = fcnt;
+		} else if(myFunction < fcnt) { 
+			myFunction-=mw_rotation;
+			
+			if(myFunction < 0){
+				myFunction=0;
+			}
+			
+			myFunction=myFunction%fcnt; 
+		} else {myFunction = 0;}
+	    updateListing();
+    }
+
 }

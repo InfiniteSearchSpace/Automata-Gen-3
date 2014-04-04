@@ -174,6 +174,16 @@ public void goop(int xx, int yy, int zz){					//TEST
 		return isOne;
 	}
 	
+	public int totalisticIsVal(int xx, int yy, int zz, int val){
+		int isOne = 0;
+
+		for(int i = 0; i < n.NBH.length; i++) {
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == val) {isOne++;}
+		}
+		
+		return isOne;
+	}
+	
 	
 	 public int totalNotZeroAll(int zz){
 		 int isOne = 0;
@@ -276,6 +286,64 @@ public void goop(int xx, int yy, int zz){					//TEST
 		}*/
     }
 	
+	public void Wave(int xx, int yy, int zz, int rand){
+
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		if(u.snapshotUniverse[xx][yy][zz] > 1) {
+			if(r.nextInt(rand) == 0) {
+				for(int i = 0; i < n.NBH.length; i++) {
+					if(u.snapshotUniverse[xx][yy][zz] > 4) {
+						if(u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] < u.snapshotUniverse[xx][yy][zz]) {
+							u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=1;
+							u.universe[xx][yy][zz]-=1;
+						}
+						
+					}
+				}
+			} 
+		} else /*if(u.snapshotUniverse[xx][yy][zz] == 1)*/ {
+			if(r.nextInt(rand) == 0) {
+				int proc = r.nextInt(n.NBH.length);
+				for(int i = 0; i < n.NBH.length; i++) {
+					if(proc == i) {
+						u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=u.snapshotUniverse[xx][yy][zz];
+						u.universe[xx][yy][zz]-=u.snapshotUniverse[xx][yy][zz];
+					}
+				}
+			}
+		
+		}
+
+    }
+	
+	public void Brownian(int xx, int yy, int zz, int rand){
+
+		n = new neighbours(6);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		n.setNBH(0, 0, -1, 4);
+		n.setNBH(0, 0, 1, 5);
+		
+		int proc = r.nextInt(n.NBH.length);
+		
+		for(int i = 0; i < n.NBH.length; i++) {
+			if(proc == i) {
+				u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=u.snapshotUniverse[xx][yy][zz];
+				u.universe[xx][yy][zz]-=u.snapshotUniverse[xx][yy][zz];
+			}
+		}
+		
+    }
+
+
+	
 
 	
 	public void quantumLorE(int xx, int yy, int zz, int val, int rand){
@@ -289,6 +357,29 @@ public void goop(int xx, int yy, int zz){					//TEST
 		if(getval(xx,yy,zz) == 0 && r.nextInt(rand) == 0) {
 			for(int i = 0; i < n.NBH.length; i++) {
 				if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] <= val) {
+					//if(r.nextInt(8) == 0){
+					
+					u.universe[xx][yy][zz]=u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)];
+					
+					u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]=0;
+					//}
+				}
+			}
+		}
+
+    }
+	
+	public void quantumMorE(int xx, int yy, int zz, int val, int rand){
+
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		if(getval(xx,yy,zz) == 0 && r.nextInt(rand) == 0) {
+			for(int i = 0; i < n.NBH.length; i++) {
+				if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] >= val) {
 					//if(r.nextInt(8) == 0){
 					
 					u.universe[xx][yy][zz]=u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)];
@@ -851,7 +942,7 @@ public void placeLineO(int xx, int yy, int zz, int rand, int len, boolean placeO
 		if(isOne == 3) { u.universe[xx][yy][zz] = 1; }*/
 	}
 	
-	public void PointToCircle(int i, int j, int k, int val){
+	public void PointToCircle(int i, int j, int k){
 		/*n = new neighbours(r.nextInt(8)+1);
 		for (int ii = 0; ii < n.NBH.length; ii++) {
 			n.setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
@@ -973,7 +1064,7 @@ public void placeLineO(int xx, int yy, int zz, int rand, int len, boolean placeO
 		//if(isOne > 3)  { u.universe[i][j][k] = 0; }
 	}
 	
-	public void warts(int i, int j, int k, int val){
+	public void warts(int i, int j, int k){
 
 		n = new neighbours(4);
 		
@@ -1127,7 +1218,7 @@ public void placeLineO(int xx, int yy, int zz, int rand, int len, boolean placeO
 		//conway(i,j,k,1,0);
 	}
 	
-public void actual3D(int i, int j, int k, int val){
+public void actual3D(int i, int j, int k){
 		
 		n = new neighbours(14);
 		n.setNBH(0, 0, -1, 0);
@@ -1151,12 +1242,13 @@ public void actual3D(int i, int j, int k, int val){
 
 		//if(isOne > 0) {
 			if(isOne <= 2) { u.universe[i][j][k] = 0;}
-			if(isOne == 4){u.universe[i][j][k] = 1;}
-			if(isOne >= 6) { u.universe[i][j][k] = 0;} /*else { u.universe[i][j][k] = 0; }*/
+			if(isOne == 5){u.universe[i][j][k] = 1;}
+			if(isOne >= 7) { u.universe[i][j][k] = 0;} /*else { u.universe[i][j][k] = 0; }*/
 		//}
 		//conway(i,j,k,1,0);
 	}
 	
+
 	public void rule110(int xx, int yy, int zz){					//TEST
 		n = new neighbours(3);
 		
@@ -1165,6 +1257,10 @@ public void actual3D(int i, int j, int k, int val){
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, -1, 0, 2);
 		//n.setNBH(0, 0, 0, 3);
+		
+		int isOne = totalisticNotZero(xx,yy,zz);
+
+		if(isOne > 0) {
 		
 		int[][] ar = new int[][] {{1,1,1,0},{1,1,0,1},{1,0,1,1},{1,0,0,0},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
 		//int[][] ar = new int[][] {{1,1,1,0},{1,1,0,0},{1,0,1,0},{1,0,0,1},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
@@ -1182,6 +1278,7 @@ public void actual3D(int i, int j, int k, int val){
 			}
 			if(isThis == 3) {u.universe[xx][yy][zz] = ar[i][3];break;}
 		}
+		}
 		//int t = totalistic(xx,yy,zz,1);
 
 		/*if (t == 2){u.universe[xx][yy][zz] = 1;}
@@ -1189,7 +1286,25 @@ public void actual3D(int i, int j, int k, int val){
 		
 	}
 	
+	public void diffusion(int xx, int yy, int zz, int val){
+		
+		if(u.universe[xx][yy][zz] > val) {
+			n = new neighbours(6);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(0, 0, -1, 4);
+			n.setNBH(0, 0, 1, 5);
+			
 	
+			for(int i = 0; i < n.NBH.length; i++) {
+				u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]+=1;
+				u.universe[xx][yy][zz]-=1;
+			}
+		}
+		
+	}
 	
 	/////////////////////////////////////////////
 	/////////Select Instruction to run///////////
@@ -1206,7 +1321,7 @@ public void actual3D(int i, int j, int k, int val){
 		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {dozDelIfNotVal(xx,yy,zz, 				ins[2], ins[3]);}
 		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {doz021(xx,yy,zz, 						ins[2]);}
 		if(ins[0] == 9  && (ins[1] == zz || ins[1] == -1)) {dozDelMeIfVal(xx,yy,zz, 				ins[2], ins[3]);}
-		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {quantumLorE(xx,yy,zz,					ins[2], ins[3]);}
+		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {quantumMorE(xx,yy,zz,					ins[2], ins[3]);}
 		if(ins[0] == 11 && (ins[1] == zz || ins[1] == -1)) {dozExclude(xx,yy,zz, 					ins[2], ins[3], ins[4]);}
 		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {dozIncrementIfVal(xx,yy,zz, 			ins[2], ins[3], ins[4], ins[5]);}
 		if(ins[0] == 13 && (ins[1] == zz || ins[1] == -1)) {dozDelMeIfNotVal(xx,yy,zz, 				ins[2], ins[3], ins[4]);}
@@ -1220,9 +1335,16 @@ public void actual3D(int i, int j, int k, int val){
 		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {diamondShuffle(xx,yy,zz					);}
 		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {rain(xx,yy,zz							);}
 		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {test2(xx,yy,zz,							ins[2]);}
-		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Conway3D(xx,yy,zz						);}
+		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {dozUnIncrementIfVal(xx,yy,zz, 			ins[2], ins[3], ins[4], ins[5]);}
-		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 					);}
+		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 						);}
+		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
+		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2]);}
+		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
+		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz 							);}
+		
+		
+
 		
 	}
 	

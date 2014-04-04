@@ -161,7 +161,12 @@ public class ml extends JPanel implements MouseListener {
 					s[sfcnum].u.resetArZ(0,s[sfcnum].zdraw);
 				}
 				
-				if (myFunction ==  3) { //Change instruction set to a basic conway
+				if (myFunction ==  3) { //toggle automata calculation independent of the display
+					/*if(s[sfcnum].upaused == true) {
+						s[sfcnum].upaused = false;
+					}else{
+						s[sfcnum].upaused = true;
+					}*/
 					u[0].instructions = new int[][] {
 	            		{1,0,0,0}
 	                };

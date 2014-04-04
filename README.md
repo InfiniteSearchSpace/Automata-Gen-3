@@ -12,7 +12,7 @@ Basic Use:
 
 - Scroll up or down to change the subfunction (unlabeled numbers currently)
 
-- Click scrollwheel to change the function catagory
+- Click scrollwheel to change the function category
 
 - Left click to execute a function
 	
@@ -58,7 +58,7 @@ Controls: Everything is controlled by the mouse.
 Left Click: Perform Current Subfunction from selected Category
 Right Click: Pause/Unpause the currently selected Surface
 Scroll Wheel: Cycle through current Subunctions from selected Function Category
-Click scrollwheel: Cycle through function catagory
+Click scrollwheel: Cycle through function category
 
 Special Left-Click Case:
 
@@ -75,4 +75,4 @@ Category 4, subfunction 1 will cycle through active universes.
 
 	1 = cycle active universe, 
 	2 = clear all, 
-	3 = toggle automata calculations only
+	3 = test, changes z-layer one to conway

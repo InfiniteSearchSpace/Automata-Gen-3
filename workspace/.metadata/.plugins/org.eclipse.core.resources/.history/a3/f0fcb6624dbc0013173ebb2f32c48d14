@@ -18,7 +18,6 @@ public class ml extends JPanel implements MouseListener {
 	JLabel l;
 	Point p;
 	Point p2;
-	Universe u[];
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -29,12 +28,11 @@ public class ml extends JPanel implements MouseListener {
 	int fnctype = 5;		//tot number of function catagorys
 	
 	//constructor
-    public ml(Main mm, Surf[] ss, JLabel ll, Universe uni[]) {
-    	//System.out.println("ml");
+    public ml(Main mm, Surf[] ss, JLabel ll) {
+    	System.out.println("ml");
     	m=mm;
     	s=ss;
     	l=ll;
-    	u=uni;
     	
         m.addMouseListener(this);
         
@@ -161,10 +159,12 @@ public class ml extends JPanel implements MouseListener {
 					s[sfcnum].u.resetArZ(0,s[sfcnum].zdraw);
 				}
 				
-				if (myFunction ==  3) { //Change instruction set to a basic conway
-					u[0].instructions = new int[][] {
-	            		{1,0,0,0}
-	                };
+				if (myFunction ==  3) { //toggle automata calculation independent of the display
+					if(s[sfcnum].upaused == true) {
+						s[sfcnum].upaused = false;
+					}else{
+						s[sfcnum].upaused = true;
+					}
 				}
 			}
 			
@@ -174,7 +174,6 @@ public class ml extends JPanel implements MouseListener {
      	if(e.getButton() == MouseEvent.BUTTON2) { 
      		functionType++;
      		functionType=functionType%fnctype;
-     		updateListing();
      	}
     	 
     	//Right Click - Pause controller

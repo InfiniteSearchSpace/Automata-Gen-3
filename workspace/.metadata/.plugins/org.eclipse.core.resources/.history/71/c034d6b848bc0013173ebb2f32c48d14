@@ -151,9 +151,9 @@ public class Main extends JFrame {
             	myml.updateListing(); 	//show menu on start
             	
             	myml.toggleStart(); //Plays a fram so the universe is visible, unpauses
-            	myml.toggleStart(); //second toggle pauses
+            	//myml.toggleStart(); //second toggle pauses
             	
-            	u[0].runOnce(4,1);	//Kickstart u[0] with the action in class Universe. Usually a seeding. Takes int: rand, val
+            	u[0].runOnce(8,1);	//Kickstart u[0] with the action in class Universe. Usually a seeding. Takes int: rand, val
             	
             }
         });

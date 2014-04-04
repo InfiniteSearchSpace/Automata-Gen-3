@@ -1,3 +1,4 @@
+//Why use von-newmann or moore neighbourhood? That shit needs to be unrestricted and dynamic!
 public class neighbours {
 
 	//define list of neighbours

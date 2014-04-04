@@ -168,6 +168,19 @@ public class ml extends JPanel implements MouseListener {
 				}
 			}
 			
+			
+			
+			
+			
+			
+			//This is the last option from any option's subFunction list. 
+			//ScrollS through function type/catagory
+			/*if (myFunction == fcnt) {
+				functionType++;
+	    		functionType=functionType%fnctype;
+	    		myFunction=fcnt;
+			}*/
+			
     	 }
     	 
     	//Middle Click - Pause controller
@@ -178,8 +191,19 @@ public class ml extends JPanel implements MouseListener {
     	 
     	//Right Click - Pause controller
     	if(e.getButton() == MouseEvent.BUTTON3) { 
-    		toggleStart();
+    		if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
+    		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
     	}
+    	
+    	updateListing();
+    	s[sfcnum].repaint();
+    	
+    	if(s[sfcnum].upaused) {
+    		if(s[sfcnum].paused) { 
+    			s[sfcnum].paused = false; 
+    		} 
+    	}
+    	 
     }
     
     //identifies the mousefunction action that is highlighted
@@ -197,7 +221,6 @@ public class ml extends JPanel implements MouseListener {
     	
     }
     
-    //called during initial program configuration, or to pause/unpause on right click
     public void toggleStart() {
     	if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
 		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }

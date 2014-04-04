@@ -19,7 +19,7 @@ public class Universe {
 	dataSources d;
 	
 	//set the universal array
-	public Universe(int x, int y, int z, automataLib aa) { 
+	public Universe(int x, int y, int z, automataLib aa/*, int[][] instr*/) { 
 		System.out.println("Universe" + this);
 		xlen = x;
 		ylen = y;
@@ -29,8 +29,13 @@ public class Universe {
 		
 		universe = new int[x][y][z];
 		snapshotUniverse = new int[x][y][z];
-
+		
+		//instructions = instr;
+		
 		resetAr(0); 			//sets each x,y,z to 0; instanciating the array.
+		System.out.println("Universe" + this + "set to 0");
+		//runOnce(); 				//for actions to be run only once and before anything else in the sim. Garden of Eden maker.
+		System.out.println("Run Once Done");
 	}
 	
 	//hard resets all the xyz values to val, resets maxval = 1.
@@ -117,10 +122,9 @@ public class Universe {
 							 
 						 }
 
-						 	//There's no point trying to explain this CA below, it's arbatrary ruleset combinations. 
+						 	//There's no point trying to explain this CA below, it's arbatrary code combinations. 
 							//If you want to test it, it runs on 8 z-layers
-						 	//Kept here as an example of how to hard-code a function for a speed boost
-						 
+						 	//Kept here as an example of how to hard-code a function for a big speed boost
 					/*	if(k==0) {a.dozIfVal(i, j, k, 4, 6, 1, 1); a.dozDelMeIfNotLVal(i, j, k, 0, 5, 1); a.quantum(i,j,k,16);}
 						if(k==1) {a.quantum(i,j,k,512); a.explorer(i, j, k); a.dozDelIfVal(i, j, k, 1, 0); a.dozDelIfNotVal(i, j, k, 1, 0); a.dozIfVal(i, j, k, 1, 0, 1, 10000);}
 						if(k==2) {a.doz021(i, j, k, 1);}

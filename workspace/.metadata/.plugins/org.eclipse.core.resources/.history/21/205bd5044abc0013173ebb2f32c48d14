@@ -1080,6 +1080,7 @@ public void placeLineO(int xx, int yy, int zz, int rand, int len, boolean placeO
 	}
 	
 	public void Threads(int i, int j, int k){
+		if(u.snapshotUniverse[i][j][k] != 30) { //30 is the "solid block" character from menu x.x.3.x.xx
 			n = new neighbours(4);
 			
 			n.setNBH(1, -1, 0, 0);
@@ -1094,6 +1095,7 @@ public void placeLineO(int xx, int yy, int zz, int rand, int len, boolean placeO
 				if(isOne == 2)  { u.universe[i][j][k] = 1; }
 				if(isOne >= 3)  { u.universe[i][j][k] = 0; }
 			}
+		}
 	}
 	
 	public void Inverse110(int i, int j, int k, int val){

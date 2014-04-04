@@ -21,8 +21,8 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 160; //size of each surface
-            	int ySize = 160;
+            	int xSize = 96; //size of each surface
+            	int ySize = 96;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes

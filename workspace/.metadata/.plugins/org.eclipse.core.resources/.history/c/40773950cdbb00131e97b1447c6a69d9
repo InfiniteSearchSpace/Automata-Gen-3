@@ -21,8 +21,8 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 160; //size of each surface
-            	int ySize = 160;
+            	int xSize = 32; //size of each surface
+            	int ySize = 32;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes
@@ -91,7 +91,7 @@ public class Main extends JFrame {
             	u[0].instructions = new int[][] {
             			//Fill out Integer instruction arrays here.
             			//{InstructionNumber, Z-layer, args[]...} 
-            			{28,0,(150)},
+            			{28,0,(30*16)},
             			{29,0,128}
             			
                 };

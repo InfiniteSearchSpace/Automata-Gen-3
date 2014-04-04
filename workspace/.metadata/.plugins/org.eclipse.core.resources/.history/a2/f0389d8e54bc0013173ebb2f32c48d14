@@ -168,8 +168,7 @@ public class ml extends JPanel implements MouseListener {
 				}
 			}
 			
-			//updates menu listing
-			updateListing();
+			
 	    	
 	    	//This makes blocks placed while paused visible
 	    	if(s[sfcnum].upaused) {
@@ -177,10 +176,8 @@ public class ml extends JPanel implements MouseListener {
 	    			s[sfcnum].paused = false; 
 	    		} 
 	    	}
-	    	
-	    	//refreshes elements that may have been altered
-	    	s[sfcnum].repaint();
-	    	
+	    	updateListing();
+	    	//s[sfcnum].repaint();
     	}
     	 
     	//Middle Click - Pause controller

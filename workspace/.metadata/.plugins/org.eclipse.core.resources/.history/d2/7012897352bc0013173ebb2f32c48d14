@@ -112,7 +112,7 @@ public class Universe {
 				for (int j = 0; j < ylen; j++) {
 					for (int k = 0; k < zlen; k++) {
 						 for (int ii = 0; ii < instructions.length; ii++) {
-							 //select the instruction from the array, and execute the function
+							 //select an instruction from the array, and execute the function
 							 a.readInstructions(instructions[ii], i, j, k);
 						 }
 

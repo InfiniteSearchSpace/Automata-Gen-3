@@ -168,19 +168,24 @@ public class ml extends JPanel implements MouseListener {
 				}
 			}
 			
-			//updates menu listing
 			updateListing();
+	    	s[sfcnum].repaint();
 	    	
-	    	//This makes blocks placed while paused visible
 	    	if(s[sfcnum].upaused) {
 	    		if(s[sfcnum].paused) { 
 	    			s[sfcnum].paused = false; 
+		    		//s[sfcnum].repaint();
+		    		//if(!s[sfcnum].paused) { 
+		    		//	s[sfcnum].paused = true; 
+		    		//}
 	    		} 
-	    	}
-	    	
-	    	//refreshes elements that may have been altered
-	    	s[sfcnum].repaint();
-	    	
+	    	} /*else {
+	    		if(s[sfcnum].paused = false) { 
+	    			s[sfcnum].paused = true; 
+	    		}
+	    	}     /**/
+	    	//if(s[0].u.a.getUni() != null) {System.out.println(s[0].u.a.getUni().toString().substring(12,15));}
+			
     	}
     	 
     	//Middle Click - Pause controller

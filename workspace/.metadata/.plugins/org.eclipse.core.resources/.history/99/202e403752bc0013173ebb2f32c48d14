@@ -318,7 +318,7 @@ public class automataLib {
 		
 	}
 	
-	public void internalAffairs(int xx, int yy, int zz){					
+	public void internalAffairs(int xx, int yy, int zz){					//TEST
 		n = new neighbours(4);
 		n.setNBH(0, -1, 0, 0);
 		n.setNBH(-1, 0, 0, 1);
@@ -333,7 +333,7 @@ public class automataLib {
 		
 	}
 	
-	public void meekrochyp(int xx, int yy, int zz){					
+	public void meekrochyp(int xx, int yy, int zz){					//TEST
 		n = new neighbours(4);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH(1, -1, 0, 1);
@@ -348,7 +348,7 @@ public class automataLib {
 		
 	}
 	
-	public void diamondShuffle(int xx, int yy, int zz){					
+	public void diamondShuffle(int xx, int yy, int zz){					//TEST
 		n = new neighbours(4);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH(1, -1, 0, 1);
@@ -362,7 +362,7 @@ public class automataLib {
 		
 	}
 
-	public void goop(int xx, int yy, int zz){					
+	public void goop(int xx, int yy, int zz){					//TEST
 		
 		n = new neighbours(5);
 		n.setNBH(-1, 1, 0, 0);
@@ -375,6 +375,7 @@ public class automataLib {
 		
 		if (t < 2 || t > 4) {
 			for(int i = 0; i < 5; i++) {
+				//setneighbour(xx,yy,zz,i,0)
 				u.universe[xx][yy][zz] = 0;
 			}
 		} 
@@ -383,7 +384,7 @@ public class automataLib {
 		
 	}
 
-	public void explore2(int xx, int yy, int zz){					
+	public void explore2(int xx, int yy, int zz){					//TEST
 		n = new neighbours(4);
 		n.setNBH(-7, 0, 0, 0);
 		n.setNBH(0, -7, 0, 1);
@@ -568,7 +569,7 @@ public class automataLib {
 
     }
 
-	public void rain(int xx, int yy, int zz){
+	public void rain(int xx, int yy, int zz){//TEST
 		
 		n = new neighbours(3);
 		n.setNBH(-1, -1, 0, 0);
@@ -594,7 +595,7 @@ public class automataLib {
 
     }
 	
-	public void rain2(int xx, int yy, int zz){
+	public void rain2(int xx, int yy, int zz){//TEST
 		
 		n = new neighbours(5);
 		n.setNBH(-1, -1, 0, 0);
@@ -622,7 +623,7 @@ public class automataLib {
 
     }
 	
-	public void sierpenski(int xx, int yy, int zz){
+	public void sierpenski(int xx, int yy, int zz){// makes a sierpenski triangle lattice that appears to 'count' linearly
 		n = new neighbours(2);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH(1, -1, 0, 1);
@@ -642,7 +643,7 @@ public class automataLib {
 
     }
 	
-	public void snapSierpenski(int xx, int yy, int zz){
+	public void snapSierpenski(int xx, int yy, int zz){// makes a sierpenski triangle lattice that appears to 'count' linearly
 		n = new neighbours(2);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH(1, -1, 0, 1);
@@ -662,7 +663,7 @@ public class automataLib {
 
     }
 	
-	public void conway(int xx, int yy, int zz, int val, int checkSelf){
+	public void conway(int xx, int yy, int zz, int val, int checkSelf){ //demonstration of conway's game of life
 		
 		n = new neighbours(8);
 		n.setNBH(-1, -1, 0, 0);
@@ -696,7 +697,7 @@ public class automataLib {
 		}*/
     }
 	
-	public void conway2(int xx, int yy, int zz){ 
+	public void conway2(int xx, int yy, int zz){ //demonstration of conway's game of life
 		
 		n = new neighbours(8);
 		n.setNBH(-1, -1, 0, 0);
@@ -1195,7 +1196,7 @@ public class automataLib {
 		//conway(i,j,k,1,0);
 	}
 
-	public void rule110(int xx, int yy, int zz){					
+	public void rule110(int xx, int yy, int zz){					//TEST
 		n = new neighbours(3);
 		
 		//n.setNBH(0, 0, 0, 0);
@@ -1301,7 +1302,10 @@ public class automataLib {
 		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2]);}
 		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
 		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz 							);}
+		
+		
 
+		
 	}
 	
 	

@@ -191,9 +191,7 @@ public class ml extends JPanel implements MouseListener {
 					u[0].instructions = new int[][] {
 						//Action,		Z,		RAND,					THRESHOLD,			Value
 						{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-						{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-						{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-	            		{-1, 			-1, 	r.nextInt(100000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)}	//seed
+	            		{-1, 			-1, 	r.nextInt(10000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)}	//seed
 	                }; 
 					
 				}

@@ -18,4 +18,5 @@
 <fullyQualifiedTypeName name="java.awt.event.MouseWheelListener"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

@@ -12614,3 +12614,29 @@ org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 2; The markup in the
 	at org.eclipse.ui.internal.Workbench.restoreState(Workbench.java:2088)
 	at org.eclipse.ui.internal.WorkbenchConfigurer.restoreState(WorkbenchConfigurer.java:183)
 	at org.eclipse.ui.application.WorkbenchAdvisor$1.run(WorkbenchAdvisor.java:781)
+!SESSION 2014-04-05 11:29:48.310 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_NZ
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.filesystem 4 272 2014-04-05 19:10:56.509
+!MESSAGE Could not write file: /home/pseudonym/Desktop/Automata-Gen-3-master/workspace/Omniscience/src/ml.java.
+!STACK 0
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:345)
+	at org.eclipse.core.filesystem.provider.FileStore.transferStreams(FileStore.java:85)
+	at org.eclipse.core.filesystem.provider.FileStore.copyFile(FileStore.java:222)
+	at org.eclipse.core.filesystem.provider.FileStore.copy(FileStore.java:143)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.copy(LocalFile.java:111)
+	at org.eclipse.core.internal.localstore.BlobStore.addBlob(BlobStore.java:56)
+	at org.eclipse.core.internal.localstore.HistoryStore2.addState(HistoryStore2.java:92)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1097)
+	at org.eclipse.core.internal.resources.File.internalSetContents(File.java:321)
+	at org.eclipse.core.internal.resources.File.setContents(File.java:360)
+	at org.eclipse.core.internal.resources.File.setContents(File.java:464)
+	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.commitFileBufferContent(ResourceTextFileBuffer.java:391)
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.commit(ResourceFileBuffer.java:325)
+	at org.eclipse.jdt.internal.ui

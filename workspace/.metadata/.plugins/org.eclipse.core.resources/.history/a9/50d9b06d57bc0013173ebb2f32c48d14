@@ -121,33 +121,22 @@ public class Main extends JFrame {
             	
             	
             	//Set parameters for each surface/display panel
-            	//                 (Width,	Height,	Depth,		X,			Y,			Assigned universe)
-            	
-            	/*for(int i = 0; i < surfaces; i++) {
-            		s[i] = new Surf(xSize, 	ySize, 	u[0].zlen,	2, 			2, 			u[0]);
-            	}*/
-            	
-            	/*
-            	s[0] = new Surf(xSize, 	ySize, 	u[0].zlen,	2, 				2+14, 		u[0]);
-            	s[1] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*1+4, 		2+14, 		u[0]);
-            	s[2] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*2+6, 		2+14, 		u[0]);
-            	*/
-            	
-            	s[0] = new Surf(xSize, 	ySize, 	u[0].zlen,	2, 				16, 		u[0]);
-            	//s[1] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*1+4, 		ySize*1+18, u[0]);
-            	//s[2] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*2+6, 		ySize*2+20, u[0]);
-            	
+            	//           	Width,	Height,	Depth,		X,			Y,			universe
+            	s[0] = new Surf(xSize, 	ySize, 	u[0].zlen,	2, 			2, 			u[0]);
+            	/*s[1] = new Surf(xSize, 	ySize, 	u[1].zlen, 	xSize+8, 	2, 			u[1]);
+            	s[2] = new Surf(xSize, 	ySize, 	u[2].zlen, 	2, 			ySize+4, 	u[2]);
+            	s[3] = new Surf(xSize, 	ySize, 	u[2].zlen, 	xSize+8, 	ySize+4, 	u[2]);
             	/**/
             	
             	//Textbox for info display
             	l.setLayout(null); 
-            	l.setBounds(2, 2, 160, 14); 
+            	l.setBounds(2, ySize*1+16, 320, 14); 
             	l.setVisible(true);
-            	l.setText("Menu");
+            	l.setText("");
             	
             	//Layout for Main window/frame
             	m.setLayout(null);
-            	m.setSize((xSize+2) * surfaces + 6 ,(ySize+2) * surfaces + 42 );
+            	m.setSize((xSize*1)+16, (ySize*1)+30+32);
             	m.setVisible(true);
             	m.setLocation(32, 32);
             	m.setLocation(96, 32);

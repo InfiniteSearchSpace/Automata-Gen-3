@@ -22,7 +22,7 @@ public class Main extends JFrame {
             	int xSize = 160; //size of each surface
             	int ySize = 160;
             	
-            	int surfaces = 1;	//Total number of displays
+            	int surfaces = 3;	//Total number of displays
             	int universes = 1;	//Total number of universes
             	
             	//instanciate essential program elements 
@@ -134,8 +134,8 @@ public class Main extends JFrame {
             	*/
             	
             	s[0] = new Surf(xSize, 	ySize, 	u[0].zlen,	2, 				16, 		u[0]);
-            	//s[1] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*1+4, 		ySize*1+18, u[0]);
-            	//s[2] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*2+6, 		ySize*2+20, u[0]);
+            	s[1] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*1+4, 		ySize*1+16, u[0]);
+            	s[2] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*2+6, 		ySize*2+16, u[0]);
             	
             	/**/
             	
@@ -147,7 +147,7 @@ public class Main extends JFrame {
             	
             	//Layout for Main window/frame
             	m.setLayout(null);
-            	m.setSize((xSize+2) * surfaces + 6 ,(ySize+2) * surfaces + 42 );
+            	m.setSize((xSize+2) * 3 + 6 ,600);
             	m.setVisible(true);
             	m.setLocation(32, 32);
             	m.setLocation(96, 32);

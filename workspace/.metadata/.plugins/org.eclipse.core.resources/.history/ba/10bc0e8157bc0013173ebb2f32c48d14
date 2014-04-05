@@ -12,7 +12,7 @@ public class mwl implements MouseWheelListener{
 	
 	//constructor
     public mwl(Main mm, ml hisML) {
-    	//System.out.println("mwl");
+    	System.out.println("mwl");
     	m=mm;
     	hisMouseListener=hisML;
     	

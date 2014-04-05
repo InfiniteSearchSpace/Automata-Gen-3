@@ -698,7 +698,32 @@ public class automataLib {
 		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne == 3) { u.universe[xx][yy][zz] = 1; }*/
 	}
+	
+	public void Conway11(int xx, int yy, int zz){
+
+		n = new neighbours(11);
+		n.setNBH( -1, -1, 0, 0);
+		n.setNBH( 0, -1, 0, 1);	
+		n.setNBH( 1, -1, 0, 2);
 		
+		n.setNBH( -1, 0, 0, 3);
+		n.setNBH( 0, 0, 0, 4);
+		n.setNBH( 1, 0, 0, 5);
+		
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 0, 1, 0, 7);
+		n.setNBH( 1, 1, 0, 8);
+		
+		n.setNBH( 0, 2, 0, 9);
+		n.setNBH( 0, -2, 0, 10);
+		
+		int isOne = totalisticNotZero(xx,yy,zz);
+		
+		if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
 	public void rope(int xx, int yy, int zz){
 
 		n = new neighbours(3);
@@ -938,11 +963,6 @@ public class automataLib {
 		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
 		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
 		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
-		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
-		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
-		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
-		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
-		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
 
 	}
 	
@@ -1211,30 +1231,7 @@ public class automataLib {
 
 	}
 	
-	public void Conway11(int xx, int yy, int zz){
-
-		n = new neighbours(11);
-		n.setNBH( -1, -1, 0, 0);
-		n.setNBH( 0, -1, 0, 1);	
-		n.setNBH( 1, -1, 0, 2);
-		
-		n.setNBH( -1, 0, 0, 3);
-		n.setNBH( 0, 0, 0, 4);
-		n.setNBH( 1, 0, 0, 5);
-		
-		n.setNBH( -1, 1, 0, 6);
-		n.setNBH( 0, 1, 0, 7);
-		n.setNBH( 1, 1, 0, 8);
-		
-		n.setNBH( 0, 2, 0, 9);
-		n.setNBH( 0, -2, 0, 10);
-		
-		int isOne = totalisticNotZero(xx,yy,zz);
-		
-		if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 3)  { u.universe[xx][yy][zz] = 1; }
-		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
-	}
+	
 	
 	
 	

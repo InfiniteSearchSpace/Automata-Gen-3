@@ -18,6 +18,8 @@ Basic Use:
 	
 - Left click option 0 to scroll z-axis/depth where applicable
 
+- Menu items 4.3 & 4.4 change the automata ruleset while preserving the current placements
+
 ==============
 
 Advanced Use/Details:
@@ -55,24 +57,28 @@ For a Menu with 111100 only Universe 2 (the third surface) of 0-2 is updating gr
 
 Controls: Everything is controlled by the mouse.
 
-Left Click: Perform Current Subfunction from selected Category
-Right Click: Pause/Unpause the currently selected Surface
-Scroll Wheel: Cycle through current Subunctions from selected Function Category
-Click scrollwheel: Cycle through function category
+- Left Click: Perform Current Subfunction from selected Category
+
+- Right Click: Pause/Unpause the currently selected Surface
+
+- Scroll Wheel: Cycle through current Subunctions from selected Function Category
+
+- Scroll Wheel Click: Cycle through function category
 
 Special Left-Click Case:
 
 In all function categories, when Current Subfunction == 0, cycle through Z-axis for Current Universe
 
-Category 4, subfunction 1 will cycle through active universes.
+Category 4, subfunction 1 will cycle through active universes/surfaces.
 
 - Category 0 - placing solid blocks
 - Category 1 - placing random blocks
 - Category 2 - setting blocks to 0 / "deleting"
 - Category 3 - placing blocks with value 30 (this was for early testing, some functions cannot act on value 30 cells) 
 
-- Category 4 is utility: 
+Category 4 is utility: 
 
-	1 = cycle active universe, 
-	2 = clear all, 
-	3 = test, changes z-layer one to conway
+	1 = cycle active universe
+	2 = clear all
+	3 = test, changes z-layer randomised automata
+	4 = test, changes z-layer next automata in sequence

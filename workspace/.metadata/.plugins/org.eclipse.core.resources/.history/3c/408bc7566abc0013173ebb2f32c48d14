@@ -75,14 +75,14 @@ public class ml extends JPanel implements MouseListener {
 	        	}
 	    		
 	    		if (myFunction ==  2) { //Place Block Small
-	    	    	int num = 3;
+	    	    	int num = 2;
 	    			for(int i = 0; i < num*2; i++){
 	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    		
 	    		if (myFunction ==  3) { //Place block medium 
-	    	    	int num = 8;
+	    	    	int num = 10;
 	    			for(int i = 0; i < num*2; i++){
 	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}

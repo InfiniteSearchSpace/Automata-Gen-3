@@ -942,7 +942,15 @@ public class automataLib {
 		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
 		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
 		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
-		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
+		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 						);}
+		/*if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}
+		if(ins[0] == 2 && (ins[1] == zz || ins[1] == -1)) {(xx,yy,zz 							);}*/
 
 	}
 	

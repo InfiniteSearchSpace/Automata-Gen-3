@@ -195,11 +195,6 @@ public class automataLib {
 		
 		return 0;
 	}
-	
-	//returns the average value among neighbours
-	public int nbrGetAverage(int xx, int yy, int zz, int val){
-		return 0;
-	}
 
 		
 	

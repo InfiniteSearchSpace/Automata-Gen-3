@@ -27,7 +27,7 @@ public class automataLib {
 	
 	/*  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
-	 * 		 	Value setting & modifications
+	 * 		 	Sets & modifications
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 */ 
@@ -190,18 +190,7 @@ public class automataLib {
 		return isOne;
 	}
 
-	//returns the most common number among neighbours
-	public int nbrGetMode(int xx, int yy, int zz, int val){
-		
-		return 0;
-	}
 	
-	//returns the average value among neighbours
-	public int nbrGetAverage(int xx, int yy, int zz, int val){
-		return 0;
-	}
-
-		
 	
 	 
 	 
@@ -249,7 +238,7 @@ public class automataLib {
 		n.setNBH(1, 0, 0, 3);
 		
 		
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = nbrCountVal(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
@@ -264,7 +253,7 @@ public class automataLib {
 		n.setNBH(1, 1, 0, 3);
 		
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = nbrCountVal(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 4){u.universe[xx][yy][zz] = 0;}
@@ -278,7 +267,7 @@ public class automataLib {
 		n.setNBH(-1, 1, 0, 2);
 		n.setNBH(1, 1, 0, 3);
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = nbrCountVal(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
@@ -294,7 +283,7 @@ public class automataLib {
 		n.setNBH(-2, -1, 0, 3);
 		n.setNBH(2, -1, 0, 4);
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = nbrCountVal(xx,yy,zz,1);
 		
 		if (t < 2 || t > 4) {
 			for(int i = 0; i < 5; i++) {

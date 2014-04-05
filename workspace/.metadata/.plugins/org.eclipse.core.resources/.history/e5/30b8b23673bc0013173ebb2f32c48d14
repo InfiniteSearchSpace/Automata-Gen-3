@@ -77,21 +77,21 @@ public class ml extends JPanel implements MouseListener {
 	    		if (myFunction ==  2) { //Place Block Small
 	    	    	int num = 3;
 	    			for(int i = 0; i < num*2; i++){
-	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    		
 	    		if (myFunction ==  3) { //Place block medium 
 	    	    	int num = 8;
 	    			for(int i = 0; i < num*2; i++){
-	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    		
 	    		if (myFunction ==  4) { //Place Block Big
 	    	    	int num = 14;
 	    			for(int i = 0; i < num*2; i++){
-	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    	}
@@ -101,28 +101,28 @@ public class ml extends JPanel implements MouseListener {
 	    		if (myFunction ==  1) { //chance block random Light			
 	    			int num = 16;
 	    			for(int i = 0; i < num*2; i++){
-	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 64, mx+num, false,1, 1);
+	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 64, mx+num, false, true, 1, 1);
 	    	    	}
 	    		}
 	    		
 	    		if (myFunction ==  2) { //chance block random Heavy
 	    			int num = 16;
 	    			for(int i = 0; i < num*2; i++){
-	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, 1, 1);
+	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 1);
 	    	    	}
 	    		}
 	    		
 	    		if (myFunction ==  3) { //Place Big Block Horizontal 3-step Stripes
 	    	    	int num = 24;
 	    			for(int i = 0; i < num*2; i+=3){
-	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    		
 	    		if (myFunction ==  4) { //Place medium Block 2-step Stripes
 	    	    	int num = 10;
 	    			for(int i = 0; i < num*2; i+=2){
-	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    				s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 1);
 	    			}
 	        	}
 	    	}
@@ -136,21 +136,21 @@ public class ml extends JPanel implements MouseListener {
 	    		if (myFunction ==  2) { //chance Set to 0, large
 	    			int num = 12;
 	    			for(int i = 0; i < num*2; i++){
-	    		    	s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 4, mx+num, false, 1, 1);
+	    		    	s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 4, mx+num, false, true, 1);
 	    		    }
 	    		}
 	    		
 	    		if (myFunction ==  3) { //Set to 0, medium
 	    			int num = 6;
 	    			for(int i = 0; i < num*2; i++){
-	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    	    		s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1);
 	    	    	}
 	    		}
 	    		
 	    		if (myFunction ==  4) { //Set to 0, large
 	    			int num = 16;
 	    			for(int i = 0; i < num*2; i++){
-	    	    		s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 1);
+	    	    		s[sfcnum].u.a.placeLineO(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1);
 	    	    	}
 	    		}
 	    		
@@ -161,14 +161,14 @@ public class ml extends JPanel implements MouseListener {
 				if (myFunction ==  1) { //big block, value 100
 					int num = 16;
 					for(int i = 0; i < num*2; i++){
-						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, 1, 100);
+						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, true, 1, 100);
 					}
 				}
 				
 				if (myFunction ==  2) { //small block, value 100	
 					int num = 3;
 					for(int i = 0; i < num*2; i++){
-						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 100);
+						s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, true, 1, 100);
 					}
 				}
 			}

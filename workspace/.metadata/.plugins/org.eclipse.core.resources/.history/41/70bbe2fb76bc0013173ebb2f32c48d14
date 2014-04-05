@@ -27,12 +27,37 @@ public class automataLib {
 	
 	/*  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
-	 * 		 	Value setting & modifications
+	 * 		 	Automata components
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 */ 
 	
-
+	//ILLEGAL: sets the snapshot neighbour at reference iNbr to val
+	public void setNeighbourVal(int xx, int yy, int zz, int iNbr, int val) {
+		u.universe[getWrap(xx, n.NBH[iNbr][0], u.universe.length)][getWrap(yy, n.NBH[iNbr][1], u.universe[0].length)][getWrap(zz, n.NBH[iNbr][2], u.universe[0][0].length)] = val;
+	}
+	
+	//returns the value of snapshot neighbour at iNbr
+	public int getNbrVal(int xx, int yy, int zz, int iNbr){
+		return u.snapshotUniverse[getWrap(xx, n.NBH[iNbr][0], u.universe.length)][getWrap(yy, n.NBH[iNbr][1], u.universe[0].length)][getWrap(zz, n.NBH[iNbr][2], u.universe[0][0].length)];
+	}
+	
+	//Checks if specified snapshot cell is specified value, return T/F
+	public boolean ifval(int xx, int yy, int zz, int val){
+		
+		if(u.snapshotUniverse[xx][yy][zz] == val) {
+			return true;
+		} else { 
+			return false;
+		}
+		
+	}
+	
+	//Return the value of the specified snapshot cell
+	public int getval(int xx, int yy, int zz){ 
+		return u.snapshotUniverse[xx][yy][zz];
+	}
+	
 	//copy pattern into all layers & cells, tile.
 	public void writeData(int[] dd) {
 		for(int i = 0; i < u.universe.length; i++) {
@@ -100,54 +125,19 @@ public class automataLib {
     	}
     }
 
-	//sets the neighbour at reference iNbr to val
-	public void setNeighbourVal(int xx, int yy, int zz, int iNbr, int val) {
-		u.universe[getWrap(xx, n.NBH[iNbr][0], u.universe.length)][getWrap(yy, n.NBH[iNbr][1], u.universe[0].length)][getWrap(zz, n.NBH[iNbr][2], u.universe[0][0].length)] = val;
-	}
     
     
-	/*  = = = = = = = = = = = = = = = = = = = = 
-	 *  = = = = = = = = = = = = = = = = = = = = 
-	 * 		 	Conditional Checks
-	 *  = = = = = = = = = = = = = = = = = = = = 
-	 *  = = = = = = = = = = = = = = = = = = = = 
-	 */ 
-
-	
-	//returns the value of snapshot neighbour at iNbr
-	public int getNbrVal(int xx, int yy, int zz, int iNbr){
-		return u.snapshotUniverse[getWrap(xx, n.NBH[iNbr][0], u.universe.length)][getWrap(yy, n.NBH[iNbr][1], u.universe[0].length)][getWrap(zz, n.NBH[iNbr][2], u.universe[0][0].length)];
-	}
-	
-	//Checks if specified snapshot cell is specified value, return T/F
-	public boolean ifval(int xx, int yy, int zz, int val){
-		
-		if(u.snapshotUniverse[xx][yy][zz] == val) {
-			return true;
-		} else { 
-			return false;
-		}
-		
-	}
-	
-	//Return the value of the specified snapshot cell
-	public int getval(int xx, int yy, int zz){ 
-		return u.snapshotUniverse[xx][yy][zz];
-	}
-	
-    //Counts how many neighbours are equal to val
-	public int nbrCountVal(int xx, int yy, int zz, int val){
+	public int totalistic(int xx, int yy, int zz, int valToCount){
 		int isOne = 0;
 
 		for(int i = 0; i < n.NBH.length; i++) {
-			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == val) {isOne++;}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == valToCount) {isOne++;}
 		}
 		
 		return isOne;
 	}
 	
-	//sums the value of all neighbours
-	public int nbrSum(int xx, int yy, int zz){
+	public int totalisticSum(int xx, int yy, int zz){
 		int isOne = 0;
 
 		for(int i = 0; i < n.NBH.length; i++) {
@@ -157,51 +147,58 @@ public class automataLib {
 		return isOne;
 	}
 	
-	//counts the neighbours less than val
-	public int nbrCountLessThanVal(int xx, int yy, int zz, int val){
+	public int totalisticLess(int xx, int yy, int zz, int valToCount){
 		int isOne = 0;
 
 		for(int i = 0; i < n.NBH.length; i++) {
-			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] < val) {isOne++;}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] < valToCount) {isOne++;}
 		}
 		
 		return isOne;
 	}
 	
-	//counts the neighbours more than val
-	public int nbrCountMoreThanVal(int xx, int yy, int zz, int val){
+	public int totalisticMore(int xx, int yy, int zz, int valToCount){
 		int isOne = 0;
 
 		for(int i = 0; i < n.NBH.length; i++) {
-			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] > val) {isOne++;}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] > valToCount) {isOne++;}
 		}
 		
 		return isOne;
 	}
 	
-	//counts the neighbours not equal to val
-	public int nbrCountNotVal(int xx, int yy, int zz, int val){
+	public int totalisticNotZero(int xx, int yy, int zz){
 		int isOne = 0;
 
 		for(int i = 0; i < n.NBH.length; i++) {
-			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] != val) {isOne++;}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] != 0) {isOne++;}
 		}
 		
 		return isOne;
 	}
+	
+	public int totalisticIsVal(int xx, int yy, int zz, int val){
+		int isOne = 0;
 
-	//returns the most common number among neighbours
-	public int nbrGetMode(int xx, int yy, int zz, int val){
+		for(int i = 0; i < n.NBH.length; i++) {
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == val) {isOne++;}
+		}
 		
-		return 0;
+		return isOne;
 	}
 	
-	//returns the average value among neighbours
-	public int nbrGetAverage(int xx, int yy, int zz, int val){
-		return 0;
-	}
-
-		
+	public int totalNotZeroAll(int zz){
+		 int isOne = 0;
+		 
+	    for(int i = 0; i < u.universe.length; i++) {
+			for (int j = 0; j < u.universe[0].length; j++) {
+					if(u.snapshotUniverse[i][j][zz] != 0) {isOne++;}
+			}
+		}
+	    
+	    return isOne;
+	 }
+	
 	
 	 
 	 
@@ -249,7 +246,7 @@ public class automataLib {
 		n.setNBH(1, 0, 0, 3);
 		
 		
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = totalistic(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
@@ -264,7 +261,7 @@ public class automataLib {
 		n.setNBH(1, 1, 0, 3);
 		
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = totalistic(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 4){u.universe[xx][yy][zz] = 0;}
@@ -278,7 +275,7 @@ public class automataLib {
 		n.setNBH(-1, 1, 0, 2);
 		n.setNBH(1, 1, 0, 3);
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = totalistic(xx,yy,zz,1);
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
@@ -294,7 +291,7 @@ public class automataLib {
 		n.setNBH(-2, -1, 0, 3);
 		n.setNBH(2, -1, 0, 4);
 
-		int t = nbrCountNotVal(xx,yy,zz,0);
+		int t = totalistic(xx,yy,zz,1);
 		
 		if (t < 2 || t > 4) {
 			for(int i = 0; i < 5; i++) {
@@ -533,7 +530,7 @@ public class automataLib {
 		n.setNBH(0, 1, 0, 6);
 		n.setNBH(1, 1, 0, 7);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 		
 		if(isOne < 2)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
@@ -547,20 +544,41 @@ public class automataLib {
 			n.setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
 		}
 		
+		//check self
+		//if(u.snapshotUniverse[xx][yy][zz] == r.nextInt(33)-16) {
 		if(u.snapshotUniverse[xx][yy][zz] <= 1 ){
+			//check neighbours
 			int num = r.nextInt(33)-16;
-			if(num != 0 && nbrCountVal(xx,yy,zz, num) > 1 && nbrCountVal(xx,yy,zz, num) <= 3) {
+			if(num != 0 && totalistic(xx,yy,zz, num) > 1 && totalistic(xx,yy,zz, num) <= 3) {
+				//action
 				if(r.nextInt(6) <= 4) {u.universe[xx][yy][zz] = num;} else {u.universe[xx][yy][zz] += r.nextInt(9)-4;}
 			} 
 
-			if(nbrSum(xx,yy,zz)*nbrSum(xx,yy,zz) < (nbrCountVal(xx,yy,zz, num)*num*num)  || nbrCountVal(xx,yy,zz, num) >= 7) {
+			if(totalisticSum(xx,yy,zz)*totalisticSum(xx,yy,zz) < (totalistic(xx,yy,zz, num)*num*num)  || totalistic(xx,yy,zz, num) >= 7) {
+				//action
 				u.universe[xx][yy][zz] = 0;
 			}
 		}
+		//}
+			
+		
+		
+		
+	/*
+		int isOne = totalisticNotZero(xx,yy,zz);
+		
+		
+		if(isOne > 0 || (checkSelf == 1 && u.snapshotUniverse[xx][yy][zz] + isOne == val)) {
+		if(isOne < 2)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 3) { u.universe[xx][yy][zz] = 1; }*/
 	}
 	
 	public void PointToCircle(int xx, int yy, int zz){
-
+		/*n = new neighbours(r.nextInt(8)+1);
+		for (int ii = 0; ii < n.NBH.length; ii++) {
+			n.setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
+		}*/
 		n = new neighbours(5);
 		n.setNBH(0, -1, 0, 0);
 		n.setNBH( 0, 1, 0, 1);	
@@ -568,12 +586,29 @@ public class automataLib {
 		n.setNBH( 1, 0, 0, 3);
 		n.setNBH( 0, 0, 0, 4);
 
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
-		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 2 || isOne == 1)  { u.universe[xx][yy][zz] = 1; }
-
+		//check self
+		//if(u.snapshotUniverse[xx][yy][zz] == r.nextInt(33)-16) {
+		int isOne = totalisticNotZero(xx,yy,zz);
+		
+		//if(u.snapshotUniverse[xx][yy][zz] == val) {
+			if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
+			if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
+			if(isOne == 2 || isOne == 1)  { u.universe[xx][yy][zz] = 1; }
+		//}
+		//}
+			
+		
+		
+		
+	/*
+		int isOne = totalisticNotZero(xx,yy,zz);
+		
+		
+		if(isOne > 0 || (checkSelf == 1 && u.snapshotUniverse[xx][yy][zz] + isOne == val)) {
+		if(isOne < 2)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 3) { u.universe[xx][yy][zz] = 1; }*/
 	}
 		
 	public void rope(int xx, int yy, int zz){
@@ -583,7 +618,7 @@ public class automataLib {
 		n.setNBH( 0, -1, 0, 1);	
 		n.setNBH( -1, 0, 0, 2);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 		
 		if(isOne == 1)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
@@ -623,7 +658,7 @@ public class automataLib {
 		n.setNBH( -2, 2, 0, 23);
 		
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 		
 		
 		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
@@ -645,7 +680,7 @@ public class automataLib {
 		n.setNBH(-1, 0, 0, 2);
 		n.setNBH(1, 0, 0, 3);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 		
 		if(isOne > 0) {
 			if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
@@ -663,7 +698,7 @@ public class automataLib {
 			n.setNBH(0, -1, 0, 2);
 			n.setNBH(0, -2, 0, 3);
 			
-			int isOne = nbrCountNotVal(xx,yy,zz,0);
+			int isOne = totalisticNotZero(xx,yy,zz);
 			
 			if(isOne > 0) {
 				if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
@@ -679,7 +714,7 @@ public class automataLib {
 		n.setNBH(-1, 0, 0, 1);
 		//n.setNBH(-1, 0, 0, 2);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 		
 		if(isOne > 0) {
 			if(isOne <= 0)  { u.universe[xx][yy][zz] = 0; }
@@ -709,7 +744,7 @@ public class automataLib {
 		n.setNBH(1, -1, 1, 12);
 		n.setNBH(1, -1, -1, 13);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 
 		//if(isOne > 0) {
 			if(isOne <= 2) { u.universe[xx][yy][zz] = 0;}
@@ -728,7 +763,7 @@ public class automataLib {
 		n.setNBH(1, -1, 0, 2);
 		//n.setNBH(0, 0, 0, 3);
 		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		int isOne = totalisticNotZero(xx,yy,zz);
 
 		if(isOne > 0) {
 		

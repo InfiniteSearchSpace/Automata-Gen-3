@@ -27,7 +27,7 @@ public class automataLib {
 	
 	/*  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
-	 * 		 	Value setting & modifications
+	 * 		 	Sets & modifications
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
 	 */ 
@@ -190,18 +190,7 @@ public class automataLib {
 		return isOne;
 	}
 
-	//returns the most common number among neighbours
-	public int nbrGetMode(int xx, int yy, int zz, int val){
-		
-		return 0;
-	}
 	
-	//returns the average value among neighbours
-	public int nbrGetAverage(int xx, int yy, int zz, int val){
-		return 0;
-	}
-
-		
 	
 	 
 	 

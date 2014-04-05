@@ -192,6 +192,7 @@ public class automataLib {
 
 	//returns the most common number among neighbours
 	public int nbrGetMode(int xx, int yy, int zz, int val){
+		
 		return 0;
 	}
 	

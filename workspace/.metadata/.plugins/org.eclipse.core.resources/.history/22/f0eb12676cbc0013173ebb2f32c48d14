@@ -33,17 +33,17 @@ public class Main extends JFrame {
             	automataLib[] a = new automataLib[universes];		//Performs all automata functions for the sim;
             	
             	//Instanciate automataLibs 
-            	//This may be unnessessary
-            	a[0] = new automataLib(m);	
+            	//This may be unnessessary?
+            	a[0] = new automataLib(m);			
+            	//a[1] = new automataLib(m);
+            	//a[2] = new automataLib(m);
             	
             	//Instanciate Universes
             	//This can be used to run different simulations in different surfaces.
             	//still only runs one once cpu core per Main instance. 
             	//number of z layers is determined here
-            	
             	//					Xsize	Ysize	Zsize	automataLib
-            	u[0] = new Universe(xSize, 	ySize,  1, 	a[0]);
-            	
+            	u[0] = new Universe(xSize, 	ySize,  1, 	a[0]);			
             	//u[1] = new Universe(xSize, 	ySize, 	2, 	a[1]);
             	
             	
@@ -86,22 +86,50 @@ public class Main extends JFrame {
             			//Fill out Integer instruction arrays here.
             			//{InstructionNumber, Z-layer, args[]...} 
 
-            			{23,-1,1}
+            			{21,-1,1}
             			
                 };
             	
-            	
-            	//dataSources d = new dataSources();		//used for seeding/creating predefined patterns
-            	
-            	ml myml = new ml(m,s,l,u);					//Mouselistener for user input;
-            	mwl mymwl = new mwl(m,myml);				//MouseWheelListener for user input;
-            	
+            	/*
 
+				//Copy-past reference for additional universes
+	            u[1].instructions = new int[][] {
+	            };
+            	*/
+            	//Example of a instruction set that is an entirely random combination of rulesets and values
+            	//Some will fail, some will run, and some will combine in a spectacular manner
+            	/*Random r = new Random();
+            	u[0].instructions = new int[][] {
+            			{r.nextInt(30), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)},
+            			{r.nextInt(30), 0, r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4), r.nextInt(4)}
+            	};
+            	
+            	/**/
+            	
+            	
+            	//dataSources d = new dataSources();					//used for seeding/creating predefined patterns
+            	ml myml = new ml(m,s,l,u);							//Mouselistener for user input;
+            	mwl mymwl = new mwl(m,myml);							//Mouselistener for user input;
+            	
+            	
+            	
+            	
+            	
             	//Set parameters for each surface/display panel
+            	//                 (Width,	Height,	Depth,		X,			Y,			Assigned universe)
+            	
             	for(int i = 0; i < surfaces; i++) {
-                    //        	   (Width,	Height,	Depth,		X,					Y,					Assigned universe)
             		s[i] = new Surf(xSize, 	ySize, 	u[0].zlen,	(xSize*i)+(2*i)+2,	(ySize*i)+(2*i)+16, u[0]);
             	}
+
+            	/*s[0] = new Surf(xSize, 	ySize, 	u[0].zlen,	xSize*0+2, 		ySize*0+16, u[0]);
+            	s[1] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*1+4, 		ySize*1+18, u[0]);
+            	s[2] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*2+6, 		ySize*2+20, u[0]);
+            	s[3] = new Surf(xSize, 	ySize, 	u[0].zlen,	xSize*3+8, 		ySize*3+22, u[0]);
+            	s[4] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*4+10, 	ySize*4+24, u[0]);
+            	s[5] = new Surf(xSize, 	ySize, 	u[0].zlen, 	xSize*5+12, 	ySize*5+26, u[0]);*/
+            	
+            	/**/
             	
             	//Textbox for info display
             	l.setLayout(null); 
@@ -128,12 +156,9 @@ public class Main extends JFrame {
             	myml.toggleStart(); //Plays a fram so the universe is visible, unpauses
             	myml.toggleStart(); //second toggle pauses
             	
-            	//makes sure first surface is visible
-            	u[0].runOnce(1,0);
-            	
             	//Kickstart u[0] with the action in class Universe. Usually a seeding. 
             	//Takes int: rand, val
-            	u[0].runOnce(4,1);
+            	u[0].runOnce(1,0);
             	
             	
             }

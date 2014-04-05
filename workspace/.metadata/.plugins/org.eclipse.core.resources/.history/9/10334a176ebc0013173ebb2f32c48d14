@@ -91,10 +91,9 @@ public class Main extends JFrame {
                 };
             	
             	
-            	//dataSources d = new dataSources();		//used for seeding/creating predefined patterns
-            	
-            	ml myml = new ml(m,s,l,u);					//Mouselistener for user input;
-            	mwl mymwl = new mwl(m,myml);				//MouseWheelListener for user input;
+            	//dataSources d = new dataSources();					//used for seeding/creating predefined patterns
+            	ml myml = new ml(m,s,l,u);							//Mouselistener for user input;
+            	mwl mymwl = new mwl(m,myml);							//Mouselistener for user input;
             	
 
             	//Set parameters for each surface/display panel

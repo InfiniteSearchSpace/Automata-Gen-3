@@ -88,14 +88,13 @@ public class Surf extends JPanel {
     }
    
     
-    //repaint() calls this
+    //repaint() calls this?
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) { 
     	//Begin paintComponent output
-        if(!paused){
-        	super.paintComponent(g); 	       
-        	doDrawing(g);
-        }				
+        if(!paused){super.paintComponent(g); 	//What is super?        
+        doDrawing(g);}				//Perform/begin next update
+        //System.out.println("End paintComponent");
     }
     
 }

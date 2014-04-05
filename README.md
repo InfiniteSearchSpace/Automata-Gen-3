@@ -11,9 +11,9 @@ Basic Use:
 
 - Right click to start and stop the automata
 
-- Scroll up or down to change the subfunction (unlabeled numbers currently)
+- Scroll up or down to change the subfunction (unlabelled numbers currently)
 
-- Click scrollwheel to change the function category
+- Click scroll-wheel to change the function category
 
 - Left click to execute a function
 	
@@ -40,12 +40,12 @@ They represent the Menu.
 
 Terms:
 	
-	Surface			- the individual windows that show visual updates
-	Universe 		- the object that contains the placements and values
-	Z-axis ID 		- the x*y layer at index z
-	Function Catagory/Type 	- determines the type of action: place blocks, delete, utility...
-	Subfunction		- determines which action from a catagory to perform
-	Instruction		- determines which cellular automata rules to use
+	Surface				- the individual windows that show visual updates
+	Universe 			- the object that contains the placements and values
+	Z-axis ID 			- the x*y layer at index z
+	Function Category/Type 		- determines the type of action: place blocks, delete, utility...
+	Subfunction			- determines which action from a category to perform
+	Instruction			- determines which cellular automata rules to use
 
 Example Menu: 0.0.0.4.111100 {1,15}
 

@@ -249,8 +249,7 @@ public class ml extends JPanel implements MouseListener {
     	
     	
     	for(int i = 0; i < u[0].instructions.length; i++) {
-    		tmps2 += u[0].instructions[i][0];
-    		if(i < u[0].instructions.length-1) {tmps2 += ",";}
+    		if(i < u[0].instructions.length) {tmps2 += u[0].instructions[i][0] +",";}
     	}
     	
     	//output as string the current menu state

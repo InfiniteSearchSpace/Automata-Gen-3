@@ -4,6 +4,7 @@ This is my full Eclipse workspace folder.
 
 Basic Use:
 
+
 - Run program
 
 - Click & drag window frame a little (for mouse location data)
@@ -20,17 +21,33 @@ Basic Use:
 
 - Menu items 4.3 & 4.4 change the automata ruleset while preserving the current placements
 
+
+==============
+Advanced Use/Details:
 ==============
 
-Advanced Use/Details:
+Colour Scheme:
 
-On program start, click and drag the window. This will make sure it captures mouse position accurately.
+- When max value is 1, all value 1 is black
+- When max value is larger than one, value 1 is light blue, low numbers are white, with gradient to the highest numbers in black.
+- Negative numbers are red
 
-You'll see some numbers at the bottom similar to: x.x.x.x.xx
+==============
+
+You'll see some numbers at the bottom similar to: x.x.x.x.xx {x,x}
 
 They represent the Menu.
 
-Example Menu: 0.0.0.4.11111111
+Terms:
+	
+	Surface			- the individual windows that show visual updates
+	Universe 		- the object that contains the placements and values
+	Z-axis ID 		- the x*y layer at index z
+	Function Catagory/Type 	- determines the type of action: place blocks, delete, utility...
+	Subfunction		- determines which action from a catagory to perform
+	Instruction		- determines which cellular automata rules to use
+
+Example Menu: 0.0.0.4.111100 {1,15}
 
 0.0.0.4 means (in order):
 
@@ -39,19 +56,35 @@ Example Menu: 0.0.0.4.11111111
 	Function Category: 0
 	Current Subfunction: 4
 
-And the .11111111 means:
+.111100 means:
 
 	Surface0: Graphics Stopped
 	Surface0: Calculations Stopped
 	Surface1: Graphics Stopped
 	Surface1: Calculations Stopped
-	Surface2: Graphics Stopped
-	Surface2: Calculations Stopped
-	Surface3: Graphics Stopped
-	Surface3: Calculations Stopped
+	Surface2: Graphics Running
+	Surface2: Calculations Running
 
+{1,15} means:
+	
+	Do Instruction 1
+	Do Instruction 15
 
-For a Menu with 111100 only Universe 2 (the third surface) of 0-2 is updating graphics and automata calculations.
+==============
+
+Menu functions:
+
+- Category 0 - placing solid blocks
+- Category 1 - placing random blocks
+- Category 2 - setting blocks to 0 / "deleting"
+- Category 3 - placing blocks with value 100
+
+Category 4 is utility: 
+
+	1 = Cycle UI selection to the next surface
+	2 = Reset all to 0 / Clear all
+	3 = Changes z-layer to a randomised automata
+	4 = Changes z-layer to the next automata in sequence
 
 ==============
 
@@ -67,18 +100,8 @@ Controls: Everything is controlled by the mouse.
 
 Special Left-Click Case:
 
-In all function categories, when Current Subfunction == 0, cycle through Z-axis for Current Universe
+In all function categories, when Current Subfunction == 0, cycle through Z-axis for the currently selected Universe
 
-Category 4, subfunction 1 will cycle through active universes/surfaces.
 
-- Category 0 - placing solid blocks
-- Category 1 - placing random blocks
-- Category 2 - setting blocks to 0 / "deleting"
-- Category 3 - placing blocks with value 30 (this was for early testing, some functions cannot act on value 30 cells) 
 
-Category 4 is utility: 
-
-	1 = cycle active universe
-	2 = clear all
-	3 = test, changes z-layer randomised automata
-	4 = test, changes z-layer next automata in sequence
+		

@@ -86,7 +86,7 @@ public class Main extends JFrame {
             			//Fill out Integer instruction arrays here.
             			//{InstructionNumber, Z-layer, args[]...} 
 
-            			{2,-1}
+            			{23,-1,1}
             			
                 };
             	
@@ -105,7 +105,7 @@ public class Main extends JFrame {
             	
             	//Textbox for info display
             	l.setLayout(null); 
-            	l.setBounds(2, 2, xSize*2, 14); 
+            	l.setBounds(2, 2, 160, 14); 
             	l.setVisible(true);
             	l.setText("Menu");
             	

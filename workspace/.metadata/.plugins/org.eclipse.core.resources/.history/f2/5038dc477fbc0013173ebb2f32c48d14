@@ -240,21 +240,15 @@ public class ml extends JPanel implements MouseListener {
     //identifies the mousefunction action that is highlighted
     public void updateListing(){
     	String tmps = "";
-    	String tmps2 = "";
+    	
     	//convert pause state to string
     	for(int i = 0; i < s.length; i++) {
     		if(s[i].paused == true) {tmps+="1";} else {tmps+="0";}
     		if(s[i].upaused == true) {tmps+="1";} else {tmps+="0";}
     	}
     	
-    	
-    	for(int i = 0; i < u[0].instructions.length; i++) {
-    		tmps2 += u[0].instructions[i][0];
-    		if(i < u[0].instructions.length-1) {tmps2 += ",";}
-    	}
-    	
     	//output as string the current menu state
-    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps + " {" + tmps2 + "}");
+    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps + "-{" + u[0].instructions[0][0] + ", ...");
     	
     }
     

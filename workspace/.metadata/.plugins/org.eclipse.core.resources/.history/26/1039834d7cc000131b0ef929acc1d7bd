@@ -407,15 +407,6 @@ public class ml extends JPanel implements MouseListener {
         }; 
     }
     
-    public void setRandomRule(){
-    	Random r = new Random();
-		
-		u[0].instructions = new int[][] {
-			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
-        }; 
-    }
-    
     public void nextRule() {
 		Random r = new Random();
 		int instr = u[0].instructions[0][0]; //get current instruction

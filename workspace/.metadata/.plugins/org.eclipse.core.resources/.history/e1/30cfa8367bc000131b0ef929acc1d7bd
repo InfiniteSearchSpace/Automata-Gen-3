@@ -41,23 +41,12 @@ public class jMenuMain implements ActionListener {
         menu.add(menuItem);
         
         menu.addSeparator();
-        menu.addSeparator();
         
         menuItem = new JMenuItem("Reseed All");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
         menuItem = new JMenuItem("Erase All");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menu.addSeparator();
-        
-        menuItem = new JMenuItem("Random Ruleset");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Combination Ruleset");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -126,13 +115,11 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Play/Pause") {mML.toggleStart();}
         if(source.getText() == "Erase All") {mML.eraseAll();}
         if(source.getText() == "Reseed All") {mML.reseedAll(4, 1);}
-        if(source.getText() == "Random Ruleset") {mML.reseedAll(8, 1); mML.setRandomRule();}
-        if(source.getText() == "Combination Ruleset") {mML.reseedAll(8, 1); mML.setRandom_3_InstructionWithSeed();}
         
         if(source.getText() == "Place Solid Blocks") {mML.setFunctionType(0);}
         if(source.getText() == "Place Random Blocks") {mML.setFunctionType(1);}
-        if(source.getText() == "Erase Blocks") {mML.setFunctionType(2); }
-        if(source.getText() == "Place Value 100 Blocks") {mML.setFunctionType(3); }
+        if(source.getText() == "Erase Blocks") {mML.setFunctionType(2);}
+        if(source.getText() == "Place Value 100 Blocks") {mML.setFunctionType(3);}
         //if(source.getText() == "Utilities") {mML.setFunctionType(4);}
         
         if(source.getText() == "Subfunctions") 		{mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}

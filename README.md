@@ -1,35 +1,49 @@
 Automata-Gen-3
 ==============
-This is my full Eclipse workspace folder.
+This is my full Eclipse workspace folder, plus runnable jar.
 
-Basic Use:
+Setup:
 
-
-- Run program
+- Run program from included jar, or through Eclipse with the included Workspace folder. You could also import the included source to another IDE.
 
 - Click & drag window frame a little (for mouse location data)
 
-- Right click to start and stop the automata
+Program Use:
 
-- Scroll up or down to change the subfunction (unlabelled numbers currently)
+- Left click to execute the selected Tool's subfunction.
 
-- Click scroll-wheel to change the function category
+- Scroll up or down to modify the target of the "Cycle" menu. Targets are: Tool Subfunction (default), Z-axis/depth, and Automata Ruleset.
 
-- Left click to execute a function
-	
-- Left click option 0 to scroll z-axis/depth where applicable
+- For most purposes, the GUI menu should be easy to navigate.
 
-- Menu items 4.3 & 4.4 change the automata ruleset while preserving the current placements
+Controll/UI shortcuts:
 
+- Right click to toggle Play/Pause.
+
+- Click scroll-wheel to change the Tool Type.
 
 ==============
 Advanced Use/Details:
 ==============
 
+Controls: Everything is controlled by the mouse.
+
+- Left Click: Perform selected Subfunction from selected Tool Category
+
+- Right Click: Pause/Unpause the currently selected Surface
+
+- Scroll Wheel: Cycle through the Cycle-Target selected through the "Cycle" menu (default: "Tool Subfunction")
+
+- Scroll Wheel Click: Cycle through Tool Category
+
+==============
+
 Colour Scheme:
 
 - When max value is 1, all value 1 is black
+
 - When max value is larger than one, value 1 is light blue, low numbers are white, with gradient to the highest numbers in black.
+
 - Negative numbers are red
 
 ==============
@@ -40,21 +54,21 @@ They represent the Menu.
 
 Terms:
 	
-	Surface				- the individual windows that show visual updates
-	Universe 			- the object that contains the placements and values
-	Z-axis ID 			- the x*y layer at index z
-	Function Category/Type 		- determines the type of action: place blocks, delete, utility...
-	Subfunction			- determines which action from a category to perform
-	Instruction			- determines which cellular automata rules to use
+	Surface				- the individual windows that show the visual automata updates
+	Universe 			- the object that contains the placements and values, and has actions performed on it
+	Z-axis/Depth ID 		- the x*y layer, at index z
+	Tool 				- determines the type of left-click action: place blocks, erase, utility
+	Subfunction			- determines which action from a category to perform (default is 4 different variations of each tool)
+	Ruleset				- determines which cellular automata rules to use
 
-Example Menu: 0.0.0.4.111100 {1,15}
+Example Menu: 0.2.3.4.111100 {1,15}
 
-0.0.0.4 means (in order):
+0.2.3.1 means (in order):
 
 	Active Universe ID: 0
-	Active Z-axis (depth) ID for this Universe: 0
-	Function Category: 0
-	Current Subfunction: 4
+	Active Z-axis/depth ID for this Universe: 2
+	Tool Category: 3
+	Current Tool Subfunction: 1
 
 .111100 means:
 
@@ -65,43 +79,13 @@ Example Menu: 0.0.0.4.111100 {1,15}
 	Surface2: Graphics Running
 	Surface2: Calculations Running
 
-{1,15} means:
+{1,15} means for each iteration:
 	
-	Do Instruction 1
-	Do Instruction 15
+	Do Instruction 1, Then Do Instruction 15
 
 ==============
 
-Menu functions:
-
-- Category 0 - placing solid blocks
-- Category 1 - placing random blocks
-- Category 2 - setting blocks to 0 / "deleting"
-- Category 3 - placing blocks with value 100
-
-Category 4 is utility: 
-
-	1 = Cycle UI selection to the next surface
-	2 = Reset all to 0 / Clear all
-	3 = Changes z-layer to a randomised automata
-	4 = Changes z-layer to the next automata in sequence
-
-==============
-
-Controls: Everything is controlled by the mouse.
-
-- Left Click: Perform Current Subfunction from selected Category
-
-- Right Click: Pause/Unpause the currently selected Surface
-
-- Scroll Wheel: Cycle through current Subunctions from selected Function Category
-
-- Scroll Wheel Click: Cycle through function category
-
-Special Left-Click Case:
-
-In all function categories, when Current Subfunction == 0, cycle through Z-axis for the currently selected Universe
-
+- Category x.x.4.1.xx combines three random automata with random parameters, and a seed. It's chaotic 95% of the time, but you might stumble into an interesting combination! Try it out!
 
 
 		

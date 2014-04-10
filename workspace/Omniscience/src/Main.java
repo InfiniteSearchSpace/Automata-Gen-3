@@ -19,8 +19,8 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 192; //size of each surface
-            	int ySize = 192;
+            	int xSize = 160; //size of each surface
+            	int ySize = 160;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes
@@ -86,8 +86,7 @@ public class Main extends JFrame {
             			//Fill out Integer instruction arrays here.
             			//{InstructionNumber, Z-layer, args[]...} 
 
-            			{4,-1},
-            			{3,-1,80}
+            			{0,0}
             			
                 };
             	
@@ -96,33 +95,40 @@ public class Main extends JFrame {
             	
             	ml myml = new ml(m,s,l,u);					//Mouselistener for user input;
             	mwl mymwl = new mwl(m,myml);				//MouseWheelListener for user input;
-            	
+            	jMenuMain jmen = new jMenuMain(myml);			//add Menu Gui
 
             	//Set parameters for each surface/display panel
             	for(int i = 0; i < surfaces; i++) {
-                    //        	   (Width,	Height,	Depth,		X,					Y,					Assigned universe)
-            		s[i] = new Surf(xSize, 	ySize, 	u[0].zlen,	(xSize*i)+(2*i)+2,	(ySize*i)+(2*i)+16, u[0]);
+                    //        	   (Width,	Height,	Depth,		X,						Y,						Assigned universe)
+            		s[i] = new Surf(xSize, 	ySize, 	u[0].zlen,	(xSize*i)+(2*i)+2+2,	(ySize*i)+(2*i)+16+2, 	u[0]);
             	}
             	
             	//Textbox for info display
             	l.setLayout(null); 
-            	l.setBounds(2, 2, xSize*2, 14); 
+            	l.setBounds(4, 2, xSize*2, 14); 
             	l.setVisible(true);
             	l.setText("Menu");
             	
             	//Layout for Main window/frame
             	m.setLayout(null);
-            	m.setSize((xSize+2) * surfaces + 6 ,(ySize+2) * surfaces + 42 );
+            	
+            	int minMenuXLen = 180;
+            	if(xSize < minMenuXLen) {m.setSize(minMenuXLen, (ySize+2) * surfaces + 42 + 24 + 2);} else {
+            		m.setSize((xSize+2+2) * surfaces + 6 + 2 ,(ySize+2) * surfaces + 42 + 24 + 2);
+            	}
+            	
             	m.setVisible(true);
+            	m.setResizable(false);
             	m.setLocation(32, 32);
             	m.setLocation(96, 32);
-            	m.setResizable(false);
             	
             	//Assemble the components
             	m.add(l);
             	for(int i = 0; i < surfaces; i++) { m.add(s[i]); }
             	
             	//Configure initial state
+            	jmen.setGUI(m);
+            	
             	
             	myml.updateListing(); 	//show menu on start
             	

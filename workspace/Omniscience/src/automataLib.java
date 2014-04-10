@@ -79,13 +79,12 @@ public class automataLib {
     }
     
     //with chance, reset pixel to val, applies to whole universe
-    public void seedAll(int rand, int val, boolean overwrite){
+    public void seedAll(int rand, int val){
     	
     	for(int i = 0; i < u.universe.length; i++) {
 			for (int j = 0; j < u.universe[0].length; j++) {
 				for (int k = 0; k < u.universe[0][0].length; k++) {
-			    	if(overwrite) {seed(i,j,k,rand,0,val);}
-			    	else if(u.snapshotUniverse[i][j][k] == 0) {seed(i,j,k,rand,0,val);}
+			    	seed(i,j,k,rand,-1,val);
 				}
 			}
     	}
@@ -794,31 +793,44 @@ public class automataLib {
 																								  //Random, Threshold, Value
 	public void readInstructions(int[] ins, int xx, int yy, int zz) {
 		if(ins[0] == -1 && (ins[1] == zz || ins[1] == -1)) {seed(xx, yy, zz, 						ins[2], ins[3], ins[4]);}
-		if(ins[0] == 0  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
-		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
-		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
 		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {quantum(xx,yy,zz,						ins[2]);}
-		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
 		if(ins[0] == 5  && (ins[1] == zz || ins[1] == -1)) {quantumWeight(xx,yy,zz,					ins[2]);}
-		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
-		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
+		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
+		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
+		
+		
+		
+		if(ins[0] == 0  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
+		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
 		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
 		if(ins[0] == 9  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
 		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {internalAffairs(xx,yy,zz				);}
 		if(ins[0] == 11 && (ins[1] == zz || ins[1] == -1)) {meekrochyp(xx,yy,zz						);}
 		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {diamondShuffle(xx,yy,zz					);}
 		if(ins[0] == 13 && (ins[1] == zz || ins[1] == -1)) {rain(xx,yy,zz							);}
-		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		if(ins[0] == 15 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz							);}
 		if(ins[0] == 16 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 						);}
-		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
-		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
-		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
 		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
 		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
-		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
 		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
+				
+		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
+		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
+		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
+		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
+		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
+		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
 		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
+		
+		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}
 

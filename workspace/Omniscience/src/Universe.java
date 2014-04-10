@@ -97,7 +97,7 @@ public class Universe {
     //Garden of Eden, absolute seed for t=0
     public void runOnce(int rand, int val) {
     	a.setTargetUni(this, d);
-    	a.seedAll(rand,val,true);
+    	a.seedAll(rand,val);
     }
     	
     //handles the universal calculations 

@@ -290,7 +290,7 @@ public class ml extends JPanel implements MouseListener {
     	}
       	
     	//output as string the current menu state
-    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps +  "." + cycleNum + " {" + tmps2 + "}");
+    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps + " {" + tmps2 + "}");
     	
     }
     

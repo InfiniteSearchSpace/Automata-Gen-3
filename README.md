@@ -38,13 +38,15 @@ Controls: Everything is controlled by the mouse.
 
 ==============
 
-Colour Scheme:
+Colour Scheme & Graphics:
 
-- When max value is 1, all value 1 is black
+- Cells are one pixel each. I reccomend using magnifier on windows or KMag on linux when viewing.
 
-- When max value is larger than one, value 1 is light blue, low numbers are white, with gradient to the highest numbers in black.
+- When the maximum value of all cells is 1, all cells of value 1 are black
 
-- Negative numbers are red
+- When max value is larger than one, value 1 is light blue, low numbers are white, with a greyscale gradient up to the highest numbers in black.
+
+- Negative numbers are always red
 
 ==============
 

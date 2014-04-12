@@ -634,6 +634,52 @@ public class automataLib {
 		//if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
+	public void ConwayExtendedRange2(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		
+		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 6)  { u.universe[xx][yy][zz] = 1; }
+		/*if(isOne == 7)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 8)  { u.universe[xx][yy][zz] = 0; }
+		//if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }*/
+		//if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
 	public void warts(int xx, int yy, int zz){
 
 		n = new neighbours(4);
@@ -675,7 +721,7 @@ public class automataLib {
 		
 		n.setNBH(0, -1, 0, 0);
 		n.setNBH(-1, 0, 0, 1);
-		//n.setNBH(-1, 0, 0, 2);
+		//n.setNBH(-1, -1, 0, 2);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -685,8 +731,46 @@ public class automataLib {
 			if(isOne >= 2)  { u.universe[xx][yy][zz] = 0; }
 		}
 		
+		
 	}
+	
+	public void Inverse110_2(int xx, int yy, int zz){
+		n = new neighbours(4);
+		
+		n.setNBH(0, -2, 0, 0);
+		n.setNBH(-2, 0, 0, 1);
+		n.setNBH(-1, -1, 0, 2);
+		n.setNBH(-2, -2, 0, 3);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne > 0) {
+			if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
+			if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne >= 3)  { u.universe[xx][yy][zz] = 0; }
+		}
+	}
+	
+	public void Inverse110_leopard(int xx, int yy, int zz){
+		n = new neighbours(3);
+		
+		n.setNBH(0, -2, 0, 0);
+		n.setNBH(-2, 0, 0, 1);
+		n.setNBH(-1, -1, 0, 2);
+		//n.setNBH(-2, -2, 0, 3);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne > 0) {
+			if(isOne <= 0)  { u.universe[xx][yy][zz] = 0; }
+			if(isOne == 1)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne >= 2)  { u.universe[xx][yy][zz] = 0; }
+		}
 
+	}
+	
+
+	
 	public void actual3D(int xx, int yy, int zz){
 		
 		n = new neighbours(14);
@@ -727,26 +811,32 @@ public class automataLib {
 		//n.setNBH(0, 0, 0, 3);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
-
-		if(isOne > 0) {
 		
-		int[][] ar = new int[][] {{1,1,1,0},{1,1,0,1},{1,0,1,1},{1,0,0,0},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
-		//int[][] ar = new int[][] {{1,1,1,0},{1,1,0,0},{1,0,1,0},{1,0,0,1},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
-		int ar2[] = new int[] {0,0,0};
-
-		for(int i = 0; i < n.NBH.length; i++) {
-			if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == 1) {ar2[i]=1;} else {ar2[i]=0;}
-		}
-
-		int isThis = 0;
-		for(int i = 0; i < ar.length; i++) {
-			isThis = 0;
-			for(int j = 0; j < n.NBH.length; j++) {
-				if(ar[i][j] == ar2[j]) {isThis++;}
+		//u.universe[xx][yy][zz] = 0;
+		
+		if(isOne > 0) {
+			
+			int[][] ar = new int[][] {{1,1,1,0},{1,1,0,1},{1,0,1,1},{1,0,0,0},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
+			//int[][] ar = new int[][] {{1,1,1,0},{1,1,0,0},{1,0,1,0},{1,0,0,1},{0,1,1,1},{0,1,0,1},{0,0,1,1},{0,0,0,0}};
+			int ar2[] = new int[] {0,0,0};
+	
+			for(int i = 0; i < n.NBH.length; i++) {
+				if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == 1) {ar2[i]=1;} else {ar2[i]=0;}
 			}
-			if(isThis == 3) {u.universe[xx][yy][zz] = ar[i][3];break;}
+	
+			int isThis = 0;
+			for(int i = 0; i < ar.length; i++) {
+				isThis = 0;
+				for(int j = 0; j < n.NBH.length; j++) {
+					if(ar[i][j] == ar2[j]) {isThis++;}
+				}
+				if(isThis == 3) {u.universe[xx][yy][zz] = ar[i][3];break;}
+			}
+			
+			
 		}
-		}
+		
+
 		//int t = totalistic(xx,yy,zz,1);
 
 		/*if (t == 2){u.universe[xx][yy][zz] = 1;}
@@ -798,10 +888,14 @@ public class automataLib {
 		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
 		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
 		
-		
+		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
+		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
+		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
+		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
 		
 		if(ins[0] == 0  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
-		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
+		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
+		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
 		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
 		if(ins[0] == 9  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
 		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {internalAffairs(xx,yy,zz				);}
@@ -813,14 +907,11 @@ public class automataLib {
 		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
 		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
 		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
-				
-		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
-		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
-		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
-		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
-		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
-		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
 		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
+		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Inverse110_2(xx,yy,zz 					);}
+		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 					);}
+		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
+		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

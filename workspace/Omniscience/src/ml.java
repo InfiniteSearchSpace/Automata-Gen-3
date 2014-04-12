@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.util.Random;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -21,10 +22,14 @@ public class ml extends JPanel implements MouseListener {
 	Point p2;
 	Universe u[];
 	
+	Random r = new Random();
+	
+	int totalFunctions = 28;
+	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
 	
-	int myFunction = 1;  	//reference for current mouse function on click
+	int myFunction = 0;  	//reference for current mouse function on click
 	int functionType = 0;	//Determines subclass of functions to execute, like a menu.
 	
 	int fcnt = 4;			//total number of mouse functions to iterate through
@@ -47,13 +52,7 @@ public class ml extends JPanel implements MouseListener {
         sfcmax=s.length;
         functionType = 0;
     }
-    
-    //do I need this?
-    void eventOutput(String eventDescription, MouseEvent e) {
-        System.out.println(eventDescription + " detected on "
-                + e.getComponent().getClass().getName()
-                + ".");
-    }
+
     
     public void mousePressed(MouseEvent e) {
     	//refresh();
@@ -75,7 +74,7 @@ public class ml extends JPanel implements MouseListener {
 	    	//Function type/catagory 0's options
 	    	if(functionType == 0) {
 	    		if (myFunction ==  0) { //Place One
-	        		s[sfcnum].u.a.seed(mx, my, s[sfcnum].zdraw, 1, 0, 1);
+	        		s[sfcnum].u.a.seed(mx, my-1, s[sfcnum].zdraw, 1, 0, 1);
 	        	}
 	    		
 	    		if (myFunction ==  1) { //Place Block Small
@@ -147,8 +146,8 @@ public class ml extends JPanel implements MouseListener {
 	    	
 	    	//Function type/catagory 2's options
 	    	if(functionType == 2) {
-	    		if (myFunction == 1) { //Set to 0, one
-	    			s[sfcnum].u.a.placeval(mx, my, s[sfcnum].zdraw, 1, 0);
+	    		if (myFunction == 0) { //Set to 0, one
+	    			s[sfcnum].u.a.placeval(mx, my-1, s[sfcnum].zdraw, 1, 0);
 	    		}
 	    		
 	    		if (myFunction ==  1) { //chance Set to 0, large
@@ -300,14 +299,16 @@ public class ml extends JPanel implements MouseListener {
 		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
 		
     	
-    	updateListing();
+    	/*updateListing();
     	s[sfcnum].repaint();
     	
     	if(s[sfcnum].upaused) {
     		if(s[sfcnum].paused) { 
     			s[sfcnum].paused = false; 
     		} 
-    	}
+    	}*/
+		
+		refresh();
     	
     	
     	
@@ -333,13 +334,14 @@ public class ml extends JPanel implements MouseListener {
     	
     	setCycle();
     	
-	    updateListing();
+    	refresh();
     }
     
     public void setCycle(){
     	if(cycleNum == 0) {myFunction = mwPos;}
-    	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos; refresh();}
-    	if(cycleNum == 2) {setRule(mwPos);}
+    	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos;}
+    	if(cycleNum == 2) {eraseAll();reseedAll(6,1);setRule(mwPos);}
+    	refresh();
     }
    /* public void mouseWheelScrolled(int mw_rotation) {
 
@@ -357,10 +359,11 @@ public class ml extends JPanel implements MouseListener {
     }*/
     
     public void setRule(int ru) {
-    	Random r = new Random();
+    	
 		u[0].instructions = new int[][] {
 			{ru, -1, r.nextInt(64)+1, r.nextInt(64)+1}
 		};
+		refresh();
     }
     
     
@@ -368,11 +371,13 @@ public class ml extends JPanel implements MouseListener {
     	for(int i = 0; i < s[sfcnum].zz; i++) {
     		s[sfcnum].u.resetArZ(0,i);
     	}
+    	refresh();
     }
     
     public void reseedAll(int rand, int val) {
     	eraseAll();
-    	s[sfcnum].u.a.seedAll(4, 1);
+    	s[sfcnum].u.a.seedAll(rand, val);
+    	refresh();
     }
     
     public void refresh() {
@@ -392,50 +397,113 @@ public class ml extends JPanel implements MouseListener {
     
     public void setFunctionType(int funct) {
      	functionType=funct;
-     	updateListing();
+     	refresh();
     }
     
     public void setRandom_3_InstructionWithSeed(){
-    	Random r = new Random();
+    	
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
     		{-1, 			-1, 	r.nextInt(100000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)}	//seed
         }; 
+		refresh();
     }
     
     public void setRandomRule(){
-    	Random r = new Random();
+    	
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(24), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
+			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
         }; 
-    }
-    
-    public void nextRule() {
-		Random r = new Random();
-		int instr = u[0].instructions[0][0]; //get current instruction
-			
-		u[0].instructions = new int[][] {
-			//Action,			Z,		RAND,					THRESHOLD,			Value
-			{ (instr+1) % 24,	-1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
-        }; 
-    }
-    
-    public void prevRule() {
-		Random r = new Random();
-		int instr = u[0].instructions[0][0]; //get current instruction
-			
-		u[0].instructions = new int[][] {
-			//Action,			Z,		RAND,					THRESHOLD,			Value
-			{ (instr+(24-1)) % 24,	-1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
-        }; 
+		refresh();
     }
 
+    public void dialogReseed(){
+    	String str = JOptionPane.showInputDialog(m, "Enter reseed chance:", "8");
+    	if(str != null) {
+    		int sVal = Integer.parseInt(str);
+    		reseedAll(sVal, 1);
+    	}
+    }
+
+    public void dialogRule(){
+    	String str = JOptionPane.showInputDialog(m, "Go to rule (0-"+(totalFunctions-1)+"):", "0");
+    	if(str != null) {
+    		int sVal = Integer.parseInt(str);
+    		
+    		u[0].instructions = new int[][] {
+    			{sVal, -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
+    		};
+    	}
+    }
+    
+    public void dialogAddSeed(){
+    	String str = JOptionPane.showInputDialog(m, "Seed Chance:", "32");
+    	if(str != null) {
+    		int sVal = Integer.parseInt(str);
+    		
+    		int tmp[][] = new int[u[0].instructions.length+1][5];
+    		int i;
+    		for(i = 0; i< u[0].instructions.length; i++) {
+    			tmp[i] = u[0].instructions[i];
+    		}
+    		
+    		tmp[i] = new int[]{-1, -1, sVal, 1, 1}; //seed
+    		
+    		u[0].instructions = tmp;
+    	}
+    }
+    
+    public void dialogAddRule(){
+    	String str = JOptionPane.showInputDialog(m, "Add rule (0-"+(totalFunctions-1)+"):", "0");
+    	if(str != null) {
+    		int sVal = Integer.parseInt(str);
+    		
+    		int tmp[][] = new int[u[0].instructions.length+1][5];
+    		int i;
+    		for(i = 0; i< u[0].instructions.length; i++) {
+    			tmp[i] = u[0].instructions[i];
+    		}
+    		tmp[i] = new int[]{sVal, -1, r.nextInt(64)+1, r.nextInt(64)+1}; //seed
+
+    		u[0].instructions = tmp;
+    	}
+    }
+    
+    public void addRandomRule(){
+
+    	int tmp[][] = new int[u[0].instructions.length+1][5];
+    	int i;
+    		
+    	for(i = 0; i< u[0].instructions.length; i++) {
+    		tmp[i] = u[0].instructions[i];
+    	}
+    		
+    	tmp[i] = new int[]{r.nextInt(totalFunctions), -1, r.nextInt(64)+1, r.nextInt(64)+1};
+
+    	u[0].instructions = tmp;
+    }
+    
+    public void removeRule(){
+    	int tmp[][] = new int[u[0].instructions.length-1][5];
+    	for(int i = 0; i< u[0].instructions.length-1; i++) {
+    		tmp[i] = u[0].instructions[i];
+    	}
+    	u[0].instructions = tmp;
+    }
+    
+    
+    
+    public void resetRule(){
+    	int tmp[][] = new int[1][5];
+		tmp[0] = new int[]{0, -1, 1, 1};
+		u[0].instructions = tmp;
+    }
     //implicit function storage
     ////////////////////////////////////////////
     public void mouseReleased(MouseEvent e) {    }

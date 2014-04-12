@@ -156,6 +156,14 @@ public class automataLib {
 		return isOne;
 	}
 	
+	public int nbrAvg(int xx, int yy, int zz){
+		//int isOne = 0;
+		//if(nbrCountNotVal(xx,yy,zz,0) > 0) {
+		int isOne = nbrSum(xx,yy,zz) / n.NBH.length;  //nbrCountNotVal(xx,yy,zz,0);
+		//}
+		return isOne;
+	}
+	
 	//counts the neighbours less than val
 	public int nbrCountLessThanVal(int xx, int yy, int zz, int val){
 		int isOne = 0;
@@ -721,14 +729,13 @@ public class automataLib {
 		
 		n.setNBH(0, -1, 0, 0);
 		n.setNBH(-1, 0, 0, 1);
-		//n.setNBH(-1, -1, 0, 2);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne > 0) {
-			if(isOne <= 0)  { u.universe[xx][yy][zz] = 0; }
+			//if(isOne == 0)  { u.universe[xx][yy][zz] = 0; }
 			if(isOne == 1)  { u.universe[xx][yy][zz] = 1; }
-			if(isOne >= 2)  { u.universe[xx][yy][zz] = 0; }
+			if(isOne == 2)  { u.universe[xx][yy][zz] = 0; }
 		}
 		
 		
@@ -864,9 +871,38 @@ public class automataLib {
 		
 	}
 	
+	public void avgVonNew(int xx, int yy, int zz){
+		
+		n = new neighbours(8);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		n.setNBH(-1, 1, 0, 4);
+		n.setNBH(1, -1, 0, 5);
+		n.setNBH(-1, -1, 0, 6);
+		n.setNBH(1, 1, 0, 7);
+		
+		u.universe[xx][yy][zz]=nbrAvg(xx,yy,zz);
 	
+	}
+
 	
-	
+	public void avgRand(int xx, int yy, int zz, int rand){
+		
+			n = new neighbours(8);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(-1, 1, 0, 4);
+			n.setNBH(1, -1, 0, 5);
+			n.setNBH(-1, -1, 0, 6);
+			n.setNBH(1, 1, 0, 7);
+			
+			if(r.nextInt(rand) == 0) {u.universe[xx][yy][zz]=nbrAvg(xx,yy,zz);}
+		
+	}
 	
 	
 	
@@ -909,9 +945,10 @@ public class automataLib {
 		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
 		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
 		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Inverse110_2(xx,yy,zz 					);}
-		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 					);}
+		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 			);}
 		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
 		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
+		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

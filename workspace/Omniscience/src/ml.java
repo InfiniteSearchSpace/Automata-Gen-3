@@ -21,10 +21,9 @@ public class ml extends JPanel implements MouseListener {
 	Point p;
 	Point p2;
 	Universe u[];
-	
 	Random r = new Random();
 	
-	int totalFunctions = 28;
+	int totalFunctions = 29;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -38,6 +37,10 @@ public class ml extends JPanel implements MouseListener {
 	int mwPos = 0;			//Everyone references the MW cycle
 	int mwMax = fcnt;		//default position in the MW cycle, will change frequently
 	int cycleNum = 0;		//for Mousewheel to identify which type to cycle
+	
+	int blockVal = 100;
+	int seedVal = 1;
+	int seedRand = 2;
 	
 	//constructor
     public ml(Main mm, Surf[] ss, JLabel ll, Universe uni[]) {
@@ -185,7 +188,7 @@ public class ml extends JPanel implements MouseListener {
 					int num = 2;
 					if(mx-num > 0 && my-num > 0 && mx+num < s[sfcnum].getWidth() && my+num < s[sfcnum].getHeight()) {
 						for(int i = 0; i < num*2; i++){
-							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 100);
+							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, blockVal);
 						}
 					}
 				}
@@ -194,7 +197,7 @@ public class ml extends JPanel implements MouseListener {
 					int num = 8;
 					if(mx-num > 0 && my-num > 0 && mx+num < s[sfcnum].getWidth() && my+num < s[sfcnum].getHeight()) {
 						for(int i = 0; i < num*2; i++){
-							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, 1, 100);
+							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 3, mx+num, false, 1, blockVal);
 						}
 					}
 				}
@@ -203,7 +206,7 @@ public class ml extends JPanel implements MouseListener {
 					int num = 14;
 					if(mx-num > 0 && my-num > 0 && mx+num < s[sfcnum].getWidth() && my+num < s[sfcnum].getHeight()) {
 						for(int i = 0; i < num*2; i++){
-							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 100);
+							s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, blockVal);
 						}
 					}
 				}
@@ -212,7 +215,7 @@ public class ml extends JPanel implements MouseListener {
 		    	    int num = 18;
 		    	    if(mx-num > 0 && my-num > 0 && mx+num < s[sfcnum].getWidth() && my+num < s[sfcnum].getHeight()) {
 			    		for(int i = 0; i < num*2; i+=3){
-			    			s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, 100);
+			    			s[sfcnum].u.a.placeLine(mx-num, (my+i)-num, s[sfcnum].zdraw, 1, mx+num, false, 1, blockVal);
 			        	}
 		    	    }
 				}
@@ -376,7 +379,7 @@ public class ml extends JPanel implements MouseListener {
     
     public void reseedAll(int rand, int val) {
     	eraseAll();
-    	s[sfcnum].u.a.seedAll(rand, val);
+    	s[sfcnum].u.a.seedAll(seedRand, seedVal);
     	refresh();
     }
     
@@ -405,10 +408,10 @@ public class ml extends JPanel implements MouseListener {
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
+	    	{-1, 			-1, 	r.nextInt(100000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)},	//seed
 			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
 			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-    		{-1, 			-1, 	r.nextInt(100000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)}	//seed
+			{r.nextInt(totalFunctions), -1, 	r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
 		refresh();
     }
@@ -424,10 +427,12 @@ public class ml extends JPanel implements MouseListener {
     }
 
     public void dialogReseed(){
-    	String str = JOptionPane.showInputDialog(m, "Enter reseed chance:", "8");
-    	if(str != null) {
-    		int sVal = Integer.parseInt(str);
-    		reseedAll(sVal, 1);
+    	String str = JOptionPane.showInputDialog(m, "Seed chance (1/x):", String.valueOf(seedRand));
+    	String str2 = JOptionPane.showInputDialog(m, "Enter value to place:", String.valueOf(seedVal));
+    	if(str != null && str2 != null) {
+    		seedRand = Integer.parseInt(str);
+    		seedVal = Integer.parseInt(str2);
+    		reseedAll(seedRand, seedVal);
     	}
     }
 
@@ -443,9 +448,11 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void dialogAddSeed(){
-    	String str = JOptionPane.showInputDialog(m, "Seed Chance:", "32");
-    	if(str != null) {
-    		int sVal = Integer.parseInt(str);
+    	String str = JOptionPane.showInputDialog(m, "Seed chance (1/x):", String.valueOf(seedRand));
+    	String str2 = JOptionPane.showInputDialog(m, "Enter value to place:", String.valueOf(seedVal));
+    	if(str != null && str2 != null) {
+    		seedRand = Integer.parseInt(str);
+    		seedVal = Integer.parseInt(str2);
     		
     		int tmp[][] = new int[u[0].instructions.length+1][5];
     		int i;
@@ -453,7 +460,7 @@ public class ml extends JPanel implements MouseListener {
     			tmp[i] = u[0].instructions[i];
     		}
     		
-    		tmp[i] = new int[]{-1, -1, sVal, 1, 1}; //seed
+    		tmp[i] = new int[]{-1, -1, seedRand, 0, seedVal}; //seed
     		
     		u[0].instructions = tmp;
     	}
@@ -504,6 +511,22 @@ public class ml extends JPanel implements MouseListener {
 		tmp[0] = new int[]{0, -1, 1, 1};
 		u[0].instructions = tmp;
     }
+    
+    public void dialogSetBlockVal() {
+    	String str = JOptionPane.showInputDialog(m, "Block placement value:", "100");
+    	if(str != null) {
+    		blockVal = Integer.parseInt(str);
+    	}
+	}
+
+    
+    /*public void resize() {
+		u[0] = new Universe(128, 	128,  1, a[0]);
+    	u[0].instructions = new int[][] {{4,0}};
+    	s[0] = new Surf(128, 	128, 	u[0].zlen,	0+2+2,	0, u[0]);
+	}*/
+    
+    
     //implicit function storage
     ////////////////////////////////////////////
     public void mouseReleased(MouseEvent e) {    }
@@ -512,4 +535,6 @@ public class ml extends JPanel implements MouseListener {
     public void mouseClicked(MouseEvent e) {    }
     ////////////////////////////////////////////
 
+
+	
 }

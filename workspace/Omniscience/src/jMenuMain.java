@@ -54,6 +54,9 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+       /* menuItem = new JMenuItem("Resize");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);*/
         
         menu.addSeparator();
         
@@ -69,45 +72,7 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        
-        
-        menu = new JMenu("Ruleset");
-        menuBar.add(menu);
-    	
-    	menuItem = new JMenuItem("Set Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Add Rule To Ruleset");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Remove Last Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-         menu.addSeparator();
-         
-        menuItem = new JMenuItem("Random Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Add Random Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Combination Ruleset");
-        menuItem.addActionListener(this);
-        menu.add(menuItem); 
-        
-       
-        
-        
-        
-        
-        
-        
-        //create new menu
+      //create new menu
         menu = new JMenu("Tools");
         menuBar.add(menu);
         
@@ -124,9 +89,57 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Place Value 100 Blocks");
+        menuItem = new JMenuItem("Place Value x Blocks");
         menuItem.addActionListener(this);
         menu.add(menuItem);
+        
+        menu.addSeparator();
+        
+        menuItem = new JMenuItem("Change Block Value");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        
+        
+        
+        menu = new JMenu("Ruleset");
+        menuBar.add(menu);
+        
+    	 menuItem = new JMenuItem("Remove Last Rule");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menu.addSeparator();
+        
+        menuItem = new JMenuItem("Add Rule To Ruleset");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Add Random Rule");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+         menu.addSeparator();
+         
+        menuItem = new JMenuItem("Set Rule");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Set Random Rule");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Combination Ruleset");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
+        
+       
+        
+        
+        
+        
+        
+     
         
         
         
@@ -185,9 +198,14 @@ public class jMenuMain implements ActionListener {
         	mML.cycleNum = 0;
         	mML.myFunction=0;
         	mML.sfcnum=0;
+        	mML.blockVal = 100;
+        	mML.seedRand = 2;
+        	mML.seedVal = 1;
         }
-        
+
         if(source.getText() == "Erase All") {mML.eraseAll();}
+        //if(source.getText() == "Resize") {mML.resize();}
+        
         
         if(source.getText() == "Quick Reseed") {mML.reseedAll(r.nextInt(48)+1, 1);}
         if(source.getText() == "Set Seed") {mML.dialogReseed();}
@@ -197,14 +215,15 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Add Rule To Ruleset") {mML.dialogAddRule();}
         if(source.getText() == "Remove Last Rule") {mML.removeRule();}
         
-        if(source.getText() == "Random Rule") {mML.reseedAll(8, 1); mML.setRandomRule();}
+        if(source.getText() == "Set Random Rule") {mML.reseedAll(8, 1); mML.setRandomRule();}
         if(source.getText() == "Add Random Rule") {mML.addRandomRule();}
         if(source.getText() == "Combination Ruleset") {mML.reseedAll(8, 1); mML.setRandom_3_InstructionWithSeed();}
                 
         if(source.getText() == "Place Solid Blocks") {mML.setFunctionType(0);setBlocks();}
         if(source.getText() == "Place Random Blocks") {mML.setFunctionType(1);setBlocks();}
         if(source.getText() == "Erase Blocks") {mML.setFunctionType(2);setBlocks();}
-        if(source.getText() == "Place Value 100 Blocks") {mML.setFunctionType(3);setBlocks();}
+        if(source.getText() == "Place Value x Blocks") {mML.setFunctionType(3);setBlocks();}
+        if(source.getText() == "Change Block Value") {mML.dialogSetBlockVal();}
         //if(source.getText() == "Utilities") {mML.setFunctionType(4);}
         
         if(source.getText() == "Subfunctions") 		{mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}

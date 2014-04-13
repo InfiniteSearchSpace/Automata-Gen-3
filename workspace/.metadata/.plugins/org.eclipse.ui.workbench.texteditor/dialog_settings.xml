@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="320" key="DIALOG_WIDTH"/>
+		<item value="324" key="DIALOG_WIDTH"/>
 		<item value="540" key="DIALOG_Y_ORIGIN"/>
-		<item value="417" key="DIALOG_HEIGHT"/>
 		<item value="1440" key="DIALOG_X_ORIGIN"/>
+		<item value="419" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="getN" key="selection"/>
 		<list key="findhistory">
+			<item value="getN"/>
+			<item value="sum"/>
+			<item value="ngton"/>
+			<item value="langton"/>
+			<item value="angt"/>
+			<item value="toru"/>
+			<item value="angton"/>
 			<item value="&amp;&amp; (ins[1] == zz || ins[1] == -1)) {"/>
-			<item value="if(ins[0] == "/>
-			<item value="//TEST"/>
-			<item value="uni"/>
-			<item value="int i, int j, int k"/>
-			<item value="(i, j, k"/>
-			<item value="(i, j, k)"/>
-			<item value="(i,j,k)"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

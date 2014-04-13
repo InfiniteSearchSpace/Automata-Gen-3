@@ -208,7 +208,9 @@ public class automataLib {
 	}
 
 		
-	
+	public int getNbrCounts(int xx, int yy, int zz) {
+		return nbrCountNotVal(xx, yy, zz,0);
+	}
 	 
 	 
 	
@@ -775,7 +777,6 @@ public class automataLib {
 		}
 
 	}
-	
 
 	
 	public void actual3D(int xx, int yy, int zz){
@@ -886,8 +887,109 @@ public class automataLib {
 		u.universe[xx][yy][zz]=nbrAvg(xx,yy,zz);
 	
 	}
-
 	
+	public void fractalCount(int xx, int yy, int zz){
+		
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		if(sum > 0) {
+			if(sum <= 0)  { u.universe[xx][yy][zz] = 0; }
+			if(sum == 1)  { u.universe[xx][yy][zz] = 1; }
+			if(sum >= 2)  { u.universe[xx][yy][zz] = 0; }
+		}
+	}
+
+	public void fractalGun(int xx, int yy, int zz){
+		
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		
+		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 9)  { u.universe[xx][yy][zz] = 0; }
+		
+	}
+	
+	public void fractalPhase(int xx, int yy, int zz){
+		
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		
+		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 11)  { u.universe[xx][yy][zz] = 0; }
+		
+	}
+	
+	public void fractalChyp(int xx, int yy, int zz){
+		
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		
+		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 12)  { u.universe[xx][yy][zz] = 0; }
+		
+	}
+	
+	public void fractalShip(int xx, int yy, int zz){
+		
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		
+		if(sum <= 4)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 11)  { u.universe[xx][yy][zz] = 0; }
+		
+	}
+	
+
+
 	public void avgRand(int xx, int yy, int zz, int rand){
 		
 			n = new neighbours(8);
@@ -949,6 +1051,11 @@ public class automataLib {
 		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
 		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
 		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
+		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {fractalShip(xx,yy,zz					);}
+		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {fractalChyp(xx,yy,zz					);}
+		if(ins[0] == 31 && (ins[1] == zz || ins[1] == -1)) {fractalPhase(xx,yy,zz					);}
+		if(ins[0] == 32 && (ins[1] == zz || ins[1] == -1)) {fractalGun(xx,yy,zz						);}
+		if(ins[0] == 33 && (ins[1] == zz || ins[1] == -1)) {fractalCount(xx,yy,zz					);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

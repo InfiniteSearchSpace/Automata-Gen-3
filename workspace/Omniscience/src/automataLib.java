@@ -988,6 +988,259 @@ public class automataLib {
 		
 	}
 	
+	public void fractal1D(int xx, int yy, int zz){
+		
+		n = new neighbours(3);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, -1, 0, 2);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 5)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+	}
+	
+	public void fractal1D2(int xx, int yy, int zz){
+			
+			n = new neighbours(3);
+			n.setNBH(-1, -1, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, -1, 0, 2);
+			
+			int sum = 0;
+			for(int i = 0; i < n.NBH.length; i++){
+				sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+			}
+			
+			//if(sum > 0) {
+			if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
+			if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+			if(sum >= 9)  { u.universe[xx][yy][zz] = 0; }
+			//}
+			
+		}
+	
+	public void fractal1D3(int xx, int yy, int zz){
+		
+		n = new neighbours(3);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 4)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+		
+	}
+	
+public void fractal1D4(int xx, int yy, int zz){
+		
+		n = new neighbours(3);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 7)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+		
+	}
+
+	public void fractal1D5(int xx, int yy, int zz){
+		
+		n = new neighbours(3);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(0, 1, 0, 1);
+		n.setNBH(1, -1, 0, 2);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 2)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 7)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+		
+	}
+	
+	public void fractal1D6(int xx, int yy, int zz){
+		
+		n = new neighbours(3);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(0, 1, 0, 1);
+		n.setNBH(1, -1, 0, 2);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 6)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+		
+	}
+	
+public void fractalTime(int xx, int yy, int zz){
+		
+		n = new neighbours(8);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH( 0, -1, 0, 1);	
+		n.setNBH( 1, -1, 0, 2);
+		n.setNBH(-1, 0, 0, 3);	
+		n.setNBH( 1, 0, 0, 4);
+		n.setNBH(-1, 1, 0, 5);	
+		n.setNBH(0, 1, 0, 6);
+		n.setNBH(1, 1, 0, 7);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		//if(sum > 0) {
+		if(sum <= 30)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
+		//}
+		
+		
+	}
+
+public void fractalMetacell(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 33)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
+
+public void fractalMetacell2(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 15)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 9)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
+
+public void fractalMetacell3(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 16)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 9)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
+
+public void fractalMetacell4(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 10)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 22)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
 
 
 	public void avgRand(int xx, int yy, int zz, int rand){
@@ -1056,6 +1309,17 @@ public class automataLib {
 		if(ins[0] == 31 && (ins[1] == zz || ins[1] == -1)) {fractalPhase(xx,yy,zz					);}
 		if(ins[0] == 32 && (ins[1] == zz || ins[1] == -1)) {fractalGun(xx,yy,zz						);}
 		if(ins[0] == 33 && (ins[1] == zz || ins[1] == -1)) {fractalCount(xx,yy,zz					);}
+		if(ins[0] == 34 && (ins[1] == zz || ins[1] == -1)) {fractal1D(xx,yy,zz						);}
+		if(ins[0] == 35 && (ins[1] == zz || ins[1] == -1)) {fractal1D2(xx,yy,zz						);}
+		if(ins[0] == 36 && (ins[1] == zz || ins[1] == -1)) {fractal1D3(xx,yy,zz						);}
+		if(ins[0] == 37 && (ins[1] == zz || ins[1] == -1)) {fractal1D4(xx,yy,zz						);}
+		if(ins[0] == 38 && (ins[1] == zz || ins[1] == -1)) {fractal1D5(xx,yy,zz						);}
+		if(ins[0] == 39 && (ins[1] == zz || ins[1] == -1)) {fractal1D6(xx,yy,zz						);}
+		if(ins[0] == 41 && (ins[1] == zz || ins[1] == -1)) {fractalTime(xx,yy,zz					);}
+		if(ins[0] == 40 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell(xx,yy,zz				);}
+		if(ins[0] == 42 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell2(xx,yy,zz				);}
+		if(ins[0] == 43 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell3(xx,yy,zz				);}
+		if(ins[0] == 44 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell4(xx,yy,zz				);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

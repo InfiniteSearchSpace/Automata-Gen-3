@@ -89,5 +89,10 @@ Example Menu: 0.2.3.4.111100 {1,15}
 
 - Category x.x.4.1.xx combines three random automata with random parameters, and a seed. It's chaotic 95% of the time, but you might stumble into an interesting combination! Try it out!
 
+Interesting Combos:
+36,44,0
+31,39,23
+4,5
+26,22,23
 
 		

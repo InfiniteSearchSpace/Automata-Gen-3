@@ -23,7 +23,7 @@ public class ml extends JPanel implements MouseListener {
 	Universe u[];
 	Random r = new Random();
 	
-	int totalFunctions = 44+1;
+	int totalFunctions = 46+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through

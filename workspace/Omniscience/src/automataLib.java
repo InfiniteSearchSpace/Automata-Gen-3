@@ -1242,6 +1242,57 @@ public void fractalMetacell4(int xx, int yy, int zz){
 	
 }
 
+public void fractalMetacell5(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 16)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
+
+public void fractalMetacell6(int xx, int yy, int zz){
+	
+	n = new neighbours(8);
+	n.setNBH(-1, -1, 0, 0);
+	n.setNBH( 0, -1, 0, 1);	
+	n.setNBH( 1, -1, 0, 2);
+	n.setNBH(-1, 0, 0, 3);	
+	n.setNBH( 1, 0, 0, 4);
+	n.setNBH(-1, 1, 0, 5);	
+	n.setNBH(0, 1, 0, 6);
+	n.setNBH(1, 1, 0, 7);
+	
+	int sum = 0;
+	for(int i = 0; i < n.NBH.length; i++){
+		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+	}
+	
+	//if(sum > 0) {
+	if(sum <= 0)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
+	//}
+	
+	
+}
 
 	public void avgRand(int xx, int yy, int zz, int rand){
 		
@@ -1320,6 +1371,8 @@ public void fractalMetacell4(int xx, int yy, int zz){
 		if(ins[0] == 42 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell2(xx,yy,zz				);}
 		if(ins[0] == 43 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell3(xx,yy,zz				);}
 		if(ins[0] == 44 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell4(xx,yy,zz				);}
+		if(ins[0] == 45 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5(xx,yy,zz				);}
+		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

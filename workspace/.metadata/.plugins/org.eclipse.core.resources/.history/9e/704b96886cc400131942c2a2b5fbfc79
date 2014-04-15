@@ -1309,8 +1309,8 @@ public void fractal1(int xx, int yy, int zz){
 		sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
 	}
 	
-	if(sum <= 99)  { u.universe[xx][yy][zz] = 0; }
-	if(sum > 0 && sum < 4)  { u.universe[xx][yy][zz] = 1; }
+	if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
+	if(sum == 1)  { u.universe[xx][yy][zz] = 1; }
 	
 	
 }

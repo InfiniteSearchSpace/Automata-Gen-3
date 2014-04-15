@@ -1310,7 +1310,7 @@ public void fractal1(int xx, int yy, int zz){
 	}
 	
 	if(sum <= 99)  { u.universe[xx][yy][zz] = 0; }
-	if(sum > 0 && sum < 4)  { u.universe[xx][yy][zz] = 1; }
+	if(sum > 0 && sum < 2)  { u.universe[xx][yy][zz] = 1; }
 	
 	
 }

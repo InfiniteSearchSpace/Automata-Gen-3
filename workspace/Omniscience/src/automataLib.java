@@ -1315,6 +1315,26 @@ public void fractal1(int xx, int yy, int zz){
 	
 }
 
+public void hex1(int xx, int yy, int zz){
+	
+	n = new neighbours(6);
+	n.setNBH(0, -1, 0, 0);
+	n.setNBH(-1, 0, 0, 1);	
+	n.setNBH(0, 1, 0, 2);
+	n.setNBH(1, 0, 0, 3);	
+	n.setNBH(-1, -1, 0, 4);
+	n.setNBH(1, 1, 0, 5);
+	
+	int sum = nbrCountNotVal(xx, yy, zz, 0);
+	
+	if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
+	if(sum >= 3)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 5)  { u.universe[xx][yy][zz] = 0; }
+	
+	
+}
+
+
 	public void avgRand(int xx, int yy, int zz, int rand){
 		
 			n = new neighbours(8);
@@ -1395,6 +1415,7 @@ public void fractal1(int xx, int yy, int zz){
 		if(ins[0] == 45 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5(xx,yy,zz				);}
 		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
 		if(ins[0] == 47 && (ins[1] == zz || ins[1] == -1)) {fractal1(xx,yy,zz						);}
+		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz						);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
 		

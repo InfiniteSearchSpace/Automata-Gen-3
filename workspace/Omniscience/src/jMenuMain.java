@@ -44,23 +44,27 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+         menuItem = new JMenuItem("Reset To Default");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
         menu.addSeparator();
+        
+        menuItem = new JMenuItem("Erase Layer");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
         
         menuItem = new JMenuItem("Erase All");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Reset To Default");
+        menu.addSeparator();
+
+        menuItem = new JMenuItem("Reseed Layer");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-       /* menuItem = new JMenuItem("Resize");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);*/
-        
-        menu.addSeparator();
-        
-        menuItem = new JMenuItem("Quick Reseed");
+        menuItem = new JMenuItem("Reseed All");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -68,9 +72,6 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Add Constant Seeding");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
         
       //create new menu
         menu = new JMenu("Tools");
@@ -89,11 +90,11 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Place Value x Blocks");
+        menu.addSeparator();
+        
+        menuItem = new JMenuItem("Change Block Size");
         menuItem.addActionListener(this);
         menu.add(menuItem);
-        
-        menu.addSeparator();
         
         menuItem = new JMenuItem("Change Block Value");
         menuItem.addActionListener(this);
@@ -114,21 +115,21 @@ public class jMenuMain implements ActionListener {
         menuItem = new JMenuItem("Add Rule To Ruleset");
         menuItem.addActionListener(this);
         menu.add(menuItem);
+
+        menuItem = new JMenuItem("Add Constant Seeding");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
         
         menuItem = new JMenuItem("Add Random Rule");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-         menu.addSeparator();
+        menuItem = new JMenuItem("Recast Rule Parameters");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menu.addSeparator();
          
-        menuItem = new JMenuItem("Set Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Set Random Rule");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
         menuItem = new JMenuItem("Combination Ruleset");
         menuItem.addActionListener(this);
         menu.add(menuItem); 
@@ -136,28 +137,11 @@ public class jMenuMain implements ActionListener {
        
         
         
-        
-        
-        
-     
-        
-        
-        
-        
-        /*menuItem = new JMenuItem("Utilities");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);*/
 
         //create new menu
-        menu = new JMenu("Cycle");
+        menu = new JMenu("MouseWheel");
         menuBar.add(menu);
 
-        //feature use hint:
-        menuItem = new JMenuItem("MouseWheel Target:");
-        menu.add(menuItem);
-        
-        menu.addSeparator();
-        
         //Populate menu
         menuItem = new JMenuItem("Subfunctions");
         menuItem.addActionListener(this);
@@ -168,6 +152,14 @@ public class jMenuMain implements ActionListener {
         menu.add(menuItem);
         
         menuItem = new JMenuItem("Automata Rulesets");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Block Size");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Block Value");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
@@ -190,6 +182,8 @@ public class jMenuMain implements ActionListener {
         
         if(source.getText() == "Play/Pause") {mML.toggleStart();}
 
+        if(source.getText() == "Erase Layer") {mML.eraseLayer();}
+        if(source.getText() == "Erase All") {mML.eraseAll();}
         if(source.getText() == "Reset To Default") {
         	mML.eraseAll();
         	mML.resetRule();
@@ -198,37 +192,38 @@ public class jMenuMain implements ActionListener {
         	mML.cycleNum = 0;
         	mML.myFunction=0;
         	mML.sfcnum=0;
-        	mML.blockVal = 100;
-        	mML.seedRand = 2;
+        	mML.blockVal = 1;
+        	mML.seedRand = 4;
         	mML.seedVal = 1;
+        	mML.blockSize = 1;
+        	mML.mwPos = 0;
         }
 
-        if(source.getText() == "Erase All") {mML.eraseAll();}
-        //if(source.getText() == "Resize") {mML.resize();}
-        
-        
-        if(source.getText() == "Quick Reseed") {mML.reseedAll(r.nextInt(48)+1, 1);}
-        if(source.getText() == "Set Seed") {mML.dialogReseed();}
-        if(source.getText() == "Add Constant Seeding") {mML.dialogAddSeed();}
-        
-        if(source.getText() == "Set Rule") {mML.dialogRule();}
-        if(source.getText() == "Add Rule To Ruleset") {mML.dialogAddRule();}
+        if(source.getText() == "Reseed Layer") 	{mML.reseedLayer(mML.seedRand, mML.seedVal);}
+        if(source.getText() == "Reseed All") 	{mML.reseedAll(mML.seedRand, mML.seedVal);}
+        if(source.getText() == "Set Seed") 		{mML.dialogReseed();}
+
         if(source.getText() == "Remove Last Rule") {mML.removeRule();}
         
-        if(source.getText() == "Set Random Rule") {mML.reseedAll(8, 1); mML.setRandomRule();}
-        if(source.getText() == "Add Random Rule") {mML.addRandomRule();}
-        if(source.getText() == "Combination Ruleset") {mML.reseedAll(8, 1); mML.setRandom_3_InstructionWithSeed();}
-                
-        if(source.getText() == "Place Solid Blocks") {mML.setFunctionType(0);setBlocks();}
-        if(source.getText() == "Place Random Blocks") {mML.setFunctionType(1);setBlocks();}
-        if(source.getText() == "Erase Blocks") {mML.setFunctionType(2);setBlocks();}
-        if(source.getText() == "Place Value x Blocks") {mML.setFunctionType(3);setBlocks();}
-        if(source.getText() == "Change Block Value") {mML.dialogSetBlockVal();}
-        //if(source.getText() == "Utilities") {mML.setFunctionType(4);}
+        if(source.getText() == "Add Rule To Ruleset") 		{mML.dialogAddRule();}
+        if(source.getText() == "Add Constant Seeding") 		{mML.dialogAddSeed();}
+        if(source.getText() == "Add Random Rule") 			{mML.addRandomRule();}
+        if(source.getText() == "Recast Rule Parameters") 	{mML.recastParams();}
         
-        if(source.getText() == "Subfunctions") 		{mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
-        if(source.getText() == "Z-layers") 			{mML.mwPos = mML.sfcnum; 					mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}
-        if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.u[0].instructions[0][0]; 	mML.mwMax = mML.totalFunctions; 					mML.cycleNum = 2;}
+        if(source.getText() == "Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
+                
+        if(source.getText() == "Place Solid Blocks") 	{mML.setFunctionType(0);setBlocks();mML.blockSize = -1;}
+        if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;}
+        if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;}
+        
+        if(source.getText() == "Change Block Value") 	{mML.dialogSetBlockVal();}
+        if(source.getText() == "Change Block Size") 	{mML.dialogSetBlockSize();}
+        
+        if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
+        if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}
+        if(source.getText() == "Automata Rulesets") {mML.mwPos = 0; 							mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
+        if(source.getText() == "Block Size") 		{mML.mwPos = mML.blockSize; 				mML.mwMax = 100; 					mML.cycleNum = 3;}
+        if(source.getText() == "Block Value") 		{mML.mwPos = mML.blockVal; 					mML.mwMax = 100; 					mML.cycleNum = 4;}
 
         mML.refresh();
     }

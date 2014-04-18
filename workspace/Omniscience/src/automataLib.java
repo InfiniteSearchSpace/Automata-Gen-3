@@ -60,7 +60,8 @@ public class automataLib {
     	}
     }
 	
-    //draws a line of val. Can be solid or rand, can be veto'd, optional overwrite wit 0.    
+    //draws a line of val. Can be solid or rand, can be veto'd, optional overwrite with 0.  
+    //OBSOLETE!
     public void placeLine(int xx, int yy, int zz, int rand, int len, boolean placeO, int veto, int val) {
     	
     	if(r.nextInt(veto) == 0) { //chance to not write the line
@@ -68,6 +69,19 @@ public class automataLib {
 		    	if(r.nextInt(rand) == 0) {
 		    		placeval(xx+i, yy, zz, 1, val);
 		    	} else if(placeO) {placeval(xx+i, yy, zz, 1, 0);}
+		    }
+    	}
+    	
+    }
+    
+  //draws a line of val. Can be solid or rand, can be veto'd, optional overwrite with 0.    
+    public void plcLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize) {
+    	
+    	if(r.nextInt(veto) == 0) { //chance to not write the line
+		    for(int i = 1; i < ((len-xx)/2)+1; i++) {
+		    	if(r.nextInt(rand) == 0) {
+		    		placeval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val);
+		    	} else if(placeO > 0) {placeval((xx+i)+((blockSize-1)/2)-1, yy+((blockSize-1)/2), zz, 1, 0);}
 		    }
     	}
     	
@@ -1352,11 +1366,127 @@ public void hex1(int xx, int yy, int zz){
 	}
 	
 	
+	public void VonnFractal(int xx, int yy, int zz){
+		
+		n = new neighbours(6);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH( 1, 0, 0, 1);	
+		n.setNBH( 0,-1, 0, 2);
+		n.setNBH( 0, 1, 0, 3);	
+		n.setNBH( 0, 0,-1, 4);
+		n.setNBH( 0, 0, 1, 5);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		if(sum <= 6*6)  { u.universe[xx][yy][zz] = 0; }
+		if(sum >= 8 && sum <= 10 || (sum == 12) || (sum >= 25))  { u.universe[xx][yy][zz] = 1; } //{5,8}{5,9,13}{5,11,12,:3}{6,7,18,:11}{7,8,10,:7}{5,10,13,16,:10}{5,10,13,16,18,:13}{5,11,12,15,:10}{}{}
+
+		
+		
+		
+		//if(sum >= 9 && sum <= 13)  { u.universe[xx][yy][zz] = 1; }
+		//if(sum >= 6 && sum <= 6)  { u.universe[xx][yy][zz] = 1; }
+		//if(sum >= /*17*/ /*18*/ 19 /*20*/)  { u.universe[xx][yy][zz] = 1; }
+		
+		
+	}
 	
+	public void MooreFractal(int xx, int yy, int zz){
+		
+		n = new neighbours(14);
+		n.setNBH(0, 0, -1, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(-1, 0, 0, 2);
+		n.setNBH(0, 0, 1, 3);
+		n.setNBH(0, 1, 0, 4);
+		n.setNBH(1, 0, 0, 5);
+		
+		n.setNBH(-1, -1, -1, 6);
+		n.setNBH(-1, -1, 1, 7);
+		n.setNBH(-1, 1, -1, 8);
+		n.setNBH(-1, 1, 1, 9);
+		
+		n.setNBH(1, 1, 1, 10);
+		n.setNBH(1, 1, -1, 11);
+		n.setNBH(1, -1, 1, 12);
+		n.setNBH(1, -1, -1, 13);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		if(sum <= 14*14*2)  { u.universe[xx][yy][zz] = 0; }
+		if(sum <= 128 && sum > 0)  { 
+			if(sum % 11 == 0){u.universe[xx][yy][zz] = 1;}else{u.universe[xx][yy][zz] = 0;}
+		}
+	}
 	
+		public void MooreFractalColour(int xx, int yy, int zz){
+			
+			n = new neighbours(14);
+			n.setNBH(0, 0, -1, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(-1, 0, 0, 2);
+			n.setNBH(0, 0, 1, 3);
+			n.setNBH(0, 1, 0, 4);
+			n.setNBH(1, 0, 0, 5);
+			
+			n.setNBH(-1, -1, -1, 6);
+			n.setNBH(-1, -1, 1, 7);
+			n.setNBH(-1, 1, -1, 8);
+			n.setNBH(-1, 1, 1, 9);
+			
+			n.setNBH(1, 1, 1, 10);
+			n.setNBH(1, 1, -1, 11);
+			n.setNBH(1, -1, 1, 12);
+			n.setNBH(1, -1, -1, 13);
+			
+			int sum = 0;
+			for(int i = 0; i < n.NBH.length; i++){
+				sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+			}
+			
+			if(sum <= 14*14*2)  { u.universe[xx][yy][zz] = 0; }
+			if(sum <= 47 && sum > 0)  { 
+				
+				if(sum % 2 == 0){u.universe[xx][yy][zz] = 1;}
+				if(sum % 3 == 0){u.universe[xx][yy][zz] = 2;}
+				if(sum % 5 == 0){u.universe[xx][yy][zz] = 3;}
+				if(sum % 7 == 0){u.universe[xx][yy][zz] = 4;}
+				if(sum % 11 == 0){u.universe[xx][yy][zz] = 5;}
+				if(sum % 13 == 0){u.universe[xx][yy][zz] = 6;}
+				if(sum % 17 == 0){u.universe[xx][yy][zz] = 7;}
+				if(sum % 19 == 0){u.universe[xx][yy][zz] = 8;}
+				if(sum % 23 == 0){u.universe[xx][yy][zz] = 9;}
+				if(sum % 29 == 0){u.universe[xx][yy][zz] = 10;}
+				if(sum % 31 == 0){u.universe[xx][yy][zz] = 11;}
+				if(sum % 37 == 0){u.universe[xx][yy][zz] = 12;}
+				if(sum % 41 == 0){u.universe[xx][yy][zz] = 13;}
+				if(sum % 43 == 0){u.universe[xx][yy][zz] = 14;}
+				if(sum % 47 == 0){u.universe[xx][yy][zz] = 15;}
+			}
+		
+		//if(sum >= 9 && sum <= 13)  { u.universe[xx][yy][zz] = 1; }
+		//if(sum >= 6 && sum <= 6)  { u.universe[xx][yy][zz] = 1; }
+		//if(sum >= /*17*/ /*18*/ 19 /*20*/)  { u.universe[xx][yy][zz] = 1; }
+		
+		
+	}
 	
-	
-	
+		public void mapPrev(int xx, int yy, int zz, int val){
+			
+			n = new neighbours(1);
+			n.setNBH(0, 0, -1, 0);
+			
+			int sum = 0;
+			sum = u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)];
+			
+			if(sum == 1) {u.universe[xx][yy][zz]+=val;}
+		}
 	
 	
 	
@@ -1370,11 +1500,14 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 5  && (ins[1] == zz || ins[1] == -1)) {quantumWeight(xx,yy,zz,					ins[2]);}
 		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
 		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
+		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
+		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
 		
 		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
 		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
 		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
 		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
+		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}
 		
 		if(ins[0] == 0  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
 		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
@@ -1394,8 +1527,7 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Inverse110_2(xx,yy,zz 					);}
 		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 			);}
 		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
-		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
-		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
+		
 		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {fractalShip(xx,yy,zz					);}
 		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {fractalChyp(xx,yy,zz					);}
 		if(ins[0] == 31 && (ins[1] == zz || ins[1] == -1)) {fractalPhase(xx,yy,zz					);}
@@ -1415,10 +1547,12 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 45 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5(xx,yy,zz				);}
 		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
 		if(ins[0] == 47 && (ins[1] == zz || ins[1] == -1)) {fractal1(xx,yy,zz						);}
-		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz						);}
 		
 		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
-		
+		if(ins[0] == 49 && (ins[1] == zz || ins[1] == -1)) {VonnFractal(xx,yy,zz					);}
+		if(ins[0] == 50 && (ins[1] == zz || ins[1] == -1)) {MooreFractal(xx,yy,zz					);}
+		if(ins[0] == 51 && (ins[1] == zz || ins[1] == -1)) {MooreFractalColour(xx,yy,zz				);}
+		if(ins[0] == 52 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
 		
 		
 		

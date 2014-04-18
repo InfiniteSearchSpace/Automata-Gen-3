@@ -19,8 +19,9 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 3*2*30+1; //size of each surface
-            	int ySize = 3*2*30+1;
+            	int xSize = 3*2*40+1; //size of each surface
+            	int ySize = 3*2*40+1;
+            	int zSize = 4;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes
@@ -42,7 +43,7 @@ public class Main extends JFrame {
             	//number of z layers is determined here
             	
             	//					Xsize	Ysize	Zsize	automataLib
-            	u[0] = new Universe(xSize, 	ySize,  1, 	a[0]);
+            	u[0] = new Universe(xSize, 	ySize,  zSize, 	a[0]);
             	
             	//u[1] = new Universe(xSize, 	ySize, 	2, 	a[1]);
             	
@@ -113,7 +114,7 @@ public class Main extends JFrame {
             	//Layout for Main window/frame
             	m.setLayout(null);
             	
-            	int minMenuXLen = 250;
+            	int minMenuXLen = 300;
             	if(xSize < minMenuXLen) {m.setSize(minMenuXLen, (ySize+2) * surfaces + 42 + 24 + 2+8);} else {
             		m.setSize((xSize+2+2) * surfaces + 6 + 2 ,(ySize+2) * surfaces + 42 + 24 + 2+8);
             	}
@@ -142,8 +143,7 @@ public class Main extends JFrame {
             	//Kickstart u[0] with the action in class Universe. Usually a seeding. 
             	//Takes int: rand, val
             	u[0].runOnce(myml.seedRand,myml.seedVal);
-            	
-            	
+
             }
         });
     }

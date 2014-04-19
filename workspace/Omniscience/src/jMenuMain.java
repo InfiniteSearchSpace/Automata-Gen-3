@@ -143,7 +143,7 @@ public class jMenuMain implements ActionListener {
         menuBar.add(menu);
 
         //Populate menu
-        menuItem = new JMenuItem("Subfunctions");
+        menuItem = new JMenuItem("Tool Subfunctions");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -197,6 +197,7 @@ public class jMenuMain implements ActionListener {
         	mML.seedVal = 1;
         	mML.blockSize = 1;
         	mML.mwPos = 0;
+        	mML.params = new int[] {0,0,0,0};
         }
 
         if(source.getText() == "Reseed Layer") 	{mML.reseedLayer(mML.seedRand, mML.seedVal);}

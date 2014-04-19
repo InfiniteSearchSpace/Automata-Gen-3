@@ -23,7 +23,7 @@ public class ml extends JPanel implements MouseListener {
 	Universe u[];
 	Random r = new Random();
 	
-	int totalFunctions = 52+1;
+	int totalFunctions = 66+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -42,6 +42,8 @@ public class ml extends JPanel implements MouseListener {
 	int blockSize = 1;
 	int seedVal = 1;
 	int seedRand = 6;
+	
+	int[] params = {0,0,0,0};
 	
 	//constructor
     public ml(Main mm, Surf[] ss, JLabel ll, Universe uni[]) {
@@ -215,14 +217,37 @@ public class ml extends JPanel implements MouseListener {
     		if(s[i].upaused == true) {tmps+="1";} else {tmps+="0";}
     	}
     	
-    	
-    	for(int i = 0; i < u[0].instructions.length; i++) {
+    	int i;
+    	for(i = 0; i < u[0].instructions.length; i++) {
     		tmps2 += u[0].instructions[i][0];
     		if(i < u[0].instructions.length-1) {tmps2 += ",";}
+    		if(i%6==5) {tmps2 += "<br>";}
     	}
-      	
+    	
+      	tmps2 += "}";
+    	tmps2 = "<br>{" + tmps2;
+    	
     	//output as string the current menu state
-    	l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps +  "." + cycleNum + "." + blockSize + "." + blockVal + "~" + mwPos + " {" + tmps2 + "}");
+    	//l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps +  "." + cycleNum + "." + blockSize + "." + blockVal + "~" + mwPos + " {" + tmps2 + "}");
+    	
+    	l.setText(
+    			
+    			"<html><font size=1><font face=courier>" 		+ 
+    			sfcnum 				+" Active Window<br>" 		+ 	 
+    			s[sfcnum].zdraw 	+" Z-Layer<br>" 			+ 
+    			tmps 				+" Pause Status<br>" 		+    
+    			functionType 		+" Tool<br>"				+ 
+    			myFunction 			+" SubTool<br>" 			+
+    			mwPos 				+" MsWheel Raw#<br>" 		+  
+    			cycleNum 			+" MouseWheel<br>" 			+ 
+    			blockSize 			+" Block Size<br>" 			+ 
+    			blockVal 			+" Block Value<br>" 		+ 
+    			
+    			"Ruleset:"			+ tmps2						+
+    			
+    			" </font></html>"	
+    			
+    	);
     	
     }
     
@@ -242,8 +267,6 @@ public class ml extends JPanel implements MouseListener {
     	}*/
 		
 		refresh();
-    	
-    	
     	
     }
     
@@ -275,7 +298,7 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos;}
     	if(cycleNum == 2) {cycleRules();}
     	if(cycleNum == 3) {blockSize = mwPos;}
-    	if(cycleNum == 4) {blockVal = mwPos;}
+    	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;}
     	refresh();
     }
     
@@ -481,19 +504,20 @@ public class ml extends JPanel implements MouseListener {
     	String str3 = "20";
     	String str4 = "1";
 
-    	String str1 = JOptionPane.showInputDialog(m, "(-1 is All Layers) Target Z-Layer:", "-1");
-    	String str2 = JOptionPane.showInputDialog(m, "Random Chance:", "4");
+    	String str1 = JOptionPane.showInputDialog(m, "(-1 is All Layers) Target Z-Layer:", params[0]);
+    	String str2 = JOptionPane.showInputDialog(m, "Random Chance:", params[1]);
     
-    	if(inst == 18) {str3 = JOptionPane.showInputDialog(m, "(18 Only) Threshold:", "20");}
-    	if(inst == -1) {str4 = JOptionPane.showInputDialog(m, "(-1 Only) Value Override", "1");}
+    	if(inst == 18) {str3 = JOptionPane.showInputDialog(m, "(18 Only) Threshold:", params[2]);}
+    	if(inst == -1) {str4 = JOptionPane.showInputDialog(m, "(-1 Only) Value Override", params[3]);}
     	
     	if(str1 != null && str2 != null) {
         	u[0].instructions = tmp;
     		
-    		int sVal1 = Integer.parseInt(str1);
-    		int sVal2 = Integer.parseInt(str2);
-    		int sVal3 = Integer.parseInt(str3);
-    		int sVal4 = Integer.parseInt(str4);
+        	
+    		params[0] = Integer.parseInt(str1);
+    		params[1] = Integer.parseInt(str2);
+    		params[2] = Integer.parseInt(str3);
+    		params[3] = Integer.parseInt(str4);
     		
     		int tmp2[][] = new int[u[0].instructions.length+1][5];
     		
@@ -501,7 +525,7 @@ public class ml extends JPanel implements MouseListener {
     		for(i = 0; i< u[0].instructions.length; i++) {
     			tmp2[i] = u[0].instructions[i];
     		}
-    		tmp2[i] = new int[]{inst, sVal1, sVal2, sVal3, sVal4};
+    		tmp2[i] = new int[]{inst, params[0], params[1], params[2], params[3]};
 
     		u[0].instructions = tmp2;
     	}

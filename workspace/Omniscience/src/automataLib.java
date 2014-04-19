@@ -694,14 +694,517 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		
-		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
+		/*if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne == 4)  { u.universe[xx][yy][zz] = 1; }
 		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 6)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 6)  { u.universe[xx][yy][zz] = 1; }*/
+		
+		if(isOne <=0)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= 7)  { u.universe[xx][yy][zz] = 0; }
+		
 		/*if(isOne == 7)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 8)  { u.universe[xx][yy][zz] = 0; }
-		//if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }*/
+		if(isOne == 8)  { u.universe[xx][yy][zz] = 0; }*/
+		//if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
 		//if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ConwayExtendedRange3(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum > 5)  { u.universe[xx][yy][zz] = 0; }/**/
+		
+		/*if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }*/
+	}
+	
+	public void ConwayExtendedRange4(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //min
+		if(sum >= 10 && sum <= 11) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 12 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//max
+
+	}
+	
+	public void ConwayExtendedRange5(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+
+		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //max
+		if(sum >= 5 && sum <= 5) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 6 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//min
+		
+	}
+	
+	public void ConwayExtendedRange6(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(sum <= 5)  			 	{ u.universe[xx][yy][zz] = 0; } //max
+		if(sum >= 13 && sum <= 18) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 7 && sum <= 7) 	{ u.universe[xx][yy][zz] = 0; }	//min
+		
+	
+	}
+	
+	public void ConwayExtendedRange7(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+
+		if(sum <= 6)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 12) {u.universe[xx][yy][zz] = 0;}
+		
+	}
+	
+	public void ConwayExtendedRange8(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+
+		if(sum <= 5)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 11) {u.universe[xx][yy][zz] = 0;}
+		
+	}
+	
+	public void ConwayExtendedRange9(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 5)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 7) {u.universe[xx][yy][zz] = 0;}
+		
+	}
+	
+	public void ConwayExtendedRange10(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //min
+		if(sum >= 10 && sum <= 11) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 12 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//max
+		
+		
+		if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 15) {u.universe[xx][yy][zz] = 0;}
+		
+	}
+	
+	public void ConwayExtendedRange11(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 12)  { u.universe[xx][yy][zz] = 0; }
+		if(sum < 13)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum >= 13)  { u.universe[xx][yy][zz] = 1; }
+		
+	}
+	
+	public void ConwayExtendedRange12(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 12)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ConwayExtendedRange13(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 8)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ConwayExtendedRange14(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+		if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
+		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
 	public void warts(int xx, int yy, int zz){
@@ -1488,46 +1991,131 @@ public void hex1(int xx, int yy, int zz){
 			if(sum == 1) {u.universe[xx][yy][zz]+=val;}
 		}
 	
+		
+		public void LangtonsAnt(int xx, int yy, int zz){
+			n = new neighbours(4);
+			n.setNBH(0, -1, 0, 0);
+			n.setNBH(1, 0, 0, 1);
+			n.setNBH(0, 1, 0, 2);
+			n.setNBH(-1, 0, 0, 3);
+			
+			if(u.snapshotUniverse[xx][yy][zz] < 0) {
+				
+				int block_memory = 1000;
+				int newDir = 999;
+				int newSelf = 998;
+				
+				/* if All negatives between -1 and -8 are always ants, an ant can decode and pass through another ant
+				 * if not, it might be a wall, no collision resolution is implicit
+				 * 
+				 * 
+				 */
+				
+				//Get my true value (0-7):
+				int direction_to_go = Math.abs(u.snapshotUniverse[xx][yy][zz])-1;
+				
+				//This cell was x before I was here
+				if(direction_to_go >= 0 && direction_to_go < 4) 	{block_memory = 0;}
+				if(direction_to_go >= 4 && direction_to_go < 8)		{block_memory = 1;}
+				
+				//My predecessor went direction (0-3):
+				int dir = direction_to_go%4;
+				
+				
+				if(block_memory != 1000){
+				
+					//Set my future direction (Rotate)
+					if(block_memory == 0) {		newDir = (dir+1)%4;			}
+					if(block_memory == 1) {		newDir = ((dir+3)%4);		}
+					
+					//Flip this block's value
+					if(block_memory == 0) {u.universe[xx][yy][zz] = 1;} //lows trail 1s
+					if(block_memory == 1) {u.universe[xx][yy][zz] = 0;} //highs trail 0s
+					
+					//encode nbr's value & direction				
+					//0-3 encodes 0; 4-7 encodes 1;
+					int nbr = u.snapshotUniverse[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)];
+					
+					/*if(nbr >= -8 && nbr < 0) {
+						int nbrVal = Math.abs(u.snapshotUniverse[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)])-1;
+						if(nbrVal >= 0 && direction_to_go < 4) 	{nbr = 0;}
+						if(nbrVal >= 4 && direction_to_go < 8)	{nbr = 1;}
+					}*/
+					
+					//if(nbr == 0) {newSelf = 0;}
+					if(nbr == 1) {newSelf = 4;} else {newSelf = 0;}
+					
+					
+					//add direction info & make negative
+					newSelf += newDir;
+					newSelf = -newSelf;
+					
+					//set my new direction's neighbour to my encoded data 
+					u.universe[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)] = newSelf-1;
+				}
+				
+			}
+		}
+		
+		
 	
-	
+		
+		
+		
 	/////////////////////////////////////////////
 	/////////Select Instruction to run///////////
 	/////////////////////////////////////////////
 																								  //Random, Threshold, Value
 	public void readInstructions(int[] ins, int xx, int yy, int zz) {
+		//		Utility functions / other
 		if(ins[0] == -1 && (ins[1] == zz || ins[1] == -1)) {seed(xx, yy, zz, 						ins[2], ins[3], ins[4]);}
-		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {quantum(xx,yy,zz,						ins[2]);}
-		if(ins[0] == 5  && (ins[1] == zz || ins[1] == -1)) {quantumWeight(xx,yy,zz,					ins[2]);}
-		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
-		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
-		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
-		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
+		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {quantum(xx,yy,zz,						ins[2]);}
+		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {quantumWeight(xx,yy,zz,					ins[2]);}
+		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
+		if(ins[0] == 4 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
+		if(ins[0] == 5 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
 		
-		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
-		if(ins[0] == 4  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
-		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
-		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 				);}
-		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}
-		
-		if(ins[0] == 0  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
-		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
-		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
-		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
-		if(ins[0] == 9  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
-		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {internalAffairs(xx,yy,zz				);}
-		if(ins[0] == 11 && (ins[1] == zz || ins[1] == -1)) {meekrochyp(xx,yy,zz						);}
-		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {diamondShuffle(xx,yy,zz					);}
-		if(ins[0] == 13 && (ins[1] == zz || ins[1] == -1)) {rain(xx,yy,zz							);}
-		if(ins[0] == 15 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz							);}
-		if(ins[0] == 16 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 						);}
-		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
-		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
-		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
-		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
+		//1D / Single Point starter required
+		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
+		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
+		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
+		if(ins[0] == 9 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 					);}
+		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}
+		if(ins[0] == 54 && (ins[1] == zz || ins[1] == -1)) {LangtonsAnt(xx,yy,zz					);}
+
+		//		2D Neighbourhoods
+		if(ins[0] == 11  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
+		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
+		if(ins[0] == 13  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
+		if(ins[0] == 55  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange3(xx, yy, zz 		);}
+		if(ins[0] == 56  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange4(xx, yy, zz 		);}
+		if(ins[0] == 57  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange5(xx, yy, zz 		);}
+		if(ins[0] == 58  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange6(xx, yy, zz 		);}
+		if(ins[0] == 59  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange7(xx, yy, zz 		);}
+		if(ins[0] == 60  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange8(xx, yy, zz 		);}
+		if(ins[0] == 61  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange9(xx, yy, zz 		);}
+		if(ins[0] == 62  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange10(xx, yy, zz 		);}
+		if(ins[0] == 63  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange11(xx, yy, zz 		);}
+		if(ins[0] == 64  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange12(xx, yy, zz 		);}
+		if(ins[0] == 65  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange13(xx, yy, zz 		);}
+		if(ins[0] == 66  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange14(xx, yy, zz 		);}
+		if(ins[0] == 14  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
+		if(ins[0] == 15  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
+		if(ins[0] == 16 && (ins[1] == zz || ins[1] == -1)) {internalAffairs(xx,yy,zz				);}
+		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {meekrochyp(xx,yy,zz						);}
+		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diamondShuffle(xx,yy,zz					);}
+		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {rain(xx,yy,zz							);}
+		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz							);}
+		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 						);}
+		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
+		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
+		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
+		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
 		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Inverse110_2(xx,yy,zz 					);}
 		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 			);}
-		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
+		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
 		
+		//2-step Fractal Neighbourhoods
 		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {fractalShip(xx,yy,zz					);}
 		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {fractalChyp(xx,yy,zz					);}
 		if(ins[0] == 31 && (ins[1] == zz || ins[1] == -1)) {fractalPhase(xx,yy,zz					);}
@@ -1548,11 +2136,14 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
 		if(ins[0] == 47 && (ins[1] == zz || ins[1] == -1)) {fractal1(xx,yy,zz						);}
 		
-		if(ins[0] == 14 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
-		if(ins[0] == 49 && (ins[1] == zz || ins[1] == -1)) {VonnFractal(xx,yy,zz					);}
-		if(ins[0] == 50 && (ins[1] == zz || ins[1] == -1)) {MooreFractal(xx,yy,zz					);}
-		if(ins[0] == 51 && (ins[1] == zz || ins[1] == -1)) {MooreFractalColour(xx,yy,zz				);}
-		if(ins[0] == 52 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
+		//3D Neighbourhoods
+		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
+		if(ins[0] == 49 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
+		
+		if(ins[0] == 50 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
+		if(ins[0] == 51 && (ins[1] == zz || ins[1] == -1)) {VonnFractal(xx,yy,zz					);}
+		if(ins[0] == 52 && (ins[1] == zz || ins[1] == -1)) {MooreFractal(xx,yy,zz					);}
+		if(ins[0] == 53 && (ins[1] == zz || ins[1] == -1)) {MooreFractalColour(xx,yy,zz				);}
 		
 		
 		

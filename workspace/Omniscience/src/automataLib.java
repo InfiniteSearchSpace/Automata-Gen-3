@@ -2084,7 +2084,7 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 54 && (ins[1] == zz || ins[1] == -1)) {LangtonsAnt(xx,yy,zz					);}
 
 		//		2D Neighbourhoods
-		if(ins[0] == 11  && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
+		if((ins[0] == 11 || ins[0] == 0) && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
 		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
 		if(ins[0] == 13  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
 		if(ins[0] == 55  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange3(xx, yy, zz 		);}

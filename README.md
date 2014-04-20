@@ -4,23 +4,17 @@ This is my full Eclipse workspace folder, plus runnable jar.
 
 Setup:
 
-- Run program from included jar, or through Eclipse with the included Workspace folder. You could also import the included source to another IDE.
+- Run program from included jar, or through Eclipse by selecting the "Automata-Gen-3-master/workspace" folder on program start. You could also import the included source to another IDE.
 
-- Click & drag window frame a little (for mouse location data)
+- Once running, click & drag window frame a little (for mouse location)
 
 Program Use:
 
 - Left click to execute the selected Tool's subfunction.
 
-- Scroll up or down to modify the target of the "Cycle" menu. Targets are: Tool Subfunction (default), Z-axis/depth, and Automata Ruleset.
-
-- For most purposes, the GUI menu should be easy to navigate.
-
-Controll/UI shortcuts:
+- Scroll up or down to cycle through the target selected from the "MouseWheel" menu. 
 
 - Right click to toggle Play/Pause.
-
-- Click scroll-wheel to change the Tool Type.
 
 ==============
 Advanced Use/Details:
@@ -28,25 +22,23 @@ Advanced Use/Details:
 
 Controls: Everything is controlled by the mouse.
 
-- Left Click: Perform selected Subfunction from selected Tool Category
+- Left Click: Sets the value of cells according to selected Tool. This is typically 0 or 1, though some rules use other negative and positive values.
 
-- Right Click: Pause/Unpause the currently selected Surface
+- Right Click: Pause/Unpause
 
-- Scroll Wheel: Cycle through the Cycle-Target selected through the "Cycle" menu (default: "Tool Subfunction")
-
-- Scroll Wheel Click: Cycle through Tool Category
+- Scroll Wheel: Cycle through the selected MouseWheel menu item. The default is "Tool Subfunction", where scrolling changes the type of block to place.
 
 ==============
 
 Colour Scheme & Graphics:
 
-- Cells are one pixel each. I reccomend using magnifier on windows or KMag on linux when viewing.
+- Cells are one pixel each. I reccomend using 'magnifier' on windows or 'KMag' on linux when viewing.
 
-- When the maximum value of all cells is 1, all cells of value 1 are black
+- When the maximum value of all cells is 1, all cells of value 1 are black.
 
-- When max value is larger than one, value 1 is light blue, low numbers are white, with a greyscale gradient up to the highest numbers in black.
+- When the maximum value is larger than one, value 1 is light blue, low numbers are whiter, higher numbers are blacker according to a greyscale gradient
 
-- Negative numbers are always red
+- All Negative numbers are the same red
 
 ==============
 

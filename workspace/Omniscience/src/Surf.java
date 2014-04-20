@@ -20,6 +20,7 @@ public class Surf extends JPanel {
     int col3 = 0; 						//RGB colour ints
     float[] floats = new float[3]; 		//holds rgb -> hsb conversion vals  
     double pGradient; 					//used for calculation of the gradient
+    double pNegGradient; 					//used for calculation of the gradient
     
     //config
     public boolean paused = true; 		//boolean that vetos display progression
@@ -63,11 +64,20 @@ public class Surf extends JPanel {
 	        	
 	            //calculate positive-value gradient: white < grey < black
 		        pGradient = 255-(((double) u.universe[i][j][k]/u.maxVal)*255);
-		        col1=(int) pGradient;
+		        pNegGradient = 255-(((double) u.universe[i][j][k]/u.minVal)*255);
+		        int pp = (int) pGradient;
+		        int pn = (int) pNegGradient;
 		                    
 		        //give individual colours to specific values
-		        if(u.universe[i][j][k]==0) {col3=185; col2=195; col1=215;} else if(u.universe[i][j][k]<0) {col3=0; col2=0; col1=255;} else {col2=col1; col3=col1;}
-		        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=255; col2=255; col1=180;}
+		        if(u.universe[i][j][k]==0) {
+		        	col3=185; col2=195; col1=215;
+		        } else if(u.universe[i][j][k]<0) {
+		        	col3=0; col2=255-pn; col1=255;
+		        } else {
+		        	 col3=pp; col2=pp; col1 = pp;
+		        }
+		        
+		        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=255; col2=200; col1=80;}
 		                    
 		        //prepare to draw
 		        floats = Color.RGBtoHSB(col1, col2, col3, floats);

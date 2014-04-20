@@ -8,6 +8,7 @@ public class Universe {
 	public int[][] instructions;			//Contains the data for this universe's actions
 	
 	public int maxVal; //for strictly display purposes according to philosophy. Knowing or referencing this value would cause universal nonlocality.
+	public int minVal;
 	
 	int xlen;
 	int ylen;
@@ -80,10 +81,12 @@ public class Universe {
 	//Takes the Z frame and resets it to the maxval for just that frame
 	public /*int*/void maxValAudit(int k) {
 		maxVal = 1;
+		minVal = -1;
 		//int total = 0;
 		for(int i = 0; i < universe.length; i++) {
 			for (int j = 0; j < universe[0].length; j++) {
 				if(universe[i][j][k] > maxVal) { maxVal = universe[i][j][k]; }
+				if(universe[i][j][k] < minVal) { minVal = universe[i][j][k]; }
 				//total+=universe[i][j][k];
 			}
 		}

@@ -198,6 +198,7 @@ public class jMenuMain implements ActionListener {
         	mML.blockSize = 1;
         	mML.mwPos = 0;
         	mML.params = new int[] {0,0,0,0};
+        	mML.seedRndVar = 1;
         }
 
         if(source.getText() == "Reseed Layer") 	{mML.reseedLayer(mML.seedRand, mML.seedVal);}
@@ -222,7 +223,7 @@ public class jMenuMain implements ActionListener {
         
         if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
         if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}
-        if(source.getText() == "Automata Rulesets") {mML.mwPos = 0; 							mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
+        if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.rule; 						mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
         if(source.getText() == "Block Size") 		{mML.mwPos = mML.blockSize; 				mML.mwMax = 100; 					mML.cycleNum = 3;}
         if(source.getText() == "Block Value") 		{mML.mwPos = mML.blockVal; 					mML.mwMax = 100; 					mML.cycleNum = 4;}
 

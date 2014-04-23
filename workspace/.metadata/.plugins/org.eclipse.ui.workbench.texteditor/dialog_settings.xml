@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="425" key="DIALOG_HEIGHT"/>
 		<item value="1228" key="DIALOG_X_ORIGIN"/>
+		<item value="427" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="6" key="selection"/>
+		<item value="angt" key="selection"/>
 		<list key="findhistory">
+			<item value="angt"/>
+			<item value="ang"/>
+			<item value="lang"/>
 			<item value="6"/>
 			<item value="&lt;/br&gt;"/>
 			<item value="&quot;&lt;br&gt;"/>
 			<item value="\n"/>
 			<item value="&quot;\r\n"/>
-			<item value="\r\n"/>
-			<item value="/r/n"/>
-			<item value=", r.nextInt(64)+1};"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

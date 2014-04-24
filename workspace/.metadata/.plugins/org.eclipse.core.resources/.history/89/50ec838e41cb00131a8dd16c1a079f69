@@ -99,7 +99,7 @@ public class Main extends JFrame {
             	
             	ml myml = new ml(m,s,l,u);					//Mouselistener for user input;
             	mwl mymwl = new mwl(m,myml);				//MouseWheelListener for user input;
-            	MouseMotionList mMot = new MouseMotionList(m, myml);				//MouseWheelListener for user input;
+            	MouseMotionList mMot = new MouseMotionList();				//MouseWheelListener for user input;
             	jMenuMain jmen = new jMenuMain(myml);			//add Menu Gui
 
             	//Set parameters for each surface/display panel

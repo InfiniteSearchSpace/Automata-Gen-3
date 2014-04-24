@@ -74,7 +74,7 @@ public class ml extends JPanel implements MouseListener {
     	int my =(p.y - p2.y - 24 - m.getJMenuBar().getHeight() - s[sfcnum].getY());
 
     	//Left Click
-    	 if((e == null || e.getButton() == MouseEvent.BUTTON1) && (mx >= 0 && my > 0) && (mx < s[sfcnum].getWidth() && my < s[sfcnum].getHeight()+1) ) {
+    	 if((e.getButton() == MouseEvent.BUTTON1 || e == null) && (mx >= 0 && my > 0) && (mx < s[sfcnum].getWidth() && my < s[sfcnum].getHeight()+1) ) {
 
 	    	if(functionType == 0) {
 	    		
@@ -185,14 +185,14 @@ public class ml extends JPanel implements MouseListener {
     	}
     	 
     	//Middle Click - Function Type
-     	if(e != null && e.getButton() == MouseEvent.BUTTON2) { 
+     	if(e.getButton() == MouseEvent.BUTTON2) { 
      		functionType++;
      		functionType=functionType%fnctype;
      		updateListing();
      	}
     	 
     	//Right Click - Pause controller
-    	if(e != null && e.getButton() == MouseEvent.BUTTON3) { 
+    	if(e.getButton() == MouseEvent.BUTTON3) { 
     		toggleStart();
     	}
     	

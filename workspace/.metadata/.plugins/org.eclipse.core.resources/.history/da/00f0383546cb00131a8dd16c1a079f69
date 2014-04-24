@@ -92,11 +92,11 @@ public class jMenuMain implements ActionListener {
         
         menu.addSeparator();
         
-        menuItem = new JMenuItem("Set Block Size");
+        menuItem = new JMenuItem("Change Block Size");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Set Block Value");
+        menuItem = new JMenuItem("Change Block Value");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -218,8 +218,8 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;}
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;}
         
-        if(source.getText() == "Set Block Value") 	{mML.dialogSetBlockVal();}
-        if(source.getText() == "Set Block Size") 	{mML.dialogSetBlockSize();}
+        if(source.getText() == "Change Block Value") 	{mML.dialogSetBlockVal();}
+        if(source.getText() == "Change Block Size") 	{mML.dialogSetBlockSize();}
         
         if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
         if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}

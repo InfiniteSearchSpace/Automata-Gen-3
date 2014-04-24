@@ -74,9 +74,19 @@ public class ml extends JPanel implements MouseListener {
     	int my =(p.y - p2.y - 24 - m.getJMenuBar().getHeight() - s[sfcnum].getY());
 
     	//Left Click
-    	 if((e == null || e.getButton() == MouseEvent.BUTTON1) && (mx >= 0 && my > 0) && (mx < s[sfcnum].getWidth() && my < s[sfcnum].getHeight()+1) ) {
-
+    	 if(e.getButton() == MouseEvent.BUTTON1 && (mx >= 0 && my > 0) && (mx < s[sfcnum].getWidth() && my < s[sfcnum].getHeight()+1) ) {
+    	
+	    	//When subfunction 0 is active, always scroll through z/depth of this surface
+	    	/*if (myFunction == 0) {  
+				s[sfcnum].zdraw++;
+				s[sfcnum].zdraw = s[sfcnum].zdraw % s[sfcnum].zz;
+			}	    	*/
+	    	
+	    	//Function type/catagory 0's options
 	    	if(functionType == 0) {
+	    		/*if (myFunction ==  0) { //Place One
+	        		s[sfcnum].u.a.seed(mx, my-1, s[sfcnum].zdraw, 1, 0, 1);
+	        	}*/
 	    		
 	    		if (myFunction == 0) { //Place Block Small
 	    			if(blockSize < 0) {blockSize=1;}
@@ -185,14 +195,14 @@ public class ml extends JPanel implements MouseListener {
     	}
     	 
     	//Middle Click - Function Type
-     	if(e != null && e.getButton() == MouseEvent.BUTTON2) { 
+     	if(e.getButton() == MouseEvent.BUTTON2) { 
      		functionType++;
      		functionType=functionType%fnctype;
      		updateListing();
      	}
     	 
     	//Right Click - Pause controller
-    	if(e != null && e.getButton() == MouseEvent.BUTTON3) { 
+    	if(e.getButton() == MouseEvent.BUTTON3) { 
     		toggleStart();
     	}
     	
@@ -218,7 +228,10 @@ public class ml extends JPanel implements MouseListener {
     	
       	tmps2 += "}";
     	tmps2 = "<br>{" + tmps2;
-
+    	
+    	//output as string the current menu state
+    	//l.setText(sfcnum + "." + s[sfcnum].zdraw + "."+ functionType + "." + myFunction + "." + tmps +  "." + cycleNum + "." + blockSize + "." + blockVal + "~" + mwPos + " {" + tmps2 + "}");
+    	
     	l.setText(
     			
     			"<html><font size=1><font face=courier>" 		+ 
@@ -245,7 +258,18 @@ public class ml extends JPanel implements MouseListener {
     	if(s[sfcnum].paused ) { s[sfcnum].paused = false; } else { s[sfcnum].paused = true; }
 		if(s[sfcnum].upaused ) { s[sfcnum].upaused = false; } else { s[sfcnum].upaused = true; }
 		
+    	
+    	/*updateListing();
+    	s[sfcnum].repaint();
+    	
+    	if(s[sfcnum].upaused) {
+    		if(s[sfcnum].paused) { 
+    			s[sfcnum].paused = false; 
+    		} 
+    	}*/
+		
 		refresh();
+    	
     }
     
     public void autoZ() {
@@ -315,6 +339,20 @@ public class ml extends JPanel implements MouseListener {
 		
     }
 
+   /* public void mouseWheelScrolled(int mw_rotation) {
+
+    	if(mw_rotation == -1) { 
+			myFunction++;
+			myFunction=myFunction%fcnt; 
+		}
+    	
+    	if(mw_rotation == 1) { 
+			myFunction+=(fcnt-1);
+			myFunction=myFunction%fcnt; 
+		}
+
+	    updateListing();
+    }*/
     
     public void setRule(int ru) {
     	
@@ -542,6 +580,12 @@ public class ml extends JPanel implements MouseListener {
     		blockSize = Integer.parseInt(str);
     	}
     }
+    
+    /*public void resize() {
+		u[0] = new Universe(128, 	128,  1, a[0]);
+    	u[0].instructions = new int[][] {{4,0}};
+    	s[0] = new Surf(128, 	128, 	u[0].zlen,	0+2+2,	0, u[0]);
+	}*/
     
     public void placeBlock(int mx, int my, int mz, int rand){
 	    if(mx-(blockSize/2) >= 0 && my-(blockSize/2) > 0 && mx+(blockSize/2) < s[sfcnum].getWidth() && my+(blockSize/2) < s[sfcnum].getHeight()+1) {

@@ -1,0 +1,26 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+
+public class MouseMotionList implements MouseMotionListener{
+
+	ml MML;
+	
+	public MouseMotionList(Main m, ml mml){
+        m.addMouseMotionListener(this);
+        MML = mml;
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		MML.mousePressed(arg0);
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

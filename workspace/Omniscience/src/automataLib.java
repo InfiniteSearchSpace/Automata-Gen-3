@@ -75,12 +75,12 @@ public class automataLib {
     }
     
   //draws a line of val. Can be solid or rand, can be veto'd, optional overwrite with 0.    
-    public void plcLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize) {
+    public void plcLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize, int toolVar) {
     	
     	if(r.nextInt(veto) == 0) { //chance to not write the line
 		    for(int i = 1; i < ((len-xx)/2)+1; i++) {
 		    	if(r.nextInt(rand) == 0) {
-		    		placeval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val);
+		    		placeval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val+r.nextInt(toolVar));
 		    	} else if(placeO > 0) {placeval((xx+i)+((blockSize-1)/2)-1, yy+((blockSize-1)/2), zz, 1, 0);}
 		    }
     	}
@@ -213,11 +213,6 @@ public class automataLib {
 
 	//returns the most common number among neighbours
 	public int nbrGetMode(int xx, int yy, int zz, int val){
-		return 0;
-	}
-	
-	//returns the average value among neighbours
-	public int nbrGetAverage(int xx, int yy, int zz, int val){
 		return 0;
 	}
 
@@ -2081,7 +2076,7 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
 		if(ins[0] == 4 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
 		if(ins[0] == 5 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
-		
+
 		//1D / Single Point starter required
 		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
 		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}

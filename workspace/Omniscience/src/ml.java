@@ -44,7 +44,9 @@ public class ml extends JPanel implements MouseListener {
 	int seedRand = 6;
 	int rule = 0;
 	int seedRndVar = 1;
-	
+	int toolRand = 1;
+	int toolVar = 1;
+	boolean resetVal = true;
 	int[] params = {0,0,0,0};
 	
 	//constructor
@@ -80,22 +82,34 @@ public class ml extends JPanel implements MouseListener {
 	    		
 	    		if (myFunction == 0) { //Place Block Small
 	    			if(blockSize < 0) {blockSize=1;}
-	    			placeBlock(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+	    			placeBlock(mx, my, 0);
 	        	}
 	    		
 	    		if (myFunction ==  1) { //Place Block Small
 	    	    	if(blockSize < 0) {blockSize=3;}
-    				placeBlock(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+    				placeBlock(mx, my, 0);
 	        	}
 	    		
 	    		if (myFunction ==  2) { //Place block medium 
 	    	    	if(blockSize < 0) {blockSize=8;}
-					placeBlock(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+					placeBlock(mx, my, 0);
 	        	}
 	    		
 	    		if (myFunction ==  3) { //Place Block Big
 	    	    	if(blockSize < 0) {blockSize=14;}
-					placeBlock(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+					placeBlock(mx, my, 0);
 	        	}
 	    	}
 	
@@ -103,21 +117,33 @@ public class ml extends JPanel implements MouseListener {
 	    	if(functionType == 1) {
 	    		if (myFunction ==  0) { //chance block random Light			
 	    			if(blockSize < 0) {blockSize=16;}
-					placeBlock(mx, my, 0, 16);
+	    			if(toolRand <= 0) {toolRand=24;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal=1;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  1) { //chance block random Heavy
 	    			if(blockSize < 0) {blockSize= 16;}
-					placeBlock(mx, my, 0, 3);
+	    			if(toolRand <= 0) {toolRand=12;}
+	    			if(toolVar <= 0) {toolVar=32;}
+	    			if(resetVal) {blockVal=-16;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  2) { //Place Big Block Horizontal 3-step Stripes
-	    	    	if(blockSize < 0) {blockSize= 24;}
+	    	    	if(blockSize < 0) {blockSize= 20;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
 					placeStripe(mx, my, 0, 3);
 	        	}
 	    		
 	    		if (myFunction ==  3) { //Place medium Block 2-step Stripes
-	    	    	if(blockSize < 0) {blockSize= 10;}
+	    	    	if(blockSize < 0) {blockSize= 20;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
 	    	    	placeStripe(mx, my, 0, 2);
 	        	}
 	    	}
@@ -126,22 +152,34 @@ public class ml extends JPanel implements MouseListener {
 	    	if(functionType == 2) {
 	    		if (myFunction == 0) { //Set to 0, one
 	    			if(blockSize < 0) {blockSize= 1;}
-					placeZero(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+					placeZero(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  1) { //chance Set to 0, large
 	    			if(blockSize < 0) {blockSize= 6;}
-	    			placeZero(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+	    			placeZero(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  2) { //Set to 0, medium
 	    			if(blockSize < 0) {blockSize= 32;}
-	    			placeZero(mx, my, 0, 1);
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+	    			placeZero(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  3) { //Set to 0, large
-	    			if(blockSize < 0) {blockSize= 24;}
-	    			placeZero(mx, my, 0, 8);
+	    			if(toolRand <= 0) {toolRand=24;}
+	    			if(blockSize < 0) {blockSize= 16;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+	    			placeZero(mx, my, 0);
 	    		}
 	    		
 	    	}
@@ -185,11 +223,11 @@ public class ml extends JPanel implements MouseListener {
     	}
     	 
     	//Middle Click - Function Type
-     	if(e != null && e.getButton() == MouseEvent.BUTTON2) { 
+     	/*if(e != null && e.getButton() == MouseEvent.BUTTON2) { 
      		functionType++;
      		functionType=functionType%fnctype;
      		updateListing();
-     	}
+     	}*/
     	 
     	//Right Click - Pause controller
     	if(e != null && e.getButton() == MouseEvent.BUTTON3) { 
@@ -272,7 +310,7 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void setCycle(){
-    	if(cycleNum == 0) {myFunction = mwPos;blockSize = -1;}
+    	if(cycleNum == 0) {myFunction = mwPos;blockSize = -1;toolRand = -1;toolVar = -1;resetVal = true;}
     	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos;}
     	if(cycleNum == 2) {cycleRules(); }
     	if(cycleNum == 3) {blockSize = mwPos;}
@@ -402,7 +440,8 @@ public class ml extends JPanel implements MouseListener {
     		seedRand = Integer.parseInt(str);
     		seedVal = Integer.parseInt(str2);
     		seedRndVar = Integer.parseInt(str3);
-    		reseedAll(seedRand, seedVal);
+    		//reseedAll(seedRand, seedVal);
+    		reseedLayer(seedRand,seedVal);
     	}
     }
 
@@ -529,21 +568,33 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void dialogSetBlockVal() {
-    	String str = JOptionPane.showInputDialog(m, "Block placement value:", blockVal);
+    	String str = JOptionPane.showInputDialog(m, "Tool Value:", blockVal);
     	if(str != null) {
     		blockVal = Integer.parseInt(str);
     	}
 	}
 
+    public void dialogSetBlockRand() {
+    	String str = JOptionPane.showInputDialog(m, "Tool Placement - Random Distribution:", toolRand);
+    	if(str != null) {
+    		toolRand = Integer.parseInt(str);
+    	}
+	}
     
+    public void dialogSetBlockVar() {
+    	String str = JOptionPane.showInputDialog(m, "Tool Value - Random Variation:", toolVar);
+    	if(str != null) {
+    		toolVar = Integer.parseInt(str);
+    	}
+	}
     public void dialogSetBlockSize() {
-    	String str = JOptionPane.showInputDialog(m, "Block Size:", blockSize);
+    	String str = JOptionPane.showInputDialog(m, "Tool Size:", blockSize);
     	if(str != null) {
     		blockSize = Integer.parseInt(str);
     	}
     }
     
-    public void placeBlock(int mx, int my, int mz, int rand){
+    public void placeBlock(int mx, int my, int mz){
 	    if(mx-(blockSize/2) >= 0 && my-(blockSize/2) > 0 && mx+(blockSize/2) < s[sfcnum].getWidth() && my+(blockSize/2) < s[sfcnum].getHeight()+1) {
 			for(int i = 0; i < blockSize; i++){
 				s[sfcnum].u.a.plcLn(	
@@ -551,13 +602,13 @@ public class ml extends JPanel implements MouseListener {
 					(my+i)-blockSize, 
 					s[sfcnum].zdraw, 
 					
-					rand, 0, blockVal, 1, 0, mx+blockSize, blockSize
+					toolRand, 0, blockVal, 1, 0, mx+blockSize, blockSize, toolVar
 				);
 			} 
 	    }
     }
     
-    public void placeZero(int mx, int my, int mz, int rand){
+    public void placeZero(int mx, int my, int mz){
 	    if(mx-(blockSize/2) >= 0 && my-(blockSize/2) > 0 && mx+(blockSize/2) < s[sfcnum].getWidth() && my+(blockSize/2) < s[sfcnum].getHeight()+1) {
 			for(int i = 0; i < blockSize; i++){
 				s[sfcnum].u.a.plcLn(	
@@ -565,7 +616,7 @@ public class ml extends JPanel implements MouseListener {
 					(my+i)-blockSize, 
 					s[sfcnum].zdraw, 
 					
-					rand, 0, 0, 1, 0, mx+blockSize, blockSize
+					toolRand, 0, 0, 1, 0, mx+blockSize, blockSize, toolVar
 				);
 			} 
 	    }
@@ -579,10 +630,15 @@ public class ml extends JPanel implements MouseListener {
 					(my+i)-blockSize, 
 					s[sfcnum].zdraw, 
 					
-					1, 0, blockVal, 1, 0, mx+blockSize, blockSize
+					toolRand, 0, blockVal+r.nextInt(toolVar), 1, 0, mx+blockSize, blockSize, toolVar
 				);
 			} 
 	    }
+    }
+    
+    public void cycleUni(){
+    	sfcnum++;
+		sfcnum = sfcnum % sfcmax;
     }
     
     //implicit function storage

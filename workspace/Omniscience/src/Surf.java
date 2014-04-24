@@ -77,7 +77,7 @@ public class Surf extends JPanel {
 		        	 col3=pp; col2=pp; col1 = pp;
 		        }
 		        
-		        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=255; col2=200; col1=80;}
+		        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=255; col2=255; col1=0;}
 		                    
 		        //prepare to draw
 		        floats = Color.RGBtoHSB(col1, col2, col3, floats);

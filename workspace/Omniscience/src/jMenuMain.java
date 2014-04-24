@@ -44,7 +44,11 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-         menuItem = new JMenuItem("Reset To Default");
+        menuItem = new JMenuItem("Reset To Default");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
+        
+        menuItem = new JMenuItem("Select Next Window");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -92,11 +96,19 @@ public class jMenuMain implements ActionListener {
         
         menu.addSeparator();
         
-        menuItem = new JMenuItem("Set Block Size");
+        menuItem = new JMenuItem("Set Tool Size");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Set Block Value");
+        menuItem = new JMenuItem("Set Tool Value");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Set Tool Distribution");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Set Tool Value Variation");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -155,11 +167,11 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Block Size");
+        menuItem = new JMenuItem("Tool Size");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Block Value");
+        menuItem = new JMenuItem("Tool Value");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
@@ -199,7 +211,11 @@ public class jMenuMain implements ActionListener {
         	mML.mwPos = 0;
         	mML.params = new int[] {0,0,0,0};
         	mML.seedRndVar = 1;
+        	mML.toolRand = 0;
+        	mML.toolVar = 0;
+        	mML.resetVal = true;
         }
+        if(source.getText() == "Select Next Window") {mML.cycleUni();}
 
         if(source.getText() == "Reseed Layer") 	{mML.reseedLayer(mML.seedRand, mML.seedVal);}
         if(source.getText() == "Reseed All") 	{mML.reseedAll(mML.seedRand, mML.seedVal);}
@@ -214,18 +230,21 @@ public class jMenuMain implements ActionListener {
         
         if(source.getText() == "Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
                 
-        if(source.getText() == "Place Solid Blocks") 	{mML.setFunctionType(0);setBlocks();mML.blockSize = -1;}
-        if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;}
-        if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;}
+        if(source.getText() == "Place Solid Blocks") 	{mML.setFunctionType(0);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+        if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+        if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+
         
-        if(source.getText() == "Set Block Value") 	{mML.dialogSetBlockVal();}
-        if(source.getText() == "Set Block Size") 	{mML.dialogSetBlockSize();}
+        if(source.getText() == "Set Tool Size") 				{mML.dialogSetBlockSize();}
+        if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}
+        if(source.getText() == "Set Tool Distribution") 		{mML.dialogSetBlockRand();}
+        if(source.getText() == "Set Tool Value Variation") 		{mML.dialogSetBlockVar();}
         
         if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
         if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}
         if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.rule; 						mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
-        if(source.getText() == "Block Size") 		{mML.mwPos = mML.blockSize; 				mML.mwMax = 100; 					mML.cycleNum = 3;}
-        if(source.getText() == "Block Value") 		{mML.mwPos = mML.blockVal; 					mML.mwMax = 100; 					mML.cycleNum = 4;}
+        if(source.getText() == "Tool Size") 		{mML.mwPos = mML.blockSize; 				mML.mwMax = 100; 					mML.cycleNum = 3;}
+        if(source.getText() == "Tool Value") 		{mML.mwPos = mML.blockVal; 					mML.mwMax = 100; 					mML.cycleNum = 4;}
 
         mML.refresh();
     }

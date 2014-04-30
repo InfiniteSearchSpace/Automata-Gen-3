@@ -2056,13 +2056,171 @@ public void hex1(int xx, int yy, int zz){
 				
 			if(found != 0) {
 				u.universe[xx][yy][zz]=(u.universe[xx][yy][zz]+1)%cyc;
-			}
+			} 
 				
-		}
+		}        
 			
 	
+		public void traffic2(int xx, int yy, int zz){
+			n = new neighbours(2);
+			n.setNBH( 0, -1, 0, 0);
+			n.setNBH( -1, 0, 0, 1);
+			
+			
+			
+			/*if(u.snapshotUniverse[xx][yy][zz] == 2) {
+				u.universe[xx][yy][zz] = -2;
+			}
+		
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 2) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {u.universe[xx][yy][zz] = -2;}
+			} else if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 0) {
+				u.universe[xx][yy][zz] = 0;
+			}
+			
+			if(u.snapshotUniverse[xx][yy][zz] == -2) {
+				u.universe[xx][yy][zz] = 2;
+			}/**/
+			
+			
+			
+			
+			
+			if(u.snapshotUniverse[xx][yy][zz] == 1) {
+				u.universe[xx][yy][zz] = -1;
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 1) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {
+					u.universe[xx][yy][zz] = -1;
+				}
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 0) {
+				if(Math.abs(u.snapshotUniverse[xx][yy][zz]) == 1) {
+					u.universe[xx][yy][zz] = 0;
+				}
+			}
+			if(u.snapshotUniverse[xx][yy][zz] == -1) {
+				u.universe[xx][yy][zz] = 1;
+			}/**/
+			
+			
+			if(u.snapshotUniverse[xx][yy][zz] == 2) {
+				u.universe[xx][yy][zz] = -2;
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 2) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {
+					u.universe[xx][yy][zz] = -2;
+				}
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 0) {
+				if(Math.abs(u.snapshotUniverse[xx][yy][zz]) == 2) {
+					u.universe[xx][yy][zz] = 0;
+				}
+			}
+			if(u.snapshotUniverse[xx][yy][zz] == -2) {
+				u.universe[xx][yy][zz] = 2;
+			}/**/
+			
+			
+				/*if(u.snapshotUniverse[xx][yy][zz] == 1) {
+					u.universe[xx][yy][zz] = -1;
+				}
+			
+				if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 1) {
+					if(u.snapshotUniverse[xx][yy][zz] == 0) {u.universe[xx][yy][zz] = -1;}
+				} else if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 0) {
+					u.universe[xx][yy][zz] = 0;
+				}
+				
+				if(u.snapshotUniverse[xx][yy][zz] == -1) {
+					u.universe[xx][yy][zz] = 1;
+				}*/
+
+		
+			/*if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 1) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {u.universe[xx][yy][zz] = 1;}
+			} else if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 0) {
+				u.universe[xx][yy][zz] = 0;
+			}*/
+
+			
+				
+		}
+		
+		public void traffic(int xx, int yy, int zz){
+			n = new neighbours(2);
+			n.setNBH( 0, -1, 0, 0);
+			n.setNBH( -1, 0, 0, 1);
+		
+			
+			if(u.snapshotUniverse[xx][yy][zz] == 1) {
+				u.universe[xx][yy][zz] = -1;
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 1) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {
+					u.universe[xx][yy][zz] = -1;
+				}
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] == 0) {
+				if(u.snapshotUniverse[xx][yy][zz] == 1) {
+					u.universe[xx][yy][zz] = 0;
+				}
+			}
+			if(u.snapshotUniverse[xx][yy][zz] == -1) {
+				u.universe[xx][yy][zz] = 1;
+			}/**/
+			
+			
+			if(u.snapshotUniverse[xx][yy][zz] == 2) {
+				u.universe[xx][yy][zz] = -2;
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 2) {
+				if(u.snapshotUniverse[xx][yy][zz] == 0) {
+					u.universe[xx][yy][zz] = -2;
+				}
+			}
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[1][0], u.universe.length)][getWrap(yy, n.NBH[1][1], u.universe[0].length)][getWrap(zz, n.NBH[1][2], u.universe[0][0].length)] == 0) {
+				if(u.snapshotUniverse[xx][yy][zz] == 2) {
+					u.universe[xx][yy][zz] = 0;
+				}
+			}
+			if(u.snapshotUniverse[xx][yy][zz] == -2) {
+				u.universe[xx][yy][zz] = 2;
+			}/**/
+			
+			
+				
+		}
 		
 		
+		public void platform(int xx, int yy, int zz){
+			n = new neighbours(9);
+			n.setNBH( 0, 0, 0, 0);
+			n.setNBH( 1, 0, 0, 1);
+			n.setNBH( -1, 0, 0, 2);
+			n.setNBH( 0, 1, 0, 3);
+			n.setNBH( 0, -1, 0, 4);
+
+			n.setNBH( 1, 0, 0, 5);
+			n.setNBH( -1, 0, 0, 6);
+			n.setNBH( 0, 1, 0, 7);
+			n.setNBH( 0, -1, 0, 8);
+			
+			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] >= 1) {
+				
+				int cnt = nbrCountNotVal(xx, yy, zz, 0);
+				
+				if(cnt == 5){
+					u.universe[xx][yy][zz]+=2;
+				}
+				
+				if(cnt > 0){
+					u.universe[xx][yy][zz]--;
+				}
+				
+			}	
+				
+		}
 		
 	/////////////////////////////////////////////
 	/////////Select Instruction to run///////////
@@ -2076,7 +2234,9 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
 		if(ins[0] == 4 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
 		if(ins[0] == 5 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
+		if(ins[0] == 68 && (ins[1] == zz || ins[1] == -1)) {platform(xx,yy,zz						);}
 
+		
 		//1D / Single Point starter required
 		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
 		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}

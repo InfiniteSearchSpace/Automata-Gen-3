@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="1228" key="DIALOG_X_ORIGIN"/>
 		<item value="427" key="DIALOG_HEIGHT"/>
+		<item value="1228" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="true" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="angt" key="selection"/>
+		<item value="SetB" key="selection"/>
 		<list key="findhistory">
+			<item value="setb"/>
+			<item value="plcln"/>
+			<item value="dialo"/>
+			<item value="setse"/>
+			<item value="setee"/>
+			<item value="seedz"/>
+			<item value="dial"/>
 			<item value="angt"/>
-			<item value="ang"/>
-			<item value="lang"/>
-			<item value="6"/>
-			<item value="&lt;/br&gt;"/>
-			<item value="&quot;&lt;br&gt;"/>
-			<item value="\n"/>
-			<item value="&quot;\r\n"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

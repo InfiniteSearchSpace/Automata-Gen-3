@@ -23,7 +23,7 @@ public class ml extends JPanel implements MouseListener {
 	Universe u[];
 	Random r = new Random();
 	
-	int totalFunctions = 67+1;
+	int totalFunctions = 68+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -46,6 +46,12 @@ public class ml extends JPanel implements MouseListener {
 	int seedRndVar = 1;
 	int toolRand = 1;
 	int toolVar = 1;
+	
+	int gui_toolRand = toolRand;
+	int gui_toolVar = toolVar;
+	int gui_blockVal = blockVal;
+	int gui_blockSize = blockSize;
+			
 	boolean resetVal = true;
 	int[] params = {0,0,0,0};
 	
@@ -313,8 +319,8 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 0) {myFunction = mwPos;blockSize = -1;toolRand = -1;toolVar = -1;resetVal = true;}
     	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos;}
     	if(cycleNum == 2) {cycleRules(); }
-    	if(cycleNum == 3) {blockSize = mwPos;}
-    	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;}
+    	if(cycleNum == 3) {blockSize = mwPos;gui_blockSize = mwPos;}
+    	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;gui_blockVal = blockVal;}
     	refresh();
     }
     
@@ -414,7 +420,6 @@ public class ml extends JPanel implements MouseListener {
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-	    	{-1, 			-1, 	r.nextInt(100000)+1, 	r.nextInt(64)+1, 	r.nextInt(3)},	//seed
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
@@ -568,29 +573,34 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void dialogSetBlockVal() {
-    	String str = JOptionPane.showInputDialog(m, "Tool Value:", blockVal);
+    	String str = JOptionPane.showInputDialog(m, "Tool Value:", gui_blockVal);
     	if(str != null) {
     		blockVal = Integer.parseInt(str);
+    		gui_blockVal = blockVal;
     	}
 	}
 
     public void dialogSetBlockRand() {
-    	String str = JOptionPane.showInputDialog(m, "Tool Placement - Random Distribution:", toolRand);
+    	String str = JOptionPane.showInputDialog(m, "Tool Placement - Random Distribution:", gui_toolRand);
     	if(str != null) {
     		toolRand = Integer.parseInt(str);
+    		gui_toolRand = toolRand;
     	}
 	}
     
     public void dialogSetBlockVar() {
-    	String str = JOptionPane.showInputDialog(m, "Tool Value - Random Variation:", toolVar);
+    	String str = JOptionPane.showInputDialog(m, "Tool Value - Random Variation:", gui_toolVar);
     	if(str != null) {
     		toolVar = Integer.parseInt(str);
+    		gui_toolVar = toolVar;
     	}
 	}
+    
     public void dialogSetBlockSize() {
-    	String str = JOptionPane.showInputDialog(m, "Tool Size:", blockSize);
+    	String str = JOptionPane.showInputDialog(m, "Tool Size:", gui_blockSize);
     	if(str != null) {
     		blockSize = Integer.parseInt(str);
+    		gui_blockSize = blockSize;
     	}
     }
     

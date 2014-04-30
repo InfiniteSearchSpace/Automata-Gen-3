@@ -243,8 +243,8 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
         if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}
         if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.rule; 						mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
-        if(source.getText() == "Tool Size") 		{mML.mwPos = mML.blockSize; 				mML.mwMax = 100; 					mML.cycleNum = 3;}
-        if(source.getText() == "Tool Value") 		{mML.mwPos = mML.blockVal; 					mML.mwMax = 100; 					mML.cycleNum = 4;}
+        if(source.getText() == "Tool Size") 		{mML.mwPos = mML.gui_blockSize; 			mML.mwMax = 100; 					mML.cycleNum = 3;}
+        if(source.getText() == "Tool Value") 		{mML.mwPos = mML.gui_blockVal; 				mML.mwMax = 100; 					mML.cycleNum = 4;}
 
         mML.refresh();
     }

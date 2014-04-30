@@ -96,12 +96,6 @@ public class jMenuMain implements ActionListener {
         
         menu.addSeparator();
         
-        menuItem = new JMenuItem("Apply Custom Tool");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menu.addSeparator();
-        
         menuItem = new JMenuItem("Set Tool Size");
         menuItem.addActionListener(this);
         menu.add(menuItem);
@@ -240,7 +234,6 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
 
-        if(source.getText() == "Apply Custom Tool") 			{mML.snapToCustomTool();}
         
         if(source.getText() == "Set Tool Size") 				{mML.dialogSetBlockSize();}
         if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}

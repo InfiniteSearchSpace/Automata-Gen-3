@@ -572,15 +572,6 @@ public class ml extends JPanel implements MouseListener {
 		u[0].instructions = tmp;
     }
     
-
-    public void snapToCustomTool() {
-    	blockVal = gui_blockVal;
-    	toolRand = gui_toolRand;
-    	toolVar = gui_toolVar;
-    	blockSize = gui_blockSize;
-    	
-    }
-    
     public void dialogSetBlockVal() {
     	String str = JOptionPane.showInputDialog(m, "Tool Value:", gui_blockVal);
     	if(str != null) {

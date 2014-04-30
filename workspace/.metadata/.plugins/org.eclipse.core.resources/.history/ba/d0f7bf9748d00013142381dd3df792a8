@@ -210,22 +210,15 @@ public class jMenuMain implements ActionListener {
         	mML.cycleNum = 0;
         	mML.myFunction=0;
         	mML.sfcnum=0;
+        	mML.blockVal = 1;
         	mML.seedRand = 4;
-        	mML.seedRndVar = 1;
         	mML.seedVal = 1;
+        	mML.blockSize = 1;
         	mML.mwPos = 0;
         	mML.params = new int[] {0,0,0,0};
-        	
-        	mML.blockVal = 1;
+        	mML.seedRndVar = 1;
         	mML.toolRand = 0;
         	mML.toolVar = 0;
-        	mML.blockSize = 1;
-        	
-        	mML.gui_blockVal = mML.blockVal;
-        	mML.gui_toolRand = mML.toolRand;
-        	mML.gui_toolVar = mML.toolVar;
-        	mML.gui_blockSize = mML.blockSize;
-        	
         	mML.resetVal = true;
         }
         if(source.getText() == "Select Next Window") {mML.cycleUni();}

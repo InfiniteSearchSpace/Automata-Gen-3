@@ -1,6 +1,8 @@
-Automata-Gen-3
+Automata-Gen-3/Omniscience
 ==============
 This is my full Eclipse workspace folder, plus runnable jar.
+
+Youtube videos of this program can be found at https://www.youtube.com/channel/UCZD4RoffXIDoEARW5aGkEbg/videos
 
 Setup:
 

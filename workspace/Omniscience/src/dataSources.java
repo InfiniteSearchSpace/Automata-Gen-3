@@ -1,38 +1,50 @@
 
 public class dataSources {
 	
-	public int[][] sources;
+	public int[][][] sources;
 	
-	int readhead = 0;
+	int readx = 0;
+	int ready = 0;
+	int readz = 0;
 	
-	public dataSources() {
-		
-		sources = new int[3][];
-		
-		sources[0] = new int[] {1,0,1,1,0,0,1,1,1,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0};
-		sources[1] = new int[] {1,0};
-		sources[2] = new int[] {0,1,0,0,1,1,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,1,0,1,0,1,0,0,1,0,0,1,1,0,1,1,1,0,0,1,1,0,1,0,0,1,0,1,1,0,0,1,1,1,0,1,1,0,0,1,1,1,0,1,1,0,0,1,0,1,0,1,1,1,0,0,1,0,0,1,0,0,1,1,1,0,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,0,1,0,1,0,1,0,1,0,0,1,0,0,1,1,0,1,1,1,0,0,1,1,0,1,0,0,1,0,1,1,0,0,1,1,1,0,1,1,0,0,1,1,1,0,1,1,0,0,1,0,1,0,1,1,1,0,0,1,0};
-		
-		
+	int maxx=0;
+	int maxy=0;
+	int maxz=0;
+	
+	public dataSources(int[][][] ar) {
+		setArray(ar);
 	}
 	
-	public int readNext(int[] ds) {
+	public int readNext() {
+		readx++;
 		
-		if(readhead < ds.length-1) {
-			readhead++;
-		} else {
-			readhead = 0;
+		if(readx >= maxx) {
+			readx = readx % maxx;
+			ready++;
 		}
-				
-		return ds[readhead];
+		
+		if(ready >= maxy) {
+			ready = ready % maxy;
+			readz++;
+		}
+		
+		if(readz >= maxz) {
+			readz = readz % maxz;
+			readx=0;
+			ready=0;
+			readz=0;
+		}
+		
+		
+		
+		return sources[readx][ready][readz];
 	}
-	
-	public void pushHead(int[] ds) {
-		if(readhead < ds.length-1) {
-			readhead++;
-		} else {
-			readhead = 0;
-		}
+
+	public void setArray(int[][][] ar){
+		maxx = ar.length;
+		maxy = ar[0].length;
+		maxz = ar[0][0].length;
+		sources = ar;
 	}
 	
 }

@@ -15,12 +15,28 @@ public class automataLib {
 	//constructor
 	public automataLib(Main mm) {
 		m = mm;
+		setDatasourceTest();
 	}
 	
 	//takes a universe and the dataSources object for writing
-	public void setTargetUni(Universe uu, dataSources dd) {
+	public void setTargetUni(Universe uu) {
 		u=uu;
-		d=dd;
+	}
+	
+	public void setDatasourceTest() {
+		
+		/*d=new dataSources(
+			new int[][][] {
+				{{0},{1},{2}},
+				{{3},{4},{5}},
+				{{6},{7},{8}},
+				{{9},{10},{11}}
+			}
+		);*/
+		
+		d=new dataSources(
+			new int[][][] {	{{r.nextInt(2)-1}},{{r.nextInt(2)-1}},{{r.nextInt(8)-4}},{{r.nextInt(4)-2}},{{r.nextInt(2)-1}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}		}
+		);
 	}
 	
 	
@@ -34,14 +50,18 @@ public class automataLib {
 	
 
 	//copy pattern into all layers & cells, tile.
-	public void writeData(int[] dd) {
+	public void writeData() {
 		for(int i = 0; i < u.universe.length; i++) {
 			for (int j = 0; j < u.universe[0].length; j++) {
 				for (int k = 0; k < u.universe[0][0].length; k++) {
-					u.universe[i][j][k] = d.readNext(dd);
+					u.universe[i][j][k] = d.readNext();
 				}
 			}
     	}
+	}
+	
+	public int getWriteTestData() {
+		return d.readNext();
 	}
 	
 	//takes array co-ord, modification int, array param length, and returns wrap position.
@@ -87,6 +107,18 @@ public class automataLib {
     	
     }
     
+    public void plcDataLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize, int toolVar) {
+    	
+    	if(r.nextInt(veto) == 0) { //chance to not write the line
+		    for(int i = 1; i < ((len-xx)/2)+1; i++) {
+		    	val = getWriteTestData();
+		    	if(r.nextInt(rand) == 0) {
+		    		placeval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val+r.nextInt(toolVar));
+		    	} else if(placeO > 0) {placeval((xx+i)+((blockSize-1)/2)-1, yy+((blockSize-1)/2), zz, 1, 0);}
+		    }
+    	}
+    	
+    }
     //with chance, set cell to val 
     public void seed(int xx, int yy, int zz, int rand, int xnullx, int val){ //chance to seed location
     	if(r.nextInt(rand) == 0) {placeval(xx, yy, zz, 1, val);}

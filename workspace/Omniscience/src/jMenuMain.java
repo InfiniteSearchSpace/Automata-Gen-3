@@ -100,6 +100,10 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+        menuItem = new JMenuItem("Place From Datasource");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
         menu.addSeparator();
         
         menuItem = new JMenuItem("Set Tool Size");
@@ -248,6 +252,8 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
 
         if(source.getText() == "Apply Custom Tool") 			{mML.snapToCustomTool();}
+        
+        if(source.getText() == "Place From Datasource") 		{mML.setFunctionType(1);mML.myFunction = 4;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         
         if(source.getText() == "Set Tool Size") 				{mML.dialogSetBlockSize();}
         if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}

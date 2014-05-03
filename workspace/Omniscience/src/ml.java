@@ -31,7 +31,7 @@ public class ml extends JPanel implements MouseListener {
 	int myFunction = 0;  	//reference for current mouse function on click
 	int functionType = 0;	//Determines subclass of functions to execute, like a menu.
 	
-	int fcnt = 4;			//total number of mouse functions to iterate through
+	int fcnt = 5;			//total number of mouse functions to iterate through
 	int fnctype = 4;		//tot number of function catagorys
 	
 	int mwPos = 0;			//Everyone references the MW cycle
@@ -117,6 +117,14 @@ public class ml extends JPanel implements MouseListener {
 	    			if(resetVal) {blockVal = 1;resetVal=false;}
 					placeBlock(mx, my, 0);
 	        	}
+	    		
+	    		if (myFunction ==  4) { //Place Block Bigger
+	    	    	if(blockSize < 0) {blockSize=32;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 1;resetVal=false;}
+					placeBlock(mx, my, 0);
+	        	}
 	    	}
 	
 	    	//Function type/catagory 1's options
@@ -152,40 +160,59 @@ public class ml extends JPanel implements MouseListener {
 	    			if(resetVal) {blockVal = 1;resetVal=false;}
 	    	    	placeStripe(mx, my, 0, 2);
 	        	}
+	    		
+	    		if (myFunction ==  4) { //Place medium Block 2-step Stripes
+	    			if(blockSize < 0) {blockSize= 20;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			placeData(mx, my, 0);
+	        	}
+	    		
 	    	}
 	    	
 	    	//Function type/catagory 2's options
 	    	if(functionType == 2) {
-	    		if (myFunction == 0) { //Set to 0, one
-	    			if(blockSize < 0) {blockSize= 1;}
+	    		
+				
+
+	    		if (myFunction ==  0) { //chance Set to 0, large
+	    			if(blockSize < 0) {blockSize=1;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
-	    			if(resetVal) {blockVal = 1;resetVal=false;}
-					placeZero(mx, my, 0);
+	    			if(resetVal) {blockVal = 0;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
-	    		if (myFunction ==  1) { //chance Set to 0, large
-	    			if(blockSize < 0) {blockSize= 6;}
+	    		if (myFunction ==  1) { //Set to 0, medium
+	    			if(blockSize < 0) {blockSize=8;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
-	    			if(resetVal) {blockVal = 1;resetVal=false;}
-	    			placeZero(mx, my, 0);
+	    			if(resetVal) {blockVal = 0;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
-	    		if (myFunction ==  2) { //Set to 0, medium
-	    			if(blockSize < 0) {blockSize= 32;}
+	    		if (myFunction ==  2) { //Set to 0, large
+	    			if(blockSize < 0) {blockSize=32;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
-	    			if(resetVal) {blockVal = 1;resetVal=false;}
-	    			placeZero(mx, my, 0);
+	    			if(resetVal) {blockVal = 0;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
 	    		if (myFunction ==  3) { //Set to 0, large
-	    			if(toolRand <= 0) {toolRand=24;}
-	    			if(blockSize < 0) {blockSize= 16;}
+	    			if(blockSize < 0) {blockSize=24;}
+	    			if(toolRand <= 0) {toolRand=12;}
 	    			if(toolVar <= 0) {toolVar=1;}
-	    			if(resetVal) {blockVal = 1;resetVal=false;}
-	    			placeZero(mx, my, 0);
+	    			if(resetVal) {blockVal = 0;resetVal=false;}
+					placeBlock(mx, my, 0);
+	    		}
+	    		
+	    		if (myFunction ==  4) { //Set to 0, large
+	    			if(blockSize < 0) {blockSize=6;}
+	    			if(toolRand <= 0) {toolRand=4;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			if(resetVal) {blockVal = 0;resetVal=false;}
+					placeBlock(mx, my, 0);
 	    		}
 	    		
 	    	}
@@ -622,6 +649,20 @@ public class ml extends JPanel implements MouseListener {
 					s[sfcnum].zdraw, 
 					
 					toolRand, 0, blockVal, 1, 0, mx+blockSize, blockSize, toolVar
+				);
+			} 
+	    }
+    }
+    
+    public void placeData(int mx, int my, int mz){
+	    if(mx-(blockSize/2) >= 0 && my-(blockSize/2) > 0 && mx+(blockSize/2) < s[sfcnum].getWidth() && my+(blockSize/2) < s[sfcnum].getHeight()+1) {
+			for(int i = 0; i < blockSize; i++){
+				s[sfcnum].u.a.plcDataLn(	
+					mx-blockSize, 
+					(my+i)-blockSize, 
+					s[sfcnum].zdraw, 
+					
+					toolRand, 0, 0, 1, 0, mx+blockSize, blockSize, toolVar
 				);
 			} 
 	    }

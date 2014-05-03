@@ -99,7 +99,7 @@ public class Universe {
 	
     //Garden of Eden, absolute seed for t=0
     public void runOnce(int rand, int val) {
-    	a.setTargetUni(this, d);
+    	a.setTargetUni(this);
     	a.seedAll(rand,val,1);
     }
     	
@@ -108,7 +108,7 @@ public class Universe {
     	if (!paused) {
     		
 	    	snap(); 					//snapshots the board to u.snapshotUniverse to ensure all functions have equal execution options
-	    	a.setTargetUni(this, d);	//Ensures that the logic controller acts apon THIS universe
+	    	a.setTargetUni(this);	//Ensures that the logic controller acts apon THIS universe
 
 	    	for(int i = 0; i < xlen; i++) {
 				for (int j = 0; j < ylen; j++) {

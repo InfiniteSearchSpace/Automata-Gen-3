@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="mouseWhee" key="selection"/>
+		<item value="Data" key="selection"/>
 		<list key="findhistory">
+			<item value="data"/>
+			<item value="datas"/>
+			<item value="setarr"/>
+			<item value="plcda"/>
+			<item value="plcln"/>
 			<item value="mousewhee"/>
 			<item value="dialogSetB"/>
 			<item value="dialogSet"/>
-			<item value="dialogueSet"/>
-			<item value="setb"/>
-			<item value="plcln"/>
-			<item value="dialo"/>
-			<item value="setse"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

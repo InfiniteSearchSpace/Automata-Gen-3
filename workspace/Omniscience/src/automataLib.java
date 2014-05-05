@@ -6,40 +6,22 @@ public class automataLib {
 	Random r = new Random();
 	neighbours n;
 	
-	dataSources d;
 	Universe u;
 	Main m;
+	//dataSources d;
 	
 	int[][] instructions; //holds the actions to perform
 	
 	//constructor
 	public automataLib(Main mm) {
 		m = mm;
-		setDatasourceTest();
 	}
 	
 	//takes a universe and the dataSources object for writing
 	public void setTargetUni(Universe uu) {
 		u=uu;
 	}
-	
-	public void setDatasourceTest() {
-		
-		/*d=new dataSources(
-			new int[][][] {
-				{{0},{1},{2}},
-				{{3},{4},{5}},
-				{{6},{7},{8}},
-				{{9},{10},{11}}
-			}
-		);*/
-		
-		d=new dataSources(
-			new int[][][] {	{{r.nextInt(2)-1}},{{r.nextInt(2)-1}},{{r.nextInt(8)-4}},{{r.nextInt(4)-2}},{{r.nextInt(2)-1}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}		}
-		);
-	}
-	
-	
+
 	
 	/*  = = = = = = = = = = = = = = = = = = = = 
 	 *  = = = = = = = = = = = = = = = = = = = = 
@@ -50,7 +32,7 @@ public class automataLib {
 	
 
 	//copy pattern into all layers & cells, tile.
-	public void writeData() {
+	/*public void writeData() {
 		for(int i = 0; i < u.universe.length; i++) {
 			for (int j = 0; j < u.universe[0].length; j++) {
 				for (int k = 0; k < u.universe[0][0].length; k++) {
@@ -58,12 +40,9 @@ public class automataLib {
 				}
 			}
     	}
-	}
+	}*/
 	
-	public int getWriteTestData() {
-		return d.readNext();
-	}
-	
+
 	//takes array co-ord, modification int, array param length, and returns wrap position.
     public int getWrap(int val, int mod, int len) { 
     	if((val+mod) % len < 0) {
@@ -77,6 +56,14 @@ public class automataLib {
     public void placeval(int xx, int yy, int zz, int rand, int v) { 
     	if(r.nextInt(rand) == 0) {
     		u.universe[xx][yy][zz] = v;
+    	}
+    }
+    
+    public int getval(int xx, int yy, int zz, int rand, int v) { 
+    	if(r.nextInt(rand) == 0) {
+    		return u.universe[xx][yy][zz];
+    	} else {
+    		return 0;
     	}
     }
 	
@@ -107,11 +94,11 @@ public class automataLib {
     	
     }
     
-    public void plcDataLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize, int toolVar) {
+    public void plcDataLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize, int toolVar, dataSources d) {
     	
     	if(r.nextInt(veto) == 0) { //chance to not write the line
 		    for(int i = 1; i < ((len-xx)/2)+1; i++) {
-		    	val = getWriteTestData();
+		    	val = d.readNext();
 		    	if(r.nextInt(rand) == 0) {
 		    		placeval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val+r.nextInt(toolVar));
 		    	} else if(placeO > 0) {placeval((xx+i)+((blockSize-1)/2)-1, yy+((blockSize-1)/2), zz, 1, 0);}
@@ -119,6 +106,29 @@ public class automataLib {
     	}
     	
     }
+    
+    
+    public int[] getDataLn(int xx, int yy, int zz, int rand, int xnullx, int val, int veto, int placeO, int len, int blockSize, int toolVar) {
+    	
+    	int[] dataLine = new int[blockSize]; //may be innacurate
+    	
+    	if(r.nextInt(veto) == 0) { //chance to not get the line
+		    for(int i = 1; i < ((len-xx)/2)+1; i++) {
+		    	int dataInt = 0;
+		    	
+		    	if(r.nextInt(rand) == 0) {
+		    		dataInt = getval((xx+i)+((blockSize-1)/2), yy+((blockSize-1)/2), zz, 1, val+r.nextInt(toolVar));
+		    	} else if(placeO > 0) {dataInt = getval((xx+i)+((blockSize-1)/2)-1, yy+((blockSize-1)/2), zz, 1, 0);}
+		    	
+		    	dataLine[i-1]=dataInt;
+		    }
+    	}
+    	
+    	return dataLine;
+    	
+    }
+    
+    
     //with chance, set cell to val 
     public void seed(int xx, int yy, int zz, int rand, int xnullx, int val){ //chance to seed location
     	if(r.nextInt(rand) == 0) {placeval(xx, yy, zz, 1, val);}
@@ -317,6 +327,24 @@ public class automataLib {
 
 		if (t == 2){u.universe[xx][yy][zz] = 1;}
 		if(t < 2 || t > 4){u.universe[xx][yy][zz] = 0;}
+		
+	}
+	
+	public void meekrochypFr(int xx, int yy, int zz){					
+		n = new neighbours(4);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(-1, 1, 0, 2);
+		n.setNBH(1, 1, 0, 3);
+		
+		int sum = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+
+		if (sum <= 4){u.universe[xx][yy][zz] = 0;}
+		if (sum == 4){u.universe[xx][yy][zz] = 1;}
+		if (sum >= 8){u.universe[xx][yy][zz] = 0;}
 		
 	}
 	
@@ -1193,6 +1221,46 @@ public class automataLib {
 		if(sum <= 8)  { u.universe[xx][yy][zz] = 0; }
 		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
 		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ConwayExtendedRange13_2(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		int sum = nbrCountNotVal(xx,yy,zz,0);
+	
+		if(sum <= 6)  				{ u.universe[xx][yy][zz] = 0; }
+		if(sum == 4)  				{ u.universe[xx][yy][zz] = 1; }
+		if(sum >= 9 && sum <= 11)  	{ u.universe[xx][yy][zz] = 0; }
 	}
 	
 	public void ConwayExtendedRange14(int xx, int yy, int zz){
@@ -2292,6 +2360,7 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 63  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange11(xx, yy, zz 		);}
 		if(ins[0] == 64  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange12(xx, yy, zz 		);}
 		if(ins[0] == 65  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange13(xx, yy, zz 		);}
+		if(ins[0] == 70  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange13_2(xx, yy, zz 		);}
 		if(ins[0] == 66  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange14(xx, yy, zz 		);}
 		if(ins[0] == 14  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
 		if(ins[0] == 15  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
@@ -2331,6 +2400,7 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 45 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5(xx,yy,zz				);}
 		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
 		if(ins[0] == 47 && (ins[1] == zz || ins[1] == -1)) {fractal1(xx,yy,zz						);}
+		if(ins[0] == 69 && (ins[1] == zz || ins[1] == -1)) {meekrochypFr(xx,yy,zz					);}
 		
 		//3D Neighbourhoods
 		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}

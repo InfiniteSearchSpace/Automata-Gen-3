@@ -99,8 +99,12 @@ public class jMenuMain implements ActionListener {
         menuItem = new JMenuItem("Apply Custom Tool");
         menuItem.addActionListener(this);
         menu.add(menuItem);
-        
+
         menuItem = new JMenuItem("Place From Datasource");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Capture Data");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -252,8 +256,9 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
 
         if(source.getText() == "Apply Custom Tool") 			{mML.snapToCustomTool();}
-        
-        if(source.getText() == "Place From Datasource") 		{mML.setFunctionType(1);mML.myFunction = 4;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+
+        if(source.getText() == "Place From Datasource") 		{mML.setFunctionType(3);mML.myFunction = 1;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+        if(source.getText() == "Capture Data") 					{mML.setFunctionType(3);mML.myFunction = 2;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         
         if(source.getText() == "Set Tool Size") 				{mML.dialogSetBlockSize();}
         if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}

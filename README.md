@@ -94,6 +94,8 @@ Mousewheel Function Binding: Certain functions can be bound to the mousewheel fo
 
 Menu List: Describe what each line of the list means
 
+==============
 
+DataCapture & Placment from DataSource: Snapshot a piece of a cellular automata grid, and inject it to the grid at a later point
 
 

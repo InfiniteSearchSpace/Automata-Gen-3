@@ -22,8 +22,9 @@ public class ml extends JPanel implements MouseListener {
 	Point p2;
 	Universe u[];
 	Random r = new Random();
+	dataSources d = new dataSources();
 	
-	int totalFunctions = 68+1;
+	int totalFunctions = 70+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -161,11 +162,12 @@ public class ml extends JPanel implements MouseListener {
 	    	    	placeStripe(mx, my, 0, 2);
 	        	}
 	    		
-	    		if (myFunction ==  4) { //Place medium Block 2-step Stripes
-	    			if(blockSize < 0) {blockSize= 20;}
-	    			if(toolRand <= 0) {toolRand=1;}
-	    			if(toolVar <= 0) {toolVar=1;}
-	    			placeData(mx, my, 0);
+	    		if (myFunction ==  4) { 
+	    			if(blockSize < 0) {blockSize=6;}
+	    			if(toolRand <= 0) {toolRand=3;}
+	    			if(toolVar <= 0) {toolVar=3;}
+	    			if(resetVal) {blockVal=-1;resetVal=false;}
+					placeBlock(mx, my, 0);
 	        	}
 	    		
 	    	}
@@ -217,8 +219,33 @@ public class ml extends JPanel implements MouseListener {
 	    		
 	    	}
 
+	    	if(functionType == 3) {
+				if (myFunction ==  0) { 
+					if(blockSize < 0) {blockSize= 16;}
+	    			if(toolRand <= 0) {toolRand=12;}
+	    			if(toolVar <= 0) {toolVar=32;}
+	    			if(resetVal) {blockVal=-16;resetVal=false;}
+					placeBlock(mx, my, 0);
+				}
+
+				if (myFunction ==  1) { 
+					if(blockSize < 0) {blockSize= 20;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			placeData(mx, my, 0);
+				}
+				
+				if (myFunction ==  2) { 
+					if(blockSize < 0) {blockSize= 20;}
+	    			if(toolRand <= 0) {toolRand=1;}
+	    			if(toolVar <= 0) {toolVar=1;}
+	    			captureData(mx, my, 0);
+				}
+				
+			}
+	    	
 			//Function type/catagory 4's options
-			if(functionType == 3) {
+			/*if(functionType == 3) {
 				if (myFunction ==  0) { //Scroll through surfaces
 					sfcnum++;
 					sfcnum = sfcnum % sfcmax;
@@ -228,7 +255,7 @@ public class ml extends JPanel implements MouseListener {
 					setRandom_3_InstructionWithSeed();
 				}
 				
-			}
+			}*/
 
 			
 			//Function type/catagory 5's options
@@ -237,11 +264,11 @@ public class ml extends JPanel implements MouseListener {
 					s[sfcnum].u.a.seedAll(4, 1);
 				}
 				
-				if (myFunction ==  2) { //
+				if (myFunction == 2) { //
 					
 				}
 				
-				if (myFunction ==  3) { //
+				if (myFunction == 3) { //
 
 				}
 				
@@ -662,9 +689,10 @@ public class ml extends JPanel implements MouseListener {
 					(my+i)-blockSize, 
 					s[sfcnum].zdraw, 
 					
-					toolRand, 0, 0, 1, 0, mx+blockSize, blockSize, toolVar
+					toolRand, 0, 0, 1, 0, mx+blockSize, blockSize, toolVar, d
 				);
 			} 
+			d.reset();
 	    }
     }
     
@@ -695,6 +723,56 @@ public class ml extends JPanel implements MouseListener {
 			} 
 	    }
     }
+    
+    public void captureData(int mx, int my, int mz){
+		int[][][] resultAr;
+		resultAr = new int[blockSize][blockSize][1];
+		
+		String ss = "";
+		//use block placement decendent as capture device for u.universe
+		
+	    if(mx-(blockSize/2) >= 0 && my-(blockSize/2) > 0 && mx+(blockSize/2) < s[sfcnum].getWidth() && my+(blockSize/2) < s[sfcnum].getHeight()+1) {
+			for(int i = 0; i < blockSize; i++){
+				int[] intar = new int[blockSize];
+				intar = s[sfcnum].u.a.getDataLn(	
+					mx-blockSize, 
+					(my+i)-blockSize, 
+					s[sfcnum].zdraw, 
+						
+					toolRand, 0, 0, 1, 0, mx+blockSize, blockSize, toolVar
+				);
+				
+				
+				
+				for (int j = 0; j < intar.length; j++){
+					resultAr[i][j][0] = intar[j];
+		    	    ss+=intar[j] + ",";
+			    }
+				ss+="\n";
+			} 
+			System.out.println(ss);
+			 	
+				
+	    }
+	    
+	   
+	    
+	    
+	    
+	    
+	    ss="";
+	    for (int i = 0; i < resultAr.length; i++){
+	    	for (int j = 0; j < resultAr[0].length; j++){
+	    	    ss+=resultAr[i][j][0] + ",";
+		    }
+	    	ss+="\n";
+	    }
+	    System.out.println(ss);
+	    
+	    
+	    d.setArray(resultAr);
+    }
+    
     
     public void cycleUni(){
     	sfcnum++;

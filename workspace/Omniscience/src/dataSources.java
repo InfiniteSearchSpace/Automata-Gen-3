@@ -1,50 +1,49 @@
+import java.util.Random;
+
 
 public class dataSources {
 	
 	public int[][][] sources;
 	
-	int readx = 0;
-	int ready = 0;
-	int readz = 0;
+	int xPos;
+	int yPos;
+	int zPos;
+	Random r = new Random();
+	ml m;
 	
-	int maxx=0;
-	int maxy=0;
-	int maxz=0;
-	
-	public dataSources(int[][][] ar) {
-		setArray(ar);
+	public dataSources() {
+		setArray(new int[][][] {	{{r.nextInt(2)-1}},{{r.nextInt(2)-1}},{{r.nextInt(8)-4}},{{r.nextInt(4)-2}},{{r.nextInt(2)-1}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}	,{{r.nextInt(16)-8}},{{r.nextInt(16)-8}}		});
 	}
 	
 	public int readNext() {
-		readx++;
 		
-		if(readx >= maxx) {
-			readx = readx % maxx;
-			ready++;
+		xPos++;
+		if(xPos>sources.length-1) {
+			xPos=0;
+			yPos++;
 		}
 		
-		if(ready >= maxy) {
-			ready = ready % maxy;
-			readz++;
+		if(yPos>sources[0].length-1) {
+			yPos=0;
+			zPos++;
 		}
 		
-		if(readz >= maxz) {
-			readz = readz % maxz;
-			readx=0;
-			ready=0;
-			readz=0;
+		if(zPos>sources[0][0].length-1) {
+			zPos=0;
 		}
 		
+		return sources[xPos][yPos][zPos];
 		
-		
-		return sources[readx][ready][readz];
 	}
 
 	public void setArray(int[][][] ar){
-		maxx = ar.length;
-		maxy = ar[0].length;
-		maxz = ar[0][0].length;
 		sources = ar;
+	}
+	
+	public void reset(){
+		xPos = 0;
+		yPos = 0;
+		zPos = 0;
 	}
 	
 }

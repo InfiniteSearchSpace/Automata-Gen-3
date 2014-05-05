@@ -1,0 +1,39 @@
+
+public class dataSources {
+	
+	public int[][][] sources;
+	
+	int xPos;
+	int yPos;
+	int zPos;
+	
+	public dataSources(int[][][] ar) {
+		setArray(ar);
+	}
+	
+	public int readNext() {
+		
+		xPos++;
+		if(xPos>sources.length-1) {
+			xPos=0;
+			yPos++;
+		}
+		
+		if(yPos>sources.length-1) {
+			yPos=0;
+			zPos++;
+		}
+		
+		if(zPos>sources.length-1) {
+			zPos=0;
+		}
+		
+		return sources[xPos][yPos][zPos];
+		
+	}
+
+	public void setArray(int[][][] ar){
+		sources = ar;
+	}
+	
+}

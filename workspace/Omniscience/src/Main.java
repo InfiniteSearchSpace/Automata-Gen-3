@@ -34,6 +34,7 @@ public class Main extends JFrame {
             	Surf[] s = new Surf[surfaces];						//Array of surface displays
             	Universe[] u = new Universe[universes];				//Array of universes/worlds
             	automataLib[] a = new automataLib[universes];		//Performs all automata functions for the sim;
+            	slider[] sl = new slider[2]; 
             	
             	//Instanciate automataLibs 
             	//This may be unnessessary
@@ -69,7 +70,12 @@ public class Main extends JFrame {
             	
             	//dataSources d = new dataSources();		//used for seeding/creating predefined patterns
             	
-            	ml myml = new ml(m,s,l,u);					//Mouselistener for user input;
+            	ml myml = new ml(m,s,l,u,sl);					//Mouselistener for user input;
+            	
+            	sl[0] = new slider(m,xSize,ySize,zSize, myml, 0, 5);
+            	sl[1] = new slider(m,xSize,ySize,zSize, myml, 1, 25);
+            	//slider sl3 = new slider(m,xSize,ySize,zSize, myml, 2, 0);
+            	
             	mwl mymwl = new mwl(m,myml);				//MouseWheelListener for user input;
             	MouseMotionList mMot = new MouseMotionList(m, myml);				//MouseWheelListener for user input;
             	jMenuMain jmen = new jMenuMain(myml);			//add Menu Gui
@@ -82,8 +88,9 @@ public class Main extends JFrame {
             	
             	//Textbox for info display
             	l.setLayout(null); 
-            	l.setBounds(xSize+16, 2, 80+40, 10*(10+4));
+            	l.setBounds(xSize+16, 2, 80+40, 12*(10+4));
             	l.setVisible(true);
+            	
             	l.setText("Menu");
             	
             	//Layout for Main window/frame
@@ -92,7 +99,7 @@ public class Main extends JFrame {
             	int minMenuXLen = 300;
             	int minMenuYLen = 210;
             	
-            	int xxsize = (xSize+2+2) * surfaces + 6 + 2 +120;
+            	int xxsize = (xSize+2+2) * surfaces + 6 + 2 +120 + 56;
             	int yysize = (ySize+2) * surfaces + 42 + 24 + 2+8;
             	
             	if(xSize < minMenuXLen) {if(xxsize < minMenuXLen){xxsize = minMenuXLen;}}
@@ -124,6 +131,8 @@ public class Main extends JFrame {
             	//Takes int: rand, val
             	u[0].runOnce(myml.seedRand,myml.seedVal);
 
+            	
+            	
             }
         });
     }

@@ -1,0 +1,34 @@
+
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+
+public class slider implements ChangeListener {
+	 
+	public slider(Main m, int xSize, int ySize, int zSize) {
+	        
+		JSlider framesPerSecond = new JSlider(JSlider.VERTICAL, 0, 25, 0);
+	    framesPerSecond.setVisible(true);
+	    framesPerSecond.setLayout(null); 
+	    framesPerSecond.setBounds(xSize+105, 4, 34, ySize+16);
+	    framesPerSecond.setVisible(true);
+	    framesPerSecond.setMajorTickSpacing(10);
+	    framesPerSecond.setMinorTickSpacing(1);
+	    framesPerSecond.setPaintTicks(true);
+	        
+	    framesPerSecond.addChangeListener(this);
+
+	    m.add(framesPerSecond);
+	 }
+
+	public void stateChanged(ChangeEvent e) {
+		JSlider source = (JSlider)e.getSource();
+		if (!source.getValueIsAdjusting()) {
+	      	int fps = (int)source.getValue();
+	       	System.out.println(fps);
+	 	}
+	}
+	
+
+}

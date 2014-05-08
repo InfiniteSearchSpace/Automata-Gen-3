@@ -154,13 +154,17 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+        menuItem = new JMenuItem("Reassign Growth Function");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
         menu.addSeparator();
          
         menuItem = new JMenuItem("Combination Ruleset");
         menuItem.addActionListener(this);
         menu.add(menuItem); 
         
-       
+        
         
         
 
@@ -235,7 +239,10 @@ public class jMenuMain implements ActionListener {
         	mML.gui_blockSize = mML.blockSize;
         	
         	mML.resetVal = true;
+        	mML.slideVal = new int[3];
+        	mML.growDieThreshold = 0;
         }
+        
         if(source.getText() == "Select Next Window") {mML.cycleUni();}
 
         if(source.getText() == "Reseed Layer") 	{mML.reseedLayer(mML.seedRand, mML.seedVal);}
@@ -248,6 +255,7 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Add Constant Seeding") 		{mML.dialogAddSeed();}
         if(source.getText() == "Add Random Rule") 			{mML.addRandomRule();}
         if(source.getText() == "Recast Rule Parameters") 	{mML.recastParams();}
+        if(source.getText() == "Reassign Growth Function") 	{mML.dialogRuleBounds();}
         
         if(source.getText() == "Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
                 

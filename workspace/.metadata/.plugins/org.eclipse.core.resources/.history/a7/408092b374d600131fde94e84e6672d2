@@ -1,0 +1,128 @@
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+
+public class slider implements ChangeListener {
+	 
+	public slider(Main m, int xSize, int ySize, int zSize) {
+	        //setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+	        //Create the label.
+	        JLabel sliderLabel = new JLabel();
+	       
+	        sliderLabel.setLayout(null); 
+	        sliderLabel.setBounds(xSize+105, 4, 32, ySize);
+	        sliderLabel.setOpaque(true);
+	        sliderLabel.setBackground(Color.blue);
+	        sliderLabel.setVisible(true);
+	        
+	        //Create the slider.
+	        JSlider framesPerSecond = new JSlider(JSlider.HORIZONTAL, 0, 25, 0);
+	        
+
+	        framesPerSecond.addChangeListener(this);
+
+	        //Turn on labels at major tick marks.
+
+	        /*framesPerSecond.setMajorTickSpacing(10);
+	        framesPerSecond.setMinorTickSpacing(1);
+	        framesPerSecond.setPaintTicks(true);
+	        framesPerSecond.setPaintLabels(true);
+	        framesPerSecond.setBorder(
+	                BorderFactory.createEmptyBorder(0,0,10,0));
+	        Font font = new Font("Serif", Font.ITALIC, 15);
+	        framesPerSecond.setFont(font);
+
+	        //Create the label that displays the animation.
+	        picture = new JLabel();
+	        picture.setHorizontalAlignment(JLabel.CENTER);
+	        picture.setAlignmentX(Component.CENTER_ALIGNMENT);
+	        picture.setBorder(BorderFactory.createCompoundBorder(
+	                BorderFactory.createLoweredBevelBorder(),
+	                BorderFactory.createEmptyBorder(10,10,10,10)));
+	        updatePicture(0); //display first frame*/
+
+	        //Put everything together.
+	        m.add(sliderLabel);
+	        sliderLabel.add(framesPerSecond);
+	        //add(picture);
+	        //setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+	        //Set up a timer that calls this object's action handler.
+	       /* timer = new Timer(delay, this);
+	        timer.setInitialDelay(delay * 7); //We pause animation twice per cycle
+	                                          //by restarting the timer
+	        timer.setCoalesce(true);*/
+	        System.out.println("Slider, No Sliding!");
+	    }
+
+	    /** Add a listener for window events. */
+	   /* void addWindowListener(Window w) {
+	        w.addWindowListener(this);
+	    }*/
+
+	    //React to window events.
+	/*    public void windowIconified(WindowEvent e) {
+	        stopAnimation();
+	    }
+	    public void windowDeiconified(WindowEvent e) {
+	        startAnimation();
+	    }
+	    public void windowOpened(WindowEvent e) {}
+	    public void windowClosing(WindowEvent e) {}
+	    public void windowClosed(WindowEvent e) {}
+	    public void windowActivated(WindowEvent e) {}
+	    public void windowDeactivated(WindowEvent e) {}*/
+
+	    /** Listen to the slider. */
+	    public void stateChanged(ChangeEvent e) {
+	        JSlider source = (JSlider)e.getSource();
+	        if (!source.getValueIsAdjusting()) {
+	            int fps = (int)source.getValue();
+	            System.out.println(fps);
+	            /*if (fps == 0) {
+	                if (!frozen) stopAnimation();
+	            } else {
+	                delay = 1000 / fps;
+	                timer.setDelay(delay);
+	                timer.setInitialDelay(delay * 10);
+	                if (frozen) startAnimation();
+	            }*/
+	        }
+	    }
+
+	  /*  public void startAnimation() {
+	        //Start (or restart) animating!
+	        timer.start();
+	        frozen = false;
+	    }
+
+	    public void stopAnimation() {
+	        //Stop the animating thread.
+	        timer.stop();
+	        frozen = true;
+	    }
+
+	    //Called when the Timer fires.
+	    public void actionPerformed(ActionEvent e) {
+	        //Advance the animation frame.
+	        if (frameNumber == (NUM_FRAMES - 1)) {
+	            frameNumber = 0;
+	        } else {
+	            frameNumber++;
+	        }
+
+	        updatePicture(frameNumber); //display the next picture
+
+	        if ( frameNumber==(NUM_FRAMES - 1)
+	          || frameNumber==(NUM_FRAMES/2 - 1) ) {
+	            timer.restart();
+	        }
+	    }*/
+}

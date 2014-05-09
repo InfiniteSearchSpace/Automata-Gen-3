@@ -96,15 +96,15 @@ public class jMenuMain implements ActionListener {
         
         menu.addSeparator();
         
-        menuItem = new JMenuItem("Reapply Custom Tool");
+        menuItem = new JMenuItem("Apply Custom Tool");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+
+        menuItem = new JMenuItem("Place From Datasource");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Tool: Copy");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("Tool: Paste");
+        menuItem = new JMenuItem("Capture Data");
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
@@ -154,9 +154,9 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        /*menuItem = new JMenuItem("Reassign Growth Function");
+        menuItem = new JMenuItem("Reassign Growth Function");
         menuItem.addActionListener(this);
-        menu.add(menuItem);*/
+        menu.add(menuItem);
         
         menu.addSeparator();
          
@@ -241,7 +241,6 @@ public class jMenuMain implements ActionListener {
         	mML.resetVal = true;
         	mML.slideVal = new int[3];
         	mML.growDieThreshold = 0;
-        	mML.ruleChanged(0);
         }
         
         if(source.getText() == "Select Next Window") {mML.cycleUni();}
@@ -256,7 +255,7 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Add Constant Seeding") 		{mML.dialogAddSeed();}
         if(source.getText() == "Add Random Rule") 			{mML.addRandomRule();}
         if(source.getText() == "Recast Rule Parameters") 	{mML.recastParams();}
-        //if(source.getText() == "Reassign Growth Function") 	{mML.dialogRuleBounds();}
+        if(source.getText() == "Reassign Growth Function") 	{mML.dialogRuleBounds();}
         
         if(source.getText() == "Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
                 
@@ -264,11 +263,10 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
 
-        if(source.getText() == "Reapply Custom Tool") 			{mML.snapToCustomTool();}
+        if(source.getText() == "Apply Custom Tool") 			{mML.snapToCustomTool();}
 
-        
-        if(source.getText() == "Tool: Copy") 					{mML.setFunctionType(3);mML.myFunction = 2;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
-        if(source.getText() == "Tool: Paste") 					{mML.setFunctionType(3);mML.myFunction = 1;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+        if(source.getText() == "Place From Datasource") 		{mML.setFunctionType(3);mML.myFunction = 1;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
+        if(source.getText() == "Capture Data") 					{mML.setFunctionType(3);mML.myFunction = 2;setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         
         if(source.getText() == "Set Tool Size") 				{mML.dialogSetBlockSize();}
         if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}

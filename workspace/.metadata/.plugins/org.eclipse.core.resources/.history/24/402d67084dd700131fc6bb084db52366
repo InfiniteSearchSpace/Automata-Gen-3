@@ -58,9 +58,4 @@ public class slider implements ChangeListener {
 		m.add(mySlide);
 	}
 	
-	public void existential(boolean b){
-		mySlide.setEnabled(b);
-		mySlide.setVisible(b);
-	}
-	
 }

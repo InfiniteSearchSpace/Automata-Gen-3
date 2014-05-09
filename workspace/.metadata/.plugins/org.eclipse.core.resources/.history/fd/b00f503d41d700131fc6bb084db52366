@@ -712,42 +712,6 @@ public class automataLib {
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
-	public void extendedRangeCustom2(int xx, int yy, int zz){
-
-		n = new neighbours(8);
-		
-		n.setNBH( 0, -1, 0, 0);
-		n.setNBH( -1, 0, 0, 1);
-		n.setNBH( 1, 0, 0, 2);
-		n.setNBH( 0, 1, 0, 3);
-		n.setNBH( -1, -1, 0, 4);
-		n.setNBH( 1, 1, 0, 5);
-		n.setNBH( -1, 1, 0, 6);
-		n.setNBH( 1, -1, 0, 7);
-		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
-		
-		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
-		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
-	}
-	
-	public void extendedRangeCustom3(int xx, int yy, int zz){
-
-		n = new neighbours(6);
-		n.setNBH(-1, 0, 0, 0);
-		n.setNBH(0, -1, 0, 1);
-		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);
-		n.setNBH(0, 0, -1, 4);
-		n.setNBH(0, 0, 1, 5);
-		
-		int isOne = nbrCountNotVal(xx,yy,zz,0);
-		
-		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
-		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
-	}
 	
 	public void ConwayExtendedRange(int xx, int yy, int zz){
 
@@ -2545,11 +2509,8 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 			);}
 		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
 		if(ins[0] == 67 && (ins[1] == zz || ins[1] == -1)) {CyclicDaemon(xx,yy,zz 					);}
-
-		//Rules that can have their rules customised
+		
 		if(ins[0] == 72 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom(xx,yy,zz 			);}
-		if(ins[0] == 73 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom2(xx,yy,zz 			);}
-		if(ins[0] == 74 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom3(xx,yy,zz 			);}
 		
 		
 		

@@ -130,10 +130,9 @@ public class Main extends JFrame {
             	//Kickstart u[0] with the action in class Universe. Usually a seeding. 
             	//Takes int: rand, val
             	u[0].runOnce(myml.seedRand,myml.seedVal);
+
             	
-            	myml.ruleChanged(0);
             	
-            	myml.refresh();
             }
         });
     }

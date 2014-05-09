@@ -304,25 +304,16 @@ public class ml extends JPanel implements MouseListener {
     
     public void ruleChanged(int rulenum){
     	if(rulenum == 74) {
-    		sl[0].existential(true);
-    		sl[1].existential(true);
     		sl[1].setMax(6);
-    	} else if(rulenum == 73) {
-    		sl[0].existential(true);
-    		sl[1].existential(true);
-    		sl[1].setMax(8);
-    	} else if(rulenum == 72) {
-    		sl[0].existential(true);
-    		sl[1].existential(true);
-    		sl[1].setMax(25);
-    	} else {
-    		sl[0].existential(false);
-    		sl[1].existential(false);
     	}
-    	
-    	//System.out.println("RULENUM"  +rulenum);
+    	if(rulenum == 73) {
+    		sl[1].setMax(8);
+    	}
+    	if(rulenum == 72) {
+    		sl[1].setMax(25);
+    	}
+    	System.out.println("RULENUM"  +rulenum);
     }
-   
     
     //identifies the mousefunction action that is highlighted
     public void updateListing(){

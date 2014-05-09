@@ -21,7 +21,7 @@ public class slider implements ChangeListener {
 		ys=ySize;
 		zs=zSize;
 		
-	    init(maxVal);
+	    setMax(maxVal);
 	 }
 
 	public void stateChanged(ChangeEvent e) {
@@ -46,21 +46,5 @@ public class slider implements ChangeListener {
 		m.add(mySlide);
 	}
 	
-	public void init(int val) {
-		mySlide = new JSlider(JSlider.VERTICAL, 0, val, 0);  
-		mySlide.setVisible(true);
-	    mySlide.setLayout(null); 
-	    mySlide.setBounds(xs+105+(slideNum*28), 4, 14, xs+16);
-	    mySlide.setVisible(true);
-	    mySlide.setMinorTickSpacing(1);
-	    mySlide.setPaintTicks(true);
-	    mySlide.addChangeListener(this);
-		m.add(mySlide);
-	}
-	
-	public void existential(boolean b){
-		mySlide.setEnabled(b);
-		mySlide.setVisible(b);
-	}
-	
+
 }

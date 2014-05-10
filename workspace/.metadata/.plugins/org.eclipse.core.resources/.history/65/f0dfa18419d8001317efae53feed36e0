@@ -550,7 +550,7 @@ public class ml extends JPanel implements MouseListener {
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
-		ruleChanged(u[0].instructions[u[0].instructions.length-1][0]);
+		ruleChanged(u[0].instructions[u[0].instructions.length][0]);
 		refresh();
     }
     
@@ -561,7 +561,7 @@ public class ml extends JPanel implements MouseListener {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1}
         }; 
-		ruleChanged(u[0].instructions[u[0].instructions.length-1][0]);
+		ruleChanged(u[0].instructions[u[0].instructions.length][0]);
 		refresh();
     }
 
@@ -644,7 +644,7 @@ public class ml extends JPanel implements MouseListener {
     		tmp[i] = new int[]{-1, s[sfcnum].zdraw, mySeedRand, 0, mySeedVal}; //seed
     		
     		u[0].instructions = tmp;
-    		ruleChanged(tmp[u[0].instructions.length-1][0]);
+    		ruleChanged(tmp[u[0].instructions.length][0]);
     	}
     }
     
@@ -661,7 +661,7 @@ public class ml extends JPanel implements MouseListener {
     		tmp[i] = new int[]{sVal, s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1}; //seed
 
     		u[0].instructions = tmp;
-    		ruleChanged(tmp[u[0].instructions.length-1][0]);
+    		ruleChanged(tmp[u[0].instructions.length][0]);
     	}
     }
     

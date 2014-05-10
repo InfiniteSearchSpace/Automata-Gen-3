@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="348" key="DIALOG_WIDTH"/>
+		<item value="352" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="431" key="DIALOG_HEIGHT"/>
 		<item value="1228" key="DIALOG_X_ORIGIN"/>
+		<item value="433" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="min" key="selection"/>
+		<item value="mouseWh" key="selection"/>
 		<list key="findhistory">
-			<item value="min"/>
-			<item value="dialog"/>
-			<item value="fps"/>
-			<item value="framesPerSecond"/>
-			<item value="data"/>
-			<item value="datas"/>
-			<item value="setarr"/>
-			<item value="plcda"/>
+			<item value="mousewh"/>
+			<item value="setra"/>
+			<item value="setr"/>
+			<item value="dialoga"/>
+			<item value="dial"/>
+			<item value="remove"/>
+			<item value="(6)"/>
+			<item value="toggle"/>
 		</list>
 		<list key="replacehistory">
 			<item value="sldVal"/>

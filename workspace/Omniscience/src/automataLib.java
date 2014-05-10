@@ -732,6 +732,78 @@ public class automataLib {
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
+	public void extendedRangeCustom4(int xx, int yy, int zz){
+
+		n = new neighbours(48);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		n.setNBH( -3, -3, 0, 24);
+		n.setNBH( -2, -3, 0, 25);
+		n.setNBH( -1, -3, 0, 26);
+		n.setNBH( 0, -3, 0, 27);
+		n.setNBH( 1, -3, 0, 28);
+		n.setNBH( 2, -3, 0, 29);
+		n.setNBH( 3, -3, 0, 30);
+		
+		n.setNBH( -3, 3, 0, 31);
+		n.setNBH( -2, 3, 0, 32);
+		n.setNBH( -1, 3, 0, 33);
+		n.setNBH( 0, 3, 0, 34);
+		n.setNBH( 1, 3, 0, 35);
+		n.setNBH( 2, 3, 0, 36);
+		n.setNBH( 3, 3, 0, 37);
+		
+		n.setNBH( -3, -2, 0, 38);
+		n.setNBH( -3, -1, 0, 39);
+		n.setNBH( -3, 0, 0, 40);
+		n.setNBH( -3, 1, 0, 41);
+		n.setNBH( -3, 2, 0, 42);
+		
+		n.setNBH( 3, -2, 0, 43);
+		n.setNBH( 3, -1, 0, 44);
+		n.setNBH( 3, 0, 0, 45);
+		n.setNBH( 3, 1, 0, 46);
+		n.setNBH( 3, 2, 0, 47);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+
+	
+	
+	
 	public void extendedRangeCustom3(int xx, int yy, int zz){
 
 		n = new neighbours(6);
@@ -742,6 +814,46 @@ public class automataLib {
 		n.setNBH(0, 0, -1, 4);
 		n.setNBH(0, 0, 1, 5);
 		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void extendedRangeCustom5(int xx, int yy, int zz){
+
+		n = new neighbours(4);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		
+		int isOne = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			isOne += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void extendedRangeCustom6(int xx, int yy, int zz){
+
+		n = new neighbours(6);
+		
+		n.setNBH( -3, -1, 0, 0);
+		n.setNBH( 3, -1, 0, 1);
+		n.setNBH( -2, -2, 0, 2);
+		n.setNBH( 2, -2, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( -1, -1, 0, 5);
+		
+		/*int isOne = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			isOne += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}*/
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
@@ -2303,6 +2415,82 @@ public void hex1(int xx, int yy, int zz){
 			}
 		}
 		
+		public void TuringCliff(int xx, int yy, int zz){
+			n = new neighbours(24);
+			
+			n.setNBH( 0, -1, 0, 0);
+			n.setNBH( -1, 0, 0, 1);
+			n.setNBH( 1, 0, 0, 2);
+			n.setNBH( 0, 1, 0, 3);
+			n.setNBH( -1, -1, 0, 4);
+			n.setNBH( 1, 1, 0, 5);
+			n.setNBH( -1, 1, 0, 6);
+			n.setNBH( 1, -1, 0, 7);
+			
+			n.setNBH( -2, 0, 0, 8);
+			n.setNBH( 2, 0, 0, 9);
+			n.setNBH( -2, 1, 0, 10);
+			n.setNBH( 2, 1, 0, 11);
+			n.setNBH( -2, -1, 0, 12);
+			n.setNBH( 2, -1, 0, 13);
+			
+			n.setNBH( 0, -2, 0, 14);
+			n.setNBH( 0, 2, 0, 15);
+			n.setNBH( 1, -2, 0, 16);
+			n.setNBH( 1, 2, 0, 17);
+			n.setNBH( -1, -2, 0, 18);
+			n.setNBH( -1, 2, 0, 19);
+			
+			n.setNBH( -2, -2, 0, 20);
+			n.setNBH( 2, 2, 0, 21);
+			n.setNBH( 2, -2, 0, 22);
+			n.setNBH( -2, 2, 0, 23);
+			
+			if(u.snapshotUniverse[xx][yy][zz] < 0) {
+				
+				int block_memory = -1;
+				int newDir = -1;
+				int newSelf;
+				int nbrsTtl = n.NBH.length;
+				
+				//Get my true value (0-7):
+				int direction_to_go = (Math.abs(u.snapshotUniverse[xx][yy][zz])-1)%(nbrsTtl*2);
+				
+				//This cell was x before I was here
+				if(direction_to_go >= 0 && direction_to_go < nbrsTtl) 	  		{block_memory = 0;}
+				if(direction_to_go >= nbrsTtl && direction_to_go < nbrsTtl*2)	{block_memory = 1;}
+				
+				//My predecessor went direction (0-3):
+				int dir = direction_to_go%nbrsTtl;
+				
+				//Set my future direction (Rotate)
+				if(block_memory == 0) {		newDir = (dir+1)%nbrsTtl;			}
+				if(block_memory == 1) {		newDir = ((dir+nbrsTtl)%nbrsTtl);		}
+					
+				//Flip this block's value
+				int isOne = nbrCountMoreThanVal(xx,yy,zz,0);
+				if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+				if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+				if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+				
+				//encode nbr's value & direction				
+				//0-3 encodes 0; 4-7 encodes 1;
+				int nbr = u.snapshotUniverse[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)];
+
+				if(nbr == 1) {newSelf = nbrsTtl;} else {newSelf = 0;}
+					
+					
+				//add direction info & make negative
+				newSelf += newDir;
+				newSelf = -newSelf;
+					
+				//set my new direction's neighbour to my encoded data 
+				u.universe[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)] = newSelf-1;
+			
+			}
+		}
+		
+		
 		public void CyclicDaemon(int xx, int yy, int zz){
 			n = new neighbours(4);
 				
@@ -2511,7 +2699,9 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 9 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 					);}
 		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}
 		if(ins[0] == 54 && (ins[1] == zz || ins[1] == -1)) {LangtonsAnt(xx,yy,zz					);}
-
+		if(ins[0] == 77 && (ins[1] == zz || ins[1] == -1)) {TuringCliff(xx,yy,zz					);}
+		
+		
 		//		2D Neighbourhoods
 		if((ins[0] == 11 || ins[0] == 0) && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
 		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
@@ -2550,6 +2740,8 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 72 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom(xx,yy,zz 			);}
 		if(ins[0] == 73 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom2(xx,yy,zz 			);}
 		if(ins[0] == 74 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom3(xx,yy,zz 			);}
+		if(ins[0] == 75 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom4(xx,yy,zz 			);}
+		if(ins[0] == 76 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom5(xx,yy,zz 			);}
 		
 		
 		

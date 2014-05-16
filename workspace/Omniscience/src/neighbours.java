@@ -18,3 +18,17 @@ public class neighbours {
 	}
 	
 }
+/*
+
+
+n = new neighbours(int nType, int nSize, int nFract);
+
+n.setNBH(-1, 0, 0, 0);
+n.setNBH(0, -1, 0, 1);
+n.setNBH(1, 0, 0, 2);
+n.setNBH(0, 1, 0, 3);
+
+
+
+
+*/

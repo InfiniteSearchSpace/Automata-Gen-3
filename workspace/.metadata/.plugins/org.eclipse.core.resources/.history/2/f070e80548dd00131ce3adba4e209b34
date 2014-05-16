@@ -216,7 +216,7 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Erase All") {mML.eraseAll();}
         if(source.getText() == "Reset To Default") {
         	mML.eraseAll();
-        	mML.resetRuleDef();
+        	mML.resetRule();
         	mML.setFunctionType(0);
         	mML.mwMax = mML.fcnt;
         	mML.cycleNum = 0;
@@ -242,11 +242,6 @@ public class jMenuMain implements ActionListener {
         	mML.slideVal = new int[3];
         	mML.growDieThreshold = 0;
         	mML.ruleChanged(0);
-        	
-        	
-        	
-        	mML.reseedAll(6, 1);
-        	
         }
         
         if(source.getText() == "Select Next Window") {mML.cycleUni();}

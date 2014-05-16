@@ -242,9 +242,6 @@ public class jMenuMain implements ActionListener {
         	mML.slideVal = new int[3];
         	mML.growDieThreshold = 0;
         	mML.ruleChanged(0);
-        	
-        	
-        	
         	mML.reseedAll(6, 1);
         	
         }

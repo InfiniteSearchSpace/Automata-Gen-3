@@ -25,7 +25,7 @@ public class ml extends JPanel implements MouseListener {
 	dataSources d = new dataSources();
 	slider[] sl;
 	
-	int totalFunctions = 79+1;
+	int totalFunctions = 83+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -303,7 +303,23 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void ruleChanged(int rulenum){
-    	if(rulenum == 79) {
+    	if(rulenum == 83) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(10);
+    	} else if(rulenum == 82) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(7);
+    	} else if(rulenum == 81) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(8);
+    	} else if(rulenum == 80) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(9);
+    	}else if(rulenum == 79) {
     		sl[0].existential(true);
     		sl[1].existential(true);
     		sl[1].setMax(33);

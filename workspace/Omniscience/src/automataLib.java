@@ -921,6 +921,81 @@ public class automataLib {
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
+	public void ThreadsCustom(int xx, int yy, int zz){
+		n = new neighbours(8);
+		
+		n.setNBH(1, -1, 0, 0);
+		n.setNBH(-1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(2, -1, 0, 5);
+		n.setNBH(-2, -1, 0, 6);
+		n.setNBH(1, -2, 0, 3);
+		n.setNBH(-1, -2, 0, 4);
+		n.setNBH(0, 0, 0, 7);
+		
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ThreadsCustom2(int xx, int yy, int zz){
+		n = new neighbours(7);
+		
+		n.setNBH(1, -1, 0, 0);
+		n.setNBH(-1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(2, -1, 0, 5);
+		n.setNBH(-2, -1, 0, 6);
+		n.setNBH(1, -2, 0, 3);
+		n.setNBH(-1, -2, 0, 4);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ThreadsCustom3(int xx, int yy, int zz){
+		n = new neighbours(5);
+		
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(0, -2, 0, 2);
+		n.setNBH(-1, -2, 0, 3);
+		n.setNBH(1, -2, 0, 4);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	public void ThreadsCustom4(int xx, int yy, int zz){
+		n = new neighbours(9);
+
+		n.setNBH(-1, -3, 0, 0);
+		n.setNBH(1, -3, 0, 1);
+		n.setNBH(-2, -3, 0, 2);
+		n.setNBH(2, -3, 0, 3);
+		n.setNBH(0, -3, 0, 4);
+		n.setNBH(-1, -2, 0, 5);
+		n.setNBH(0, -2, 0, 6);
+		n.setNBH(1, -2, 0, 7);
+		n.setNBH(0, -1, 0, 8);
+		
+		int isOne = nbrCountNotVal(xx,yy,zz,0);
+		
+		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
+	}
+	
+	
 	public void extendedRangeCustom5(int xx, int yy, int zz){
 
 		n = new neighbours(4);
@@ -2917,6 +2992,10 @@ public void hex1(int xx, int yy, int zz){
 		if(ins[0] == 75 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom4(xx,yy,zz 			);}
 		if(ins[0] == 76 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom5(xx,yy,zz 			);}
 		if(ins[0] == 78 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom7(xx,yy,zz 			);}
+		if(ins[0] == 80 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom(xx,yy,zz 					);}
+		if(ins[0] == 81 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom2(xx,yy,zz 				);}
+		if(ins[0] == 82 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom3(xx,yy,zz 				);}
+		if(ins[0] == 83 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom4(xx,yy,zz 				);}
 		
 		
 		

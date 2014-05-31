@@ -891,7 +891,7 @@ public class ml extends JPanel implements MouseListener {
 				
 				
 				for (int j = 0; j < intar.length; j++){
-					resultAr[i][j][0] = intar[j];
+					resultAr[j][i][0] = intar[j];
 		    	    ss+=intar[j] + ",";
 			    }
 				ss+="\n";

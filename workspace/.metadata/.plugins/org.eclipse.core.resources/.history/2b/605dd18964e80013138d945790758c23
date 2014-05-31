@@ -1,0 +1,44 @@
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JPanel;
+
+public class ClickPanel extends JPanel implements MouseListener{
+
+	int val;
+	int valMax;
+	
+	public ClickPanel() {
+		setOpaque(true);
+    	setBackground(Color.white);
+    	setVisible(true);
+    	setSize(24, 24);
+    	addMouseListener(this);
+    	
+    	valMax = 2;
+    	val = 0;
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		//System.out.println("Click!");
+
+		if(val%valMax == 0){ setBackground(Color.black); val = (val+1)%valMax; }
+		if(val%valMax == 1){ setBackground(Color.white); val = (val+1)%valMax; }
+	}
+
+	
+	
+	
+	
+	
+	
+	@Override
+	public void mouseReleased(MouseEvent arg0) {}
+	@Override
+	public void mouseClicked(MouseEvent arg0) {}
+	@Override
+	public void mouseEntered(MouseEvent arg0) {}
+	@Override
+	public void mouseExited(MouseEvent arg0) {}
+}

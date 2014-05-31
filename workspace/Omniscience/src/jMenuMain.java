@@ -1,16 +1,21 @@
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
  
 public class jMenuMain implements ActionListener {
 
     ml mML;
     Main m;
+    JFrame jj;
+    ClickPanel[][] pp;
     
     //constructor, captures UI controller: ml
     public jMenuMain(ml myml) {
@@ -38,7 +43,15 @@ public class jMenuMain implements ActionListener {
         //create new menu
         menu = new JMenu("Universe");
         menuBar.add(menu);
- 
+        
+        menuItem = new JMenuItem("TEST");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("TEST GET");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
         //Populate menu
         menuItem = new JMenuItem("Play/Pause");
         menuItem.addActionListener(this);
@@ -285,6 +298,53 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.rule; 						mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
         if(source.getText() == "Tool Size") 		{mML.mwPos = mML.gui_blockSize; 			mML.mwMax = 100; 					mML.cycleNum = 3;}
         if(source.getText() == "Tool Value") 		{mML.mwPos = mML.gui_blockVal; 				mML.mwMax = 100; 					mML.cycleNum = 4;}
+        
+        
+        
+        if(source.getText() == "TEST") 		{
+
+        	jj = new JFrame();
+        	jj.setLayout(null);
+        	jj.setSize(192+64, 192+64);
+        	jj.setVisible(true);
+        	jj.setResizable(false);
+        	
+        	int panelSize = 18;
+        	
+        	int panelsX = (192/(panelSize+2));
+        	int panelsY = (192/(panelSize+2));
+        	
+        	pp = new ClickPanel[panelsX][panelsY];
+        	
+        	for(int i = 0; i < panelsX; i++) {
+        		for(int j = 0; j < panelsY; j++) {
+	        		pp[i][j] = new ClickPanel(2, i, j, panelSize);
+	        		jj.add(pp[i][j]);
+        		}
+        	}
+
+        	
+        	
+        }
+        
+        if(source.getText() == "TEST GET") 		{
+
+        	int[][] output = new int[pp.length][pp[0].length];
+        	String ss = "";
+        	for(int j = 0; j < pp.length; j++) {
+        		for(int i = 0; i < pp[j].length; i++) {
+            		output[i][j] = pp[i][j].val;
+            		ss+=output[i][j] + ",";
+            	}
+        		ss+="\n";
+        	}
+        	System.out.println(ss);
+        	
+	    	    
+		} 
+		
+        	
+        
 
         mML.refresh();
     }

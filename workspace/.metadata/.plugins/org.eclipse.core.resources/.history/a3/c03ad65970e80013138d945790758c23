@@ -40,10 +40,6 @@ public class dataSources {
 		sources = ar;
 	}
 	
-	public int[][][] getArray(){
-		return sources;
-	}
-	
 	public void reset(){
 		xPos = 0;
 		yPos = 0;

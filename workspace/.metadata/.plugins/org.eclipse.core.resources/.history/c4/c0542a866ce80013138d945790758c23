@@ -1,0 +1,44 @@
+import javax.swing.JFrame;
+
+
+public class ToggleFrame extends JFrame {
+	
+	ClickPanel[][] pp;
+	
+	public ToggleFrame() {
+		setLayout(null);
+		setSize(192+64, 192+64);
+		setVisible(true);
+		setResizable(false);
+		
+		int panelSize = 18;
+		int panelsX = (192/(panelSize+2));
+		int panelsY = (192/(panelSize+2));
+		
+		pp = new ClickPanel[panelsX][panelsY];
+		
+		for(int i = 0; i < panelsX; i++) {
+			for(int j = 0; j < panelsY; j++) {
+	    		pp[i][j] = new ClickPanel(2, i, j, panelSize);
+	    		add(pp[i][j]);
+			}
+		}
+		
+	}
+	
+	public int [][] getPanelStates() {
+		int[][] output = new int[pp.length][pp[0].length];
+    	String ss = "";
+    	for(int j = 0; j < pp.length; j++) {
+    		for(int i = 0; i < pp[j].length; i++) {
+        		output[i][j] = pp[i][j].val;
+        		ss+=output[i][j] + ",";
+        	}
+    		ss+="\n";
+    	}
+    	System.out.println(ss);
+    	return output;
+	}
+	
+	
+}

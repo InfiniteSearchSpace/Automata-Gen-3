@@ -323,10 +323,10 @@ public class jMenuMain implements ActionListener {
 		
         if(source.getText() == "TEST SET") 		{
         	if(TF != null) {
-        		int[][][] intAr = mML.d.getArray();
+        		
         		for(int i = 0; i < TF.pp.length; i++){
         			for(int j = 0; j < TF.pp[i].length; j++){
-            			TF.pp[j][i].setVal(intAr[j][i][0]);
+            			TF.pp[j][i].val=1;
             		}
         		}
         		

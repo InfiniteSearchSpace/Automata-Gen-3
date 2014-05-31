@@ -43,8 +43,6 @@ public class jMenuMain implements ActionListener {
         menu = new JMenu("Universe");
         menuBar.add(menu);
         
-        
-        
         menuItem = new JMenuItem("TEST");
         menuItem.addActionListener(this);
         menu.add(menuItem);
@@ -52,13 +50,6 @@ public class jMenuMain implements ActionListener {
         menuItem = new JMenuItem("TEST GET");
         menuItem.addActionListener(this);
         menu.add(menuItem);
-        
-        menuItem = new JMenuItem("TEST SET");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        
-        
         
         //Populate menu
         menuItem = new JMenuItem("Play/Pause");
@@ -321,19 +312,7 @@ public class jMenuMain implements ActionListener {
         	}
 		} 
 		
-        if(source.getText() == "TEST SET") 		{
-        	if(TF != null) {
-        		int[][][] intAr = mML.d.getArray();
-        		for(int i = 0; i < TF.pp.length; i++){
-        			for(int j = 0; j < TF.pp[i].length; j++){
-            			TF.pp[j][i].setVal(intAr[j][i][0]);
-            		}
-        		}
-        		
-        	} else {
-        		System.out.println("NULL POINTER EXCEPTION");
-        	}
-		} 	
+        	
         
 
         mML.refresh();

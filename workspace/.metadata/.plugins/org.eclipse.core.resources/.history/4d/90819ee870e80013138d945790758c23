@@ -234,14 +234,14 @@ public class ml extends JPanel implements MouseListener {
 				}
 
 				if (myFunction ==  1) { 
-					if(blockSize < 0) {blockSize= 12;}
+					if(blockSize < 0) {blockSize= 20;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			placeData(mx, my, 0);
 				}
 				
 				if (myFunction ==  2) { 
-					if(blockSize < 0) {blockSize= 12;}
+					if(blockSize < 0) {blockSize= 20;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			captureData(mx, my, 0);

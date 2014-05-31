@@ -13,7 +13,7 @@ public class ClickPanel extends JPanel implements MouseListener{
     	setBackground(Color.white);
     	setVisible(true);
     	setSize(panelSize, panelSize);
-    	setLocation(3+(i*panelSize) + (i), 3+(j*panelSize) + (j));
+    	setLocation(3+(i*panelSize) + (2*i), 3+(j*panelSize) + (2*j));
     	addMouseListener(this);
     	
     	valMax = valM;
@@ -28,12 +28,7 @@ public class ClickPanel extends JPanel implements MouseListener{
 		val = (val+1)%valMax;
 	}
 
-	public void setVal(int sval) {
-		if(sval%valMax == 1){ setBackground(Color.black); }
-		if(sval%valMax == 0){ setBackground(Color.white); }
-		val = sval;
-	}
-
+	
 	
 	
 	

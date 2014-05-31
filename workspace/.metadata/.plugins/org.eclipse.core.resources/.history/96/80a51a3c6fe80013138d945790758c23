@@ -29,9 +29,9 @@ public class ClickPanel extends JPanel implements MouseListener{
 	}
 
 	public void setVal(int sval) {
-		if(sval%valMax == 1){ setBackground(Color.black); }
-		if(sval%valMax == 0){ setBackground(Color.white); }
-		val = sval;
+		val = (sval)%valMax;
+		if(val%valMax == 1){ setBackground(Color.white); }
+		if(val%valMax == 0){ setBackground(Color.black); }
 	}
 
 	

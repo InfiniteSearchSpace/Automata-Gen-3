@@ -108,7 +108,6 @@ public class Main extends JFrame {
             	
             	m.setVisible(true);
             	m.setResizable(false);
-            	m.setLocation(32, 32);
             	m.setLocation(96, 32);
             	
             	//Assemble the components

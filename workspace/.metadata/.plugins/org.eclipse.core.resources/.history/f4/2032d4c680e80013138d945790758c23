@@ -1,0 +1,97 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JMenuBar;
+ 
+public class jMenuEditor implements ActionListener {
+
+    ToggleFrame TF;
+    
+    //constructor, captures UI controller: ml
+    public jMenuEditor(ToggleFrame TFrm) {
+    	TF=TFrm;
+	}
+
+    //instanciate & deploy menu bar
+	public void setGUI() {
+        jMenuEditor menuMain = new jMenuEditor();
+        TF.setJMenuBar(menuMain.createMenuBar());
+	}
+
+	public JMenuBar createMenuBar() {
+
+		
+		JMenuBar menuBar;
+        JMenu menu;
+        JMenuItem menuItem;
+        //JMenu submenu;
+        
+        
+        //menu bar
+        menuBar = new JMenuBar();
+        
+        //create new menu
+        menu = new JMenu("Universe");
+        menuBar.add(menu);
+        
+        //Populate menu
+        menuItem = new JMenuItem("Play/Pause");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Reset To Default");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
+        
+        menuItem = new JMenuItem("Select Next Window");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menu.addSeparator();
+        
+        menuItem = new JMenuItem("Erase Layer");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Erase All");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menu.addSeparator();
+
+        menuItem = new JMenuItem("Reseed Layer");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Reseed All");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Set Seed");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+
+        return menuBar;
+    }
+ 
+    public void actionPerformed(ActionEvent e) {
+        JMenuItem source = (JMenuItem)(e.getSource());
+
+        if(source.getText() == "Show Editor") 		{
+        	
+        }
+
+       
+    }
+ 
+    
+    
+    
+    
+    
+    
+}

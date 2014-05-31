@@ -19,6 +19,7 @@ public class jMenuMain implements ActionListener {
     //constructor, captures UI controller: ml
     public jMenuMain(ml myml) {
 		mML = myml;
+		TF = new ToggleFrame(mML);
 	}
 
     //instanciate & deploy menu bar
@@ -30,7 +31,9 @@ public class jMenuMain implements ActionListener {
 	}
 
 	public JMenuBar createMenuBar() {
-        JMenuBar menuBar;
+
+		
+		JMenuBar menuBar;
         JMenu menu;
         JMenuItem menuItem;
         //JMenu submenu;
@@ -42,23 +45,6 @@ public class jMenuMain implements ActionListener {
         //create new menu
         menu = new JMenu("Universe");
         menuBar.add(menu);
-        
-        
-        
-        menuItem = new JMenuItem("TEST");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("TEST GET");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        menuItem = new JMenuItem("TEST SET");
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-        
-        
-        
         
         //Populate menu
         menuItem = new JMenuItem("Play/Pause");
@@ -214,7 +200,27 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
+      //create new menu
+        menu = new JMenu("Editor");
+        menuBar.add(menu);
         
+        menuItem = new JMenuItem("Show Editor");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        //menu.addSeparator();
+        
+        /*menuItem = new JMenuItem("PrintLn() Data");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);*/
+        
+       /* menuItem = new JMenuItem("Paste To Editor");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Overwrite Clipboard");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);*/
         
         /*submenu = new JMenu("GoToRule");
         		menuItem = new JMenuItem("Item");
@@ -309,11 +315,11 @@ public class jMenuMain implements ActionListener {
         
         
         
-        if(source.getText() == "TEST") 		{
-        	TF = new ToggleFrame();
+        if(source.getText() == "Show Editor") 		{
+        	TF.togShowTF();
         }
         
-        if(source.getText() == "TEST GET") 		{
+        if(source.getText() == "Print Data") 		{
         	if(TF != null) {
         		int[][] tmpInt = TF.getPanelStates();
         	} else {
@@ -321,7 +327,7 @@ public class jMenuMain implements ActionListener {
         	}
 		} 
 		
-        if(source.getText() == "TEST SET") 		{
+        if(source.getText() == "Paste To Editor") 		{
         	if(TF != null) {
         		int[][][] intAr = mML.d.getArray();
         		for(int i = 0; i < TF.pp.length; i++){
@@ -335,7 +341,22 @@ public class jMenuMain implements ActionListener {
         	}
 		} 	
         
-
+        if(source.getText() == "Overwrite Clipboard") 		{
+        	if(TF != null) {
+        		int[][][] intAr = new int[TF.pp.length][TF.pp[0].length][1];
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			intAr[j][i][0] = TF.pp[j][i].val;
+            		}
+        		}
+        		
+        		mML.d.setArray(intAr);
+        		
+        	} else {
+        		System.out.println("NULL POINTER EXCEPTION");
+        	}
+		} 	
+        
         mML.refresh();
     }
  

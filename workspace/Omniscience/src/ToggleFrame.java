@@ -1,3 +1,4 @@
+
 import javax.swing.JFrame;
 
 
@@ -5,8 +6,9 @@ public class ToggleFrame extends JFrame {
 	
 	ClickPanel[][] pp;
 	
-	public ToggleFrame() {
+	public ToggleFrame(ml ML) {
 		initTF();
+		jMenuEditor jmen = new jMenuEditor(this, ML);
 	}
 	
 	public void initTF(){
@@ -15,9 +17,10 @@ public class ToggleFrame extends JFrame {
 		int frameSize = (panelSize+1)*panels;
 		
 		setLayout(null);
-		setSize(frameSize+8, frameSize+30);
-		setVisible(true);
+		setSize(frameSize+8, frameSize+30+22);
+		setVisible(false);
 		setResizable(false);
+		setLocation(96, 32);
 		
 		int panelsX = (frameSize/(panelSize+1));
 		int panelsY = (frameSize/(panelSize+1));

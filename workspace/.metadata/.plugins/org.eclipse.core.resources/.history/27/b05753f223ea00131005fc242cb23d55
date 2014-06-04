@@ -21,9 +21,12 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 3*2*28+1; //size of each surface
-            	int ySize = 3*2*28+1;
+            	int xSize = 3*2*12+1; //size of each surface
+            	int ySize = 3*2*12+1;
             	int zSize = 16;
+            	
+            	int minMenuXLen = 340;
+            	int minMenuYLen = 230;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes
@@ -96,8 +99,7 @@ public class Main extends JFrame {
             	//Layout for Main window/frame
             	m.setLayout(null);
 
-            	int minMenuXLen = 300;
-            	int minMenuYLen = 210;
+            	
             	
             	int xxsize = (xSize+2+2) * surfaces + 6 + 2 +120 + 56;
             	int yysize = (ySize+2) * surfaces + 42 + 24 + 2+8;
@@ -108,7 +110,6 @@ public class Main extends JFrame {
             	
             	m.setVisible(true);
             	m.setResizable(false);
-            	m.setLocation(32, 32);
             	m.setLocation(96, 32);
             	
             	//Assemble the components

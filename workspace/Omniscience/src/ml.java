@@ -25,7 +25,7 @@ public class ml extends JPanel implements MouseListener {
 	dataSources d = new dataSources();
 	slider[] sl;
 	
-	int totalFunctions = 83+1;
+	int totalFunctions = 84+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through

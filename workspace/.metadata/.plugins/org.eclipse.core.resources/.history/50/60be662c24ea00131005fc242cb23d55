@@ -6,77 +6,26 @@ public class ToggleFrame extends JFrame {
 	
 	ClickPanel[][] pp;
 	
-	int pXCount = 0;
-	int pYCount = 0;
-	int lastsize = 12;
-	
 	public ToggleFrame(ml ML) {
-		initTF();
+		initTF(12);
 		jMenuEditor jmen = new jMenuEditor(this, ML);
 	}
 	
-	public void initTF(){
+	public void initTF(int blockSize){
 		int panelSize = 10;
-		int panels = lastsize;
+		int panels = blockSize;
 		int frameSize = (panelSize+1)*panels;
 		
 		setLayout(null);
-		
-		int frx = frameSize+8+8;
-		int fry = frameSize+30+22+8;
-
-		if(frx < 96) { frx = 96; }
-		if(fry < 96) { fry = 96; }
-		
-		setSize(frx, fry);
-		
+		setSize(frameSize+8+8, frameSize+30+22+8);
 		setVisible(false);
 		setResizable(false);
 		setLocation(96, 32);
 		
 		int panelsX = (frameSize/(panelSize+1));
 		int panelsY = (frameSize/(panelSize+1));
-		pXCount = panelsX;
-		pYCount = panelsY;
 		
-		pp = new ClickPanel[panelsX][panelsY];
 		
-		for(int i = 0; i < panelsX; i++) {
-			for(int j = 0; j < panelsY; j++) {
-	    		pp[i][j] = new ClickPanel(2, i, j, panelSize);
-	    		add(pp[i][j]);
-			}
-		}
-	}
-	
-	public void reinitTF(int blockSize){
-		int panelSize = 10;
-		int panels = blockSize;
-		if(panels == -1) {panels = lastsize;} else {lastsize = panels;}
-		int frameSize = (panelSize+1)*panels;
-		
-		int frx = frameSize+8+8;
-		int fry = frameSize+30+22+8;
-
-		if(frx < 96) { frx = 96; }
-		if(fry < 96) { fry = 96; }
-		
-		setSize(frx, fry);
-		
-		setLocation(96, 32);
-		
-		for(int i = 0; i < pYCount; i++) {
-			for(int j = 0; j < pXCount; j++) {
-	    		remove(pp[i][j]);
-			}
-		}
-		
-		pp = null;
-		
-		int panelsX = (frameSize/(panelSize+1));
-		int panelsY = (frameSize/(panelSize+1));
-		pXCount = panelsX;
-		pYCount = panelsY;
 		pp = new ClickPanel[panelsX][panelsY];
 		
 		for(int i = 0; i < panelsX; i++) {

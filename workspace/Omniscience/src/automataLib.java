@@ -387,6 +387,48 @@ public class automataLib {
 		
 	}
 
+	public void explorer24(int xx, int yy, int zz){
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		if(getval(xx,yy,zz) <= 0) {
+			for(int i = 0; i < n.NBH.length; i++) {
+				if(u.snapshotUniverse[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)] == 1) {
+					u.universe[xx][yy][zz]++;
+					u.universe[getWrap(xx, n.NBH[i][0], u.universe.length)][getWrap(yy, n.NBH[i][1], u.universe[0].length)][getWrap(zz, n.NBH[i][2], u.universe[0][0].length)]--;
+				}
+			}
+		}
+    }
+	
 	public void explorer(int xx, int yy, int zz){
 
 		n = new neighbours(4);
@@ -404,7 +446,7 @@ public class automataLib {
 			}
 		}
     }
-
+	
 	public void quantum(int xx, int yy, int zz, int rand){
 
 		n = new neighbours(4);
@@ -2943,6 +2985,7 @@ public void hex1(int xx, int yy, int zz){
 		//1D / Single Point starter required
 		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
 		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
+		if(ins[0] == 84  && (ins[1] == zz || ins[1] == -1)) {explorer24(xx,yy,zz						);}
 		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
 		if(ins[0] == 9 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 					);}
 		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}

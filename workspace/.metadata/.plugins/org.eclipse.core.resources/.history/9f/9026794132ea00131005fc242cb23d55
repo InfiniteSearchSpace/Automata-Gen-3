@@ -8,7 +8,6 @@ public class ToggleFrame extends JFrame {
 	
 	int pXCount = 0;
 	int pYCount = 0;
-	int lastsize = 12;
 	
 	public ToggleFrame(ml ML) {
 		initTF();
@@ -17,7 +16,7 @@ public class ToggleFrame extends JFrame {
 	
 	public void initTF(){
 		int panelSize = 10;
-		int panels = lastsize;
+		int panels = 12;
 		int frameSize = (panelSize+1)*panels;
 		
 		setLayout(null);
@@ -48,11 +47,9 @@ public class ToggleFrame extends JFrame {
 			}
 		}
 	}
-	
 	public void reinitTF(int blockSize){
 		int panelSize = 10;
 		int panels = blockSize;
-		if(panels == -1) {panels = lastsize;} else {lastsize = panels;}
 		int frameSize = (panelSize+1)*panels;
 		
 		int frx = frameSize+8+8;
@@ -65,8 +62,8 @@ public class ToggleFrame extends JFrame {
 		
 		setLocation(96, 32);
 		
-		for(int i = 0; i < pYCount; i++) {
-			for(int j = 0; j < pXCount; j++) {
+		for(int i = 0; i < pXCount; i++) {
+			for(int j = 0; j < pYCount; j++) {
 	    		remove(pp[i][j]);
 			}
 		}
@@ -75,8 +72,7 @@ public class ToggleFrame extends JFrame {
 		
 		int panelsX = (frameSize/(panelSize+1));
 		int panelsY = (frameSize/(panelSize+1));
-		pXCount = panelsX;
-		pYCount = panelsY;
+		
 		pp = new ClickPanel[panelsX][panelsY];
 		
 		for(int i = 0; i < panelsX; i++) {

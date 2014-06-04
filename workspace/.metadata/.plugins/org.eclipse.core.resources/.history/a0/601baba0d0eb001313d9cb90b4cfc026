@@ -25,7 +25,7 @@ public class ml extends JPanel implements MouseListener {
 	dataSources d = new dataSources();
 	slider[] sl;
 	
-	int totalFunctions = 81+1;
+	int totalFunctions = 83+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -234,14 +234,14 @@ public class ml extends JPanel implements MouseListener {
 				}
 
 				if (myFunction ==  1) { 
-					if(blockSize < 0) {blockSize= 20;}
+					if(blockSize < 0) {blockSize= 12;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			placeData(mx, my, 0);
 				}
 				
 				if (myFunction ==  2) { 
-					if(blockSize < 0) {blockSize= 20;}
+					if(blockSize < 0) {blockSize= 12;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			captureData(mx, my, 0);
@@ -303,7 +303,15 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void ruleChanged(int rulenum){
-    	if(rulenum == 81) {
+    	if(rulenum == 83) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(10);
+    	} else if(rulenum == 82) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(7);
+    	} else if(rulenum == 81) {
     		sl[0].existential(true);
     		sl[1].existential(true);
     		sl[1].setMax(8);
@@ -883,7 +891,7 @@ public class ml extends JPanel implements MouseListener {
 				
 				
 				for (int j = 0; j < intar.length; j++){
-					resultAr[i][j][0] = intar[j];
+					resultAr[j][i][0] = intar[j];
 		    	    ss+=intar[j] + ",";
 			    }
 				ss+="\n";

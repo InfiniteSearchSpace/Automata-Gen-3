@@ -324,7 +324,11 @@ public class automataLib {
 	}
 	
 	public void meekrochypFr(int xx, int yy, int zz){					
-		n.setNbrhood(5);
+		n = new neighbours(4);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(-1, 1, 0, 2);
+		n.setNBH(1, 1, 0, 3);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -450,7 +454,13 @@ public class automataLib {
 	public void Brownian(int xx, int yy, int zz, int rand){
 
 		if( r.nextInt(rand) == 0) {
-			n.setNbrhood(6);
+			n = new neighbours(6);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(0, 0, -1, 4);
+			n.setNBH(0, 0, 1, 5);
 			
 			int proc = r.nextInt(n.NBH.length);
 			
@@ -491,7 +501,10 @@ public class automataLib {
 
 	public void rain(int xx, int yy, int zz){
 		
-		n.setNbrhood(7);
+		n = new neighbours(3);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
 		
 		int isOne = 0;
 
@@ -514,7 +527,12 @@ public class automataLib {
 	
 	public void rain2(int xx, int yy, int zz){
 		
-		n.setNbrhood(8);
+		n = new neighbours(5);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(-1, 0, 0, 3);
+		n.setNBH(1, 0, 0, 4);
 		
 		int isOne = 0;
 
@@ -536,7 +554,9 @@ public class automataLib {
     }
 	
 	public void sierpenski(int xx, int yy, int zz){
-		n.setNbrhood(9);
+		n = new neighbours(2);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
 		
 		int isOne = 0;
 

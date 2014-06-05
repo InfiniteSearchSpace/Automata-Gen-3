@@ -21,8 +21,8 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 3*2*16+1; //size of each surface
-            	int ySize = 3*2*16+1;
+            	int xSize = 3*2*12+1; //size of each surface
+            	int ySize = 3*2*12+1;
             	int zSize = 16;
             	
             	int minMenuXLen = 340;

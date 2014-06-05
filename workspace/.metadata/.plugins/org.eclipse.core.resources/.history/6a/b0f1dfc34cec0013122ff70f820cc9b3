@@ -132,74 +132,68 @@ public class neighbours {
 			setNBH( -1, -1, 0, 7);
 		}
 		
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
+		}/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
+		}/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
+		}/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
+		}
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
+		}
 		
-		if(hood == 5) {
-			newNbrhood(4);
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
 			setNBH(-1, -1, 0, 0);
 			setNBH(1, -1, 0, 1);
-			setNBH(-1, 1, 0, 2);
-			setNBH(1, 1, 0, 3);
+			setNBH(0, 1, 0, 2);
 		}
 		
-		
-		if(hood == 6) {
-			newNbrhood(6);
-			setNBH(-1, 0, 0, 0);
-			setNBH(0, -1, 0, 1);
-			setNBH(1, 0, 0, 2);
-			setNBH(0, 1, 0, 3);
-			setNBH(0, 0, -1, 4);
-			setNBH(0, 0, 1, 5);
-		}
-		if(hood == 7) {
+		/*
+		if(hood == 1) {
 			newNbrhood(3);
 			setNBH(-1, -1, 0, 0);
 			setNBH(1, -1, 0, 1);
-			setNBH(0, -1, 0, 2);
+			setNBH(0, 1, 0, 2);
 		}
 		
-		
-		if(hood == 8) {
-			newNbrhood(5);
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
 			setNBH(-1, -1, 0, 0);
 			setNBH(1, -1, 0, 1);
-			setNBH(0, -1, 0, 2);
-			setNBH(-1, 0, 0, 3);
-			setNBH(1, 0, 0, 4);
+			setNBH(0, 1, 0, 2);
 		}
 		
-		
-		if(hood == 9) {
-			newNbrhood(2);
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
 			setNBH(-1, -1, 0, 0);
 			setNBH(1, -1, 0, 1);
-		}
-		/*
-		if(hood == 1) {
-			newNbrhood(3);
-			
-		}
-		/*
-		if(hood == 1) {
-			newNbrhood(3);
-			
-		}
-		/*
-		if(hood == 1) {
-			newNbrhood(3);
-			
-		}
-		/*
-		if(hood == 1) {
-			newNbrhood(3);
-			
-		}
-		/*
-		if(hood == 1) {
-			newNbrhood(3);
-			
+			setNBH(0, 1, 0, 2);
 		}
 		
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
+			setNBH(-1, -1, 0, 0);
+			setNBH(1, -1, 0, 1);
+			setNBH(0, 1, 0, 2);
+		}
 		/**/
 		
 	}

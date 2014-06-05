@@ -168,11 +168,10 @@ public class neighbours {
 			setNBH(1, 0, 0, 4);
 		}
 		
-		
-		if(hood == 9) {
-			newNbrhood(2);
-			setNBH(-1, -1, 0, 0);
-			setNBH(1, -1, 0, 1);
+		/*
+		if(hood == 1) {
+			newNbrhood(3);
+			
 		}
 		/*
 		if(hood == 1) {

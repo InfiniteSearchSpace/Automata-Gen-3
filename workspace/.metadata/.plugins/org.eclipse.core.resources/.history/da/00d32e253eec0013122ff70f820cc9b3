@@ -324,7 +324,7 @@ public class automataLib {
 	}
 	
 	public void meekrochypFr(int xx, int yy, int zz){					
-		n.setNbrhood(5);
+		n.setNbrhood(0);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -450,7 +450,13 @@ public class automataLib {
 	public void Brownian(int xx, int yy, int zz, int rand){
 
 		if( r.nextInt(rand) == 0) {
-			n.setNbrhood(6);
+			n = new neighbours(6);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(0, 0, -1, 4);
+			n.setNBH(0, 0, 1, 5);
 			
 			int proc = r.nextInt(n.NBH.length);
 			
@@ -465,12 +471,11 @@ public class automataLib {
 
 	public void quantumWeight(int xx, int yy, int zz, int rand){
 
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		if(getval(xx,yy,zz) == 0 && r.nextInt(rand) == 0) {
 			for(int i = 0; i < n.NBH.length; i++) {
@@ -491,7 +496,10 @@ public class automataLib {
 
 	public void rain(int xx, int yy, int zz){
 		
-		n.setNbrhood(7);
+		n = new neighbours(3);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
 		
 		int isOne = 0;
 
@@ -514,7 +522,12 @@ public class automataLib {
 	
 	public void rain2(int xx, int yy, int zz){
 		
-		n.setNbrhood(8);
+		n = new neighbours(5);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(-1, 0, 0, 3);
+		n.setNBH(1, 0, 0, 4);
 		
 		int isOne = 0;
 
@@ -536,7 +549,9 @@ public class automataLib {
     }
 	
 	public void sierpenski(int xx, int yy, int zz){
-		n.setNbrhood(9);
+		n = new neighbours(2);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
 		
 		int isOne = 0;
 
@@ -575,7 +590,7 @@ public class automataLib {
 	
 	public void conway(int xx, int yy, int zz){
 		
-		/*n = new neighbours(8);
+		n = new neighbours(8);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH( 0, -1, 0, 1);	
 		n.setNBH( 1, -1, 0, 2);
@@ -583,8 +598,7 @@ public class automataLib {
 		n.setNBH( 1, 0, 0, 4);
 		n.setNBH(-1, 1, 0, 5);	
 		n.setNBH(0, 1, 0, 6);
-		n.setNBH(1, 1, 0, 7);*/
-		n.setNbrhood(4);
+		n.setNBH(1, 1, 0, 7);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -686,7 +700,7 @@ public class automataLib {
 	
 	public void extendedRangeCustom2(int xx, int yy, int zz){
 
-		/*n = new neighbours(8);
+		n = new neighbours(8);
 		
 		n.setNBH( 0, -1, 0, 0);
 		n.setNBH( -1, 0, 0, 1);
@@ -695,8 +709,7 @@ public class automataLib {
 		n.setNBH( -1, -1, 0, 4);
 		n.setNBH( 1, 1, 0, 5);
 		n.setNBH( -1, 1, 0, 6);
-		n.setNBH( 1, -1, 0, 7);*/
-		n.setNbrhood(4);
+		n.setNBH( 1, -1, 0, 7);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -971,12 +984,11 @@ public class automataLib {
 	
 	public void extendedRangeCustom5(int xx, int yy, int zz){
 
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		int isOne = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1649,12 +1661,10 @@ public class automataLib {
 
 		n = new neighbours(4);
 		
-		/*n.setNBH(0, -1, 0, 0);
+		n.setNBH(0, -1, 0, 0);
 		n.setNBH(0, 1, 0, 1);
 		n.setNBH(-1, 0, 0, 2);
-		n.setNBH(1, 0, 0, 3);*/
-		
-		n.setNbrhood(0);
+		n.setNBH(1, 0, 0, 3);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -1831,7 +1841,7 @@ public class automataLib {
 	
 	public void avgVonNew(int xx, int yy, int zz){
 		
-		/*n = new neighbours(8);
+		n = new neighbours(8);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
@@ -1839,8 +1849,7 @@ public class automataLib {
 		n.setNBH(-1, 1, 0, 4);
 		n.setNBH(1, -1, 0, 5);
 		n.setNBH(-1, -1, 0, 6);
-		n.setNBH(1, 1, 0, 7);*/
-		n.setNbrhood(4);
+		n.setNBH(1, 1, 0, 7);
 		
 		u.universe[xx][yy][zz]=nbrAvg(xx,yy,zz);
 	
@@ -1848,12 +1857,11 @@ public class automataLib {
 	
 	public void fractalCount(int xx, int yy, int zz){
 		
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1869,13 +1877,12 @@ public class automataLib {
 
 	public void fractalGun(int xx, int yy, int zz){
 		
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
 		n.setNBH(0, 1, 0, 3);
-		*/
-		n.setNbrhood(0);
+		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
 			sum += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
@@ -1890,12 +1897,11 @@ public class automataLib {
 	
 	public void fractalPhase(int xx, int yy, int zz){
 		
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1910,13 +1916,12 @@ public class automataLib {
 	}
 	
 	public void fractalChyp(int xx, int yy, int zz){
-		/*
+		
 		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1932,12 +1937,11 @@ public class automataLib {
 	
 	public void fractalShip(int xx, int yy, int zz){
 		
-		/*n = new neighbours(4);
+		n = new neighbours(4);
 		n.setNBH(-1, 0, 0, 0);
 		n.setNBH(0, -1, 0, 1);
 		n.setNBH(1, 0, 0, 2);
-		n.setNBH(0, 1, 0, 3);*/
-		n.setNbrhood(0);
+		n.setNBH(0, 1, 0, 3);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -2077,7 +2081,7 @@ public void fractal1D4(int xx, int yy, int zz){
 	
 public void fractalTime(int xx, int yy, int zz){
 		
-		/*n = new neighbours(8);
+		n = new neighbours(8);
 		n.setNBH(-1, -1, 0, 0);
 		n.setNBH( 0, -1, 0, 1);	
 		n.setNBH( 1, -1, 0, 2);
@@ -2085,8 +2089,7 @@ public void fractalTime(int xx, int yy, int zz){
 		n.setNBH( 1, 0, 0, 4);
 		n.setNBH(-1, 1, 0, 5);	
 		n.setNBH(0, 1, 0, 6);
-		n.setNBH(1, 1, 0, 7);*/
-		n.setNbrhood(4);
+		n.setNBH(1, 1, 0, 7);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -2104,7 +2107,7 @@ public void fractalTime(int xx, int yy, int zz){
 
 public void fractalMetacell(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2112,8 +2115,7 @@ public void fractalMetacell(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2131,7 +2133,7 @@ public void fractalMetacell(int xx, int yy, int zz){
 
 public void fractalMetacell2(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2139,8 +2141,7 @@ public void fractalMetacell2(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2158,7 +2159,7 @@ public void fractalMetacell2(int xx, int yy, int zz){
 
 public void fractalMetacell3(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2166,8 +2167,7 @@ public void fractalMetacell3(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2185,7 +2185,7 @@ public void fractalMetacell3(int xx, int yy, int zz){
 
 public void fractalMetacell4(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2193,8 +2193,7 @@ public void fractalMetacell4(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2212,7 +2211,7 @@ public void fractalMetacell4(int xx, int yy, int zz){
 
 public void fractalMetacell5(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2220,8 +2219,7 @@ public void fractalMetacell5(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2324,7 +2322,7 @@ public void fractalMetacell5_2(int xx, int yy, int zz){
 
 public void fractalMetacell6(int xx, int yy, int zz){
 	
-	/*n = new neighbours(8);
+	n = new neighbours(8);
 	n.setNBH(-1, -1, 0, 0);
 	n.setNBH( 0, -1, 0, 1);	
 	n.setNBH( 1, -1, 0, 2);
@@ -2332,8 +2330,7 @@ public void fractalMetacell6(int xx, int yy, int zz){
 	n.setNBH( 1, 0, 0, 4);
 	n.setNBH(-1, 1, 0, 5);	
 	n.setNBH(0, 1, 0, 6);
-	n.setNBH(1, 1, 0, 7);*/
-	n.setNbrhood(4);
+	n.setNBH(1, 1, 0, 7);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -2392,16 +2389,15 @@ public void hex1(int xx, int yy, int zz){
 
 	public void avgRand(int xx, int yy, int zz, int rand){
 		
-			/*n = new neighbours(8);
+			n = new neighbours(8);
 			n.setNBH(-1, 0, 0, 0);
 			n.setNBH(0, -1, 0, 1);
 			n.setNBH(1, 0, 0, 2);
 			n.setNBH(0, 1, 0, 3);
 			n.setNBH(-1, 1, 0, 4);
 			n.setNBH(1, -1, 0, 5);
-			n.setNBH(-1, -1, 0, 6);*
-			n.setNBH(1, 1, 0, 7);*/
-		n.setNbrhood(4);
+			n.setNBH(-1, -1, 0, 6);
+			n.setNBH(1, 1, 0, 7);
 			
 			if(r.nextInt(rand) == 0) {u.universe[xx][yy][zz]=nbrAvg(xx,yy,zz);}
 		
@@ -2496,19 +2492,19 @@ public void hex1(int xx, int yy, int zz){
 			if(sum <= 47 && sum > 0)  { 
 				
 				if(sum % 2 == 0){u.universe[xx][yy][zz] = 1;}
-				if(sum % 3 == 0){u.universe[xx][yy][zz] = -2;}
+				if(sum % 3 == 0){u.universe[xx][yy][zz] = 2;}
 				if(sum % 5 == 0){u.universe[xx][yy][zz] = 3;}
 				if(sum % 7 == 0){u.universe[xx][yy][zz] = 4;}
 				if(sum % 11 == 0){u.universe[xx][yy][zz] = 5;}
 				if(sum % 13 == 0){u.universe[xx][yy][zz] = 6;}
 				if(sum % 17 == 0){u.universe[xx][yy][zz] = 7;}
 				if(sum % 19 == 0){u.universe[xx][yy][zz] = 8;}
-				if(sum % 23 == 0){u.universe[xx][yy][zz] = -9;}
+				if(sum % 23 == 0){u.universe[xx][yy][zz] = 9;}
 				if(sum % 29 == 0){u.universe[xx][yy][zz] = 10;}
 				if(sum % 31 == 0){u.universe[xx][yy][zz] = 11;}
 				if(sum % 37 == 0){u.universe[xx][yy][zz] = 12;}
 				if(sum % 41 == 0){u.universe[xx][yy][zz] = 13;}
-				if(sum % 43 == 0){u.universe[xx][yy][zz] = -14;}
+				if(sum % 43 == 0){u.universe[xx][yy][zz] = 14;}
 				if(sum % 47 == 0){u.universe[xx][yy][zz] = 15;}
 			}
 		
@@ -2533,12 +2529,11 @@ public void hex1(int xx, int yy, int zz){
 	 
 		
 		public void LangtonsAnt(int xx, int yy, int zz){
-			/*n = new neighbours(4);
+			n = new neighbours(4);
 			n.setNBH(0, -1, 0, 0);
 			n.setNBH(1, 0, 0, 1);
 			n.setNBH(0, 1, 0, 2);
-			n.setNBH(-1, 0, 0, 3);*/
-			n.setNbrhood(0);
+			n.setNBH(-1, 0, 0, 3);
 			
 			if(u.snapshotUniverse[xx][yy][zz] < 0) {
 				
@@ -2574,7 +2569,7 @@ public void hex1(int xx, int yy, int zz){
 				//add direction info & make negative
 				newSelf += newDir;
 				newSelf = -newSelf;
-				
+					
 				//set my new direction's neighbour to my encoded data 
 				u.universe[getWrap(xx, n.NBH[newDir][0], u.universe.length)][getWrap(yy, n.NBH[newDir][1], u.universe[0].length)][getWrap(zz, n.NBH[newDir][2], u.universe[0][0].length)] = newSelf-1;
 			
@@ -2582,8 +2577,8 @@ public void hex1(int xx, int yy, int zz){
 		}
 		
 		public void TuringCliff(int xx, int yy, int zz){
-			//n = new neighbours(32); extra space causes an unnessessary countdown! Like a pause button, or Wait(); for the ant!
-			/*n = new neighbours(8);
+			n = new neighbours(32);
+			
 			n.setNBH( 0, -1, 0, 0);
 			n.setNBH( 1, -1, 0, 1);
 			n.setNBH( 1, 0, 0, 2);
@@ -2591,8 +2586,7 @@ public void hex1(int xx, int yy, int zz){
 			n.setNBH( 0, 1, 0, 4);
 			n.setNBH( -1, 1, 0, 5);
 			n.setNBH( -1, 0, 0, 6);
-			n.setNBH( -1, -1, 0, 7);*/
-			n.setNbrhood(4);
+			n.setNBH( -1, -1, 0, 7);
 			
 			
 			
@@ -2732,13 +2726,12 @@ public void hex1(int xx, int yy, int zz){
 		}
 		
 		public void CyclicDaemon(int xx, int yy, int zz){
-			/*n = new neighbours(4);
+			n = new neighbours(4);
 				
 			n.setNBH( 0, -1, 0, 0);
 			n.setNBH( -1, 0, 0, 1);
 			n.setNBH( 1, 0, 0, 2);
-			n.setNBH( 0, 1, 0, 3);*/
-			n.setNbrhood(0);
+			n.setNBH( 0, 1, 0, 3);
 
 				
 			int found = 0;

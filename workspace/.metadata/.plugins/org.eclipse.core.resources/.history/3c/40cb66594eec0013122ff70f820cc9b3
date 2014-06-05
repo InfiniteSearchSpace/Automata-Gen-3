@@ -536,7 +536,9 @@ public class automataLib {
     }
 	
 	public void sierpenski(int xx, int yy, int zz){
-		n.setNbrhood(9);
+		n = new neighbours(2);
+		n.setNBH(-1, -1, 0, 0);
+		n.setNBH(1, -1, 0, 1);
 		
 		int isOne = 0;
 

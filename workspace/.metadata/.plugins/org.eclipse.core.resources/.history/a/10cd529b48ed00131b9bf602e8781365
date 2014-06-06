@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /*public class neighbours {
 	int[][] NBH;
 	//constructor
@@ -39,12 +37,12 @@ import java.util.Random;
 
 public class neighbours {
 	int[][] NBH;
-	Random r = new Random();
+	
 	//constructor
 	public neighbours(int countNbr) {
 	//System.out.println("neighbours");
 		NBH = new int[countNbr][3]; //initiate array with required number of neighbour slots
-		
+	
 	}
 	//called to define a neighbour's position (x,y,z,neighbour id)
 	public void setNBH(int xx, int yy, int zz, int nbr) {
@@ -556,9 +554,8 @@ public class neighbours {
 		
 		
 		if(hood == 31) {
-			int n = r.nextInt(8)+1;
-			newNbrhood(n);
-			
+			newNbrhood(xxx);
+			n = new neighbours(r.nextInt(8)+1);
 			for (int ii = 0; ii < NBH.length; ii++) {
 				setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
 			}

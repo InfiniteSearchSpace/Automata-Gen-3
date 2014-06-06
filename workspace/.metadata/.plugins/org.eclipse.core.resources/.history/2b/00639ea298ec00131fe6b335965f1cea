@@ -610,7 +610,35 @@ public class automataLib {
 	
 	public void extendedRangeCustom(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
@@ -633,7 +661,64 @@ public class automataLib {
 	
 	public void extendedRangeCustom4(int xx, int yy, int zz){
 
-		n.setNbrhood(29);
+		n = new neighbours(48);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		n.setNBH( -3, -3, 0, 24);
+		n.setNBH( -2, -3, 0, 25);
+		n.setNBH( -1, -3, 0, 26);
+		n.setNBH( 0, -3, 0, 27);
+		n.setNBH( 1, -3, 0, 28);
+		n.setNBH( 2, -3, 0, 29);
+		n.setNBH( 3, -3, 0, 30);
+		
+		n.setNBH( -3, 3, 0, 31);
+		n.setNBH( -2, 3, 0, 32);
+		n.setNBH( -1, 3, 0, 33);
+		n.setNBH( 0, 3, 0, 34);
+		n.setNBH( 1, 3, 0, 35);
+		n.setNBH( 2, 3, 0, 36);
+		n.setNBH( 3, 3, 0, 37);
+		
+		n.setNBH( -3, -2, 0, 38);
+		n.setNBH( -3, -1, 0, 39);
+		n.setNBH( -3, 0, 0, 40);
+		n.setNBH( -3, 1, 0, 41);
+		n.setNBH( -3, 2, 0, 42);
+		
+		n.setNBH( 3, -2, 0, 43);
+		n.setNBH( 3, -1, 0, 44);
+		n.setNBH( 3, 0, 0, 45);
+		n.setNBH( 3, 1, 0, 46);
+		n.setNBH( 3, 2, 0, 47);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -645,7 +730,97 @@ public class automataLib {
 
 	public void extendedRangeCustom7(int xx, int yy, int zz){
 
-		n.setNbrhood(27);
+		n = new neighbours(80);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
+		n.setNBH( -3, -3, 0, 24);
+		n.setNBH( -2, -3, 0, 25);
+		n.setNBH( -1, -3, 0, 26);
+		n.setNBH( 0, -3, 0, 27);
+		n.setNBH( 1, -3, 0, 28);
+		n.setNBH( 2, -3, 0, 29);
+		n.setNBH( 3, -3, 0, 30);
+		
+		n.setNBH( -3, 3, 0, 31);
+		n.setNBH( -2, 3, 0, 32);
+		n.setNBH( -1, 3, 0, 33);
+		n.setNBH( 0, 3, 0, 34);
+		n.setNBH( 1, 3, 0, 35);
+		n.setNBH( 2, 3, 0, 36);
+		n.setNBH( 3, 3, 0, 37);
+		
+		n.setNBH( -3, -2, 0, 38);
+		n.setNBH( -3, -1, 0, 39);
+		n.setNBH( -3, 0, 0, 40);
+		n.setNBH( -3, 1, 0, 41);
+		n.setNBH( -3, 2, 0, 42);
+		
+		n.setNBH( 3, -2, 0, 43);
+		n.setNBH( 3, -1, 0, 44);
+		n.setNBH( 3, 0, 0, 45);
+		n.setNBH( 3, 1, 0, 46);
+		n.setNBH( 3, 2, 0, 47);
+		
+		n.setNBH(0,-4,0,48);
+		n.setNBH(1,-4,0,49);
+		n.setNBH(2,-4,0,50);
+		n.setNBH(3,-4,0,51);
+		n.setNBH(4,-4,0,52);
+		n.setNBH(4,-3,0,53);
+		n.setNBH(4,-2,0,54);
+		n.setNBH(4,-1,0,55);
+		n.setNBH(4,0,0,56);
+		n.setNBH(4,1,0,57);
+		n.setNBH(4,2,0,58);
+		n.setNBH(4,3,0,59);
+		n.setNBH(4,4,0,60);
+		n.setNBH(3,4,0,61);
+		n.setNBH(2,4,0,62);
+		n.setNBH(1,4,0,63);
+		n.setNBH(0,4,0,64);
+		n.setNBH(-1,4,0,65);
+		n.setNBH(-2,4,0,66);
+		n.setNBH(-3,4,0,67);
+		n.setNBH(-4,4,0,68);
+		n.setNBH(-4,3,0,69);
+		n.setNBH(-4,2,0,70);
+		n.setNBH(-4,1,0,71);
+		n.setNBH(-4,0,0,72);
+		n.setNBH(-4,-1,0,73);
+		n.setNBH(-4,-2,0,74);
+		n.setNBH(-4,-3,0,75);
+		n.setNBH(-4,-4,0,76);
+		n.setNBH(-3,-4,0,77);
+		n.setNBH(-2,-4,0,78);
+		n.setNBH(-1,-4,0,79);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -658,7 +833,13 @@ public class automataLib {
 	
 	public void extendedRangeCustom3(int xx, int yy, int zz){
 
-		n.setNbrhood(22);
+		n = new neighbours(6);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(1, 0, 0, 2);
+		n.setNBH(0, 1, 0, 3);
+		n.setNBH(0, 0, -1, 4);
+		n.setNBH(0, 0, 1, 5);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -668,7 +849,17 @@ public class automataLib {
 	}
 	
 	public void ThreadsCustom(int xx, int yy, int zz){
-		n.setNbrhood(26);
+		n = new neighbours(8);
+		
+		n.setNBH(1, -1, 0, 0);
+		n.setNBH(-1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(2, -1, 0, 5);
+		n.setNBH(-2, -1, 0, 6);
+		n.setNBH(1, -2, 0, 3);
+		n.setNBH(-1, -2, 0, 4);
+		n.setNBH(0, 0, 0, 7);
+		
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -678,7 +869,15 @@ public class automataLib {
 	}
 	
 	public void ThreadsCustom2(int xx, int yy, int zz){
-		n.setNbrhood(25);
+		n = new neighbours(7);
+		
+		n.setNBH(1, -1, 0, 0);
+		n.setNBH(-1, -1, 0, 1);
+		n.setNBH(0, -1, 0, 2);
+		n.setNBH(2, -1, 0, 5);
+		n.setNBH(-2, -1, 0, 6);
+		n.setNBH(1, -2, 0, 3);
+		n.setNBH(-1, -2, 0, 4);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -698,7 +897,17 @@ public class automataLib {
 	}
 	
 	public void ThreadsCustom4(int xx, int yy, int zz){
-		n.setNbrhood(19);
+		n = new neighbours(9);
+
+		n.setNBH(-1, -3, 0, 0);
+		n.setNBH(1, -3, 0, 1);
+		n.setNBH(-2, -3, 0, 2);
+		n.setNBH(2, -3, 0, 3);
+		n.setNBH(0, -3, 0, 4);
+		n.setNBH(-1, -2, 0, 5);
+		n.setNBH(0, -2, 0, 6);
+		n.setNBH(1, -2, 0, 7);
+		n.setNBH(0, -1, 0, 8);
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
@@ -724,8 +933,19 @@ public class automataLib {
 	
 	public void extendedRangeCustom6(int xx, int yy, int zz){
 
-		n.setNbrhood(20);
+		n = new neighbours(6);
 		
+		n.setNBH( -3, -1, 0, 0);
+		n.setNBH( 3, -1, 0, 1);
+		n.setNBH( -2, -2, 0, 2);
+		n.setNBH( 2, -2, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( -1, -1, 0, 5);
+		
+		/*int isOne = 0;
+		for(int i = 0; i < n.NBH.length; i++){
+			isOne += getNbrCounts(getWrap(xx, n.NBH[i][0], u.universe.length), getWrap(yy, n.NBH[i][1], u.universe[0].length), getWrap(zz, n.NBH[i][2], u.universe[0][0].length));
+		}*/
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
@@ -735,7 +955,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
@@ -744,11 +992,44 @@ public class automataLib {
 		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne == 4)  { u.universe[xx][yy][zz] = 1; }
 		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
+		/*if(isOne == 6)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 7)  { u.universe[xx][yy][zz] = 0; }
+		if(isOne == 8)  { u.universe[xx][yy][zz] = 0; }
+		//if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }*/
+		//if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
 	public void ConwayExtendedRange2(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
@@ -771,7 +1052,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange3(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -787,7 +1096,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange4(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -800,7 +1137,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange5(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -813,7 +1178,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange6(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -827,7 +1220,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange7(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -840,7 +1261,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange8(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -853,7 +1302,36 @@ public class automataLib {
 	
 	public void ConwayExtendedRange9(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
@@ -864,7 +1342,38 @@ public class automataLib {
 	}
 	
 	public void ConwayExtendedRange10(int xx, int yy, int zz){
-		n.setNbrhood(3);
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
+		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //min
@@ -880,7 +1389,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange11(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -894,7 +1431,36 @@ public class automataLib {
 	
 	public void ConwayExtendedRange12(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
@@ -904,7 +1470,36 @@ public class automataLib {
 	}
 	
 	public void ConwayExtendedRange13(int xx, int yy, int zz){
-		n.setNbrhood(3);
+
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -916,7 +1511,35 @@ public class automataLib {
 	
 	public void ConwayExtendedRange13_2(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
 		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
@@ -928,7 +1551,36 @@ public class automataLib {
 	
 	public void ConwayExtendedRange14(int xx, int yy, int zz){
 
-		n.setNbrhood(3);
+		n = new neighbours(24);
+		
+		n.setNBH( 0, -1, 0, 0);
+		n.setNBH( -1, 0, 0, 1);
+		n.setNBH( 1, 0, 0, 2);
+		n.setNBH( 0, 1, 0, 3);
+		n.setNBH( -1, -1, 0, 4);
+		n.setNBH( 1, 1, 0, 5);
+		n.setNBH( -1, 1, 0, 6);
+		n.setNBH( 1, -1, 0, 7);
+		
+		n.setNBH( -2, 0, 0, 8);
+		n.setNBH( 2, 0, 0, 9);
+		n.setNBH( -2, 1, 0, 10);
+		n.setNBH( 2, 1, 0, 11);
+		n.setNBH( -2, -1, 0, 12);
+		n.setNBH( 2, -1, 0, 13);
+		
+		n.setNBH( 0, -2, 0, 14);
+		n.setNBH( 0, 2, 0, 15);
+		n.setNBH( 1, -2, 0, 16);
+		n.setNBH( 1, 2, 0, 17);
+		n.setNBH( -1, -2, 0, 18);
+		n.setNBH( -1, 2, 0, 19);
+		
+		n.setNBH( -2, -2, 0, 20);
+		n.setNBH( 2, 2, 0, 21);
+		n.setNBH( 2, -2, 0, 22);
+		n.setNBH( -2, 2, 0, 23);
+		
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 		if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
@@ -1003,7 +1655,25 @@ public class automataLib {
 
 	
 	public void actual3D(int xx, int yy, int zz){
-		n.setNbrhood(24);
+		
+		n = new neighbours(14);
+		n.setNBH(0, 0, -1, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(-1, 0, 0, 2);
+		n.setNBH(0, 0, 1, 3);
+		n.setNBH(0, 1, 0, 4);
+		n.setNBH(1, 0, 0, 5);
+		
+		n.setNBH(-1, -1, -1, 6);
+		n.setNBH(-1, -1, 1, 7);
+		n.setNBH(-1, 1, -1, 8);
+		n.setNBH(-1, 1, 1, 9);
+		
+		n.setNBH(1, 1, 1, 10);
+		n.setNBH(1, 1, -1, 11);
+		n.setNBH(1, -1, 1, 12);
+		n.setNBH(1, -1, -1, 13);
+		
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 
 		//if(isOne > 0) {
@@ -1054,7 +1724,13 @@ public class automataLib {
 	public void diffusion(int xx, int yy, int zz, int rand, int thresh){
 		
 		if(u.universe[xx][yy][zz] > thresh) {
-			n.setNbrhood(22);
+			n = new neighbours(6);
+			n.setNBH(-1, 0, 0, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(1, 0, 0, 2);
+			n.setNBH(0, 1, 0, 3);
+			n.setNBH(0, 0, -1, 4);
+			n.setNBH(0, 0, 1, 5);
 			
 	
 			for(int i = 0; i < n.NBH.length; i++) {
@@ -1366,7 +2042,35 @@ public void fractalMetacell5(int xx, int yy, int zz){
 
 public void fractalMetacell5_2(int xx, int yy, int zz){
 	
-	n.setNbrhood(3);
+	n = new neighbours(24);
+	
+	n.setNBH( 0, -1, 0, 0);
+	n.setNBH( -1, 0, 0, 1);
+	n.setNBH( 1, 0, 0, 2);
+	n.setNBH( 0, 1, 0, 3);
+	n.setNBH( -1, -1, 0, 4);
+	n.setNBH( 1, 1, 0, 5);
+	n.setNBH( -1, 1, 0, 6);
+	n.setNBH( 1, -1, 0, 7);
+	
+	n.setNBH( -2, 0, 0, 8);
+	n.setNBH( 2, 0, 0, 9);
+	n.setNBH( -2, 1, 0, 10);
+	n.setNBH( 2, 1, 0, 11);
+	n.setNBH( -2, -1, 0, 12);
+	n.setNBH( 2, -1, 0, 13);
+	
+	n.setNBH( 0, -2, 0, 14);
+	n.setNBH( 0, 2, 0, 15);
+	n.setNBH( 1, -2, 0, 16);
+	n.setNBH( 1, 2, 0, 17);
+	n.setNBH( -1, -2, 0, 18);
+	n.setNBH( -1, 2, 0, 19);
+	
+	n.setNBH( -2, -2, 0, 20);
+	n.setNBH( 2, 2, 0, 21);
+	n.setNBH( 2, -2, 0, 22);
+	n.setNBH( -2, 2, 0, 23);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -1441,7 +2145,14 @@ public void fractalMetacell6(int xx, int yy, int zz){
 }
 
 public void fractal1(int xx, int yy, int zz){
-	n.setNbrhood(21);
+	
+	n = new neighbours(6);
+	n.setNBH(0, -1, 0, 0);
+	n.setNBH(-1, 0, 0, 1);	
+	n.setNBH(0, 1, 0, 2);
+	n.setNBH(1, 0, 0, 3);	
+	n.setNBH(-1, -1, 0, 4);
+	n.setNBH(1, 1, 0, 5);
 	
 	int sum = 0;
 	for(int i = 0; i < n.NBH.length; i++){
@@ -1456,7 +2167,13 @@ public void fractal1(int xx, int yy, int zz){
 
 public void hex1(int xx, int yy, int zz){
 	
-	n.setNbrhood(21);
+	n = new neighbours(6);
+	n.setNBH(0, -1, 0, 0);
+	n.setNBH(-1, 0, 0, 1);	
+	n.setNBH(0, 1, 0, 2);
+	n.setNBH(1, 0, 0, 3);	
+	n.setNBH(-1, -1, 0, 4);
+	n.setNBH(1, 1, 0, 5);
 	
 	int sum = nbrCountNotVal(xx, yy, zz, 0);
 	
@@ -1479,7 +2196,14 @@ public void hex1(int xx, int yy, int zz){
 	
 	
 	public void VonnFractal(int xx, int yy, int zz){
-		n.setNbrhood(22);
+		
+		n = new neighbours(6);
+		n.setNBH(-1, 0, 0, 0);
+		n.setNBH( 1, 0, 0, 1);	
+		n.setNBH( 0,-1, 0, 2);
+		n.setNBH( 0, 1, 0, 3);	
+		n.setNBH( 0, 0,-1, 4);
+		n.setNBH( 0, 0, 1, 5);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1501,7 +2225,23 @@ public void hex1(int xx, int yy, int zz){
 	
 	public void MooreFractal(int xx, int yy, int zz){
 		
-		n.setNbrhood(24);
+		n = new neighbours(14);
+		n.setNBH(0, 0, -1, 0);
+		n.setNBH(0, -1, 0, 1);
+		n.setNBH(-1, 0, 0, 2);
+		n.setNBH(0, 0, 1, 3);
+		n.setNBH(0, 1, 0, 4);
+		n.setNBH(1, 0, 0, 5);
+		
+		n.setNBH(-1, -1, -1, 6);
+		n.setNBH(-1, -1, 1, 7);
+		n.setNBH(-1, 1, -1, 8);
+		n.setNBH(-1, 1, 1, 9);
+		
+		n.setNBH(1, 1, 1, 10);
+		n.setNBH(1, 1, -1, 11);
+		n.setNBH(1, -1, 1, 12);
+		n.setNBH(1, -1, -1, 13);
 		
 		int sum = 0;
 		for(int i = 0; i < n.NBH.length; i++){
@@ -1516,7 +2256,23 @@ public void hex1(int xx, int yy, int zz){
 	
 		public void MooreFractalColour(int xx, int yy, int zz){
 			
-			n.setNbrhood(24);
+			n = new neighbours(14);
+			n.setNBH(0, 0, -1, 0);
+			n.setNBH(0, -1, 0, 1);
+			n.setNBH(-1, 0, 0, 2);
+			n.setNBH(0, 0, 1, 3);
+			n.setNBH(0, 1, 0, 4);
+			n.setNBH(1, 0, 0, 5);
+			
+			n.setNBH(-1, -1, -1, 6);
+			n.setNBH(-1, -1, 1, 7);
+			n.setNBH(-1, 1, -1, 8);
+			n.setNBH(-1, 1, 1, 9);
+			
+			n.setNBH(1, 1, 1, 10);
+			n.setNBH(1, 1, -1, 11);
+			n.setNBH(1, -1, 1, 12);
+			n.setNBH(1, -1, -1, 13);
 			
 			int sum = 0;
 			for(int i = 0; i < n.NBH.length; i++){
@@ -1552,7 +2308,8 @@ public void hex1(int xx, int yy, int zz){
 	
 		public void mapPrev(int xx, int yy, int zz, int val){
 			
-			n.setNbrhood(23);
+			n = new neighbours(1);
+			n.setNBH(0, 0, -1, 0);
 			
 			int sum = 0;
 			sum = u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)];
@@ -1658,7 +2415,42 @@ public void hex1(int xx, int yy, int zz){
 		}
 		
 		public void TuringCliffBig(int xx, int yy, int zz){
-			n.setNbrhood(30);
+			n = new neighbours(32);
+	
+			
+			n.setNBH(0,-4,0,0);
+			n.setNBH(1,-4,0,1);
+			n.setNBH(2,-4,0,2);
+			n.setNBH(3,-4,0,3);
+			n.setNBH(4,-4,0,4);
+			n.setNBH(4,-3,0,5);
+			n.setNBH(4,-2,0,6);
+			n.setNBH(4,-1,0,7);
+			n.setNBH(4,0,0,8);
+			n.setNBH(4,1,0,9);
+			n.setNBH(4,2,0,10);
+			n.setNBH(4,3,0,11);
+			n.setNBH(4,4,0,12);
+			n.setNBH(3,4,0,13);
+			n.setNBH(2,4,0,14);
+			n.setNBH(1,4,0,15);
+			n.setNBH(0,4,0,16);
+			n.setNBH(-1,4,0,17);
+			n.setNBH(-2,4,0,18);
+			n.setNBH(-3,4,0,19);
+			n.setNBH(-4,4,0,20);
+			n.setNBH(-4,3,0,21);
+			n.setNBH(-4,2,0,22);
+			n.setNBH(-4,1,0,23);
+			n.setNBH(-4,0,0,24);
+			n.setNBH(-4,-1,0,25);
+			n.setNBH(-4,-2,0,26);
+			n.setNBH(-4,-3,0,27);
+			n.setNBH(-4,-4,0,28);
+			n.setNBH(-3,-4,0,29);
+			n.setNBH(-2,-4,0,30);
+			n.setNBH(-1,-4,0,31);
+			
 			
 			
 			if(u.snapshotUniverse[xx][yy][zz] < 0) {
@@ -1857,7 +2649,17 @@ public void hex1(int xx, int yy, int zz){
 		
 		
 		public void platform(int xx, int yy, int zz){
-			n.setNbrhood(28);
+			n = new neighbours(9);
+			n.setNBH( 0, 0, 0, 0);
+			n.setNBH( 1, 0, 0, 1);
+			n.setNBH( -1, 0, 0, 2);
+			n.setNBH( 0, 1, 0, 3);
+			n.setNBH( 0, -1, 0, 4);
+
+			n.setNBH( 1, 0, 0, 5);
+			n.setNBH( -1, 0, 0, 6);
+			n.setNBH( 0, 1, 0, 7);
+			n.setNBH( 0, -1, 0, 8);
 			
 			if(u.snapshotUniverse[getWrap(xx, n.NBH[0][0], u.universe.length)][getWrap(yy, n.NBH[0][1], u.universe[0].length)][getWrap(zz, n.NBH[0][2], u.universe[0][0].length)] >= 1) {
 				

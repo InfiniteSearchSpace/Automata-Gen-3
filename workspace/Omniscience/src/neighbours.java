@@ -40,6 +40,11 @@ import java.util.Random;
 public class neighbours {
 	int[][] NBH;
 	Random r = new Random();
+	int hoodCount = 32+1;
+	int custHood = 0;
+	int instrNum=0;
+	int[] useCustNbrAr = {-1};
+	int useCustom = 0;
 	//constructor
 	public neighbours(int countNbr) {
 	//System.out.println("neighbours");
@@ -53,13 +58,49 @@ public class neighbours {
 		NBH[nbr][2] = zz;
 	}
 	
+	public void newCNAr(int instrCount){
+		int oldLen = useCustNbrAr.length;
+		
+		int[] newAr = new int[instrCount];
+		
+		int newLen = 0;
+		if(oldLen < instrCount) {newLen = oldLen;}
+		else {newLen = instrCount;}
+		
+		System.out.println(oldLen + ", " + instrCount + " ~ " + newLen);
+		
+		if(newLen == oldLen) {
+			for(int i = 0; i < newLen+1; i++) {
+				newAr[i]=-1;
+			}
+		}
+		
+		for(int i = 0; i < newLen; i++) {
+			newAr[i]=useCustNbrAr[i];
+		}
+		
+		useCustNbrAr = newAr;
+	}
 	
+	public void resetNbrAr(){
+		for(int i = 0; i < useCustNbrAr.length; i++) {
+			useCustNbrAr[i]=-1;
+		}
+	}
+	
+	public void setNbrhoodAr(int nbhood) {
+		useCustNbrAr[useCustNbrAr.length-1] = nbhood;
+	}
 	
 	public void newNbrhood(int countNbr) {
 		NBH = new int[countNbr][3]; //initiate array with required number of neighbour slots
 	}
 	
 	public void setNbrhood(int hood){
+		
+		
+		if(useCustom == 1 && useCustNbrAr[instrNum] != -1) {hood = useCustNbrAr[instrNum];}
+		
 		
 		if(hood == 0) {
 			newNbrhood(4);

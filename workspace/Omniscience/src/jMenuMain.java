@@ -159,12 +159,19 @@ public class jMenuMain implements ActionListener {
         
         menu.addSeparator();
          
-        menuItem = new JMenuItem("Combination Ruleset");
+        menuItem = new JMenuItem("Random Combination Ruleset");
         menuItem.addActionListener(this);
         menu.add(menuItem); 
         
+        menu.addSeparator();
+
+        menuItem = new JMenuItem("Toggle Custom Neighbourhood");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
         
-        
+        menuItem = new JMenuItem("Erase Custom Neighbourhood");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
         
 
         //create new menu
@@ -189,6 +196,10 @@ public class jMenuMain implements ActionListener {
         menu.add(menuItem);
         
         menuItem = new JMenuItem("Tool Value");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Neighbourhoods");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
@@ -270,7 +281,8 @@ public class jMenuMain implements ActionListener {
         	mML.growDieThreshold = 0;
         	mML.ruleChanged(0);
         	
-        	
+        	mML.ruleLenChanged();
+        	mML.eraseNbrAr();
         	
         	mML.reseedAll(6, 1);
         	
@@ -289,9 +301,13 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Add Random Rule") 			{mML.addRandomRule();}
         if(source.getText() == "Recast Rule Parameters") 	{mML.recastParams();}
         //if(source.getText() == "Reassign Growth Function") 	{mML.dialogRuleBounds();}
+
+        if(source.getText() == "Random Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
+
+        if(source.getText() == "Toggle Custom Neighbourhood") {mML.toggleCustNbr();}
+        if(source.getText() == "Erase Custom Neighbourhood") {mML.eraseNbrAr();}
         
-        if(source.getText() == "Combination Ruleset") {mML.reseedAll(mML.seedRand, mML.seedVal); mML.setRandom_3_InstructionWithSeed();}
-                
+        
         if(source.getText() == "Place Solid Blocks") 	{mML.setFunctionType(0);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         if(source.getText() == "Place Random Blocks") 	{mML.setFunctionType(1);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
         if(source.getText() == "Erase Blocks") 			{mML.setFunctionType(2);setBlocks();mML.blockSize = -1;mML.toolRand = -1;mML.toolVar = -1;mML.resetVal = true;}
@@ -312,6 +328,7 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Automata Rulesets") {mML.mwPos = mML.rule; 						mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 2;}
         if(source.getText() == "Tool Size") 		{mML.mwPos = mML.gui_blockSize; 			mML.mwMax = 100; 					mML.cycleNum = 3;}
         if(source.getText() == "Tool Value") 		{mML.mwPos = mML.gui_blockVal; 				mML.mwMax = 100; 					mML.cycleNum = 4;}
+        if(source.getText() == "Neighbourhoods") 	{mML.mwPos = mML.gui_nHood; 				mML.mwMax = mML.totalHoods; 		mML.cycleNum = 5;}
         
         
         
@@ -320,7 +337,9 @@ public class jMenuMain implements ActionListener {
         	TF.togShowTF();
         }
         
-        if(source.getText() == "Print Data") 		{
+        
+        
+        /*if(source.getText() == "Print Data") 		{
         	if(TF != null) {
         		int[][] tmpInt = TF.getPanelStates();
         	} else {
@@ -356,7 +375,7 @@ public class jMenuMain implements ActionListener {
         	} else {
         		System.out.println("NULL POINTER EXCEPTION");
         	}
-		} 	
+		} 	*/
         
         mML.refresh();
     }

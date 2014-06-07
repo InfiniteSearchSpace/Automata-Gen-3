@@ -21,12 +21,12 @@ public class Main extends JFrame {
             public void run() { //breaks program's static dependance
 
             	//Define world's dimensional parameters
-            	int xSize = 3*2*28+1; //size of each surface
-            	int ySize = 3*2*28+1;
+            	int xSize = 3*2*16+1; //size of each surface
+            	int ySize = 3*2*16+1;
             	int zSize = 16;
             	
             	int minMenuXLen = 340;
-            	int minMenuYLen = 230;
+            	int minMenuYLen = 240;
             	
             	int surfaces = 1;	//Total number of displays
             	int universes = 1;	//Total number of universes
@@ -91,7 +91,7 @@ public class Main extends JFrame {
             	
             	//Textbox for info display
             	l.setLayout(null); 
-            	l.setBounds(xSize+16, 2, 80+40, 12*(10+4));
+            	l.setBounds(xSize+16, 2, 80+40, 13*(10+4));
             	l.setVisible(true);
             	
             	l.setText("Menu");

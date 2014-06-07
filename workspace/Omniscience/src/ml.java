@@ -26,6 +26,7 @@ public class ml extends JPanel implements MouseListener {
 	slider[] sl;
 	
 	int totalFunctions = 84+1;
+	int totalHoods;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -48,6 +49,7 @@ public class ml extends JPanel implements MouseListener {
 	int seedRndVar = 1;
 	int toolRand = 1;
 	int toolVar = 1;
+	int custNHood=0;
 	
 	int[] slideVal;
 	int growDieThreshold = 0;
@@ -56,6 +58,7 @@ public class ml extends JPanel implements MouseListener {
 	int gui_toolVar = toolVar;
 	int gui_blockVal = blockVal;
 	int gui_blockSize = blockSize;
+	int gui_nHood = custNHood;
 			
 	boolean resetVal = true;
 	int[] params = {0,0,0,0};
@@ -70,9 +73,11 @@ public class ml extends JPanel implements MouseListener {
     	sl=ssl;
     	slideVal = new int[sl.length];
         m.addMouseListener(this);
-        
+      
         sfcmax=s.length;
-        functionType = 0;
+        functionType = 0;  
+        
+        totalHoods = u[0].a.n.hoodCount;
     }
     
     public void setU(Universe uni[]) {
@@ -302,6 +307,10 @@ public class ml extends JPanel implements MouseListener {
     	refresh();
     }
     
+    public void ruleLenChanged(){
+    	u[0].a.n.newCNAr(u[0].instructions.length);
+    }
+    
     public void ruleChanged(int rulenum){
     	if(rulenum == 83) {
     		sl[0].existential(true);
@@ -355,6 +364,7 @@ public class ml extends JPanel implements MouseListener {
     		sl[0].existential(false);
     		sl[1].existential(false);
     	}
+    	
     	updateListing();
     	//System.out.println("RULENUM"  +rulenum);
     }
@@ -362,14 +372,16 @@ public class ml extends JPanel implements MouseListener {
     
     //identifies the mousefunction action that is highlighted
     public void updateListing(){
-    	String tmps = "";
-    	String tmps2 = "";
+    	
+    	
     	//convert pause state to string
+    	String tmps = "";
     	for(int i = 0; i < s.length; i++) {
     		if(s[i].paused == true) {tmps+="1";} else {tmps+="0";}
     		if(s[i].upaused == true) {tmps+="1";} else {tmps+="0";}
     	}
     	
+    	String tmps2 = "";
     	int i;
     	for(i = 0; i < u[0].instructions.length; i++) {
     		tmps2 += u[0].instructions[i][0];
@@ -404,6 +416,15 @@ public class ml extends JPanel implements MouseListener {
     	tmps4 += "]";
     	
     	
+
+    	String tmps5 = "";
+    	for(i = 0; i < u[0].a.n.useCustNbrAr.length; i++) {
+    		tmps5 += u[0].a.n.useCustNbrAr[i];
+    		if(i < u[0].a.n.useCustNbrAr.length-1) {tmps5 += ",";}
+    		if(i%6==5) {tmps5 += "<br>";}
+    	}
+      	tmps5 += "}<br>";
+    	tmps5 = "<br>{" + tmps5;
     	
     	
     	l.setText(
@@ -418,11 +439,13 @@ public class ml extends JPanel implements MouseListener {
     			cycleNum 			+" MouseWheel<br>" 			+ 
     			blockSize 			+" Block Size<br>" 			+ 
     			blockVal 			+" Block Value<br>" 		+ 
-
+    			u[0].a.n.useCustom	+" NbrHood Override<br>" 	+ 
+    			
     			"Ruleset:"			+ tmps2						+
-
+    			"Custom Neighbours:"+ tmps5						+
     			"Sliders:"			+ tmps3						+
     			"Slider Rule:"		+ tmps4						+
+
     			
     			
     			
@@ -470,7 +493,24 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 2) {cycleRules(); }
     	if(cycleNum == 3) {blockSize = mwPos;gui_blockSize = mwPos;}
     	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;gui_blockVal = blockVal;}
+    	if(cycleNum == 5) {cycleNeighbours(); }
     	refresh();
+    }
+    private void cycleNeighbours(){
+    	
+    	u[0].a.n.useCustom = 1;
+    	u[0].a.n.setNbrhoodAr(mwPos-1);
+    	
+    } 
+    
+    public void eraseNbrAr() {
+    	u[0].a.n.resetNbrAr();
+    }
+    
+    public void toggleCustNbr() {
+    	if(u[0].a.n.useCustom == 1){u[0].a.n.useCustom = 0;}
+    	else {u[0].a.n.useCustom = 1;}
+    	
     }
     
     private void cycleRules(){
@@ -479,6 +519,8 @@ public class ml extends JPanel implements MouseListener {
     	addRule(mwPos);
     	ruleChanged(mwPos);
     }
+    
+    
     
     private void addRule(int ru) {
     	rule=ru;
@@ -574,7 +616,10 @@ public class ml extends JPanel implements MouseListener {
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
 			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
+		
+		ruleLenChanged();
 		ruleChanged(u[0].instructions[u[0].instructions.length-1][0]);
+		
 		refresh();
     }
     
@@ -668,7 +713,9 @@ public class ml extends JPanel implements MouseListener {
     		tmp[i] = new int[]{-1, s[sfcnum].zdraw, mySeedRand, 0, mySeedVal}; //seed
     		
     		u[0].instructions = tmp;
+    		ruleLenChanged();
     		ruleChanged(tmp[u[0].instructions.length-1][0]);
+    		
     	}
     }
     
@@ -685,7 +732,9 @@ public class ml extends JPanel implements MouseListener {
     		tmp[i] = new int[]{sVal, s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1}; //seed
 
     		u[0].instructions = tmp;
+    		ruleLenChanged();
     		ruleChanged(tmp[u[0].instructions.length-1][0]);
+    		
     	}
     }
     
@@ -747,7 +796,9 @@ public class ml extends JPanel implements MouseListener {
     	tmp[i] = new int[]{r.nextInt(totalFunctions), s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1};
 
     	u[0].instructions = tmp;
+    	ruleLenChanged();
     	ruleChanged(tmp[u[0].instructions.length-1][0]);
+    	
     }
     
     public void removeRule(){
@@ -757,7 +808,9 @@ public class ml extends JPanel implements MouseListener {
     	}
 
     	u[0].instructions = tmp;
+    	ruleLenChanged();
     	ruleChanged(tmp[u[0].instructions.length-1][0]);
+    	
     }
     
     

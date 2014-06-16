@@ -8,6 +8,9 @@ public class automataLib {
 	
 	Universe u;
 	Main m;
+	int m_xSize;
+	int m_ySize;
+	int instrOverride = -1;
 	//dataSources d;
 	
 	int[][] instructions; //holds the actions to perform
@@ -15,9 +18,11 @@ public class automataLib {
 	int[][] min_grow_die = new int[1][6];
 	
 	//constructor
-	public automataLib(Main mm) {
+	public automataLib(Main mm, int xSize, int ySize) {
 		m = mm;
 		n= new neighbours(0);
+		m_xSize=xSize;
+		m_ySize=ySize;
 	}
 	
 	//takes a universe and the dataSources object for writing
@@ -1880,107 +1885,122 @@ public void hex1(int xx, int yy, int zz){
 	/////////////////////////////////////////////
 																								  //Random, Threshold, Value
 	public void readInstructions(int[] ins, int xx, int yy, int zz) {
+
+		int insInstr = ins[0];
+		int insZlay = ins[1];
+		int insPar2 = ins[2];
+		int insPar3 = ins[3];
+		int insPar4 = ins[4];
+
+		if(instrOverride != -1) {
+			if((xx < (m_xSize/2)+(m_xSize/4)) && (xx > (m_xSize/2)-(m_xSize/4)) ) {
+				if((yy < (m_ySize/2)+(m_ySize/4)) && (yy > (m_ySize/2)-(m_ySize/4)) ) {
+					insInstr = instrOverride;
+				}
+			}
+		}
+		
 		//		Utility functions / other
-		if(ins[0] == -1 && (ins[1] == zz || ins[1] == -1)) {seed(xx, yy, zz, 						ins[2], ins[3], ins[4]);}
-		if(ins[0] == 1  && (ins[1] == zz || ins[1] == -1)) {quantum(xx,yy,zz,						ins[2]);}
-		if(ins[0] == 2  && (ins[1] == zz || ins[1] == -1)) {quantumWeight(xx,yy,zz,					ins[2]);}
-		if(ins[0] == 3  && (ins[1] == zz || ins[1] == -1)) {probbilityGrowth(xx,yy,zz				);}
-		if(ins[0] == 4 && (ins[1] == zz || ins[1] == -1)) {avgVonNew(xx,yy,zz						);}
-		if(ins[0] == 5 && (ins[1] == zz || ins[1] == -1)) {mapPrev(xx,yy,zz,						ins[2]);}
-		if(ins[0] == 68 && (ins[1] == zz || ins[1] == -1)) {platform(xx,yy,zz						);}
+		if(insInstr == -1 && (insZlay == zz || insZlay == -1)) {seed(xx, yy, zz, 						insPar2, insPar3, insPar4);}
+		if(insInstr == 1  && (insZlay == zz || insZlay == -1)) {quantum(xx,yy,zz,						insPar2);}
+		if(insInstr == 2  && (insZlay == zz || insZlay == -1)) {quantumWeight(xx,yy,zz,					insPar2);}
+		if(insInstr == 3  && (insZlay == zz || insZlay == -1)) {probbilityGrowth(xx,yy,zz				);}
+		if(insInstr == 4 && (insZlay == zz || insZlay == -1)) {avgVonNew(xx,yy,zz						);}
+		if(insInstr == 5 && (insZlay == zz || insZlay == -1)) {mapPrev(xx,yy,zz,						insPar2);}
+		if(insInstr == 68 && (insZlay == zz || insZlay == -1)) {platform(xx,yy,zz						);}
 
 		
 		//1D / Single Point starter required
-		if(ins[0] == 6  && (ins[1] == zz || ins[1] == -1)) {sierpenski(xx, yy, zz 					);}
-		if(ins[0] == 7  && (ins[1] == zz || ins[1] == -1)) {explorer(xx,yy,zz						);}
-		if(ins[0] == 84  && (ins[1] == zz || ins[1] == -1)) {explorer24(xx,yy,zz						);}
-		if(ins[0] == 8  && (ins[1] == zz || ins[1] == -1)) {rule110(xx,yy,zz						);}
-		if(ins[0] == 9 && (ins[1] == zz || ins[1] == -1)) {snapSierpenski(xx,yy,zz 					);}
-		if(ins[0] == 10 && (ins[1] == zz || ins[1] == -1)) {hex1(xx,yy,zz							);}
-		if(ins[0] == 54 && (ins[1] == zz || ins[1] == -1)) {LangtonsAnt(xx,yy,zz					);}
-		if(ins[0] == 77 && (ins[1] == zz || ins[1] == -1)) {TuringCliff(xx,yy,zz					);}
-		if(ins[0] == 79 && (ins[1] == zz || ins[1] == -1)) {TuringCliffBig(xx,yy,zz					);}
+		if(insInstr == 6  && (insZlay == zz || insZlay == -1)) {sierpenski(xx, yy, zz 					);}
+		if(insInstr == 7  && (insZlay == zz || insZlay == -1)) {explorer(xx,yy,zz						);}
+		if(insInstr == 84  && (insZlay == zz || insZlay == -1)) {explorer24(xx,yy,zz						);}
+		if(insInstr == 8  && (insZlay == zz || insZlay == -1)) {rule110(xx,yy,zz						);}
+		if(insInstr == 9 && (insZlay == zz || insZlay == -1)) {snapSierpenski(xx,yy,zz 					);}
+		if(insInstr == 10 && (insZlay == zz || insZlay == -1)) {hex1(xx,yy,zz							);}
+		if(insInstr == 54 && (insZlay == zz || insZlay == -1)) {LangtonsAnt(xx,yy,zz					);}
+		if(insInstr == 77 && (insZlay == zz || insZlay == -1)) {TuringCliff(xx,yy,zz					);}
+		if(insInstr == 79 && (insZlay == zz || insZlay == -1)) {TuringCliffBig(xx,yy,zz					);}
 		
 		
 		//		2D Neighbourhoods
-		if((ins[0] == 11 || ins[0] == 0) && (ins[1] == zz || ins[1] == -1)) {conway(xx, yy, zz 						);}
-		if(ins[0] == 12 && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
-		if(ins[0] == 13  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
-		if(ins[0] == 55  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange3(xx, yy, zz 		);}
-		if(ins[0] == 56  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange4(xx, yy, zz 		);}
-		if(ins[0] == 57  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange5(xx, yy, zz 		);}
-		if(ins[0] == 58  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange6(xx, yy, zz 		);}
-		if(ins[0] == 59  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange7(xx, yy, zz 		);}
-		if(ins[0] == 60  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange8(xx, yy, zz 		);}
-		if(ins[0] == 61  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange9(xx, yy, zz 		);}
-		if(ins[0] == 62  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange10(xx, yy, zz 		);}
-		if(ins[0] == 63  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange11(xx, yy, zz 		);}
-		if(ins[0] == 64  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange12(xx, yy, zz 		);}
-		if(ins[0] == 65  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange13(xx, yy, zz 		);}
-		if(ins[0] == 70  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange13_2(xx, yy, zz 		);}
-		if(ins[0] == 66  && (ins[1] == zz || ins[1] == -1)) {ConwayExtendedRange14(xx, yy, zz 		);}
-		if(ins[0] == 14  && (ins[1] == zz || ins[1] == -1)) {rain2(xx,yy,zz							);}
-		if(ins[0] == 15  && (ins[1] == zz || ins[1] == -1)) {goop(xx,yy,zz							);}
-		if(ins[0] == 16 && (ins[1] == zz || ins[1] == -1)) {internalAffairs(xx,yy,zz				);}
-		if(ins[0] == 17 && (ins[1] == zz || ins[1] == -1)) {meekrochyp(xx,yy,zz						);}
-		if(ins[0] == 18 && (ins[1] == zz || ins[1] == -1)) {diamondShuffle(xx,yy,zz					);}
-		if(ins[0] == 19 && (ins[1] == zz || ins[1] == -1)) {rain(xx,yy,zz							);}
-		if(ins[0] == 20 && (ins[1] == zz || ins[1] == -1)) {warts(xx,yy,zz							);}
-		if(ins[0] == 21 && (ins[1] == zz || ins[1] == -1)) {Threads(xx,yy,zz 						);}
-		if(ins[0] == 22 && (ins[1] == zz || ins[1] == -1)) {warts2(xx,yy,zz 						);}
-		if(ins[0] == 23 && (ins[1] == zz || ins[1] == -1)) {Wave(xx,yy,zz, 							ins[2]);}
-		if(ins[0] == 24 && (ins[1] == zz || ins[1] == -1)) {rope(xx,yy,zz 							);}
-		if(ins[0] == 25 && (ins[1] == zz || ins[1] == -1)) {Inverse110(xx,yy,zz 					);}
-		if(ins[0] == 26 && (ins[1] == zz || ins[1] == -1)) {Inverse110_2(xx,yy,zz 					);}
-		if(ins[0] == 27 && (ins[1] == zz || ins[1] == -1)) {Inverse110_leopard(xx,yy,zz 			);}
-		if(ins[0] == 28 && (ins[1] == zz || ins[1] == -1)) {PointToCircle(xx,yy,zz 					);}
-		if(ins[0] == 67 && (ins[1] == zz || ins[1] == -1)) {CyclicDaemon(xx,yy,zz 					);}
+		if((insInstr == 11 || insInstr == 0) && (insZlay == zz || insZlay == -1)) {conway(xx, yy, zz 						);}
+		if(insInstr == 12 && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange(xx, yy, zz 			);}
+		if(insInstr == 13  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange2(xx, yy, zz 		);}
+		if(insInstr == 55  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange3(xx, yy, zz 		);}
+		if(insInstr == 56  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange4(xx, yy, zz 		);}
+		if(insInstr == 57  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange5(xx, yy, zz 		);}
+		if(insInstr == 58  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange6(xx, yy, zz 		);}
+		if(insInstr == 59  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange7(xx, yy, zz 		);}
+		if(insInstr == 60  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange8(xx, yy, zz 		);}
+		if(insInstr == 61  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange9(xx, yy, zz 		);}
+		if(insInstr == 62  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange10(xx, yy, zz 		);}
+		if(insInstr == 63  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange11(xx, yy, zz 		);}
+		if(insInstr == 64  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange12(xx, yy, zz 		);}
+		if(insInstr == 65  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange13(xx, yy, zz 		);}
+		if(insInstr == 70  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange13_2(xx, yy, zz 		);}
+		if(insInstr == 66  && (insZlay == zz || insZlay == -1)) {ConwayExtendedRange14(xx, yy, zz 		);}
+		if(insInstr == 14  && (insZlay == zz || insZlay == -1)) {rain2(xx,yy,zz							);}
+		if(insInstr == 15  && (insZlay == zz || insZlay == -1)) {goop(xx,yy,zz							);}
+		if(insInstr == 16 && (insZlay == zz || insZlay == -1)) {internalAffairs(xx,yy,zz				);}
+		if(insInstr == 17 && (insZlay == zz || insZlay == -1)) {meekrochyp(xx,yy,zz						);}
+		if(insInstr == 18 && (insZlay == zz || insZlay == -1)) {diamondShuffle(xx,yy,zz					);}
+		if(insInstr == 19 && (insZlay == zz || insZlay == -1)) {rain(xx,yy,zz							);}
+		if(insInstr == 20 && (insZlay == zz || insZlay == -1)) {warts(xx,yy,zz							);}
+		if(insInstr == 21 && (insZlay == zz || insZlay == -1)) {Threads(xx,yy,zz 						);}
+		if(insInstr == 22 && (insZlay == zz || insZlay == -1)) {warts2(xx,yy,zz 						);}
+		if(insInstr == 23 && (insZlay == zz || insZlay == -1)) {Wave(xx,yy,zz, 							insPar2);}
+		if(insInstr == 24 && (insZlay == zz || insZlay == -1)) {rope(xx,yy,zz 							);}
+		if(insInstr == 25 && (insZlay == zz || insZlay == -1)) {Inverse110(xx,yy,zz 					);}
+		if(insInstr == 26 && (insZlay == zz || insZlay == -1)) {Inverse110_2(xx,yy,zz 					);}
+		if(insInstr == 27 && (insZlay == zz || insZlay == -1)) {Inverse110_leopard(xx,yy,zz 			);}
+		if(insInstr == 28 && (insZlay == zz || insZlay == -1)) {PointToCircle(xx,yy,zz 					);}
+		if(insInstr == 67 && (insZlay == zz || insZlay == -1)) {CyclicDaemon(xx,yy,zz 					);}
 
 		//Rules that can have their rules customised
-		if(ins[0] == 72 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom(xx,yy,zz 			);}
-		if(ins[0] == 73 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom2(xx,yy,zz 			);}
-		if(ins[0] == 74 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom3(xx,yy,zz 			);}
-		if(ins[0] == 75 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom4(xx,yy,zz 			);}
-		if(ins[0] == 76 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom5(xx,yy,zz 			);}
-		if(ins[0] == 78 && (ins[1] == zz || ins[1] == -1)) {extendedRangeCustom7(xx,yy,zz 			);}
-		if(ins[0] == 80 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom(xx,yy,zz 					);}
-		if(ins[0] == 81 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom2(xx,yy,zz 				);}
-		if(ins[0] == 82 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom3(xx,yy,zz 				);}
-		if(ins[0] == 83 && (ins[1] == zz || ins[1] == -1)) {ThreadsCustom4(xx,yy,zz 				);}
+		if(insInstr == 72 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom(xx,yy,zz 			);}
+		if(insInstr == 73 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom2(xx,yy,zz 			);}
+		if(insInstr == 74 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom3(xx,yy,zz 			);}
+		if(insInstr == 75 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom4(xx,yy,zz 			);}
+		if(insInstr == 76 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom5(xx,yy,zz 			);}
+		if(insInstr == 78 && (insZlay == zz || insZlay == -1)) {extendedRangeCustom7(xx,yy,zz 			);}
+		if(insInstr == 80 && (insZlay == zz || insZlay == -1)) {ThreadsCustom(xx,yy,zz 					);}
+		if(insInstr == 81 && (insZlay == zz || insZlay == -1)) {ThreadsCustom2(xx,yy,zz 				);}
+		if(insInstr == 82 && (insZlay == zz || insZlay == -1)) {ThreadsCustom3(xx,yy,zz 				);}
+		if(insInstr == 83 && (insZlay == zz || insZlay == -1)) {ThreadsCustom4(xx,yy,zz 				);}
 		
 		
 		
 		//2-step Fractal Neighbourhoods
-		if(ins[0] == 29 && (ins[1] == zz || ins[1] == -1)) {fractalShip(xx,yy,zz					);}
-		if(ins[0] == 30 && (ins[1] == zz || ins[1] == -1)) {fractalChyp(xx,yy,zz					);}
-		if(ins[0] == 31 && (ins[1] == zz || ins[1] == -1)) {fractalPhase(xx,yy,zz					);}
-		if(ins[0] == 32 && (ins[1] == zz || ins[1] == -1)) {fractalGun(xx,yy,zz						);}
-		if(ins[0] == 33 && (ins[1] == zz || ins[1] == -1)) {fractalCount(xx,yy,zz					);}
-		if(ins[0] == 34 && (ins[1] == zz || ins[1] == -1)) {fractal1D(xx,yy,zz						);}
-		if(ins[0] == 35 && (ins[1] == zz || ins[1] == -1)) {fractal1D2(xx,yy,zz						);}
-		if(ins[0] == 36 && (ins[1] == zz || ins[1] == -1)) {fractal1D3(xx,yy,zz						);}
-		if(ins[0] == 37 && (ins[1] == zz || ins[1] == -1)) {fractal1D4(xx,yy,zz						);}
-		if(ins[0] == 38 && (ins[1] == zz || ins[1] == -1)) {fractal1D5(xx,yy,zz						);}
-		if(ins[0] == 39 && (ins[1] == zz || ins[1] == -1)) {fractal1D6(xx,yy,zz						);}
-		if(ins[0] == 41 && (ins[1] == zz || ins[1] == -1)) {fractalTime(xx,yy,zz					);}
-		if(ins[0] == 40 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell(xx,yy,zz				);}
-		if(ins[0] == 42 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell2(xx,yy,zz				);}
-		if(ins[0] == 43 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell3(xx,yy,zz				);}
-		if(ins[0] == 44 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell4(xx,yy,zz				);}
-		if(ins[0] == 45 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5(xx,yy,zz				);}
-		if(ins[0] == 71 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell5_2(xx,yy,zz				);}
-		if(ins[0] == 46 && (ins[1] == zz || ins[1] == -1)) {fractalMetacell6(xx,yy,zz				);}
-		if(ins[0] == 47 && (ins[1] == zz || ins[1] == -1)) {fractal1(xx,yy,zz						);}
-		if(ins[0] == 69 && (ins[1] == zz || ins[1] == -1)) {meekrochypFr(xx,yy,zz					);}
+		if(insInstr == 29 && (insZlay == zz || insZlay == -1)) {fractalShip(xx,yy,zz					);}
+		if(insInstr == 30 && (insZlay == zz || insZlay == -1)) {fractalChyp(xx,yy,zz					);}
+		if(insInstr == 31 && (insZlay == zz || insZlay == -1)) {fractalPhase(xx,yy,zz					);}
+		if(insInstr == 32 && (insZlay == zz || insZlay == -1)) {fractalGun(xx,yy,zz						);}
+		if(insInstr == 33 && (insZlay == zz || insZlay == -1)) {fractalCount(xx,yy,zz					);}
+		if(insInstr == 34 && (insZlay == zz || insZlay == -1)) {fractal1D(xx,yy,zz						);}
+		if(insInstr == 35 && (insZlay == zz || insZlay == -1)) {fractal1D2(xx,yy,zz						);}
+		if(insInstr == 36 && (insZlay == zz || insZlay == -1)) {fractal1D3(xx,yy,zz						);}
+		if(insInstr == 37 && (insZlay == zz || insZlay == -1)) {fractal1D4(xx,yy,zz						);}
+		if(insInstr == 38 && (insZlay == zz || insZlay == -1)) {fractal1D5(xx,yy,zz						);}
+		if(insInstr == 39 && (insZlay == zz || insZlay == -1)) {fractal1D6(xx,yy,zz						);}
+		if(insInstr == 41 && (insZlay == zz || insZlay == -1)) {fractalTime(xx,yy,zz					);}
+		if(insInstr == 40 && (insZlay == zz || insZlay == -1)) {fractalMetacell(xx,yy,zz				);}
+		if(insInstr == 42 && (insZlay == zz || insZlay == -1)) {fractalMetacell2(xx,yy,zz				);}
+		if(insInstr == 43 && (insZlay == zz || insZlay == -1)) {fractalMetacell3(xx,yy,zz				);}
+		if(insInstr == 44 && (insZlay == zz || insZlay == -1)) {fractalMetacell4(xx,yy,zz				);}
+		if(insInstr == 45 && (insZlay == zz || insZlay == -1)) {fractalMetacell5(xx,yy,zz				);}
+		if(insInstr == 71 && (insZlay == zz || insZlay == -1)) {fractalMetacell5_2(xx,yy,zz				);}
+		if(insInstr == 46 && (insZlay == zz || insZlay == -1)) {fractalMetacell6(xx,yy,zz				);}
+		if(insInstr == 47 && (insZlay == zz || insZlay == -1)) {fractal1(xx,yy,zz						);}
+		if(insInstr == 69 && (insZlay == zz || insZlay == -1)) {meekrochypFr(xx,yy,zz					);}
 		
 		//3D Neighbourhoods
-		if(ins[0] == 48 && (ins[1] == zz || ins[1] == -1)) {diffusion(xx,yy,zz, 					ins[2], ins[3]);}
-		if(ins[0] == 49 && (ins[1] == zz || ins[1] == -1)) {Brownian(xx,yy,zz, 						ins[2]);}
+		if(insInstr == 48 && (insZlay == zz || insZlay == -1)) {diffusion(xx,yy,zz, 					insPar2, insPar3);}
+		if(insInstr == 49 && (insZlay == zz || insZlay == -1)) {Brownian(xx,yy,zz, 						insPar2);}
 		
-		if(ins[0] == 50 && (ins[1] == zz || ins[1] == -1)) {actual3D(xx,yy,zz						);}
-		if(ins[0] == 51 && (ins[1] == zz || ins[1] == -1)) {VonnFractal(xx,yy,zz					);}
-		if(ins[0] == 52 && (ins[1] == zz || ins[1] == -1)) {MooreFractal(xx,yy,zz					);}
-		if(ins[0] == 53 && (ins[1] == zz || ins[1] == -1)) {MooreFractalColour(xx,yy,zz				);}
+		if(insInstr == 50 && (insZlay == zz || insZlay == -1)) {actual3D(xx,yy,zz						);}
+		if(insInstr == 51 && (insZlay == zz || insZlay == -1)) {VonnFractal(xx,yy,zz					);}
+		if(insInstr == 52 && (insZlay == zz || insZlay == -1)) {MooreFractal(xx,yy,zz					);}
+		if(insInstr == 53 && (insZlay == zz || insZlay == -1)) {MooreFractalColour(xx,yy,zz				);}
 		
 		
 		

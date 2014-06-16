@@ -1,46 +1,11 @@
 import java.util.Random;
 
-/*public class neighbours {
-	int[][] NBH;
-	//constructor
-	public neighbours(int countNbr) {
-		setVonn(1);
-	}
-	
-	//Needs to accept both:
-			//incremental patterns (moore, von, etc.) 
-			//predifined patterns (user-input patterns)
-	
-	private void setVonn(int n) {
-		int nSize = n*(n+1)*2;
-		setNbrArray(nSize);
-
-		setNBH(-1, -1, 0, 0);
-		setNBH(1, -1, 0, 1);
-		setNBH(-1, 1, 0, 2);
-		setNBH(1, 1, 0, 3);
-		
-	}
-	
-	private void setNbrArray(int countNbr){
-		NBH = new int[countNbr][3]; //initiate array with required number of neighbour slots, [x][3] is for x,y,z
-	}
-
-	//called to define a neighbour's position (x,y,z,neighbour id)
-	private void setNBH(int xR, int yR, int zR, int nbr) {
-		NBH[nbr][0] = xR;
-		NBH[nbr][1] = yR;
-		NBH[nbr][2] = zR;
-	}
-
-
-}*/
 
 
 public class neighbours {
 	int[][] NBH;
 	Random r = new Random();
-	int hoodCount = 32+1;
+	int hoodCount = 34+2;
 	int custHood = 0;
 	int instrNum=0;
 	int[] useCustNbrAr = {-1};
@@ -69,7 +34,7 @@ public class neighbours {
 		
 		System.out.println(oldLen + ", " + instrCount + " ~ " + newLen);
 		
-		if(newLen == oldLen) {
+		if(newLen == oldLen && oldLen < instrCount) {
 			for(int i = 0; i < newLen+1; i++) {
 				newAr[i]=-1;
 			}
@@ -100,7 +65,7 @@ public class neighbours {
 		
 		
 		if(useCustom == 1 && useCustNbrAr[instrNum] != -1) {hood = useCustNbrAr[instrNum];}
-		
+
 		
 		if(hood == 0) {
 			newNbrhood(4);
@@ -595,7 +560,7 @@ public class neighbours {
 		}
 		
 		
-		
+
 		if(hood == 31) {
 			int n = r.nextInt(8)+1;
 			newNbrhood(n);
@@ -604,6 +569,59 @@ public class neighbours {
 				setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
 			}
 		}
+		
+
+		if(hood == 32) {
+			int n = r.nextInt(64)+1;
+			newNbrhood(n);
+			
+			for (int ii = 0; ii < NBH.length; ii++) {
+				setNBH(r.nextInt(9)-4, r.nextInt(9)-4, 0, ii);
+			}
+		}
+		
+		if(hood == 33) {
+			newNbrhood(12);
+			setNBH( 0, -1, 0, 0);
+			setNBH( 1, -1, 0, 1);
+			setNBH( 1, 0, 0, 2);
+			setNBH( 1, 1, 0, 3);
+			setNBH( 0, 1, 0, 4);
+			setNBH( -1, 1, 0, 5);
+			setNBH( -1, 0, 0, 6);
+			setNBH( -1, -1, 0, 7);
+			setNBH( 0, 2, 0, 8);
+			setNBH( 0, -2, 0, 9);
+			setNBH( 2, 0, 0, 10);
+			setNBH( -2, 0, 0, 11);
+		}
+		
+		if(hood == 34) {
+			newNbrhood(20);
+			setNBH( 0, -1, 0, 0);
+			setNBH( 1, -1, 0, 1);
+			setNBH( 1, 0, 0, 2);
+			setNBH( 1, 1, 0, 3);
+			setNBH( 0, 1, 0, 4);
+			setNBH( -1, 1, 0, 5);
+			setNBH( -1, 0, 0, 6);
+			setNBH( -1, -1, 0, 7);
+			
+			setNBH( 0, 2, 0, 8);
+			setNBH( 0, -2, 0, 9);
+			setNBH( 2, 0, 0, 10);
+			setNBH( -2, 0, 0, 11);
+
+			setNBH( 2, 1, 0, 12);
+			setNBH( 2, -1, 0, 13);
+			setNBH( 1, 2, 0, 14);
+			setNBH( -1, 2, 0, 15);
+			setNBH( -2, 1, 0, 16);
+			setNBH( -2, -1, 0, 17);
+			setNBH( 1, -2, 0, 18);
+			setNBH( -1, -2, 0, 19);
+		}
+		
 		
 		/*
 		if(hood == 3) {

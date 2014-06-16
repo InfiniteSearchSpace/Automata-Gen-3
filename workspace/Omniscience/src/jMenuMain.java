@@ -198,8 +198,12 @@ public class jMenuMain implements ActionListener {
         menuItem = new JMenuItem("Tool Value");
         menuItem.addActionListener(this);
         menu.add(menuItem);
-        
+
         menuItem = new JMenuItem("Neighbourhoods");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Cell Rule Override");
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
@@ -329,6 +333,7 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Tool Size") 		{mML.mwPos = mML.gui_blockSize; 			mML.mwMax = 100; 					mML.cycleNum = 3;}
         if(source.getText() == "Tool Value") 		{mML.mwPos = mML.gui_blockVal; 				mML.mwMax = 100; 					mML.cycleNum = 4;}
         if(source.getText() == "Neighbourhoods") 	{mML.mwPos = mML.gui_nHood; 				mML.mwMax = mML.totalHoods; 		mML.cycleNum = 5;}
+        if(source.getText() == "Cell Rule Override"){mML.mwPos = mML.gui_ROver; 				mML.mwMax = mML.totalFunctions; 	mML.cycleNum = 6;}
         
         
         

@@ -26,7 +26,7 @@ public class slider implements ChangeListener {
 		myml = mymml;
 	    slideNum=sslideNum;
 	    xs=xSize;
-		ys=ySize;
+		ys=ySize-64;
 		zs=zSize;
 
 		xx = new int[2];
@@ -64,7 +64,7 @@ public class slider implements ChangeListener {
 		mySlide = new JSlider(JSlider.VERTICAL, 0, val, 0);  
 		mySlide.setVisible(true);
 	    mySlide.setLayout(null); 
-	    mySlide.setBounds(xs+105+(slideNum*28), 4, 14, ys+16);
+	    mySlide.setBounds(xs+105+(slideNum*28), 4, 14, ys);
 	    mySlide.setVisible(true);
 	    mySlide.setMinorTickSpacing(1);
 	    mySlide.setPaintTicks(true);
@@ -76,7 +76,7 @@ public class slider implements ChangeListener {
 		mySlide = new JSlider(JSlider.VERTICAL, 0, val, 0);  
 		mySlide.setVisible(true);
 	    mySlide.setLayout(null); 
-	    mySlide.setBounds(xs+105+(slideNum*28), 4, 14, ys+16);
+	    mySlide.setBounds(xs+105+(slideNum*28), 4, 14, ys);
 	    mySlide.setVisible(true);
 	    mySlide.setMinorTickSpacing(1);
 	    mySlide.setPaintTicks(true);

@@ -50,6 +50,7 @@ public class ml extends JPanel implements MouseListener {
 	int toolRand = 1;
 	int toolVar = 1;
 	int custNHood=0;
+	int ROver = -1;
 	
 	int[] slideVal;
 	int growDieThreshold = 0;
@@ -59,9 +60,12 @@ public class ml extends JPanel implements MouseListener {
 	int gui_blockVal = blockVal;
 	int gui_blockSize = blockSize;
 	int gui_nHood = custNHood;
-			
+	int gui_ROver = ROver;
+	
 	boolean resetVal = true;
 	int[] params = {0,0,0,0};
+	
+	
 	
 	//constructor
     public ml(Main mm, Surf[] ss, JLabel ll, Universe uni[], slider[] ssl) {
@@ -440,6 +444,7 @@ public class ml extends JPanel implements MouseListener {
     			blockSize 			+" Block Size<br>" 			+ 
     			blockVal 			+" Block Value<br>" 		+ 
     			u[0].a.n.useCustom	+" NbrHood Override<br>" 	+ 
+    			u[0].a.instrOverride+" Rule Override<br>" 	+ 
     			
     			"Ruleset:"			+ tmps2						+
     			"Custom Neighbours:"+ tmps5						+
@@ -494,8 +499,14 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 3) {blockSize = mwPos;gui_blockSize = mwPos;}
     	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;gui_blockVal = blockVal;}
     	if(cycleNum == 5) {cycleNeighbours(); }
+    	if(cycleNum == 6) {cycleMidSpace(); }
     	refresh();
     }
+    
+    private void cycleMidSpace(){
+    	u[0].a.instrOverride = mwPos-1;
+    } 
+    
     private void cycleNeighbours(){
     	
     	u[0].a.n.useCustom = 1;

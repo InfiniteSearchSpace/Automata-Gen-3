@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="380" key="DIALOG_WIDTH"/>
+		<item value="388" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="447" key="DIALOG_HEIGHT"/>
+		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="1228" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,26 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="rs(" key="selection"/>
+		<item value="y" key="selection"/>
 		<list key="findhistory">
-			<item value="rs("/>
-			<item value="n = new neighbours(24);"/>
-			<item value="neighbours("/>
-			<item value="neighbours(4"/>
-			<item value="neighbours(3"/>
-			<item value="(3)"/>
-			<item value="neighbours(3)"/>
-			<item value="neighbours(2)"/>
+			<item value="x"/>
+			<item value="ins["/>
+			<item value="ins[4]"/>
+			<item value="ins[3]"/>
+			<item value="ins[2]"/>
+			<item value="ins[1]"/>
+			<item value="insZlay"/>
+			<item value="ins[0]"/>
 		</list>
 		<list key="replacehistory">
+			<item value="y"/>
+			<item value="insPar4"/>
+			<item value="insPar3"/>
+			<item value="insPar2"/>
+			<item value="insZlay"/>
+			<item value="insInstr"/>
 			<item value=""/>
 			<item value="&quot;Paste To Editor&quot;"/>
-			<item value="&quot;Set To Datasource&quot;"/>
-			<item value="&quot;Print Data&quot;"/>
-			<item value="&quot;Show Editor&quot;"/>
-			<item value="n.setNBH"/>
-			<item value="//n.setNBH"/>
-			<item value="sldVal"/>
 		</list>
 	</section>
 </section>

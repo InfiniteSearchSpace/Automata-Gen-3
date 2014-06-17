@@ -3,18 +3,19 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="388" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="1228" key="DIALOG_X_ORIGIN"/>
+		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="y" key="selection"/>
+		<item value="Dial" key="selection"/>
 		<list key="findhistory">
+			<item value="dial"/>
 			<item value="x"/>
 			<item value="ins["/>
 			<item value="ins[4]"/>
@@ -22,7 +23,6 @@
 			<item value="ins[2]"/>
 			<item value="ins[1]"/>
 			<item value="insZlay"/>
-			<item value="ins[0]"/>
 		</list>
 		<list key="replacehistory">
 			<item value="y"/>

@@ -623,9 +623,9 @@ public class ml extends JPanel implements MouseListener {
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
 		
 		ruleLenChanged();
@@ -721,7 +721,7 @@ public class ml extends JPanel implements MouseListener {
     			tmp[i] = u[0].instructions[i];
     		}
     		
-    		tmp[i] = new int[]{-1, s[sfcnum].zdraw, mySeedRand, 0, mySeedVal}; //seed
+    		tmp[i] = new int[]{-1, s[sfcnum].zdraw, mySeedRand, 0, mySeedVal, 0, 0}; //seed
     		
     		u[0].instructions = tmp;
     		ruleLenChanged();
@@ -740,7 +740,7 @@ public class ml extends JPanel implements MouseListener {
     		for(i = 0; i< u[0].instructions.length; i++) {
     			tmp[i] = u[0].instructions[i];
     		}
-    		tmp[i] = new int[]{sVal, s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1, -1}; //seed
+    		tmp[i] = new int[]{sVal, s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1}; //seed
 
     		u[0].instructions = tmp;
     		ruleLenChanged();
@@ -804,7 +804,7 @@ public class ml extends JPanel implements MouseListener {
     		tmp[i] = u[0].instructions[i];
     	}
     		
-    	tmp[i] = new int[]{r.nextInt(totalFunctions), s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1, r.nextInt(64)+1};
+    	tmp[i] = new int[]{r.nextInt(totalFunctions), s[sfcnum].zdraw, r.nextInt(64)+1, r.nextInt(64)+1};
 
     	u[0].instructions = tmp;
     	ruleLenChanged();

@@ -1893,13 +1893,15 @@ public void hex1(int xx, int yy, int zz){
 		int insPar4 = ins[4];
 
 		if(instrOverride != -1) {
-			if((xx < (m_xSize/2)+(m_xSize/4)) && (xx > (m_xSize/2)-(m_xSize/4)) ) {
+			/*if((xx < (m_xSize/2)+(m_xSize/4)) && (xx > (m_xSize/2)-(m_xSize/4)) ) {
 				if((yy < (m_ySize/2)+(m_ySize/4)) && (yy > (m_ySize/2)-(m_ySize/4)) ) {
+					*/
+					if(xx%2==0) {
 					
-					//if(xx%32<=8 && yy%32<=8) {
 					insInstr = instrOverride;
-					//}
-				}
+					
+				/*	}
+				}*/
 			}
 		}
 		

@@ -51,6 +51,10 @@ public class automataLib {
 	}*/
 	
 
+	private void incrementMe(int xx, int yy, int zz){
+		u.universe[xx][yy][zz]++;
+	}
+	
 	//takes array co-ord, modification int, array param length, and returns wrap position.
     public int getWrap(int val, int mod, int len) { 
     	if((val+mod) % len < 0) {
@@ -312,7 +316,7 @@ public class automataLib {
 		
 		int t = nbrCountNotVal(xx,yy,zz,0);
 
-		if (t == 2){u.universe[xx][yy][zz] = 1;}
+		if (t == 2){incrementMe(xx,yy,zz);}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -323,7 +327,7 @@ public class automataLib {
 
 		int t = nbrCountNotVal(xx,yy,zz,0);
 
-		if (t == 2){u.universe[xx][yy][zz] = 1;}
+		if (t == 2){incrementMe(xx,yy,zz);}
 		if(t < 2 || t > 4){u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -337,9 +341,23 @@ public class automataLib {
 		}
 
 		if (sum <= 4){u.universe[xx][yy][zz] = 0;}
-		if (sum == 4){u.universe[xx][yy][zz] = 1;}
+		if (sum == 4){incrementMe(xx,yy,zz);}
 		if (sum >= 8){u.universe[xx][yy][zz] = 0;}
 		
+	}
+	
+	public void exposeC(int xx, int yy, int zz){					
+		n.setNbrhood(4);
+		
+		int cellCount = nbrCountNotVal(xx,yy,zz,0);
+				
+		if (cellCount > 0){u.universe[xx][yy][zz] = 0;}
+		if (cellCount == 1){incrementMe(xx,yy,zz);}
+	}
+	
+	public void exposeJ(int xx, int yy, int zz){					
+		n.setNbrhood(4);
+		if (nbrCountNotVal(xx,yy,zz,0) == 1){incrementMe(xx,yy,zz);}
 	}
 	
 	public void diamondShuffle(int xx, int yy, int zz){					
@@ -347,7 +365,7 @@ public class automataLib {
 
 		int t = nbrCountNotVal(xx,yy,zz,0);
 
-		if (t == 2){u.universe[xx][yy][zz] = 1;}
+		if (t == 2){incrementMe(xx,yy,zz);}
 		if(t < 2 || t > 3){u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -363,7 +381,7 @@ public class automataLib {
 			}
 		} 
 		
-		if (t == 3){u.universe[xx][yy][zz] = 1;}
+		if (t == 3){incrementMe(xx,yy,zz);}
 		
 	}
 
@@ -495,9 +513,7 @@ public class automataLib {
 			u.universe[xx][yy][zz] = 0;
 		}// else {u.universe[xx][yy][zz] = 0;}
 
-		if(isOne == 2) {
-			u.universe[xx][yy][zz] = 1;
-		}
+		if(isOne == 2) {incrementMe(xx,yy,zz);}
 
 
     }
@@ -518,9 +534,7 @@ public class automataLib {
 			u.universe[xx][yy][zz] = 0;
 		}// else {u.universe[xx][yy][zz] = 0;}
 
-		if(isOne == 2) {
-			u.universe[xx][yy][zz] = 1;
-		}
+		if(isOne == 2) {incrementMe(xx,yy,zz);}
 
 
     }
@@ -537,9 +551,7 @@ public class automataLib {
 			
 		}
 		
-		if(isOne == 1) {
-			u.universe[xx][yy][zz] = 1;
-		} else {u.universe[xx][yy][zz] = 0;}
+		if(isOne == 1) {incrementMe(xx,yy,zz);} else {u.universe[xx][yy][zz] = 0;}
 
     }
 	
@@ -555,9 +567,7 @@ public class automataLib {
 			
 		}
 		
-		if(isOne == 1) {
-			u.universe[xx][yy][zz] = 1;
-		} else {u.universe[xx][yy][zz] = 0;}
+		if(isOne == 1) {incrementMe(xx,yy,zz);} else {u.universe[xx][yy][zz] = 0;}
 
     }
 	
@@ -569,7 +579,7 @@ public class automataLib {
 		
 		if(isOne < 2)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne > 3)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 3) { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 3) { u.universe[xx][yy][zz]++; }
 
     }
 
@@ -598,7 +608,7 @@ public class automataLib {
 		
 		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
 		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 2 || isOne == 1)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 2 || isOne == 1)  {incrementMe(xx,yy,zz);}
 
 	}
 		
@@ -608,7 +618,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne == 1)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 2)  {incrementMe(xx,yy,zz);}
 		if(isOne > 2)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -621,7 +631,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -632,7 +642,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -643,7 +653,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/) 	{incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -655,7 +665,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -668,7 +678,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -678,7 +688,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -688,7 +698,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -698,7 +708,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -708,7 +718,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -723,7 +733,7 @@ public class automataLib {
 		}
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -734,7 +744,7 @@ public class automataLib {
 		int isOne = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(isOne >= min_grow_die[0][0] && isOne <= min_grow_die[0][1]/* && isOne <= min_grow_die[0][3]*/)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne >= min_grow_die[0][2] && isOne <= min_grow_die[0][3]/* && isOne <= min_grow_die[0][4]*/)  {incrementMe(xx,yy,zz);}
 		if(isOne >= min_grow_die[0][4] && isOne <= min_grow_die[0][5]/* && isOne <= min_grow_die[0][5]*/)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -747,7 +757,7 @@ public class automataLib {
 		
 		
 		if(isOne <= 3)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 4)  {incrementMe(xx,yy,zz);}
 		if(isOne >= 5)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -765,7 +775,7 @@ public class automataLib {
 		if(isOne == 6)  { u.universe[xx][yy][zz] = 1; }*/
 		
 		if(isOne <=0)  { u.universe[xx][yy][zz] = 0; }
-		if(isOne == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(isOne == 5)  {incrementMe(xx,yy,zz);}
 		if(isOne >= 7)  { u.universe[xx][yy][zz] = 0; }
 		
 		/*if(isOne == 7)  { u.universe[xx][yy][zz] = 0; }
@@ -782,7 +792,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 5)  {incrementMe(xx,yy,zz);}
 		if(sum > 5)  { u.universe[xx][yy][zz] = 0; }/**/
 		
 		/*if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
@@ -798,7 +808,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //min
-		if(sum >= 10 && sum <= 11) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 10 && sum <= 11) 	{incrementMe(xx,yy,zz);} //balance
 		if(sum >= 12 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//max
 
 	}
@@ -811,7 +821,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 
 		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //max
-		if(sum >= 5 && sum <= 5) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 5 && sum <= 5) 	{incrementMe(xx,yy,zz);} //balance
 		if(sum >= 6 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//min
 		
 	}
@@ -824,7 +834,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 		
 		if(sum <= 5)  			 	{ u.universe[xx][yy][zz] = 0; } //max
-		if(sum >= 13 && sum <= 18) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 13 && sum <= 18) 	{incrementMe(xx,yy,zz);} //balance
 		if(sum >= 7 && sum <= 7) 	{ u.universe[xx][yy][zz] = 0; }	//min
 		
 	
@@ -838,7 +848,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 
 		if(sum <= 6)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 8)  {incrementMe(xx,yy,zz);}
 		if(sum == 12) {u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -851,7 +861,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 
 		if(sum <= 5)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 8)  {incrementMe(xx,yy,zz);}
 		if(sum == 11) {u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -863,7 +873,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 5)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 6)  {incrementMe(xx,yy,zz);}
 		if(sum == 7) {u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -873,12 +883,12 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 1)  			 	{ u.universe[xx][yy][zz] = 0; } //min
-		if(sum >= 10 && sum <= 11) 	{ u.universe[xx][yy][zz] = 1; } //balance
+		if(sum >= 10 && sum <= 11) 	{incrementMe(xx,yy,zz);} //balance
 		if(sum >= 12 && sum <= 99) 	{ u.universe[xx][yy][zz] = 0; }	//max
 		
 		
 		if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  {incrementMe(xx,yy,zz);}
 		if(sum == 15) {u.universe[xx][yy][zz] = 0;}
 		
 	}
@@ -892,8 +902,8 @@ public class automataLib {
 	
 		if(sum <= 12)  { u.universe[xx][yy][zz] = 0; }
 		if(sum < 13)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
-		if(sum >= 13)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  {incrementMe(xx,yy,zz);}
+		if(sum >= 13)  {incrementMe(xx,yy,zz);}
 		
 	}
 	
@@ -904,7 +914,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 12)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  {incrementMe(xx,yy,zz);}
 		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -915,7 +925,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 8)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  {incrementMe(xx,yy,zz);}
 		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -927,7 +937,7 @@ public class automataLib {
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 	
 		if(sum <= 6)  				{ u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  				{ u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  				{incrementMe(xx,yy,zz);}
 		if(sum >= 9 && sum <= 11)  	{ u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -937,7 +947,7 @@ public class automataLib {
 		
 		int sum = nbrCountNotVal(xx,yy,zz,0);
 		if(sum <= 7)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 5)  {incrementMe(xx,yy,zz);}
 		if(sum > 99)  { u.universe[xx][yy][zz] = 0; }
 	}
 	
@@ -949,7 +959,7 @@ public class automataLib {
 		
 		if(isOne > 0) {
 			if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
-			if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne == 2)  {incrementMe(xx,yy,zz);}
 			if(isOne >= 3)  { u.universe[xx][yy][zz] = 0; }
 		}
 		
@@ -962,7 +972,7 @@ public class automataLib {
 			
 			if(isOne > 0) {
 				if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
-				if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
+				if(isOne == 2) {incrementMe(xx,yy,zz);}
 				if(isOne >= 3)  { u.universe[xx][yy][zz] = 0; }
 			}
 	}
@@ -974,7 +984,7 @@ public class automataLib {
 		
 		if(isOne > 0) {
 			//if(isOne == 0)  { u.universe[xx][yy][zz] = 0; }
-			if(isOne == 1)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne == 1)  {incrementMe(xx,yy,zz);}
 			if(isOne == 2)  { u.universe[xx][yy][zz] = 0; }
 		}
 		
@@ -988,7 +998,7 @@ public class automataLib {
 		
 		if(isOne > 0) {
 			if(isOne <= 1)  { u.universe[xx][yy][zz] = 0; }
-			if(isOne == 2)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne == 2)  {incrementMe(xx,yy,zz);}
 			if(isOne >= 3)  { u.universe[xx][yy][zz] = 0; }
 		}
 	}
@@ -1000,7 +1010,7 @@ public class automataLib {
 		
 		if(isOne > 0) {
 			if(isOne <= 0)  { u.universe[xx][yy][zz] = 0; }
-			if(isOne == 1)  { u.universe[xx][yy][zz] = 1; }
+			if(isOne == 1)  {incrementMe(xx,yy,zz);}
 			if(isOne >= 2)  { u.universe[xx][yy][zz] = 0; }
 		}
 
@@ -1013,7 +1023,7 @@ public class automataLib {
 
 		//if(isOne > 0) {
 			if(isOne <= 2) { u.universe[xx][yy][zz] = 0;}
-			if(isOne == 5){u.universe[xx][yy][zz] = 1;}
+			if(isOne == 5){incrementMe(xx,yy,zz);}
 			if(isOne >= 7) { u.universe[xx][yy][zz] = 0;} /*else { u.universe[xx][yy][zz] = 0; }*/
 		//}
 		//conway(i,j,k,1,0);
@@ -1089,7 +1099,7 @@ public class automataLib {
 		
 		if(sum > 0) {
 			if(sum <= 0)  { u.universe[xx][yy][zz] = 0; }
-			if(sum == 1)  { u.universe[xx][yy][zz] = 1; }
+			if(sum == 1)  {incrementMe(xx,yy,zz);}
 			if(sum >= 2)  { u.universe[xx][yy][zz] = 0; }
 		}
 	}
@@ -1104,7 +1114,7 @@ public class automataLib {
 		
 		
 		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 3)  {incrementMe(xx,yy,zz);}
 		if(sum >= 9)  { u.universe[xx][yy][zz] = 0; }
 		
 	}
@@ -1120,7 +1130,7 @@ public class automataLib {
 		
 		
 		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 4)  {incrementMe(xx,yy,zz);}
 		if(sum >= 11)  { u.universe[xx][yy][zz] = 0; }
 		
 	}
@@ -1136,7 +1146,7 @@ public class automataLib {
 		
 		
 		if(sum <= 3)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 5)  {incrementMe(xx,yy,zz);}
 		if(sum >= 12)  { u.universe[xx][yy][zz] = 0; }
 		
 	}
@@ -1152,7 +1162,7 @@ public class automataLib {
 		
 		
 		if(sum <= 4)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 5)  {incrementMe(xx,yy,zz);}
 		if(sum >= 11)  { u.universe[xx][yy][zz] = 0; }
 		
 	}
@@ -1168,7 +1178,7 @@ public class automataLib {
 		
 		//if(sum > 0) {
 		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 3)  {incrementMe(xx,yy,zz);}
 		if(sum >= 5)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1185,7 +1195,7 @@ public class automataLib {
 			
 			//if(sum > 0) {
 			if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
-			if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+			if(sum == 3)  {incrementMe(xx,yy,zz);}
 			if(sum >= 9)  { u.universe[xx][yy][zz] = 0; }
 			//}
 			
@@ -1202,7 +1212,7 @@ public class automataLib {
 		
 		//if(sum > 0) {
 		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 3)  {incrementMe(xx,yy,zz);}
 		if(sum >= 4)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1220,7 +1230,7 @@ public void fractal1D4(int xx, int yy, int zz){
 		
 		//if(sum > 0) {
 		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 3)  {incrementMe(xx,yy,zz);}
 		if(sum >= 7)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1237,7 +1247,7 @@ public void fractal1D4(int xx, int yy, int zz){
 		
 		//if(sum > 0) {
 		if(sum <= 2)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 2)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 2)  {incrementMe(xx,yy,zz);}
 		if(sum >= 7)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1254,7 +1264,7 @@ public void fractal1D4(int xx, int yy, int zz){
 		
 		//if(sum > 0) {
 		if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 3)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 3)  {incrementMe(xx,yy,zz);}
 		if(sum >= 6)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1272,7 +1282,7 @@ public void fractalTime(int xx, int yy, int zz){
 		
 		//if(sum > 0) {
 		if(sum <= 30)  { u.universe[xx][yy][zz] = 0; }
-		if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+		if(sum == 6)  {incrementMe(xx,yy,zz);}
 		if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
 		//}
 		
@@ -1290,7 +1300,7 @@ public void fractalMetacell(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 33)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 6)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 6)  {incrementMe(xx,yy,zz);}
 	if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1308,7 +1318,7 @@ public void fractalMetacell2(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 15)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 9)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 9)  {incrementMe(xx,yy,zz);}
 	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1326,7 +1336,7 @@ public void fractalMetacell3(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 16)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 9)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 9)  {incrementMe(xx,yy,zz);}
 	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1344,7 +1354,7 @@ public void fractalMetacell4(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 10)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 5)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 5)  {incrementMe(xx,yy,zz);}
 	if(sum >= 22)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1362,7 +1372,7 @@ public void fractalMetacell5(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 16)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 8)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 8)  {incrementMe(xx,yy,zz);}
 	if(sum >= 26)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1390,7 +1400,7 @@ public void fractalMetacell5_2(int xx, int yy, int zz){
 
 	
 	if(sum > 0)  				{ u.universe[xx][yy][zz] = 0; }
-	if(sum >= 140 && sum <= 230)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 140 && sum <= 230)  {incrementMe(xx,yy,zz);}
 	
 	//======================
 	//if(sum == 1)  	{ u.universe[xx][yy][zz] = 1; } //dots;					vonn dot-replication mandala growth
@@ -1438,7 +1448,7 @@ public void fractalMetacell6(int xx, int yy, int zz){
 	
 	//if(sum > 0) {
 	if(sum <= 0)  { u.universe[xx][yy][zz] = 0; }
-	if(sum == 4)  { u.universe[xx][yy][zz] = 1; }
+	if(sum == 4)  {incrementMe(xx,yy,zz);}
 	if(sum >= 99)  { u.universe[xx][yy][zz] = 0; }
 	//}
 	
@@ -1454,7 +1464,7 @@ public void fractal1(int xx, int yy, int zz){
 	}
 	
 	if(sum <= 99)  { u.universe[xx][yy][zz] = 0; }
-	if(sum > 0 && sum < 4)  { u.universe[xx][yy][zz] = 1; }
+	if(sum > 0 && sum < 4)  {incrementMe(xx,yy,zz);}
 	
 	
 }
@@ -1466,7 +1476,7 @@ public void hex1(int xx, int yy, int zz){
 	int sum = nbrCountNotVal(xx, yy, zz, 0);
 	
 	if(sum <= 1)  { u.universe[xx][yy][zz] = 0; }
-	if(sum >= 3)  { u.universe[xx][yy][zz] = 1; }
+	if(sum >= 3)  {incrementMe(xx,yy,zz);}
 	if(sum >= 5)  { u.universe[xx][yy][zz] = 0; }
 	
 	
@@ -1492,7 +1502,7 @@ public void hex1(int xx, int yy, int zz){
 		}
 		
 		if(sum <= 6*6)  { u.universe[xx][yy][zz] = 0; }
-		if(sum >= 8 && sum <= 10 || (sum == 12) || (sum >= 25))  { u.universe[xx][yy][zz] = 1; } //{5,8}{5,9,13}{5,11,12,:3}{6,7,18,:11}{7,8,10,:7}{5,10,13,16,:10}{5,10,13,16,18,:13}{5,11,12,15,:10}{}{}
+		if(sum >= 8 && sum <= 10 || (sum == 12) || (sum >= 25))  {incrementMe(xx,yy,zz);} //{5,8}{5,9,13}{5,11,12,:3}{6,7,18,:11}{7,8,10,:7}{5,10,13,16,:10}{5,10,13,16,18,:13}{5,11,12,15,:10}{}{}
 
 		
 		
@@ -1515,7 +1525,7 @@ public void hex1(int xx, int yy, int zz){
 		
 		if(sum <= 14*14*2)  { u.universe[xx][yy][zz] = 0; }
 		if(sum <= 128 && sum > 0)  { 
-			if(sum % 11 == 0){u.universe[xx][yy][zz] = 1;}else{u.universe[xx][yy][zz] = 0;}
+			if(sum % 11 == 0){incrementMe(xx,yy,zz);}else{u.universe[xx][yy][zz] = 0;}
 		}
 	}
 	
@@ -1911,7 +1921,8 @@ public void hex1(int xx, int yy, int zz){
 		if(insInstr == 4 && (insZlay == zz || insZlay == -1)) {avgVonNew(xx,yy,zz						);}
 		if(insInstr == 5 && (insZlay == zz || insZlay == -1)) {mapPrev(xx,yy,zz,						insPar2);}
 		if(insInstr == 68 && (insZlay == zz || insZlay == -1)) {platform(xx,yy,zz						);}
-
+		if(insInstr == 85 && (insZlay == zz || insZlay == -1)) {exposeC(xx,yy,zz						);}
+		if(insInstr == 86 && (insZlay == zz || insZlay == -1)) {exposeJ(xx,yy,zz						);}
 		
 		//1D / Single Point starter required
 		if(insInstr == 6  && (insZlay == zz || insZlay == -1)) {sierpenski(xx, yy, zz 					);}

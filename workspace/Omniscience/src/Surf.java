@@ -26,6 +26,7 @@ public class Surf extends JPanel {
     public boolean paused = true; 		//boolean that vetos display progression
     public boolean upaused = true; 		//boolean that vetos universe progression
     int zdraw = 0; 						//which z layer do I show, if z is a fixed reference?
+    int colourScheme = 3;
     
     Universe u; 						//main logic container
     
@@ -62,23 +63,58 @@ public class Surf extends JPanel {
 	    for (int i = 0; i < xx; i++) {
 	        for (int j = 0; j < yy; j++) {
 	        	
-	            //calculate positive-value gradient: white < grey < black
-		        pGradient = 255-(((double) u.universe[i][j][k]/u.maxVal)*255);
-		        pNegGradient = 255-(((double) u.universe[i][j][k]/u.minVal)*255);
-		        int pp = (int) pGradient;
-		        int pn = (int) pNegGradient;
-		                    
-		        //give individual colours to specific values
-		        if(u.universe[i][j][k]==0) {
-		        	col3=185; col2=195; col1=215;
-		        } else if(u.universe[i][j][k]<0) {
-		        	col3=0; col2=255-pn; col1=255;
-		        } else {
-		        	 col3=pp; col2=pp; col1 = pp;
-		        }
-		        
-		        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=255; col2=255; col1=0;}
-		                    
+	        	if(colourScheme == 0) {
+		            //calculate positive-value gradient: white < grey < black
+		        	
+			        pGradient = 	/*255-*/	( ((double) u.universe[i][j][k]/u.maxVal) *255);
+			        
+			        pNegGradient = 	255-		( ((double) u.universe[i][j][k]/u.minVal) *255);
+			        
+			        int pp = (int) pGradient;
+			        int pn = (int) pNegGradient;
+			                    
+			        //give individual colours to specific values
+			        if(u.universe[i][j][k]==0) {
+			        	col3=185; col2=195; col1=215;
+			        } else if(u.universe[i][j][k]<0) {
+			        	col3=0; col2=255-pn; col1=255;
+			        } else {
+			        	 col3=pp; col2=pp; col1 = pp;
+			        }
+			        
+			        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=180; col2=180; col1=0;}
+			        if(u.universe[i][j][k]==1 && u.maxVal == 1) {col3=0; col2=0; col1=0;}
+	        	}
+	        	
+	        	if(colourScheme == 1) {
+			        if(u.universe[i][j][k]==0) {
+			        	col3=255; col2=255; col1=255;
+			        } else {
+			        	col3=0; col2=0; col1=0;
+			        }
+	        	}
+	        	
+	        	if(colourScheme == 2) {
+			        if(u.universe[i][j][k]==0) {
+			        	col3=255; col2=255; col1=255;
+			        } else if(u.universe[i][j][k]>=1){
+			        	col3=0; col2=0; col1=0;
+			        } else {
+			        	col3=0; col2=0; col1=255;
+			        }
+	        	}
+	        	
+	        	if(colourScheme == 3) {
+			        if(u.universe[i][j][k]==0) {
+			        	col3=255; col2=255; col1=255;
+			        } else if(u.universe[i][j][k]>=1){
+			        	col3=0; col2=0; col1=0;
+			        } else {
+			        	col3=0; col2=0; col1=255;
+			        }
+			        if(u.universe[i][j][k]==1 && u.maxVal != 1) {col3=180; col2=180; col1=0;}
+	        	}
+	        	
 		        //prepare to draw
 		        floats = Color.RGBtoHSB(col1, col2, col3, floats);
 		        g2d.setColor(Color.getHSBColor(floats[0],floats[1],floats[2]));

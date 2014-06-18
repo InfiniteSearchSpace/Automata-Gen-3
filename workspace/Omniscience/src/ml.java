@@ -25,8 +25,9 @@ public class ml extends JPanel implements MouseListener {
 	dataSources d = new dataSources();
 	slider[] sl;
 	
-	int totalFunctions = 84+1;
+	int totalFunctions = 86			+1;
 	int totalHoods;
+	int totalColourSchemes = 3		+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -51,6 +52,7 @@ public class ml extends JPanel implements MouseListener {
 	int toolVar = 1;
 	int custNHood=0;
 	int ROver = -1;
+	int colourScheme = 3;
 	
 	int[] slideVal;
 	int growDieThreshold = 0;
@@ -61,6 +63,7 @@ public class ml extends JPanel implements MouseListener {
 	int gui_blockSize = blockSize;
 	int gui_nHood = custNHood;
 	int gui_ROver = ROver;
+	int gui_colourScheme = colourScheme;
 	
 	boolean resetVal = true;
 	int[] params = {0,0,0,0};
@@ -497,11 +500,16 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 1) {s[sfcnum].zdraw = mwPos;}
     	if(cycleNum == 2) {cycleRules(); }
     	if(cycleNum == 3) {blockSize = mwPos;gui_blockSize = mwPos;}
-    	if(cycleNum == 4) {blockVal = ((mwPos+50)%100)-50;gui_blockVal = blockVal;}
+    	if(cycleNum == 4) {blockVal = ((mwPos+150)%300)-150;gui_blockVal = blockVal;}
     	if(cycleNum == 5) {cycleNeighbours(); }
     	if(cycleNum == 6) {cycleMidSpace(); }
+    	if(cycleNum == 7) {cycleColourSchemes(); }
     	refresh();
     }
+    
+    private void cycleColourSchemes(){
+    	s[sfcnum].colourScheme = mwPos;
+    } 
     
     private void cycleMidSpace(){
     	u[0].a.instrOverride = mwPos-1;

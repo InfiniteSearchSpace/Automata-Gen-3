@@ -5,7 +5,7 @@ import java.util.Random;
 public class neighbours {
 	int[][] NBH;
 	Random r = new Random();
-	int hoodCount = 38+2;
+	int hoodCount = 37+2;
 	int custHood = 0;
 	int instrNum=0;
 	int[] useCustNbrAr = {-1};

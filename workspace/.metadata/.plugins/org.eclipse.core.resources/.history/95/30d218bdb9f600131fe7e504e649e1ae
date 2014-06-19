@@ -5,7 +5,7 @@ import java.util.Random;
 public class neighbours {
 	int[][] NBH;
 	Random r = new Random();
-	int hoodCount = 38+2;
+	int hoodCount = 36+2;
 	int custHood = 0;
 	int instrNum=0;
 	int[] useCustNbrAr = {-1};
@@ -656,52 +656,25 @@ public class neighbours {
 			setNBH( -2, -1, 0, 6);
 			setNBH( -1, -2, 0, 7);
 		}
-
 		
 		if(hood == 37 ) {
-			newNbrhood(12);
-			setNBH( 0, -2, 0, 0);
-			setNBH( 1, -2, 0, 1);
-			setNBH( 1, -1, 0, 2);
-			setNBH( 2, 0, 0, 3);
-			setNBH( 2, 1, 0, 4);
-			setNBH( 1, 1, 0, 5);
-			setNBH( 0, 2, 0, 6);
-			setNBH( -1, 2, 0, 7);
-			setNBH( -1, 1, 0, 8);
-			setNBH( -2, 0, 0, 9);
-			setNBH( -2, -1, 0, 10);
-			setNBH( -1, -1, 0, 11);
+			newNbrhood(9);
+			setNBH( 1, -2, 0, 0);
+			setNBH( 2, -1, 0, 1);
+			setNBH( 2, 1, 0, 2);
+			setNBH( 1, 2, 0, 3);
+			setNBH( -1, 2, 0, 4);
+			setNBH( -2, 1, 0, 5);
+			setNBH( -2, -1, 0, 6);
+			setNBH( -1, -2, 0, 7);
+			setNBH( 0, 0, 0, 8);
 		}
 		
-		
-		if(hood == 38 ) {
-			newNbrhood(24);
-			setNBH( 0, -1, 0, 0);
-			setNBH( 1, -1, 0, 1);
-			setNBH( 1, 0, 0, 2);
-			setNBH( 1, 1, 0, 3);
-			setNBH( 0, 1, 0, 4);
-			setNBH( -1, 1, 0, 5);
-			setNBH( -1, 0, 0, 6);
-			setNBH( -1, -1, 0, 7);
+		/*
+		if(hood ==  ) {
+			newNbrhood();
+			setNBH( , , , );
 			
-			setNBH( 0, -3, 0, 8);
-			setNBH( 1, -3, 0, 9);
-			setNBH( 2, -2, 0, 10);
-			setNBH( 3, -1, 0, 11);
-			setNBH( 3, 0, 0, 12);
-			setNBH( 3, 1, 0, 13);
-			setNBH( 2, 2, 0, 14);
-			setNBH( 1, 3, 0, 15);
-			setNBH( 0, 3, 0, 16);
-			setNBH( -1, 3, 0, 17);
-			setNBH( -2, 2, 0, 18);
-			setNBH( -3, 1, 0, 19);
-			setNBH( -3, 0, 0, 20);
-			setNBH( -3, -1, 0, 21);
-			setNBH( -2, -2, 0, 22);
-			setNBH( -1, -3, 0, 23);
 		}
 		
 		/*

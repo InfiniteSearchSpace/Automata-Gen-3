@@ -51,9 +51,9 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        /*menuItem = new JMenuItem("Reset To Default");
+        menuItem = new JMenuItem("Reset To Default");
         menuItem.addActionListener(this);
-        menu.add(menuItem); */
+        menu.add(menuItem); 
         
         menuItem = new JMenuItem("Select Next Window");
         menuItem.addActionListener(this);
@@ -163,7 +163,7 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem); 
         
-       /* menu.addSeparator();
+        menu.addSeparator();
 
         menuItem = new JMenuItem("Toggle Custom Neighbourhood");
         menuItem.addActionListener(this);
@@ -171,7 +171,7 @@ public class jMenuMain implements ActionListener {
         
         menuItem = new JMenuItem("Erase Custom Neighbourhood");
         menuItem.addActionListener(this);
-        menu.add(menuItem); */
+        menu.add(menuItem); 
         
 
         //create new menu

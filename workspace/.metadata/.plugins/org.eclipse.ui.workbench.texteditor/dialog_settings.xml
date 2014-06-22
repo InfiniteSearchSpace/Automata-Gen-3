@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="396" key="DIALOG_WIDTH"/>
+		<item value="400" key="DIALOG_WIDTH"/>
 		<item value="405" key="DIALOG_Y_ORIGIN"/>
 		<item value="1228" key="DIALOG_X_ORIGIN"/>
-		<item value="455" key="DIALOG_HEIGHT"/>
+		<item value="457" key="DIALOG_HEIGHT"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="expos" key="selection"/>
+		<item value="55" key="selection"/>
 		<list key="findhistory">
+			<item value="55"/>
+			<item value="setNbrhood"/>
 			<item value="expos"/>
 			<item value="conw"/>
 			<item value="32"/>
 			<item value="=1;"/>
 			<item value="= 1;"/>
 			<item value="30"/>
-			<item value="fractalShip"/>
-			<item value="29"/>
 		</list>
 		<list key="replacehistory">
 			<item value="y"/>

@@ -43,7 +43,7 @@ public class ml extends JPanel implements MouseListener {
 	int cycleNum = 0;		//for Mousewheel to identify which type to cycle
 	
 	int blockVal = 1;
-	int blockSize = 1;
+	int blockSize = 16;
 	int seedVal = 1;
 	int seedRand = 6;
 	int rule = 0;
@@ -65,10 +65,12 @@ public class ml extends JPanel implements MouseListener {
 	int gui_ROver = ROver;
 	int gui_colourScheme = colourScheme;
 	
+	int copyPasteBlockSize = 16;
+	
 	boolean resetVal = true;
 	int[] params = {0,0,0,0};
 	
-	
+	int[][] customTF_NHood = {};
 	
 	//constructor
     public ml(Main mm, Surf[] ss, JLabel ll, Universe uni[], slider[] ssl) {
@@ -246,14 +248,14 @@ public class ml extends JPanel implements MouseListener {
 				}
 
 				if (myFunction ==  1) { 
-					if(blockSize < 0) {blockSize= 12;}
+					if(blockSize < 0) {blockSize=copyPasteBlockSize;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			placeData(mx, my, 0);
 				}
 				
 				if (myFunction ==  2) { 
-					if(blockSize < 0) {blockSize= 12;}
+					if(blockSize < 0) {blockSize=copyPasteBlockSize;}
 	    			if(toolRand <= 0) {toolRand=1;}
 	    			if(toolVar <= 0) {toolVar=1;}
 	    			captureData(mx, my, 0);
@@ -516,9 +518,9 @@ public class ml extends JPanel implements MouseListener {
     } 
     
     private void cycleNeighbours(){
-    	
+    	u[0].a.n.TFNbH = customTF_NHood;
     	u[0].a.n.useCustom = 1;
-    	u[0].a.n.setNbrhoodAr(mwPos-1);
+    	u[0].a.n.setNbrhoodAr(mwPos-2);
     	
     } 
     

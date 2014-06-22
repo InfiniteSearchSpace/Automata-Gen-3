@@ -5,16 +5,17 @@ import java.util.Random;
 public class neighbours {
 	int[][] NBH;
 	Random r = new Random();
-	int hoodCount = 38+2;
+	int hoodCount = 39+3;
 	int custHood = 0;
 	int instrNum=0;
 	int[] useCustNbrAr = {-1};
 	int useCustom = 0;
+	int[][] TFNbH;
 	//constructor
 	public neighbours(int countNbr) {
 	//System.out.println("neighbours");
 		NBH = new int[countNbr][3]; //initiate array with required number of neighbour slots
-		
+		TFNbH = new int[0][0];
 	}
 	//called to define a neighbour's position (x,y,z,neighbour id)
 	public void setNBH(int xx, int yy, int zz, int nbr) {
@@ -65,7 +66,16 @@ public class neighbours {
 		
 		
 		if(useCustom == 1 && useCustNbrAr[instrNum] != -1) {hood = useCustNbrAr[instrNum];}
-
+		
+		if(hood == -2) {
+			
+			newNbrhood(TFNbH.length);
+			
+			for (int i = 0; i < TFNbH.length; i++){
+				setNBH(TFNbH[i][0], TFNbH[i][1], TFNbH[i][2], i);
+			}
+			
+		}
 		
 		if(hood == 0) {
 			newNbrhood(4);
@@ -702,6 +712,32 @@ public class neighbours {
 			setNBH( -3, -1, 0, 21);
 			setNBH( -2, -2, 0, 22);
 			setNBH( -1, -3, 0, 23);
+		}
+		
+		if(hood == 39) {
+			newNbrhood(16);
+			setNBH( 0, -1, 0, 0);
+			setNBH( 1, -1, 0, 1);
+			setNBH( 1, 0, 0, 2);
+			setNBH( 1, 1, 0, 3);
+			setNBH( 0, 1, 0, 4);
+			setNBH( -1, 1, 0, 5);
+			setNBH( -1, 0, 0, 6);
+			setNBH( -1, -1, 0, 7);
+			
+			setNBH( 0, 2, 0, 8);
+			setNBH( 0, -2, 0, 9);
+			setNBH( 2, 0, 0, 10);
+			setNBH( -2, 0, 0, 11);
+
+			setNBH( 2, 1, 0, 12);
+			//setNBH( 2, -1, 0, 13);
+			setNBH( 1, 2, 0, 13);
+			//setNBH( -1, 2, 0, 15);
+			//setNBH( -2, 1, 0, 16);
+			setNBH( -2, -1, 0, 14);
+			//setNBH( 1, -2, 0, 18);
+			setNBH( -1, -2, 0, 15);
 		}
 		
 		/*

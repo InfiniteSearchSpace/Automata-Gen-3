@@ -584,7 +584,8 @@ public class automataLib {
     }
 
 	public void probbilityGrowth(int xx, int yy, int zz){
-		n = new neighbours(r.nextInt(8)+1);
+		
+		n.setNbrhood(31);
 		for (int ii = 0; ii < n.NBH.length; ii++) {
 			n.setNBH(r.nextInt(3)-1, r.nextInt(3)-1, 0, ii);
 		}

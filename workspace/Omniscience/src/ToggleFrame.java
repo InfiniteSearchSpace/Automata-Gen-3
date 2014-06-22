@@ -81,16 +81,16 @@ public class ToggleFrame extends JFrame {
 		
 		for(int i = 0; i < panelsX; i++) {
 			for(int j = 0; j < panelsY; j++) {
-	    		pp[i][j] = new ClickPanel(2, i, j, panelSize);
+	    		pp[i][j] = new ClickPanel(16, i, j, panelSize);
 	    		add(pp[i][j]);
 			}
 		}
 	}
 	
 	public void togShowTF() {
-		if(this.isVisible()) {
+		/*if(this.isVisible()) {
 			setVisible(false);
-		} else {
+		} else */{
 			setVisible(true);
 		}
 	}

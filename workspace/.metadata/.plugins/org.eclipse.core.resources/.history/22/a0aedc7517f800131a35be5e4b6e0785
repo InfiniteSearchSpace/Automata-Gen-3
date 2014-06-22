@@ -1,0 +1,186 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JMenuBar;
+ 
+public class jMenuEditor implements ActionListener {
+
+	ToggleFrame TF;
+	ml ML;
+    //constructor, captures UI controller: ml
+    public jMenuEditor(ToggleFrame TFrame, ml mML) {
+    	ML = mML;
+    	TF = TFrame;
+        TF.setJMenuBar(createMenuBar());
+	}
+
+	public JMenuBar createMenuBar() {
+
+		JMenuBar menuBar;
+        JMenu menu;
+        JMenuItem menuItem;
+        //JMenu submenu;
+        
+        //menu bar
+        menuBar = new JMenuBar();
+        
+        //create new menu
+        menu = new JMenu("Clipboard");
+        menuBar.add(menu);
+        
+        //Populate menu
+        menuItem = new JMenuItem("-> Paste From Clip");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("Copy To Clip ->");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
+        
+        menu = new JMenu("Other");
+        menuBar.add(menu);
+        
+        //Populate menu
+        menuItem = new JMenuItem("-> Set Neighbourhood(WIP)");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        menuItem = new JMenuItem("-> Set Rule(WIP)");
+        menuItem.addActionListener(this);
+        menu.add(menuItem); 
+        
+        return menuBar;
+    }
+ 
+    public void actionPerformed(ActionEvent e) {
+    	
+        JMenuItem source = (JMenuItem)(e.getSource());
+        
+        /*if(source.getText() == "Print Data") 		{
+        	if(TF != null) {
+        		int[][] tmpInt = TF.getPanelStates();
+        	} else {
+        		System.out.println("NULL POINTER EXCEPTION");
+        	}
+		} */
+        
+        
+        if(source.getText() == "-> Paste From Clip") 		{
+        	if(TF != null) {
+        		int[][][] intAr = ML.d.getArray();
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			TF.pp[j][i].setVal(intAr[j][i][0]);
+            		}
+        		}
+        		
+        	} else {
+        		System.out.println("NULL POINTER EXCEPTION");
+        	}
+		} 	
+        
+        
+        if(source.getText() == "Copy To Clip ->") 		{
+        	if(TF != null) {
+        		int[][][] intAr = new int[TF.pp.length][TF.pp[0].length][1];
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			intAr[j][i][0] = TF.pp[j][i].val;
+            		}
+        		}
+        		
+        		ML.d.setArray(intAr);
+        		
+        	} else {
+        		System.out.println("NULL POINTER EXCEPTION");
+        	}
+		} 	
+
+        if(source.getText() == "-> Set Neighbourhood(WIP)") 		{
+        	if(TF != null) {
+        		int[][][] intAr = new int[TF.pp.length][TF.pp[0].length][1];
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			intAr[j][i][0] = TF.pp[j][i].val;
+            		}
+        		}
+        		
+        		/*String s = "";
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			s+=intAr[j][i][0];
+            		}
+        			s+="\n";
+        		}
+        		System.out.println(s);*/
+        		
+        		int ii = 0; int jj = 0;
+        		for(ii = 0; ii < TF.pp.length; ii++){
+        			for(jj = 0; jj < TF.pp[ii].length; jj++){
+            			if(intAr[jj][ii][0] == -1) {break;}
+            		}
+        			if(intAr[jj][ii][0] == -1) {break;}
+        		}
+        		
+        		//get number of == 1 cells
+        		int nbrCount = 0;
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			if(intAr[j][i][0] == 1) {
+            				nbrCount++;
+            			}
+            		}
+        		}
+        		
+        		//get 1-cell locations
+        		int[][] nbrhood = new int[nbrCount][4];
+        		int placedNbr = nbrCount;
+        		
+        		for(int i = 0; i < TF.pp.length; i++){
+        			for(int j = 0; j < TF.pp[i].length; j++){
+            			if(intAr[j][i][0] == 1) {
+            				nbrhood[nbrCount-placedNbr][0]=i;
+            				nbrhood[nbrCount-placedNbr][1]=j;
+            				nbrhood[nbrCount-placedNbr][2] = 0;
+            				nbrhood[nbrCount-placedNbr][3] = nbrCount-placedNbr;
+            				placedNbr--;
+            			}
+            		}
+        		}
+        		
+        		String s = "";
+        		for(int i = 0; i < nbrhood.length; i++){
+        			for(int j = 0; j < nbrhood[i].length; j++){
+            			s+=nbrhood[i][j];
+            		}
+        			s+="\n";
+        		}
+        		System.out.println(s);
+        		
+        		//transform cells by (-ii, -jj)
+        		
+        		//set as neighbours
+        		
+        		
+        	} else {
+        		System.out.println("NULL POINTER EXCEPTION");
+        	}
+        }
+
+        if(source.getText() == "-> Set Rule(WIP)") 		{
+        	
+        }
+        
+        
+    }
+ 
+    
+    
+    
+    
+    
+    
+}

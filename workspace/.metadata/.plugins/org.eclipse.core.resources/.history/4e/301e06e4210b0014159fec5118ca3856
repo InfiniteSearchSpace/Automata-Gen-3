@@ -67,6 +67,7 @@ public class ToggleFrame extends JFrame {
 		
 		for(int i = 0; i < pYCount; i++) {
 			for(int j = 0; j < pXCount; j++) {
+				pp[i][j].setVal(0);
 	    		remove(pp[i][j]);
 			}
 		}
@@ -89,7 +90,7 @@ public class ToggleFrame extends JFrame {
 	
 	public void togShowTF() {
 		if(this.isVisible()) {
-			this.dispose();
+			setVisible(false);
 		} else {
 			setVisible(true);
 		}

@@ -89,7 +89,7 @@ public class ToggleFrame extends JFrame {
 	
 	public void togShowTF() {
 		if(this.isVisible()) {
-			this.dispose();
+			setVisible(false);
 		} else {
 			setVisible(true);
 		}

@@ -344,7 +344,7 @@ public class ml extends JPanel implements MouseListener {
     	} else if(rulenum == 78) {
     		sl[0].existential(true);
     		sl[1].existential(true);
-    		sl[1].setMax(81);
+    		sl[1].setMax(150);
     	} else if(rulenum == 77) {
     		sl[0].existential(true);
     		sl[1].existential(true);

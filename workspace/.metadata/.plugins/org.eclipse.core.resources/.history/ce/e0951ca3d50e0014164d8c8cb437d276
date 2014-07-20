@@ -632,21 +632,21 @@ public class ml extends JPanel implements MouseListener {
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
 		
 		
 		ruleChanged(u[0].instructions[u[0].instructions.length-1][0]);
-		
-		for(int i = 0; i < u[0].instructions.length; i++) {
+		for(int i = 0; i < u[0].instructions.length-1; i++) {
 			//set last neighbour
-	    	u[0].a.n.setIndexNbrhoodAr(r.nextInt(u[0].a.n.hoodCount)-2, i);
+			//u[0].a.n.TFNbH = customTF_NHood;
+	    	//u[0].a.n.useCustom = 1;
+	    	u[0].a.n.setNbrhoodAr(r.nextInt(u[0].a.n.hoodCount)+1);
 			//add blank neighbour mask
-	    	ruleLenChanged();
 		}
-		
+		ruleLenChanged();
 		refresh();
     }
     

@@ -503,7 +503,7 @@ public class ml extends JPanel implements MouseListener {
     	if(cycleNum == 2) {cycleRules(); }
     	if(cycleNum == 3) {blockSize = mwPos;gui_blockSize = mwPos;}
     	if(cycleNum == 4) {blockVal = ((mwPos+150)%300)-150;gui_blockVal = blockVal;}
-    	if(cycleNum == 5) {cycleNeighbours(mwPos-2); }
+    	if(cycleNum == 5) {cycleNeighbours(); }
     	if(cycleNum == 6) {cycleMidSpace(); }
     	if(cycleNum == 7) {cycleColourSchemes(); }
     	refresh();
@@ -517,10 +517,11 @@ public class ml extends JPanel implements MouseListener {
     	u[0].a.instrOverride = mwPos-1;
     } 
     
-    private void cycleNeighbours(int toNbr){
+    private void cycleNeighbours(){
     	u[0].a.n.TFNbH = customTF_NHood;
     	u[0].a.n.useCustom = 1;
-    	u[0].a.n.setNbrhoodAr(toNbr);
+    	u[0].a.n.setNbrhoodAr(mwPos-2);
+    	
     } 
     
     public void eraseNbrAr() {
@@ -632,20 +633,13 @@ public class ml extends JPanel implements MouseListener {
 		
 		u[0].instructions = new int[][] {
 			//Action,		Z,		RAND,					THRESHOLD,			Value
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
-			{r.nextInt(totalFunctions+1)-1, s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1},					//random function
+			{r.nextInt(totalFunctions), s[sfcnum].zdraw, 	r.nextInt(64)+1, 		r.nextInt(64)+1, 		r.nextInt(64)+1}					//random function
         }; 
 		
-		
+		ruleLenChanged();
 		ruleChanged(u[0].instructions[u[0].instructions.length-1][0]);
-		
-		for(int i = 0; i < u[0].instructions.length; i++) {
-			//set last neighbour
-	    	u[0].a.n.setIndexNbrhoodAr(r.nextInt(u[0].a.n.hoodCount)-2, i);
-			//add blank neighbour mask
-	    	ruleLenChanged();
-		}
 		
 		refresh();
     }

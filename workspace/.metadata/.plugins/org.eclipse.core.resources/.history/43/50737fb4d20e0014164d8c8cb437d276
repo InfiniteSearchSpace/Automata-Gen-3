@@ -58,10 +58,6 @@ public class neighbours {
 		useCustNbrAr[useCustNbrAr.length-1] = nbhood;
 	}
 	
-	public void setIndexNbrhoodAr(int nbhood, int ruleIndex) {
-		useCustNbrAr[ruleIndex] = nbhood;
-	}
-	
 	public void newNbrhood(int countNbr) {
 		NBH = new int[countNbr][3]; //initiate array with required number of neighbour slots
 	}

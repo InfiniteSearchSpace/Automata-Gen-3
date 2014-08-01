@@ -25,7 +25,7 @@ public class ml extends JPanel implements MouseListener {
 	dataSources d = new dataSources();
 	slider[] sl;
 	
-	int totalFunctions = 86			+1;
+	int totalFunctions = 88			+1;
 	int totalHoods;
 	int totalColourSchemes = 3		+1;
 	
@@ -321,7 +321,11 @@ public class ml extends JPanel implements MouseListener {
     }
     
     public void ruleChanged(int rulenum){
-    	if(rulenum == 83) {
+    	if(rulenum == 87) {
+    		sl[0].existential(true);
+    		sl[1].existential(true);
+    		sl[1].setMax(500);
+    	} else if(rulenum == 83) {
     		sl[0].existential(true);
     		sl[1].existential(true);
     		sl[1].setMax(10);

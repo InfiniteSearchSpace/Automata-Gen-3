@@ -69,6 +69,7 @@ public class Universe {
 	
 	//Snapshots the universe in it's current state, storing all values exactly as is, in snapshotUniverse[][][]
 	public void snap() {
+		a.incrGen();
 		for(int i = 0; i < universe.length; i++) {
 			for (int j = 0; j < universe[0].length; j++) {
 				for (int k = 0; k < universe[0][0].length; k++) {

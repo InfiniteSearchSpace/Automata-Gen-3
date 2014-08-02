@@ -1,0 +1,12 @@
+import java.awt.image.BufferedImage;
+
+
+public class getImage {
+	
+	public getImage(Universe u) {
+		BufferedImage buff = new BufferedImage(0, 0, 0);
+		for i = 0; i < u[0].universe.length
+		buff.setRGB(i, j, 0) u[0].
+	}
+	
+}

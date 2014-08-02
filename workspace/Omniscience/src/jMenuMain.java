@@ -83,6 +83,11 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+        menu.addSeparator();
+        
+        menuItem = new JMenuItem("Capture Image");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
         
       //create new menu
         menu = new JMenu("Tools");
@@ -261,6 +266,8 @@ public class jMenuMain implements ActionListener {
 
         if(source.getText() == "Erase Layer") {mML.eraseLayer();}
         if(source.getText() == "Erase All") {mML.eraseAll();}
+        if(source.getText() == "Capture Image") {new getImage(mML.u[0]);}
+        
         if(source.getText() == "Reset To Default") {
         	mML.eraseAll();
         	mML.resetRuleDef();

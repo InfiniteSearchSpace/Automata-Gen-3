@@ -57,6 +57,12 @@ public class slider implements ChangeListener {
 	    myml.slideVal[slideNum] = sldVal;
 	    myml.setRuleGDThresh(slideNum);
 	}
+	
+	/*public void setState(int num) {
+		int sldVal = num;
+	    myml.slideVal[slideNum] = sldVal;
+	    myml.setRuleGDThresh(slideNum);
+	}*/
 
 	
 	public void setMax(int val) {

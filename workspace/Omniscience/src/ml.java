@@ -101,6 +101,8 @@ public class ml extends JPanel implements MouseListener {
     	int mx =(p.x - p2.x - 2  - s[sfcnum].getX());
     	int my =(p.y - p2.y - 24 - m.getJMenuBar().getHeight() - s[sfcnum].getY());
 
+    	
+    	
     	//Left Click
     	 if((e == null || e.getButton() == MouseEvent.BUTTON1) && (mx >= 0 && my > 0) && (mx < s[sfcnum].getWidth() && my < s[sfcnum].getHeight()+1) ) {
 
@@ -311,6 +313,11 @@ public class ml extends JPanel implements MouseListener {
     	//Right Click - Pause controller
     	if(e != null && e.getButton() == MouseEvent.BUTTON3) { 
     		toggleStart();
+    	}
+    	
+    	//middle click: erase layer
+    	if(e != null && e.getButton() == MouseEvent.BUTTON2){
+    		eraseLayer();
     	}
     	
     	refresh();
@@ -864,6 +871,18 @@ public class ml extends JPanel implements MouseListener {
     	blockSize = gui_blockSize;
     	
     }
+    
+    public void dialogSetSlider() {
+    	String str = JOptionPane.showInputDialog(m, "Slider Number (0-5:", 0);
+    	if(str != null) {
+    		
+    	}
+    	
+    	str = JOptionPane.showInputDialog(m, "Slider Value", gui_blockVal);
+    	if(str != null) {
+    		//sl[0].setState(Integer.parseInt(str));
+    	}
+	}
     
     public void dialogSetBlockVal() {
     	String str = JOptionPane.showInputDialog(m, "Tool Value:", gui_blockVal);

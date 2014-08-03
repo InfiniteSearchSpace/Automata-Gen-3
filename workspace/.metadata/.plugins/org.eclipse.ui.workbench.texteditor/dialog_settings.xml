@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="408" key="DIALOG_WIDTH"/>
-		<item value="405" key="DIALOG_Y_ORIGIN"/>
-		<item value="1228" key="DIALOG_X_ORIGIN"/>
-		<item value="461" key="DIALOG_HEIGHT"/>
+		<item value="410" key="DIALOG_WIDTH"/>
+		<item value="385" key="DIALOG_Y_ORIGIN"/>
+		<item value="462" key="DIALOG_HEIGHT"/>
+		<item value="1209" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="onway" key="selection"/>
+		<item value="incrGen" key="selection"/>
 		<list key="findhistory">
+			<item value="incrGen"/>
+			<item value="modClock"/>
+			<item value="mod"/>
+			<item value="modc"/>
+			<item value="87"/>
+			<item value="erase"/>
+			<item value="dial"/>
 			<item value="onway"/>
-			<item value="twin"/>
-			<item value="conway"/>
-			<item value="custom"/>
-			<item value="singleRotation"/>
-			<item value="40"/>
-			<item value="55"/>
-			<item value="setNbrhood"/>
 		</list>
 		<list key="replacehistory">
 			<item value="area_modclock"/>

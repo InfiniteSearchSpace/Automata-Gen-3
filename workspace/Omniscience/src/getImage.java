@@ -13,10 +13,10 @@ public class getImage {
 		int cellRGB = 0;
 		for (int i = 0; i < u.universe.length; i++) {
 			for (int j = 0; j < u.universe[0].length; j++) {
+				cellRGB = 0xFFFFFF;
+				if(u.universe[i][j][0] == 0) {cellRGB = 0x444444;}
+				if(u.universe[i][j][0] == 1) {cellRGB = 0x00FFFF;}
 				
-				if(u.universe[i][j][0] == 0) {
-					cellRGB = 0xFFFFFF;
-				} else {cellRGB = 0;}
 				
 				buff.setRGB(i, j, cellRGB);
 			}

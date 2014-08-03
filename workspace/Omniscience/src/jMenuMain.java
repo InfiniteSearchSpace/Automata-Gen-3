@@ -130,6 +130,9 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
+        menuItem = new JMenuItem("Set Slider Value");
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
         
         
         
@@ -338,6 +341,8 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Set Tool Value") 				{mML.dialogSetBlockVal();}
         if(source.getText() == "Set Tool Distribution") 		{mML.dialogSetBlockRand();}
         if(source.getText() == "Set Tool Value Variation") 		{mML.dialogSetBlockVar();}
+        if(source.getText() == "Set Slider Value") 				{mML.dialogSetSlider();}
+        
         
         if(source.getText() == "Tool Subfunctions") {mML.mwPos = mML.myFunction; 				mML.mwMax = mML.fcnt; 				mML.cycleNum = 0;}
         if(source.getText() == "Z-layers") 			{mML.mwPos = mML.s[mML.sfcnum].zdraw; 		mML.mwMax = mML.s[mML.sfcnum].zz; 	mML.cycleNum = 1;}

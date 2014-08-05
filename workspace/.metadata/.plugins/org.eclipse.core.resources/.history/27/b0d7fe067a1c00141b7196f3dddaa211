@@ -117,7 +117,7 @@ public class Surf extends JPanel {
 	        	
 	        	if(colourScheme == -1) {
 	        		
-	        		float hue = (float)u.universe[i][j][k]/(float)u.maxVal;
+	        		float hue = 1-(float)u.universe[i][j][k]/(float)u.maxVal;
 	        		float antihue = (float)u.universe[i][j][k]/(float)u.minVal;
 	        			        		
 	        		if(u.universe[i][j][k] < 0) {

@@ -82,9 +82,8 @@ public class Universe {
 		//int total = 0;
 		for(int i = 0; i < universe.length; i++) {
 			for (int j = 0; j < universe[0].length; j++) {
-				int univ = universe[i][j][k];
-				if(univ > maxVal) { maxVal = univ; }
-				if(univ < minVal) { minVal = univ; }
+				if(universe[i][j][k] > maxVal) { maxVal = universe[i][j][k]; }
+				if(universe[i][j][k] < minVal) { minVal = universe[i][j][k]; }
 				//total+=universe[i][j][k];
 			}
 		}

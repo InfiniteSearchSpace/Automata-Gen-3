@@ -27,7 +27,7 @@ public class ml extends JPanel implements MouseListener {
 	
 	int totalFunctions = 88			+1;
 	int totalHoods;
-	int totalColourSchemes = 4		+1;
+	int totalColourSchemes = 3		+1;
 	
 	int sfcnum = 0;			//index of current active/interactable surface
 	int sfcmax;				//total number of surfaces to cycle through
@@ -52,7 +52,7 @@ public class ml extends JPanel implements MouseListener {
 	int toolVar = 1;
 	int custNHood=0;
 	int ROver = -1;
-	int colourScheme = -1;
+	int colourScheme = 3;
 	
 	int[] slideVal;
 	int growDieThreshold = 0;
@@ -521,7 +521,7 @@ public class ml extends JPanel implements MouseListener {
     }
     
     private void cycleColourSchemes(){
-    	s[sfcnum].colourScheme = mwPos-1;
+    	s[sfcnum].colourScheme = mwPos;
     } 
     
     private void cycleMidSpace(){

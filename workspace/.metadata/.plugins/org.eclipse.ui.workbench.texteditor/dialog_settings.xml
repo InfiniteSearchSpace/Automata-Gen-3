@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="410" key="DIALOG_WIDTH"/>
+		<item value="414" key="DIALOG_WIDTH"/>
 		<item value="385" key="DIALOG_Y_ORIGIN"/>
-		<item value="462" key="DIALOG_HEIGHT"/>
+		<item value="464" key="DIALOG_HEIGHT"/>
 		<item value="1209" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Droid Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="incrGen" key="selection"/>
+		<item value="Colo" key="selection"/>
 		<list key="findhistory">
+			<item value="colo"/>
+			<item value="new"/>
+			<item value="Set S"/>
+			<item value="sets"/>
 			<item value="incrGen"/>
 			<item value="modClock"/>
 			<item value="mod"/>
 			<item value="modc"/>
-			<item value="87"/>
-			<item value="erase"/>
-			<item value="dial"/>
-			<item value="onway"/>
 		</list>
 		<list key="replacehistory">
 			<item value="area_modclock"/>

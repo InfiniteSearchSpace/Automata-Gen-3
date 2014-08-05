@@ -117,18 +117,10 @@ public class Surf extends JPanel {
 	        	
 	        	if(colourScheme == -1) {
 	        		
-	        		float hue = (float)u.universe[i][j][k]/(float)u.maxVal;
-	        		float antihue = (float)u.universe[i][j][k]/(float)u.minVal;
-	        			        		
-	        		if(u.universe[i][j][k] < 0) {
-	        			g2d.setColor(Color.getHSBColor((float) antihue, 1, 1));
-	        		} else if(u.universe[i][j][k]==0) {
-	        			g2d.setColor(Color.getHSBColor((float) 0, 0, 0));
-	        		} else {
-	        			g2d.setColor(Color.getHSBColor((float) hue, 1, 1));
-	        		}
+	        		float hue = u.universe[i][j][k]/u.maxVal;
 	        		
-	        		//System.out.println(hue);
+	        		g2d.setColor(Color.getHSBColor((float) 1, 1, 1));
+	        		System.out.println(hue);
 	        		
 	        	} else {
 			        //prepare to draw

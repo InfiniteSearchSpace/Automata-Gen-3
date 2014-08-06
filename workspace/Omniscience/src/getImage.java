@@ -15,6 +15,7 @@ public class getImage {
 			for (int j = 0; j < u.universe[0].length; j++) {
 				/*cellRGB = 0xFFFFFF;
 				if(u.universe[i][j][0] == 0) {cellRGB = 0x444444;}
+				
 				if(u.universe[i][j][0] == 1) {cellRGB = 0x00FFFF;}*/
 				
 				float hue = (float)u.universe[i][j][0]/(float)u.maxVal;
@@ -34,6 +35,7 @@ public class getImage {
 				buff.setRGB(i, j, cellRGB);
 			}
 		}
+		
 		
 		try {
 			ImageIO.write(buff, "bmp", new File("Image.bmp"));

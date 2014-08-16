@@ -130,9 +130,9 @@ public class jMenuMain implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("Set Slider Value");
+       /* menuItem = new JMenuItem("Set Slider Value");
         menuItem.addActionListener(this);
-        menu.add(menuItem);
+        menu.add(menuItem);*/
         
         
         

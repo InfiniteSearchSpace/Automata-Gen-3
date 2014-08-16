@@ -116,14 +116,14 @@ public class Surf extends JPanel {
 	        	}
 	        	
 	        	if(colourScheme == -1) {
-	        		float ageLimit = 16;
-	        		if(u.maxVal > ageLimit && u.universe[i][j][k] > ageLimit) {
-	        			g2d.setColor(Color.getHSBColor(1, 0, 1));
+	        		
+	        		if(u.maxVal > 32 && u.universe[i][j][k] > 32) {
+	        			g2d.setColor(Color.getHSBColor(1, (float)0.2, (float)0.9));
 	        		} else {
 	        			
 	        			float univ = (float)u.universe[i][j][k];
 	        			float mxv = (float)u.maxVal;
-	        			
+	        			float ageLimit = 32;
 	        			
 	        			if(mxv > ageLimit){ mxv = ageLimit; /*univ = univ/ageLimit;*/}
 	        			

@@ -676,6 +676,7 @@ public class neighbours {
 			newNbrhood(12);
 			setNBH( 0, -2, 0, 0);
 			setNBH( 1, -2, 0, 1);
+			
 			setNBH( 1, -1, 0, 2);
 			setNBH( 2, 0, 0, 3);
 			setNBH( 2, 1, 0, 4);

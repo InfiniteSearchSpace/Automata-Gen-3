@@ -14,7 +14,6 @@
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseMotionListener"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.awt.Component"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 <fullyQualifiedTypeName name="javax.swing.JSlider"/>
@@ -33,4 +32,5 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

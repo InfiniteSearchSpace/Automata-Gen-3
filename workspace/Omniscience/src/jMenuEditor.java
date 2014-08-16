@@ -49,9 +49,9 @@ public class jMenuEditor implements ActionListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        menuItem = new JMenuItem("-> Set Rule(WIP)");
+      /*  menuItem = new JMenuItem("-> Set Rule(WIP)");
         menuItem.addActionListener(this);
-        menu.add(menuItem); 
+        menu.add(menuItem); */
         
         return menuBar;
     }

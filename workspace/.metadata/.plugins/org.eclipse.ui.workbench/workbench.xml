@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="19" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
 <window height="1042" maximized="true" width="1914" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -67,7 +67,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="getImage.java" partName="getImage.java" path="/media/pseudo/Media and Storage/Automata-Gen-3-master/workspace/Omniscience/src/getImage.java" title="getImage.java" tooltip="Omniscience/src/getImage.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/getImage.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1344" selectionTopPixel="324"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1204" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="jMenuMain.java" partName="jMenuMain.java" path="/media/pseudo/Media and Storage/Automata-Gen-3-master/workspace/Omniscience/src/jMenuMain.java" title="jMenuMain.java" tooltip="Omniscience/src/jMenuMain.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Omniscience/src/jMenuMain.java"/>
@@ -101,7 +101,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>

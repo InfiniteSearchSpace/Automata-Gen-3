@@ -10,15 +10,13 @@ import javax.imageio.ImageIO;
 public class GetVid {
 	String myfolder;
 	int imagenum;
-	int pixelMultiplier;
 	
-	public GetVid(Universe u, String folder, int imagenumber, int pixMulti) {
+	public GetVid(Universe u, String folder, int imagenumber) {
 		myfolder = folder;
 		imagenum = imagenumber;
 		Random r = new Random();
-		pixelMultiplier = pixMulti;
 		
-		BufferedImage buff = new BufferedImage(u.universe.length*pixelMultiplier, u.universe[0].length*pixelMultiplier, BufferedImage.TYPE_INT_RGB);
+		BufferedImage buff = new BufferedImage(u.universe.length*2, u.universe[0].length*2, BufferedImage.TYPE_INT_RGB);
 		int cellRGB = 0;
 		for (int i = 0; i < u.universe.length; i++) {
 			for (int j = 0; j < u.universe[0].length; j++) {
@@ -47,12 +45,11 @@ public class GetVid {
         		}
         		
         		
-        		for(int k = 0; k < pixelMultiplier; k++) {
-        			for(int l = 0; l < pixelMultiplier; l++) {
-        				buff.setRGB(i*pixelMultiplier+k, 		j*pixelMultiplier+l, 		cellRGB);
-        			}
-        		}
         		
+				buff.setRGB(i*2, j*2, cellRGB);
+				buff.setRGB(i*2+1, j*2, cellRGB);
+				buff.setRGB(i*2, j*2+1, cellRGB);
+				buff.setRGB(i*2+1, j*2+1, cellRGB);
 			}
 		}
 		

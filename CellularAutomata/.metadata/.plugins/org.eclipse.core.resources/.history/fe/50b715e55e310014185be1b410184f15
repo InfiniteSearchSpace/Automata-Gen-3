@@ -273,7 +273,6 @@ public class jMenuMain implements ActionListener {
         if(source.getText() == "Erase Layer") {mML.eraseLayer();}
         if(source.getText() == "Erase All") {mML.eraseAll();}
         if(source.getText() == "Capture Image") {new getImage(mML.u[0],"",-1);}
-        
         if(source.getText() == "Image Every ? Frames") {
         	
         	String str = JOptionPane.showInputDialog(m, "Take a screenshot every x frames:", "16");
@@ -281,10 +280,7 @@ public class jMenuMain implements ActionListener {
         		mML.u[0].record = Integer.parseInt(str);
     		}
         	
-        	str = JOptionPane.showInputDialog(m, "Pixel Magnification", "2");
-        	if(str != null) {
-        		mML.u[0].recordZoom = Integer.parseInt(str);
-    		}
+        	
         	
         	mML.u[0].name(); 
         }
